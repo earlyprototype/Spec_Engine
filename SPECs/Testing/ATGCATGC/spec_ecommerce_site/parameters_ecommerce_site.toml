@@ -1,0 +1,476 @@
+# parameters_ecommerce_site.toml
+
+[meta]
+file_role = "Machine-readable parameters for e-commerce website build"
+created_by = "Spec Commander with ATGCATGC project constitution"
+goal_descriptor = "ecommerce_site"
+related_files = ["spec_ecommerce_site.md", "exe_ecommerce_site.md"]
+log_output = "progress_ecommerce_site.json"
+created_date = "2025-11-02"
+version = "1.0"
+
+[execution]
+default_mode = "dynamic"
+# Applied from project constitution: dynamic mode with intelligent escalation
+# User will be prompted at runtime to confirm or change mode
+
+[goal]
+description = "Build a complete e-commerce website for a boutique artist to sell fine handcrafted scarves, including user authentication, product catalogue with image hosting, shopping cart, payment processing, and order management"
+
+[components]
+frontend = "Frontend application (technology stack flexible)"
+backend = "Backend API server"
+database = "Database system (users, products, orders)"
+image_hosting = "Cloudinary image hosting service"
+payment_gateway = "Stripe payment API"
+email_service = "Email service (SendGrid or Mailgun)"
+test_framework = "Testing framework for unit and integration tests"
+
+[constraints]
+# Security constraints (per project constitution)
+auth_security = "all_credentials_encrypted"
+payment_security = "pci_compliant_via_stripe"
+no_credentials_in_logs = true
+encrypt_sensitive_data = true
+
+# Testing constraints (per TDD approach)
+test_coverage = true
+tests_must_pass = true
+
+# Technical constraints
+max_image_size_mb = 10
+responsive_design = true
+
+# Validation flags
+project_structure_complete = true
+image_hosting_functional = true
+cart_functional = true
+email_delivery = true
+
+# === TASK 1: Project Foundation and Setup ===
+
+[[tasks]]
+id = 1
+description = "Project Foundation and Setup"
+research_enabled = false
+
+  [[tasks.steps]]
+  id = 1
+  description = "Define technology stack and create project structure"
+  expected_output = "Documented technology stack selection and complete project directory structure with src/, tests/, config/, docs/ folders"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Research current best practices for low-risk e-commerce sites if stack selection unclear"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Configure development environment and dependencies"
+  expected_output = "Working development environment with all dependencies installed, configuration files committed"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use alternative package versions or containerised environment (Docker) if dependency conflicts arise"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 3
+  description = "Set up database schema for users, products, and orders"
+  expected_output = "Complete database schema design document and migration files ready to execute"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Reference e-commerce database patterns and best practices if schema design unclear"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 4
+  description = "Initialise test framework and write first smoke test"
+  expected_output = "Working test framework with passing smoke test, test configuration documented"
+  critical_flag = false
+  mode = "dynamic"
+  max_retries = 1
+
+# === TASK 2: User Authentication and Account Management ===
+
+[[tasks]]
+id = 2
+description = "User Authentication and Account Management"
+research_enabled = false
+
+  [[tasks.steps]]
+  id = 1
+  description = "Design authentication system architecture"
+  expected_output = "Authentication architecture document detailing flows, security measures, and role definitions"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Research authentication best practices for e-commerce applications if design unclear"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Write tests for user registration endpoint"
+  expected_output = "Comprehensive test suite for registration with minimum 5 test cases covering happy path and edge cases"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+  [[tasks.steps]]
+  id = 3
+  description = "Implement user registration endpoint"
+  expected_output = "Working registration endpoint passing all tests, properly handling validation and errors"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use alternative secure hashing implementation if password hashing library issues"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 4
+  description = "Write tests for login endpoint and session management"
+  expected_output = "Complete test suite for authentication with minimum 6 test cases"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+  [[tasks.steps]]
+  id = 5
+  description = "Implement login endpoint and session management"
+  expected_output = "Working login system passing all tests, protected routes accessible only with valid authentication"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use alternative authentication token system if JWT library issues"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 6
+  description = "Create user profile management endpoints"
+  expected_output = "User profile CRUD operations with test coverage"
+  critical_flag = false
+  mode = "dynamic"
+  max_retries = 1
+
+# === TASK 3: Product Catalogue with Image Management ===
+
+[[tasks]]
+id = 3
+description = "Product Catalogue with Image Management"
+research_enabled = false
+
+  [[tasks.steps]]
+  id = 1
+  description = "Configure Cloudinary integration"
+  expected_output = "Working Cloudinary integration with test upload confirming functionality"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Research alternative image hosting services (AWS S3, Imgur API) if Cloudinary unavailable"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Write tests for product CRUD operations"
+  expected_output = "Test suite with minimum 10 test cases covering all CRUD operations and edge cases"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+  [[tasks.steps]]
+  id = 3
+  description = "Implement product model and database operations"
+  expected_output = "Working product data layer passing all tests"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+  [[tasks.steps]]
+  id = 4
+  description = "Implement product API endpoints with authentication"
+  expected_output = "Complete product API with proper authentication/authorization, all tests passing"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Implement alternative role-checking approach if authorization middleware issues"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 5
+  description = "Implement image upload functionality"
+  expected_output = "Working image upload system integrated with product creation/update, respecting size constraints"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Implement signed upload URLs or alternative upload strategy if direct upload issues"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 6
+  description = "Build product browsing and search functionality"
+  expected_output = "Product browsing API with pagination and search, tested and functional"
+  critical_flag = false
+  mode = "dynamic"
+  max_retries = 1
+
+# === TASK 4: Shopping Cart Functionality ===
+
+[[tasks]]
+id = 4
+description = "Shopping Cart Functionality"
+research_enabled = false
+
+  [[tasks.steps]]
+  id = 1
+  description = "Design cart data model"
+  expected_output = "Cart architecture document defining data model and operations"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Analyse common e-commerce cart patterns and select most appropriate if design unclear"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Write tests for cart operations"
+  expected_output = "Comprehensive cart test suite with minimum 8 test cases"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+  [[tasks.steps]]
+  id = 3
+  description = "Implement cart backend logic"
+  expected_output = "Working cart backend passing all tests"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+  [[tasks.steps]]
+  id = 4
+  description = "Create cart API endpoints"
+  expected_output = "Complete cart API with authentication, all tests passing"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Implement alternative cart identification strategy (cart UUID in cookies) if session management issues"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 5
+  description = "Implement cart validation and stock checking"
+  expected_output = "Cart validation system preventing invalid checkouts with appropriate error messages"
+  critical_flag = false
+  mode = "dynamic"
+  max_retries = 1
+
+# === TASK 5: Payment Processing Integration ===
+
+[[tasks]]
+id = 5
+description = "Payment Processing Integration"
+research_enabled = false
+
+  [[tasks.steps]]
+  id = 1
+  description = "Configure Stripe integration"
+  expected_output = "Working Stripe configuration with test mode functional, webhooks registered"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Reference official Stripe documentation and integration guides if setup unclear"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Write tests for payment processing"
+  expected_output = "Comprehensive payment test suite with minimum 7 test cases using Stripe test tokens"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+  [[tasks.steps]]
+  id = 3
+  description = "Implement checkout session creation"
+  expected_output = "Working checkout session creation endpoint, tested and functional"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Implement alternative payment intent flow if checkout session issues"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 4
+  description = "Implement payment confirmation and order creation"
+  expected_output = "Payment webhook handler creating orders successfully, all tests passing"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Implement alternative signature verification approach if webhook validation issues"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 5
+  description = "Implement payment error handling and retries"
+  expected_output = "Robust payment error handling with appropriate user feedback"
+  critical_flag = false
+  mode = "dynamic"
+  max_retries = 1
+
+# === TASK 6: Order Management and Email Notifications ===
+
+[[tasks]]
+id = 6
+description = "Order Management and Email Notifications"
+research_enabled = false
+
+  [[tasks.steps]]
+  id = 1
+  description = "Configure email service integration"
+  expected_output = "Working email service configuration with test email successfully sent"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use alternative email service (SendGrid to Mailgun or vice versa) if first service unavailable"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Write tests for order management"
+  expected_output = "Comprehensive order management test suite with minimum 6 test cases"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+  [[tasks.steps]]
+  id = 3
+  description = "Implement order viewing endpoints"
+  expected_output = "Working order retrieval endpoints with proper authorization, all tests passing"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+  [[tasks.steps]]
+  id = 4
+  description = "Implement order confirmation email"
+  expected_output = "Automated order confirmation emails sent successfully after each order"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Implement retry mechanism with exponential backoff if email sending fails"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 5
+  description = "Implement admin order management"
+  expected_output = "Admin order management system with status updates and customer notifications"
+  critical_flag = false
+  mode = "dynamic"
+  max_retries = 1
+
+  [[tasks.steps]]
+  id = 6
+  description = "Create order tracking and customer order history views"
+  expected_output = "Complete order viewing functionality for customers and admin"
+  critical_flag = false
+  mode = "dynamic"
+  max_retries = 1
+
+# === ERROR PROPAGATION (from project constitution) ===
+
+[error_propagation]
+enabled = true
+read_prior_steps = true
+dependency_tracking = true
+propagation_strategy = "continue_and_log"  # From ATGCATGC constitution (low risk)
+failure_threshold = 5  # From ATGCATGC constitution (low risk tolerance)
+
+# === LOGGING CONFIGURATION ===
+
+[logging]
+output_file = "progress_ecommerce_site.json"
+log_events = ["start", "step_complete", "retry", "error", "completion"]
+record_retries = true
+record_timestamps = true
+record_mode_switches = true
+
+# === VERIFICATION CONFIGURATION ===
+
+[verification]
+check_task_alignment = true
+check_step_order = true
+check_file_integrity = true
+check_mode_consistency = true
+validate_backup_coverage = true
+verify_cross_references = true
+check_expected_outputs = true
+validate_backup_trigger_conditions = true
+
+# === PROGRESS TRACKING ===
+
+[progress_tracking]
+progress_file = "progress_ecommerce_site.json"
+fields = ["task_id", "step_id", "status", "retry_count", "timestamp", "message"]
+update_frequency = "on_step_completion"
+
+# === PROJECT CONSTITUTION COMPLIANCE ===
+
+[constitution]
+dna_code = "ATGCATGC"
+project_name = "scarf-boutique-ecommerce"
+risk_level = "low"
+complexity = "moderate"
+critical_percentage_target = "20-40"  # Low risk: 20-40% critical steps
+tdd_required = true
+user_stories_enabled = true
+external_dependencies = ["Stripe payment API", "Cloudinary image hosting", "Email service (SendGrid/Mailgun)"]
+

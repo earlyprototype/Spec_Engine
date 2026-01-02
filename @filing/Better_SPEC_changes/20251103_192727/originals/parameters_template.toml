@@ -1,0 +1,356 @@
+# parameters_[descriptor].toml
+# Template Version: 1.0
+# Last Updated: 2025-11-02
+# Purpose: Machine-readable parameters template for structured execution
+
+[meta]
+file_role = "Machine-readable parameters for structured execution"
+created_by = "commander-spec.md"
+goal_descriptor = "[descriptor]"
+related_files = ["spec_[descriptor].md", "exe_[descriptor].md"]
+log_output = "progress_[descriptor].json"
+created_date = "YYYY-MM-DD"
+version = "1.0"
+
+[execution]
+default_mode = "dynamic"  # Options: "dynamic" (default), "silent", "collaborative"
+# User will be prompted at runtime to confirm or change mode
+# Dynamic mode: autonomous with intelligent escalation
+# Silent mode: fully autonomous, minimal interruption
+# Collaborative mode: pause at each critical decision
+
+[goal]
+description = "[Insert goal description]"
+
+# === MANDATORY FOR BUILD/CREATE/SYSTEM GOALS: Software Stack & Deployment ===
+# If goal contains "build", "create", "system", "application", "app", these sections are REQUIRED
+# Exe Section 1.1a validates these before proceeding
+
+[software_stack]
+deployment_type = ""  # REQUIRED: "web_app" | "desktop_app" | "cli" | "mobile" | "api" | "library"
+primary_language = ""  # REQUIRED: "python" | "javascript" | "typescript" | "go" | "rust" | etc.
+framework = ""  # Framework if applicable: "flask" | "django" | "electron" | "pyqt" | "react" | "none"
+database = ""  # "sqlite" | "postgresql" | "mongodb" | "none"
+ui_library = ""  # "pyqt5" | "tkinter" | "html_css" | "react" | "none"
+packaging_method = ""  # "pyinstaller" | "electron_builder" | "docker" | "npm" | "none"
+
+[user_interface]
+required = false  # MANDATORY: true for user-facing systems, false for libraries/APIs
+interface_type = ""  # "gui" | "cli" | "web" | "touch" | "api_only"
+target_users = ""  # Who uses this? "developers" | "shop volunteers" | "medical staff" | etc.
+skill_level = ""  # "none" | "basic" | "advanced"
+accessibility = []  # ["large_buttons", "simple_language", "screen_reader", "high_contrast"]
+
+[deployment]
+target_platform = ""  # "windows" | "macos" | "linux" | "web" | "docker" | "cross_platform"
+installation_type = ""  # "installer" | "portable_exe" | "web_url" | "package_manager" | "docker_compose"
+configuration_required = []  # ["api_keys", "database_credentials", "printer_setup", "none"]
+startup_method = ""  # "desktop_icon" | "run_command" | "open_url" | "import_module"
+
+[completion_criteria]
+# MANDATORY: Define what "complete" means for this goal
+# Exe Section 6.4 verifies these before marking ACHIEVED
+
+# List specific, measurable criteria for goal completion
+acceptance_criteria = [
+    # Examples:
+    # "Test suite passes with ≥95% coverage"
+    # "Analysis report includes sentiment scores for 10k reviews"
+    # "Executable runs on clean Windows 10 without Python"
+    # "Documentation covers all API endpoints with examples"
+]
+
+# Optional flags for build/system goals
+# production_ready = false  # Real APIs (not test mode) - uncomment if needed
+# user_tested = false       # Verified by target users - uncomment if needed
+
+# === MCP Tools Configuration ===
+# Tools selected during SPEC creation (Step 3a) and installed by human before execution
+
+[mcp_tools]
+# List of MCP server names (strings) installed during Step 3a
+required = []      # Must be installed - executor will HALT if missing (Section 1.11)
+recommended = []   # Should be installed - executor will WARN if missing but continue
+optional = []      # Nice to have - no warning if missing
+
+# Verification settings
+[mcp_tools.verification]
+check_on_startup = true                    # Verify tools before execution (Section 1.11)
+halt_if_required_missing = true            # Stop execution if required tools absent
+warn_if_recommended_missing = true         # Show warning for missing recommended tools
+log_available_tools = true                 # Log which tools were successfully detected
+
+# Optional: Tool-specific configuration (add sections as needed)
+# [mcp_tools.config.postgres]
+# connection_string = "postgresql://localhost:5432/mydb"
+# readonly = true
+#
+# [mcp_tools.config.github]
+# default_repo = "owner/repo"
+# default_branch = "main"
+
+# === Example (populated) ===
+# [mcp_tools]
+# required = ["postgres", "github"]
+# recommended = ["playwright"]
+# optional = ["notion"]
+#
+# [mcp_tools.verification]
+# check_on_startup = true
+# halt_if_required_missing = true
+# warn_if_recommended_missing = true
+# log_available_tools = true
+#
+# [mcp_tools.config.postgres]
+# connection_string = "postgresql://localhost:5432/mydb"
+# readonly = true
+
+# === Components & Constraints ===
+# Only define these sections if your spec requires machine-readable validation
+# For freeform specs, leave commented or delete these sections
+
+[components]
+# Define components that will be referenced or validated
+# Use when steps need to reference specific system components
+# Example: codebase = "Main source repository at /src"
+# Example: test_framework = "PyTest testing suite v7.0"
+# Example: api_endpoint = "Production API at https://api.example.com"
+
+[constraints]
+# Define machine-readable constraints for automated validation
+# Particularly useful for numeric/boolean thresholds that exe controller can check
+#
+# Numeric constraints (validated as numbers):
+# Example: max_latency_ms = 200
+# Example: min_accuracy_pct = 95
+# Example: max_file_size_mb = 50
+#
+# Boolean constraints (validated as true/false):
+# Example: coverage_required = true
+# Example: tests_must_pass = true
+# Example: documentation_required = false
+#
+# String constraints (validated as specific values):
+# Example: output_format = "markdown"
+# Example: language = "python"
+#
+# Freeform constraints can remain in spec_[descriptor].md only
+# Machine-readable constraints defined here enable exe Section 1.9 validation
+
+# Tasks execute sequentially by ID
+# mode: "silent" (autonomous) | "collaborative" (requires user input) | per-step, overridden by execution.default_mode
+# critical_flag: true = step failure triggers escalation; false = logs and continues
+#
+# BACKUP STRUCTURE:
+# Backups can be cognitive (LLM alternative approach) or tool-based (external scripts/programs)
+# For tool-based backups, add:
+#   execution_method = "tool" or "script"
+#   tool_path = "path/to/tool_or_script"
+#   tool_args = "--argument-flags"
+#
+# Example tool-based backup:
+#   [[tasks.steps.backups]]
+#   id = 1
+#   description = "Use pypdf2 for PDF conversion"
+#   execution_method = "tool"
+#   tool_path = "scripts/convert_pdf_pypdf2.py"
+#   tool_args = "--preserve-layout"
+#   trigger_condition = "primary_failure"
+
+[[tasks]]
+id = 1
+description = "[Task 1 description]"
+research_enabled = false  # Set to true for knowledge-intensive tasks (discovery, verification, current info)
+# research_sources = ["web_search", "documentation", "technical_specs", "github_repos", "academic"]  # Uncomment if research_enabled = true
+# Research sources options:
+#   - web_search: General web searches for current information
+#   - documentation: Official documentation (provide URLs if specific)
+#   - technical_specs: API specs, RFCs, standards documents
+#   - github_repos: Repository searches for implementation examples
+#   - academic: Research papers (arXiv, PubMed, etc.)
+
+  [[tasks.steps]]
+  id = 1
+  description = "[Step 1 action]"
+  expected_output = "[Expected output description]"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "[Backup method 1 if primary fails]"
+    trigger_condition = "primary_failure"
+
+    [[tasks.steps.backups]]
+    id = 2
+    description = "[Backup method 2 if backup 1 fails]"
+    trigger_condition = "backup_1_failure"
+
+  [[tasks.steps]]
+  id = 2
+  description = "[Step 2 action]"
+  expected_output = "[Expected output description]"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "[Backup method if primary fails]"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 3
+  description = "[Step 3 action]"
+  expected_output = "[Expected output description]"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+[[tasks]]
+id = 2
+description = "[Task 2 description]"
+
+  [[tasks.steps]]
+  id = 1
+  description = "[Step 1 action]"
+  expected_output = "[Expected output description]"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "[Backup method if primary fails]"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 2
+  description = "[Step 2 action]"
+  expected_output = "[Expected output description]"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "[Backup method if primary fails]"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 3
+  description = "[Step 3 action]"
+  expected_output = "[Expected output description]"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+  [[tasks.steps]]
+  id = 4
+  description = "[Step 4 action]"
+  expected_output = "[Expected output description]"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "[Backup method if primary fails]"
+    trigger_condition = "primary_failure"
+
+[[tasks]]
+id = 3
+description = "[Task 3 description]"
+
+  [[tasks.steps]]
+  id = 1
+  description = "[Step 1 action]"
+  expected_output = "[Expected output description]"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "[Backup method if primary fails]"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 2
+  description = "[Step 2 action]"
+  expected_output = "[Expected output description]"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "[Backup method if primary fails]"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 3
+  description = "[Step 3 action]"
+  expected_output = "[Expected output description]"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+  [[tasks.steps]]
+  id = 4
+  description = "[Step 4 action]"
+  expected_output = "[Expected output description]"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "[Backup method 1 if primary fails]"
+    trigger_condition = "primary_failure"
+
+    [[tasks.steps.backups]]
+    id = 2
+    description = "[Backup method 2 if backup 1 fails]"
+    trigger_condition = "backup_1_failure"
+
+  [[tasks.steps]]
+  id = 5
+  description = "[Step 5 action]"
+  expected_output = "[Expected output description]"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+[error_propagation]
+enabled = true
+read_prior_steps = true                # Steps read progress.json before executing
+dependency_tracking = true             # Track inter-step dependencies
+propagation_strategy = "collaborative_review"  # Options: "halt_on_critical", "continue_and_log", "collaborative_review"
+                                       # Recommended for dynamic mode: "collaborative_review"
+                                       # Recommended for silent mode: "halt_on_critical"
+failure_threshold = 3                  # Escalate after N consecutive failures (for dynamic mode)
+
+[logging]
+output_file = "progress_[descriptor].json"
+log_events = ["start", "step_complete", "retry", "error", "completion"]
+record_retries = true
+record_timestamps = true
+record_mode_switches = true
+
+[verification]
+check_task_alignment = true
+check_step_order = true
+check_file_integrity = true
+check_mode_consistency = true
+validate_backup_coverage = true        # Ensure critical steps have backups
+verify_cross_references = true         # Validate Markdown ↔ TOML bridging
+check_expected_outputs = true          # Confirm all steps define expected outputs
+validate_backup_trigger_conditions = true  # Ensure backup triggers are valid
+
+[progress_tracking]
+progress_file = "progress_[descriptor].json"
+fields = ["task_id", "step_id", "status", "retry_count", "timestamp", "message"]
+update_frequency = "on_step_completion"
+

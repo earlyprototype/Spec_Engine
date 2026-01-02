@@ -1,0 +1,23 @@
+==================================================
+END OF DAY REPORT - 02/11/2025
+==================================================
+
+Opening Float:        £    100.00
+
+SALES SUMMARY
+--------------------------------------------------
+Cash Sales:           £     29.49  (3 transactions)
+Card Sales:           £     37.50  (2 transactions)
+--------------------------------------------------
+TOTAL SALES:          £     66.99  (5 transactions)
+
+TILL RECONCILIATION
+--------------------------------------------------
+Expected Cash in Till: £    129.49
+(Opening £100.00 + Cash Sales £29.49)
+
+Card Payments:         £37.50
+(Paid directly to bank)
+
+==================================================
+Report generated: 02/11/2025 06:20

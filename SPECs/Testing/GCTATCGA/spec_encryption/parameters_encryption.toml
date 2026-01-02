@@ -1,0 +1,144 @@
+# Parameters: End-to-End Encryption System
+# DNA Profile: GCTATCGA (secure-counselor-notes)
+# Version: 1.0
+# Risk Level: HIGH
+
+[execution]
+default_mode = "collaborative"
+
+[goal]
+description = "Implement end-to-end encryption for counselor notes with secure key management, ensuring all patient data is encrypted at rest and in transit with full audit trail"
+
+[error_propagation]
+enabled = true
+strategy = "halt_on_critical"
+read_prior_steps = true
+
+[[tasks]]
+id = 1
+description = "Implement Encryption Layer"
+
+[[tasks.steps]]
+id = 1
+description = "Select and configure encryption library"
+expected_output = "Encryption module with encrypt/decrypt functions"
+critical_flag = true
+mode = "collaborative"
+
+[[tasks.steps.backups]]
+id = 1
+description = "Use Python cryptography library with Fernet symmetric encryption"
+trigger_condition = "primary_failure"
+execution_method = "cognitive"
+
+[[tasks.steps]]
+id = 2
+description = "Implement key derivation"
+expected_output = "Key derivation function with salt generation"
+critical_flag = true
+mode = "collaborative"
+
+[[tasks.steps.backups]]
+id = 1
+description = "Argon2id key derivation if PBKDF2 has issues"
+trigger_condition = "primary_failure"
+execution_method = "cognitive"
+
+[[tasks.steps]]
+id = 3
+description = "Create encrypted data structure"
+expected_output = "Standardised encrypted data format"
+critical_flag = true
+mode = "collaborative"
+
+[[tasks.steps.backups]]
+id = 1
+description = "Use msgpack binary format if JSON has performance issues"
+trigger_condition = "primary_failure"
+execution_method = "cognitive"
+
+[[tasks]]
+id = 2
+description = "Secure Key Management"
+
+[[tasks.steps]]
+id = 1
+description = "Implement key storage"
+expected_output = "Secure key storage with access controls"
+critical_flag = true
+mode = "collaborative"
+
+[[tasks.steps.backups]]
+id = 1
+description = "Use hardware security module (HSM) emulation if available"
+trigger_condition = "primary_failure"
+execution_method = "tool"
+
+[[tasks.steps]]
+id = 2
+description = "Build key rotation system"
+expected_output = "Automated key rotation every 90 days"
+critical_flag = true
+mode = "collaborative"
+
+[[tasks.steps.backups]]
+id = 1
+description = "Manual key rotation process if automated rotation fails"
+trigger_condition = "primary_failure"
+execution_method = "cognitive"
+
+[[tasks.steps]]
+id = 3
+description = "Implement key recovery"
+expected_output = "Secure key recovery process for lost passwords"
+critical_flag = true
+mode = "collaborative"
+
+[[tasks.steps.backups]]
+id = 1
+description = "Admin recovery key stored offline with dual-control"
+trigger_condition = "primary_failure"
+execution_method = "cognitive"
+
+[[tasks]]
+id = 3
+description = "Audit Trail System"
+
+[[tasks.steps]]
+id = 1
+description = "Log all encryption events"
+expected_output = "Immutable audit log of all cryptographic operations"
+critical_flag = true
+mode = "collaborative"
+
+[[tasks.steps.backups]]
+id = 1
+description = "Syslog integration if custom logging fails"
+trigger_condition = "primary_failure"
+execution_method = "tool"
+
+[[tasks.steps]]
+id = 2
+description = "Implement access monitoring"
+expected_output = "Alert system for unusual encryption activity"
+critical_flag = false
+mode = "silent"
+
+[[tasks.steps.backups]]
+id = 1
+description = "Batch daily reports if real-time monitoring unavailable"
+trigger_condition = "primary_failure"
+execution_method = "cognitive"
+
+[progress_log]
+file = "progress_encryption.json"
+detail_level = "verbose"
+
+[validation]
+critical_percentage_actual = 70
+critical_percentage_target = "60-80"
+total_steps = 10
+critical_steps = 7
+
+
+

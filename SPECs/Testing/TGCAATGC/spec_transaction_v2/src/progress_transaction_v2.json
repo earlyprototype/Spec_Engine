@@ -1,0 +1,211 @@
+{
+  "dna_code": "TGCAATGC",
+  "spec_id": "transaction_v2",
+  "execution_mode": "dynamic",
+  "start_time": "2025-11-02T06:20:14.628151",
+  "end_time": "2025-11-02T06:20:14.793966",
+  "steps": [
+    {
+      "step": "payment_completed",
+      "timestamp": "2025-11-02T06:20:14.628151",
+      "data": {
+        "success": true,
+        "transaction_id": "cash_1762064414_b9b8fcb7",
+        "amount": 15.99,
+        "tendered": 20.0,
+        "change": 4.01,
+        "payment_method": "cash",
+        "timestamp": "2025-11-02T06:20:14.628151",
+        "receipt": "   Helping Hands Charity Shop   \n================================\nDate: 02/11/2025 06:20\nID: cash_1762064414_b9b8fcb7\n--------------------------------\nSale                 \u00a3    15.99\n--------------------------------\nTOTAL                \u00a3    15.99\nPayment: CASH\nTendered             \u00a3    20.00\nChange               \u00a3     4.01\n================================\n      Charity Reg: 123456       \n\n   Gift Aid: Donate to claim    \n   tax relief for the charity   \n\n  Thank you for your support!   ",
+        "printed": true
+      }
+    },
+    {
+      "step": "storage_completed",
+      "timestamp": "2025-11-02T06:20:14.642969",
+      "data": {
+        "transaction_id": "cash_1762064414_b9b8fcb7"
+      }
+    },
+    {
+      "step": "pdf_generation",
+      "timestamp": "2025-11-02T06:20:14.648525",
+      "data": {
+        "success": true,
+        "transaction_id": "cash_1762064414_b9b8fcb7"
+      }
+    },
+    {
+      "step": "receipt_printed",
+      "timestamp": "2025-11-02T06:20:14.651621",
+      "data": {
+        "success": true,
+        "transaction_id": "cash_1762064414_b9b8fcb7"
+      }
+    },
+    {
+      "step": "payment_completed",
+      "timestamp": "2025-11-02T06:20:14.651621",
+      "data": {
+        "success": true,
+        "transaction_id": "cash_1762064414_a42c271f",
+        "amount": 5.5,
+        "tendered": 10.0,
+        "change": 4.5,
+        "payment_method": "cash",
+        "timestamp": "2025-11-02T06:20:14.651621",
+        "receipt": "   Helping Hands Charity Shop   \n================================\nDate: 02/11/2025 06:20\nID: cash_1762064414_a42c271f\n--------------------------------\nSale                 \u00a3     5.50\n--------------------------------\nTOTAL                \u00a3     5.50\nPayment: CASH\nTendered             \u00a3    10.00\nChange               \u00a3     4.50\n================================\n      Charity Reg: 123456       \n\n   Gift Aid: Donate to claim    \n   tax relief for the charity   \n\n  Thank you for your support!   ",
+        "printed": true
+      }
+    },
+    {
+      "step": "storage_completed",
+      "timestamp": "2025-11-02T06:20:14.666851",
+      "data": {
+        "transaction_id": "cash_1762064414_a42c271f"
+      }
+    },
+    {
+      "step": "pdf_generation",
+      "timestamp": "2025-11-02T06:20:14.669408",
+      "data": {
+        "success": true,
+        "transaction_id": "cash_1762064414_a42c271f"
+      }
+    },
+    {
+      "step": "receipt_printed",
+      "timestamp": "2025-11-02T06:20:14.672404",
+      "data": {
+        "success": true,
+        "transaction_id": "cash_1762064414_a42c271f"
+      }
+    },
+    {
+      "step": "payment_completed",
+      "timestamp": "2025-11-02T06:20:14.672404",
+      "data": {
+        "success": true,
+        "transaction_id": "cash_1762064414_06e240b3",
+        "amount": 8.0,
+        "tendered": 10.0,
+        "change": 2.0,
+        "payment_method": "cash",
+        "timestamp": "2025-11-02T06:20:14.672404",
+        "receipt": "   Helping Hands Charity Shop   \n================================\nDate: 02/11/2025 06:20\nID: cash_1762064414_06e240b3\n--------------------------------\nSale                 \u00a3     8.00\n--------------------------------\nTOTAL                \u00a3     8.00\nPayment: CASH\nTendered             \u00a3    10.00\nChange               \u00a3     2.00\n================================\n      Charity Reg: 123456       \n\n   Gift Aid: Donate to claim    \n   tax relief for the charity   \n\n  Thank you for your support!   ",
+        "printed": true
+      }
+    },
+    {
+      "step": "storage_completed",
+      "timestamp": "2025-11-02T06:20:14.689731",
+      "data": {
+        "transaction_id": "cash_1762064414_06e240b3"
+      }
+    },
+    {
+      "step": "pdf_generation",
+      "timestamp": "2025-11-02T06:20:14.693620",
+      "data": {
+        "success": true,
+        "transaction_id": "cash_1762064414_06e240b3"
+      }
+    },
+    {
+      "step": "receipt_printed",
+      "timestamp": "2025-11-02T06:20:14.698135",
+      "data": {
+        "success": true,
+        "transaction_id": "cash_1762064414_06e240b3"
+      }
+    },
+    {
+      "step": "payment_completed",
+      "timestamp": "2025-11-02T06:20:14.698135",
+      "data": {
+        "success": true,
+        "transaction_id": "sq_test_2ec9f8a00d5e",
+        "amount": 25.0,
+        "payment_method": "card",
+        "timestamp": "2025-11-02T06:20:14.698135",
+        "description": "Coat",
+        "receipt": "   Helping Hands Charity Shop   \n================================\nDate: 02/11/2025 06:20\nID: sq_test_2ec9f8a00d5e\n--------------------------------\nCoat                 \u00a3    25.00\n--------------------------------\nTOTAL                \u00a3    25.00\nPayment: CARD\n================================\n      Charity Reg: 123456       \n\n   Gift Aid: Donate to claim    \n   tax relief for the charity   \n\n  Thank you for your support!   ",
+        "printed": true
+      }
+    },
+    {
+      "step": "storage_completed",
+      "timestamp": "2025-11-02T06:20:14.766102",
+      "data": {
+        "transaction_id": "sq_test_2ec9f8a00d5e"
+      }
+    },
+    {
+      "step": "pdf_generation",
+      "timestamp": "2025-11-02T06:20:14.767611",
+      "data": {
+        "success": true,
+        "transaction_id": "sq_test_2ec9f8a00d5e"
+      }
+    },
+    {
+      "step": "receipt_printed",
+      "timestamp": "2025-11-02T06:20:14.768621",
+      "data": {
+        "success": true,
+        "transaction_id": "sq_test_2ec9f8a00d5e"
+      }
+    },
+    {
+      "step": "payment_completed",
+      "timestamp": "2025-11-02T06:20:14.769623",
+      "data": {
+        "success": true,
+        "transaction_id": "sq_test_307a5d805d55",
+        "amount": 12.5,
+        "payment_method": "card",
+        "timestamp": "2025-11-02T06:20:14.769623",
+        "description": "Handbag",
+        "receipt": "   Helping Hands Charity Shop   \n================================\nDate: 02/11/2025 06:20\nID: sq_test_307a5d805d55\n--------------------------------\nHandbag              \u00a3    12.50\n--------------------------------\nTOTAL                \u00a3    12.50\nPayment: CARD\n================================\n      Charity Reg: 123456       \n\n   Gift Aid: Donate to claim    \n   tax relief for the charity   \n\n  Thank you for your support!   ",
+        "printed": true
+      }
+    },
+    {
+      "step": "storage_completed",
+      "timestamp": "2025-11-02T06:20:14.786023",
+      "data": {
+        "transaction_id": "sq_test_307a5d805d55"
+      }
+    },
+    {
+      "step": "pdf_generation",
+      "timestamp": "2025-11-02T06:20:14.786970",
+      "data": {
+        "success": true,
+        "transaction_id": "sq_test_307a5d805d55"
+      }
+    },
+    {
+      "step": "receipt_printed",
+      "timestamp": "2025-11-02T06:20:14.787966",
+      "data": {
+        "success": true,
+        "transaction_id": "sq_test_307a5d805d55"
+      }
+    },
+    {
+      "step": "end_of_day_complete",
+      "timestamp": "2025-11-02T06:20:14.793966",
+      "data": {
+        "cash": 29.490000000000002,
+        "card": 37.5,
+        "cash_count": 3,
+        "card_count": 2,
+        "total": 66.99000000000001,
+        "transaction_count": 5,
+        "expected_till_cash": 129.49,
+        "date": "2025-11-02"
+      }
+    }
+  ]
+}

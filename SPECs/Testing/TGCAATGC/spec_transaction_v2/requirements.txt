@@ -1,0 +1,13 @@
+# Charity Shop PoS System Requirements
+# Built per spec_transaction_v2.md (DNA: TGCAATGC)
+
+# Core dependencies
+# No external dependencies for basic functionality (offline-first design)
+
+# Optional enhancements (install if needed)
+# square-python-sdk>=7.0.0  # For production Square API integration
+# reportlab>=3.6.0           # For PDF receipt generation
+# python-escpos>=3.0.0       # For thermal printer support
+
+
+

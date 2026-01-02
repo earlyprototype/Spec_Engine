@@ -1,0 +1,56 @@
+# Parameters: FDA Compliance Checker
+# DNA Profile: CGATTACG (HIGH RISK)
+
+[execution]
+default_mode = "collaborative"
+
+[goal]
+description = "Build AI system to validate medical documentation against FDA regulations"
+
+[error_propagation]
+enabled = true
+strategy = "halt_on_critical"
+
+[[tasks]]
+id = 1
+[[tasks.steps]]
+id = 1
+critical_flag = true
+[[tasks.steps]]
+id = 2
+critical_flag = true
+[[tasks.steps]]
+id = 3
+critical_flag = true
+
+[[tasks]]
+id = 2
+[[tasks.steps]]
+id = 1
+critical_flag = true
+[[tasks.steps]]
+id = 2
+critical_flag = true
+[[tasks.steps]]
+id = 3
+critical_flag = true
+
+[[tasks]]
+id = 3
+[[tasks.steps]]
+id = 1
+critical_flag = true
+[[tasks.steps]]
+id = 2
+critical_flag = true
+[[tasks.steps]]
+id = 3
+critical_flag = false
+
+[validation]
+critical_percentage_actual = 89
+total_steps = 9
+critical_steps = 8
+
+
+

@@ -1,0 +1,44 @@
+# Parameters: Transaction Processing
+# DNA Profile: TGCAATGC (MODERATE RISK)
+
+[execution]
+default_mode = "dynamic"
+
+[goal]
+description = "Build secure transaction processing with receipt printing"
+
+[error_propagation]
+enabled = true
+strategy = "collaborative_review"
+
+[[tasks]]
+id = 1
+[[tasks.steps]]
+id = 1
+critical_flag = true
+[[tasks.steps]]
+id = 2
+critical_flag = true
+[[tasks.steps]]
+id = 3
+critical_flag = true
+
+[[tasks]]
+id = 2
+[[tasks.steps]]
+id = 1
+critical_flag = false
+[[tasks.steps]]
+id = 2
+critical_flag = true
+[[tasks.steps]]
+id = 3
+critical_flag = false
+
+[validation]
+critical_percentage_actual = 67
+total_steps = 6
+critical_steps = 4
+
+
+

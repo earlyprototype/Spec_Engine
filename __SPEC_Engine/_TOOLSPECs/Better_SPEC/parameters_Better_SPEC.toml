@@ -1,0 +1,618 @@
+# Better SPEC Parameters
+# Machine-readable configuration for SPEC_Engine improvement operations
+
+version = "1.0"
+last_updated = "2025-11-03"
+descriptor = "Better_SPEC"
+
+[goal]
+statement = "Improve the SPEC_Engine framework by processing development analysis reports, systematically working through improvement proposals, or implementing specific enhancement requests to strengthen constitutional principles, templates, and execution quality."
+measurable = true
+singular = true
+
+[components]
+spec_engine_core = "__SPEC_Engine/ directory containing Constitution, templates, Commander, DNA_SPEC"
+development_reports = "@dev/_ANALYSIS/ and project-specific analysis outputs"
+proposal_documents = "@dev/_SPEC_dev_proposals/ directory"
+filing_archive = "@filing/ for backup storage"
+progress_log = "progress_Better_SPEC.json"
+
+[constraints]
+user_approval_required = true
+backup_originals = true
+one_proposal_at_a_time = true  # Mode B only
+preserve_backwards_compatibility = true
+constitutional_alignment_mandatory = true
+no_delete_dev_docs = true
+use_uk_english = true
+
+[execution]
+default_mode = "dynamic"
+escalation_triggers = ["user_input_required", "ambiguous_intent", "constitutional_conflict", "implementation_options_multiple"]
+
+[operational_modes]
+mode_a = "Report Analysis"
+mode_b = "Proposal Processing"
+mode_c = "Single Request"
+auto_detect = true
+
+# Task 0: Initialise and Determine Operational Mode
+[[tasks]]
+id = 0
+description = "Understand user intent and select operational mode"
+critical_balance = 0.80  # 4 of 5 steps critical
+
+[[tasks.steps]]
+id = 0
+description = "Receive user input and context"
+expected_output = "User input captured and categorised"
+method = "primary"
+primary_method = "Analyse user query to identify what they're providing (report path, proposal request, specific improvement)"
+critical = true
+mode = "collaborative"
+
+[[tasks.steps]]
+id = 1
+description = "Detect operational mode"
+expected_output = "Operational mode clearly identified (A, B, or C)"
+method = "primary"
+primary_method = "Determine mode based on input patterns"
+backup_1 = "If ambiguous, ask user to clarify which mode they intend"
+critical = true
+mode = "silent"
+
+[[tasks.steps]]
+id = 2
+description = "Validate inputs based on mode"
+expected_output = "Required inputs validated and accessible"
+method = "primary"
+primary_method = "Verify file/folder existence and accessibility based on detected mode"
+backup_1 = "If inputs missing or invalid, escalate to collaborative mode to gather required information"
+critical = true
+mode = "silent"
+
+[[tasks.steps]]
+id = 3
+description = "Scan SPEC_Engine current state"
+expected_output = "Current framework state documented with version numbers"
+method = "primary"
+primary_method = "Read current versions of Constitution, templates, Commander, workflow docs"
+critical = true
+mode = "silent"
+
+[[tasks.steps]]
+id = 4
+description = "Route to appropriate task set"
+expected_output = "Mode-specific tasks initiated"
+method = "primary"
+primary_method = "Based on detected mode, proceed to relevant tasks"
+critical = false
+mode = "silent"
+
+# Task 1: Analyse Development Report (Mode A)
+[[tasks]]
+id = 1
+description = "Extract actionable recommendations from analysis report"
+critical_balance = 0.60  # 3 of 5 steps critical
+mode_specific = "A"
+
+[[tasks.steps]]
+id = 0
+description = "Read and parse analysis report"
+expected_output = "Complete report contents loaded into context"
+method = "primary"
+primary_method = "Read provided report file, identify structure, extract all sections"
+critical = true
+mode = "silent"
+
+[[tasks.steps]]
+id = 1
+description = "Extract improvement recommendations"
+expected_output = "Structured list of recommendations with priorities"
+method = "primary"
+primary_method = "Parse recommendations section, identify all proposed improvements with priority levels"
+critical = true
+mode = "silent"
+
+[[tasks.steps]]
+id = 2
+description = "Categorise recommendations by target component"
+expected_output = "Recommendations categorised by affected component"
+method = "primary"
+primary_method = "Group recommendations by target: Constitution, templates, Commander, workflow docs, new SPECs"
+critical = true
+mode = "silent"
+
+[[tasks.steps]]
+id = 3
+description = "Identify quick wins"
+expected_output = "List of high-impact, low-effort improvements"
+method = "primary"
+primary_method = "Filter for P1 priority + Low effort recommendations"
+critical = false
+mode = "silent"
+
+[[tasks.steps]]
+id = 4
+description = "Identify critical issues"
+expected_output = "List of critical problems requiring immediate attention"
+method = "primary"
+primary_method = "Extract all CRITICAL severity issues from report"
+critical = false
+mode = "silent"
+
+# Task 2: Prioritise and Present Recommendations (Mode A)
+[[tasks]]
+id = 2
+description = "Present recommendations to user for approval"
+critical_balance = 1.0  # All steps critical - user approval required
+mode_specific = "A"
+
+[[tasks.steps]]
+id = 0
+description = "Generate prioritised improvement plan"
+expected_output = "Prioritised implementation plan with rationale"
+method = "primary"
+primary_method = "Create ordered list: Critical issues first, then P1 quick wins, then P1 high-effort, then P2"
+critical = true
+mode = "silent"
+
+[[tasks.steps]]
+id = 1
+description = "Present plan to user"
+expected_output = "User presented with clear, structured plan"
+method = "primary"
+primary_method = "Display prioritised recommendations with clear structure"
+critical = true
+mode = "collaborative"
+
+[[tasks.steps]]
+id = 2
+description = "Capture user decisions"
+expected_output = "User approval status for each recommendation"
+method = "primary"
+primary_method = "For each recommendation, get user decision: Approve/Reject/Modify/Defer"
+backup_1 = "If user wants to discuss, engage in collaborative dialogue to refine approach"
+critical = true
+mode = "collaborative"
+
+[[tasks.steps]]
+id = 3
+description = "Create implementation queue"
+expected_output = "Final implementation queue with user-approved items"
+method = "primary"
+primary_method = "Build ordered queue of approved recommendations"
+critical = true
+mode = "silent"
+
+# Task 3: Document Report Processing (Mode A)
+[[tasks]]
+id = 3
+description = "Track which report was processed and outcomes"
+critical_balance = 0.0  # Documentation steps, not critical
+mode_specific = "A"
+
+[[tasks.steps]]
+id = 0
+description = "Create processing summary"
+expected_output = "Processing summary markdown file"
+method = "primary"
+primary_method = "Document report source, date, recommendations, decisions, queued implementations"
+critical = false
+mode = "silent"
+
+[[tasks.steps]]
+id = 1
+description = "Save summary to filing"
+expected_output = "Summary filed for future reference"
+method = "primary"
+primary_method = "Save summary to @filing/Better_SPEC_sessions/[timestamp]_report_analysis.md"
+critical = false
+mode = "silent"
+
+# Task 4: Scan and Inventory Proposals (Mode B)
+[[tasks]]
+id = 4
+description = "Identify all improvement proposals in the proposals folder"
+critical_balance = 0.60  # 3 of 5 steps critical
+mode_specific = "B"
+
+[[tasks.steps]]
+id = 0
+description = "Scan proposals folder"
+expected_output = "Complete inventory of proposal files with paths"
+method = "primary"
+primary_method = "List all files in @dev/_SPEC_dev_proposals/, recursively include subdirectories"
+critical = true
+mode = "silent"
+
+[[tasks.steps]]
+id = 1
+description = "Read and parse each proposal"
+expected_output = "Structured data for each proposal"
+method = "primary"
+primary_method = "For each file, read contents, extract key information"
+backup_1 = "If file format unclear, attempt to extract key information from available structure"
+critical = true
+mode = "silent"
+
+[[tasks.steps]]
+id = 2
+description = "Categorise proposals"
+expected_output = "Proposals categorised by type"
+method = "primary"
+primary_method = "Group by category: Constitutional amendments, Template updates, Commander enhancements, New features, Documentation"
+critical = false
+mode = "silent"
+
+[[tasks.steps]]
+id = 3
+description = "Assess impact and effort for each proposal"
+expected_output = "Impact/effort/urgency assessment for all proposals"
+method = "primary"
+primary_method = "Analyse each proposal to estimate Impact/Effort/Urgency"
+critical = true
+mode = "silent"
+
+[[tasks.steps]]
+id = 4
+description = "Check for already-processed proposals"
+expected_output = "List of new proposals and previously processed proposals"
+method = "primary"
+primary_method = "Review progress_Better_SPEC.json for previously processed proposals"
+critical = false
+mode = "silent"
+
+# Task 5: Select and Process Single Proposal (Mode B)
+[[tasks]]
+id = 5
+description = "Work through ONE proposal with user"
+critical_balance = 0.86  # 6 of 7 steps critical - high user interaction
+mode_specific = "B"
+
+[[tasks.steps]]
+id = 0
+description = "Present proposal inventory to user"
+expected_output = "User sees complete proposal landscape"
+method = "primary"
+primary_method = "Display all proposals with title, category, impact/effort/urgency, status"
+critical = true
+mode = "collaborative"
+
+[[tasks.steps]]
+id = 1
+description = "Let user select proposal OR recommend next"
+expected_output = "Specific proposal selected for processing"
+method = "primary"
+primary_method = "Ask user which proposal to work on, provide recommendation"
+backup_1 = "If user unsure, provide detailed rationale for recommended proposal"
+critical = true
+mode = "collaborative"
+
+[[tasks.steps]]
+id = 2
+description = "Present selected proposal in detail"
+expected_output = "User has complete understanding of proposal"
+method = "primary"
+primary_method = "Display full proposal contents with rationale, changes, benefits, risks"
+critical = true
+mode = "collaborative"
+
+[[tasks.steps]]
+id = 3
+description = "Discuss and refine with user"
+expected_output = "User feedback captured, proposal refined if needed"
+method = "primary"
+primary_method = "Engage in dialogue about approach, concerns, modifications"
+critical = true
+mode = "collaborative"
+
+[[tasks.steps]]
+id = 4
+description = "Get approval decision"
+expected_output = "Clear approval status"
+method = "primary"
+primary_method = "Ask user for decision: Approve/Modify/Reject/Defer"
+critical = true
+mode = "collaborative"
+
+[[tasks.steps]]
+id = 5
+description = "If approved, add to implementation queue"
+expected_output = "Proposal queued for implementation"
+method = "primary"
+primary_method = "Add approved proposal to implementation queue for Task 9"
+critical = true
+mode = "silent"
+
+[[tasks.steps]]
+id = 6
+description = "Mark proposal as processed"
+expected_output = "Proposal tracking updated"
+method = "primary"
+primary_method = "Update progress_Better_SPEC.json with proposal status"
+critical = false
+mode = "silent"
+
+# Task 6: Check for More Proposals (Mode B)
+[[tasks]]
+id = 6
+description = "Determine if user wants to process another proposal"
+critical_balance = 0.33  # 1 of 3 steps critical
+mode_specific = "B"
+
+[[tasks.steps]]
+id = 0
+description = "Ask if user wants to continue"
+expected_output = "User decision (continue or stop)"
+method = "primary"
+primary_method = "Ask if user wants to process another proposal now"
+critical = false
+mode = "collaborative"
+
+[[tasks.steps]]
+id = 1
+description = "If continue, return to Task 5"
+expected_output = "Next proposal processing initiated"
+method = "primary"
+primary_method = "Loop back to Task 5 Step 1"
+critical = false
+mode = "silent"
+
+[[tasks.steps]]
+id = 2
+description = "If stop, proceed to implementation"
+expected_output = "Implementation phase initiated"
+method = "primary"
+primary_method = "Continue to Task 9"
+critical = true
+mode = "silent"
+
+# Task 7: Process Single Improvement Request (Mode C)
+[[tasks]]
+id = 7
+description = "Handle specific one-off improvement request"
+critical_balance = 0.875  # 7 of 8 steps critical
+mode_specific = "C"
+
+[[tasks.steps]]
+id = 0
+description = "Parse user request"
+expected_output = "Request clearly understood and structured"
+method = "primary"
+primary_method = "Extract what they want to improve, why, target component"
+critical = true
+mode = "silent"
+
+[[tasks.steps]]
+id = 1
+description = "Assess request feasibility and impact"
+expected_output = "Feasibility assessment with affected components identified"
+method = "primary"
+primary_method = "Analyse constitutional alignment, files needing modification, complexity"
+critical = true
+mode = "silent"
+
+[[tasks.steps]]
+id = 2
+description = "Identify potential conflicts or issues"
+expected_output = "Conflict analysis with resolution suggestions"
+method = "primary"
+primary_method = "Check for conflicts with existing principles, templates, recent changes"
+backup_1 = "If conflicts found, identify ways to resolve or accommodate"
+critical = true
+mode = "silent"
+
+[[tasks.steps]]
+id = 3
+description = "Design implementation approach"
+expected_output = "Detailed implementation plan"
+method = "primary"
+primary_method = "Create specific plan: which files, exact changes, order of operations"
+critical = true
+mode = "silent"
+
+[[tasks.steps]]
+id = 4
+description = "Present proposal to user"
+expected_output = "User has complete picture of implementation"
+method = "primary"
+primary_method = "Show request, approach, files to modify, benefits, risks, conflicts"
+critical = true
+mode = "collaborative"
+
+[[tasks.steps]]
+id = 5
+description = "Discuss and refine"
+expected_output = "Implementation approach refined and approved"
+method = "primary"
+primary_method = "Engage with user to refine based on feedback"
+critical = true
+mode = "collaborative"
+
+[[tasks.steps]]
+id = 6
+description = "Get approval"
+expected_output = "Clear approval or rejection"
+method = "primary"
+primary_method = "Ask if user wants to proceed with implementation"
+critical = true
+mode = "collaborative"
+
+[[tasks.steps]]
+id = 7
+description = "If approved, add to implementation queue"
+expected_output = "Changes queued for implementation"
+method = "primary"
+primary_method = "Queue approved changes for Task 9"
+critical = false
+mode = "silent"
+
+# Task 8: Document Request Processing (Mode C)
+[[tasks]]
+id = 8
+description = "Track the single request and decision"
+critical_balance = 0.0  # Documentation only
+mode_specific = "C"
+
+[[tasks.steps]]
+id = 0
+description = "Create request summary"
+expected_output = "Request summary markdown"
+method = "primary"
+primary_method = "Document original request, implementation approach, decision, timestamp"
+critical = false
+mode = "silent"
+
+[[tasks.steps]]
+id = 1
+description = "Save to filing"
+expected_output = "Summary filed"
+method = "primary"
+primary_method = "Save to @filing/Better_SPEC_sessions/[timestamp]_single_request.md"
+critical = false
+mode = "silent"
+
+# Task 9: Implement Approved Changes
+[[tasks]]
+id = 9
+description = "Execute all approved improvements"
+critical_balance = 0.86  # 6 of 7 steps critical - implementation is critical
+
+[[tasks.steps]]
+id = 0
+description = "Review implementation queue"
+expected_output = "Complete list of changes to implement"
+method = "primary"
+primary_method = "List all approved changes queued from previous tasks"
+critical = true
+mode = "silent"
+
+[[tasks.steps]]
+id = 1
+description = "Create backup of original files"
+expected_output = "All original files backed up"
+method = "primary"
+primary_method = "For each file to modify, copy to @filing/Better_SPEC_changes/[timestamp]/originals/"
+critical = true
+mode = "silent"
+
+[[tasks.steps]]
+id = 2
+description = "Implement changes systematically"
+expected_output = "All approved changes implemented successfully"
+method = "primary"
+primary_method = "For each change: show before/after, get confirmation, modify, verify, document"
+backup_1 = "If user wants to modify the change, engage in refinement dialogue"
+critical = true
+mode = "collaborative"
+
+[[tasks.steps]]
+id = 3
+description = "Update cross-references"
+expected_output = "Cross-reference integrity maintained"
+method = "primary"
+primary_method = "Update all references across affected files if needed"
+critical = true
+mode = "silent"
+
+[[tasks.steps]]
+id = 4
+description = "Verify file validity"
+expected_output = "All modified files syntactically valid"
+method = "primary"
+primary_method = "Check Markdown renders, TOML parses, JSON is valid"
+backup_1 = "If validation errors found, fix syntax issues"
+critical = true
+mode = "silent"
+
+[[tasks.steps]]
+id = 5
+description = "Test for constitutional coherence"
+expected_output = "Coherence verification passed"
+method = "primary"
+primary_method = "Review modifications against constitutional principles"
+critical = true
+mode = "silent"
+
+[[tasks.steps]]
+id = 6
+description = "Create change log"
+expected_output = "Detailed change log document"
+method = "primary"
+primary_method = "Generate comprehensive change log: files, changes, rationale, timestamp"
+critical = false
+mode = "silent"
+
+# Task 10: Finalise and Document
+[[tasks]]
+id = 10
+description = "Complete improvement cycle with documentation"
+critical_balance = 0.40  # 2 of 5 steps critical
+
+[[tasks.steps]]
+id = 0
+description = "Generate session summary"
+expected_output = "Session summary markdown"
+method = "primary"
+primary_method = "Create summary: mode used, changes implemented, files modified, backups, outcomes"
+critical = true
+mode = "silent"
+
+[[tasks.steps]]
+id = 1
+description = "Save summary to filing"
+expected_output = "Summary filed"
+method = "primary"
+primary_method = "Save to @filing/Better_SPEC_sessions/[timestamp]_session_summary.md"
+critical = false
+mode = "silent"
+
+[[tasks.steps]]
+id = 2
+description = "Update SPEC_Engine documentation"
+expected_output = "Framework documentation current (if applicable)"
+method = "primary"
+primary_method = "Update WORKFLOW_DIAGRAM.md or README.md if changes warrant it"
+backup_1 = "Skip if changes are minor and don't affect user-facing documentation"
+critical = false
+mode = "silent"
+
+[[tasks.steps]]
+id = 3
+description = "Present completion report to user"
+expected_output = "User informed of all outcomes"
+method = "primary"
+primary_method = "Show what was accomplished, files modified, backup locations, next actions"
+critical = true
+mode = "collaborative"
+
+[[tasks.steps]]
+id = 4
+description = "Clean up temporary files"
+expected_output = "Workspace clean"
+method = "primary"
+primary_method = "Remove any temporary analysis files"
+critical = false
+mode = "silent"
+
+# Error Propagation Configuration
+[error_propagation]
+strategy = "collaborative_review"
+failure_threshold = 3
+halt_on_critical = true
+
+# Validation Requirements
+[validation]
+pre_flight_required = true
+constitutional_compliance = true
+bridging_verification = true
+
+# Logging Configuration
+[logging]
+log_file = "progress_Better_SPEC.json"
+comprehensive = true
+track_constitutional_compliance = true
+track_mode_switches = true
+track_backup_usage = true
+

@@ -1,0 +1,10 @@
+_temp_*
+*.backup*
+.cursor/
+.DS_Store
+node_modules/
+dist/
+build/
+*.log
+__pycache__/
+*.pyc

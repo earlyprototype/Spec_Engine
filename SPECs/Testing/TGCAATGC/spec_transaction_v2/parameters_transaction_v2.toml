@@ -1,0 +1,177 @@
+# Parameters: Charity Shop Transaction System
+# DNA Profile: TGCAATGC (charity-pos)
+# Version: 2.0 (Reconstituted)
+
+[execution]
+default_mode = "dynamic"
+
+[goal]
+description = "Build a complete point-of-sale transaction system for charity shop volunteers that handles cash and card payments, prints itemised receipts, tracks daily totals, and integrates with Square payment processor"
+
+[error_propagation]
+enabled = true
+strategy = "collaborative_review"
+read_prior_steps = true
+
+[[tasks]]
+id = 1
+description = "Payment Processing Core"
+
+[[tasks.steps]]
+id = 1
+description = "Integrate Square API for card payments"
+expected_output = "Function process_card_payment(amount, description) returns transaction_id or error"
+critical_flag = true
+mode = "silent"
+
+[[tasks.steps.backups]]
+id = 1
+description = "Use Square REST API directly if SDK has issues"
+trigger_condition = "primary_failure"
+execution_method = "cognitive"
+
+[[tasks.steps.backups]]
+id = 2
+description = "Implement manual card entry form with Stripe as fallback processor"
+trigger_condition = "backup_1_failure"
+execution_method = "cognitive"
+
+[[tasks.steps]]
+id = 2
+description = "Implement cash payment handling"
+expected_output = "Function process_cash_payment(amount, tendered) returns change and transaction_id"
+critical_flag = true
+mode = "silent"
+
+[[tasks.steps.backups]]
+id = 1
+description = "Use decimal library for precise currency calculations if floating point issues"
+trigger_condition = "primary_failure"
+execution_method = "cognitive"
+
+[[tasks.steps]]
+id = 3
+description = "Handle payment failures gracefully"
+expected_output = "Payment failure shows user-friendly message not raw error, transaction marked as failed in DB"
+critical_flag = true
+mode = "silent"
+
+[[tasks.steps.backups]]
+id = 1
+description = "Queue failed card transactions for manual processing later if network unavailable"
+trigger_condition = "primary_failure"
+execution_method = "cognitive"
+
+[[tasks.steps]]
+id = 4
+description = "Store all transactions in database"
+expected_output = "Every sale persisted, query SELECT SUM(amount) WHERE date = today returns daily total"
+critical_flag = true
+mode = "silent"
+
+[[tasks.steps.backups]]
+id = 1
+description = "Write to CSV file if database locked or corrupted"
+trigger_condition = "primary_failure"
+execution_method = "tool"
+
+[[tasks]]
+id = 2
+description = "Receipt Generation & Printing"
+
+[[tasks.steps]]
+id = 1
+description = "Design receipt template"
+expected_output = "Receipt string formatted for 58mm thermal printer (32 characters wide)"
+critical_flag = false
+mode = "silent"
+
+[[tasks.steps.backups]]
+id = 1
+description = "Use simplified single-line receipt if formatting fails"
+trigger_condition = "primary_failure"
+execution_method = "cognitive"
+
+[[tasks.steps]]
+id = 2
+description = "Generate PDF receipt backup"
+expected_output = "PDF file saved as receipts/TX_{transaction_id}.pdf"
+critical_flag = false
+mode = "silent"
+
+[[tasks.steps.backups]]
+id = 1
+description = "Generate HTML receipt if PDF library unavailable"
+trigger_condition = "primary_failure"
+execution_method = "cognitive"
+
+[[tasks.steps.backups]]
+id = 2
+description = "Skip PDF generation if both fail (thermal print is primary)"
+trigger_condition = "backup_1_failure"
+execution_method = "cognitive"
+
+[[tasks.steps]]
+id = 3
+description = "Print to thermal printer"
+expected_output = "Physical receipt printed within 3 seconds of transaction completion"
+critical_flag = false
+mode = "silent"
+
+[[tasks.steps.backups]]
+id = 1
+description = "Use generic USB printing if escpos fails"
+trigger_condition = "primary_failure"
+execution_method = "tool"
+
+[[tasks.steps.backups]]
+id = 2
+description = "Display 'Printer unavailable - email receipt?' if printing impossible"
+trigger_condition = "backup_1_failure"
+execution_method = "cognitive"
+
+[[tasks]]
+id = 3
+description = "Daily Reconciliation"
+
+[[tasks.steps]]
+id = 1
+description = "Calculate daily totals by payment method"
+expected_output = "Report showing Cash: £X, Card: £Y, Total: £Z"
+critical_flag = true
+mode = "silent"
+
+[[tasks.steps.backups]]
+id = 1
+description = "Iterate through transactions manually if SQL GROUP BY fails"
+trigger_condition = "primary_failure"
+execution_method = "cognitive"
+
+[[tasks.steps]]
+id = 2
+description = "Generate end-of-day report"
+expected_output = "Daily report PDF saved to reports/YYYY-MM-DD.pdf"
+critical_flag = false
+mode = "silent"
+
+[[tasks.steps.backups]]
+id = 1
+description = "Generate CSV report if PDF fails"
+trigger_condition = "primary_failure"
+execution_method = "tool"
+
+[progress_log]
+file = "progress_transaction_v2.json"
+detail_level = "standard"
+
+[validation]
+critical_percentage_actual = 56
+critical_percentage_target = "40-60"
+total_steps = 9
+critical_steps = 5
+constitutional_compliance = true
+user_stories_present = true
+bridging_verified = true
+
+
+

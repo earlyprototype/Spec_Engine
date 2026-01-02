@@ -1,0 +1,372 @@
+# parameters_charity_pos.toml
+
+[meta]
+file_role = "Machine-readable parameters for charity shop POS system execution"
+created_by = "spec-commander"
+goal_descriptor = "charity_pos"
+related_files = ["spec_charity_pos.md", "exe_charity_pos.md"]
+log_output = "progress_charity_pos.json"
+created_date = "2025-11-02"
+version = "1.0"
+project_dna = "TGCAATGC"
+project_name = "charity-pos"
+
+[execution]
+default_mode = "dynamic"  # From project constitution: intelligent escalation with autonomous execution
+# User will be prompted at runtime to confirm or change mode
+# Dynamic mode: autonomous with intelligent escalation (recommended for moderate-risk projects)
+# Silent mode: fully autonomous, minimal interruption
+# Collaborative mode: pause at each critical decision
+
+[goal]
+description = "Create a complete point of sale system for a charity shop that handles inventory management, sales transactions, donation tracking, reporting, and user management"
+
+[components]
+database = "SQLite database for data persistence at ./transactions.db"
+payment_integration = "Square/Stripe API integration for card payment processing"
+receipt_system = "HTML/PDF receipt generation and printing functionality"
+ui_framework = "Tkinter or Flask-based interface for user interaction"
+test_framework = "PyTest testing suite for unit and integration tests"
+
+[constraints]
+tests_must_pass = true
+audit_trail_required = true
+offline_cash_mode = true
+no_payment_info_logging = true
+automated_backups = true
+min_test_coverage = 80
+receipt_formats = ["html", "pdf", "text"]
+
+# Task 1: Database Design and Setup
+[[tasks]]
+id = 1
+description = "Database Design and Setup"
+research_enabled = false
+
+  [[tasks.steps]]
+  id = 1
+  description = "Design database schema for all system entities"
+  expected_output = "Database schema diagram with tables for items, transactions, donations, users, categories, and relationships documented"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Review similar POS database designs and adapt schema to charity shop requirements"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Implement database models and migrations"
+  expected_output = "Python database.py module with SQLAlchemy models for all entities"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use raw SQL CREATE TABLE statements if ORM approach encounters issues"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 3
+  description = "Create database initialization and seed data"
+  expected_output = "Initialization script that creates database with sample categories and test data"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+  [[tasks.steps]]
+  id = 4
+  description = "Implement database backup functionality"
+  expected_output = "Backup script creating timestamped database copies automatically"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+# Task 2: Inventory Management System
+[[tasks]]
+id = 2
+description = "Inventory Management System"
+research_enabled = false
+
+  [[tasks.steps]]
+  id = 1
+  description = "Implement item management (add, edit, delete, search)"
+  expected_output = "inventory.py module with complete CRUD operations for items"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Simplify to basic add/list functionality if full CRUD implementation proves complex"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Implement category management and item categorisation"
+  expected_output = "Category management functions integrated with inventory system"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use flat category structure if hierarchical categories prove problematic"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 3
+  description = "Implement stock level tracking and alerts"
+  expected_output = "Stock tracking functions with configurable low-stock alert thresholds"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+  [[tasks.steps]]
+  id = 4
+  description = "Create donation recording system"
+  expected_output = "Donation tracking module with donor information and item details recording"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Create simplified donation log without complex donor tracking if needed"
+    trigger_condition = "primary_failure"
+
+# Task 3: Transaction Processing System
+[[tasks]]
+id = 3
+description = "Transaction Processing System"
+research_enabled = false
+
+  [[tasks.steps]]
+  id = 1
+  description = "Implement shopping cart functionality"
+  expected_output = "Cart module with add/remove items, quantity management, and total calculation"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+  [[tasks.steps]]
+  id = 2
+  description = "Integrate payment processing for cash transactions"
+  expected_output = "Cash payment module with change calculation and transaction recording"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+  [[tasks.steps]]
+  id = 3
+  description = "Integrate card payment processing (Square/Stripe)"
+  expected_output = "Card payment module with API integration and transaction processing"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use Stripe API if Square integration encounters compatibility or configuration issues"
+    trigger_condition = "primary_failure"
+
+    [[tasks.steps.backups]]
+    id = 2
+    description = "Implement manual card entry mode with offline processing if API integration fails"
+    trigger_condition = "backup_1_failure"
+
+  [[tasks.steps]]
+  id = 4
+  description = "Implement receipt generation (HTML/PDF)"
+  expected_output = "Receipt generation module producing formatted receipts with transaction details"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Generate plain text receipts if HTML rendering or PDF conversion fails"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 5
+  description = "Implement receipt printing functionality"
+  expected_output = "Print functionality integrated with receipt printer drivers or PDF export"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Export receipts to PDF for manual printing if direct printer integration fails"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 6
+  description = "Implement transaction reconciliation"
+  expected_output = "Reconciliation module generating end-of-day reports with discrepancy detection"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+# Task 4: Reporting and Analytics
+[[tasks]]
+id = 4
+description = "Reporting and Analytics"
+research_enabled = false
+
+  [[tasks.steps]]
+  id = 1
+  description = "Implement daily sales summary report"
+  expected_output = "Daily report generation producing total sales, transaction count, and payment method breakdown"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+  [[tasks.steps]]
+  id = 2
+  description = "Implement inventory reports (stock levels, value)"
+  expected_output = "Inventory reporting module with current stock counts and total inventory valuation"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Simplify to basic stock count report if valuation calculations prove complex"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 3
+  description = "Implement donation tracking reports"
+  expected_output = "Donation report generation with date range filtering and donor summary"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+  [[tasks.steps]]
+  id = 4
+  description = "Create export functionality (CSV/Excel)"
+  expected_output = "Report export module supporting CSV format for all report types"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use basic text export with tab separation if CSV library unavailable"
+    trigger_condition = "primary_failure"
+
+# Task 5: User Interface and Integration Testing
+[[tasks]]
+id = 5
+description = "User Interface and Integration Testing"
+research_enabled = false
+
+  [[tasks.steps]]
+  id = 1
+  description = "Design and implement main user interface"
+  expected_output = "Functional user interface with all system features accessible (Tkinter/Flask/CLI)"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Build web-based interface using Flask if Tkinter GUI proves inadequate for requirements"
+    trigger_condition = "primary_failure"
+
+    [[tasks.steps.backups]]
+    id = 2
+    description = "Create command-line interface with menu system if GUI development encounters blocking issues"
+    trigger_condition = "backup_1_failure"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Implement user authentication and authorization"
+  expected_output = "Authentication module with login, user management, and role-based permissions (admin, volunteer)"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+  [[tasks.steps]]
+  id = 3
+  description = "Create unit tests for all core modules"
+  expected_output = "PyTest unit test suite covering database, inventory, transactions, and reports with 80%+ coverage"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+  [[tasks.steps]]
+  id = 4
+  description = "Create integration tests for complete workflows"
+  expected_output = "Integration test suite covering sale-to-receipt and donation-to-inventory workflows"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Focus on critical path testing (sale and receipt generation) if full workflow testing too complex"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 5
+  description = "Perform end-to-end system testing"
+  expected_output = "Test report confirming all features operational and meeting requirements"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+  [[tasks.steps]]
+  id = 6
+  description = "Create user documentation and quick-start guide"
+  expected_output = "User documentation covering installation, configuration, and all system functions"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Create simplified quick-reference guide if comprehensive manual too time-consuming"
+    trigger_condition = "primary_failure"
+
+[error_propagation]
+enabled = true
+read_prior_steps = true
+dependency_tracking = true
+propagation_strategy = "collaborative_review"  # From project constitution: moderate risk requires collaborative review
+failure_threshold = 3  # Escalate to collaborative mode after 3 consecutive failures
+
+[logging]
+output_file = "progress_charity_pos.json"
+log_events = ["start", "step_complete", "retry", "error", "completion", "mode_switch", "backup_usage"]
+record_retries = true
+record_timestamps = true
+record_mode_switches = true
+record_backup_attempts = true
+record_constitutional_compliance = true
+
+[verification]
+check_task_alignment = true
+check_step_order = true
+check_file_integrity = true
+check_mode_consistency = true
+validate_backup_coverage = true
+verify_cross_references = true
+check_expected_outputs = true
+validate_backup_trigger_conditions = true
+
+[progress_tracking]
+progress_file = "progress_charity_pos.json"
+fields = ["task_id", "step_id", "status", "retry_count", "timestamp", "message", "method_used", "backup_attempts"]
+update_frequency = "on_step_completion"
+
+[project_constitution]
+# Reference to project-level configuration
+constitution_file = "../project_constitution.toml"
+dna_code = "TGCAATGC"
+applies_settings = ["execution.default_mode", "quality.critical_percentage", "error_handling.propagation_strategy", "testing.required"]

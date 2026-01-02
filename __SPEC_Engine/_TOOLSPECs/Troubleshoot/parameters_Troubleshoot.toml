@@ -1,0 +1,533 @@
+# parameters_Troubleshoot.toml
+# Template Version: 2.0
+# Last Updated: 2025-11-07
+# Purpose: Machine-readable parameters for reusable troubleshooting SPEC
+
+[meta]
+file_role = "Machine-readable parameters for post-development troubleshooting"
+created_by = "SPEC_Engine_development"
+goal_descriptor = "troubleshoot"
+related_files = ["Troubleshoot_SPEC.md", "exe_Troubleshoot.md"]
+log_output = "progress_Troubleshoot.json"
+created_date = "2025-11-03"
+version = "2.0"
+
+[execution]
+default_mode = "silent"  # Default to silent for autonomous troubleshooting
+# Task 0 Step 0 and Task 4 Step 7 explicitly use collaborative mode
+# Silent mode: fully autonomous diagnostic and fixing
+# Escalates to collaborative only for unresolved critical issues
+
+[goal]
+description = "Systematically diagnose and resolve post-development issues in a completed SPEC project, producing a fully functional deliverable that meets all Definition of Complete criteria"
+
+# Software stack not applicable - this is troubleshooting, not building
+[software_stack]
+deployment_type = "n/a"  # Troubleshooting SPEC
+primary_language = "n/a"
+framework = "n/a"
+database = "n/a"
+ui_library = "n/a"
+packaging_method = "n/a"
+
+[user_interface]
+required = false  # Troubleshooting is typically non-interactive except for initial setup
+interface_type = "cli"
+target_users = "human_codesigner"
+skill_level = "advanced"
+accessibility = []
+
+[deployment]
+target_platform = "any"  # Troubleshooting works on any platform
+installation_type = "n/a"
+configuration_required = ["project_folder_path"]  # Only requirement is project location
+startup_method = "run_command"
+
+[completion_criteria]
+acceptance_criteria = [
+    "All CRITICAL issues identified and resolved",
+    "HIGH priority issues resolved or documented with workarounds",
+    "Original SPEC's Definition of Complete criteria now satisfied",
+    "Troubleshooting report generated documenting issues, root causes, and fixes",
+    "Original project deliverables verified as functional",
+    "Verification methods from original SPEC now pass"
+]
+
+[components]
+original_spec_md = "Original specification markdown file (spec_[descriptor].md)"
+original_parameters_toml = "Original parameters TOML file (parameters_[descriptor].toml)"
+original_progress_json = "Original execution log (progress_[descriptor].json)"
+project_deliverables = "Files/folders created during original SPEC execution"
+error_logs = "Error log files from original execution"
+
+[constraints]
+preserve_architecture = true  # Don't rebuild from scratch, fix existing
+document_all_changes = true  # Every fix must be logged
+critical_issues_required = true  # CRITICAL issues must be resolved for completion
+no_scope_creep = true  # Fix issues only, don't add features
+max_consecutive_failures = 3  # Escalate after 3 consecutive fix attempts fail
+min_verification_pass_rate = 100  # All original Definition of Complete criteria must pass
+
+# === TASK 0: Initialize Troubleshooting Context ===
+
+[[tasks]]
+id = 0
+description = "Initialize Troubleshooting Context - Gather project location and establish context"
+research_enabled = false
+
+  [[tasks.steps]]
+  id = 0
+  description = "Receive project folder location (ONLY USER INPUT REQUIRED)"
+  expected_output = "Absolute path to project folder"
+  critical_flag = true
+  mode = "collaborative"  # ONE TIME ONLY - for folder path input
+  max_retries = 1
+
+  [[tasks.steps]]
+  id = 1
+  description = "Validate project folder structure"
+  expected_output = "List of key project files found with paths"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If standard structure not found, scan for SPEC files recursively in subdirectories"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Identify project code/descriptor"
+  expected_output = "Project descriptor string (e.g., 'podcast', 'pos_system', 'analysis')"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If multiple SPECs found, prompt user to select which SPEC is being troubleshot"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 3
+  description = "Initialize troubleshooting progress log"
+  expected_output = "progress_Troubleshoot.json created with initialized structure"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+  [[tasks.steps]]
+  id = 4
+  description = "Create troubleshooting workspace"
+  expected_output = "Workspace path for troubleshooting artefacts"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If folder creation fails, use project root directly"
+    trigger_condition = "primary_failure"
+
+# === TASK 1: Gather Project Context and Metadata ===
+
+[[tasks]]
+id = 1
+description = "Gather Project Context and Metadata - Collect information about project, original SPEC, and current state"
+research_enabled = false
+
+  [[tasks.steps]]
+  id = 1
+  description = "Read original SPEC files"
+  expected_output = "Original goal text, Definition of Complete criteria list, task/step count"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If spec.md corrupt or missing, attempt to reconstruct from parameters.toml"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Read original execution log"
+  expected_output = "Execution summary: total steps, success rate, errors encountered, completion status"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If progress.json missing or incomplete, scan for any log files in project"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 3
+  description = "Catalogue project deliverables"
+  expected_output = "Complete inventory of deliverables with file paths and sizes"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+  [[tasks.steps]]
+  id = 4
+  description = "Locate and read error logs"
+  expected_output = "Consolidated error inventory with messages, timestamps, contexts"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If no dedicated error logs, extract error messages from progress.json"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 5
+  description = "Read troubleshooting trigger context (if provided)"
+  expected_output = "List of issues that triggered troubleshooting session (user-reported problems)"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If no context file, check latest chat logs or project notes"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 6
+  description = "Extract original Definition of Complete criteria"
+  expected_output = "Numbered list of completion criteria with verification methods"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+# === TASK 2: Diagnose Issues Systematically ===
+
+[[tasks]]
+id = 2
+description = "Diagnose Issues Systematically - Identify all issues preventing goal achievement, categorise by severity"
+research_enabled = false
+
+  [[tasks.steps]]
+  id = 1
+  description = "Assess against Definition of Complete"
+  expected_output = "Completion criteria assessment table with status: MET/NOT_MET/PARTIAL for each criterion"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+  [[tasks.steps]]
+  id = 2
+  description = "Identify missing deliverables"
+  expected_output = "List of missing deliverables with severity (CRITICAL if primary deliverable missing)"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+  [[tasks.steps]]
+  id = 3
+  description = "Test existing deliverables"
+  expected_output = "Test results table with pass/fail status and error details for each deliverable tested"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If automated testing not possible, perform manual inspection against requirements"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 4
+  description = "Analyse error logs and failure patterns"
+  expected_output = "Error analysis table with error types, frequencies, affected components"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use error message patterns to infer root causes if logs are incomplete"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 5
+  description = "Identify quality standard violations"
+  expected_output = "Quality violation list with specific issues and standard violated"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+  [[tasks.steps]]
+  id = 6
+  description = "Perform root cause analysis"
+  expected_output = "Root cause mapping for all issues with confidence level (HIGH/MEDIUM/LOW)"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If root cause unclear, categorise as 'unclear - requires investigation' and flag for collaborative review"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 7
+  description = "Categorise issues by severity"
+  expected_output = "Issue registry with all issues categorised by severity, including root causes and affected components"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+  [[tasks.steps]]
+  id = 8
+  description = "Prioritise fix order"
+  expected_output = "Prioritised fix list with estimated complexity per issue"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+# === TASK 3: Implement Fixes for Identified Issues ===
+
+[[tasks]]
+id = 3
+description = "Implement Fixes for Identified Issues - Systematically resolve issues starting with highest priority"
+research_enabled = false
+
+  [[tasks.steps]]
+  id = 1
+  description = "Create backup of current state"
+  expected_output = "Backup folder path or checksum manifest file"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If full copy fails, create list of file checksums for rollback capability"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Fix critical issues (blocking goal achievement)"
+  expected_output = "All CRITICAL issues resolved OR escalated with clear collaborative action required"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If automated fix fails, generate detailed fix instructions for collaborative implementation"
+    trigger_condition = "primary_failure"
+
+    [[tasks.steps.backups]]
+    id = 2
+    description = "If issue is architectural, flag for collaborative redesign discussion"
+    trigger_condition = "backup_1_failure"
+
+  [[tasks.steps]]
+  id = 3
+  description = "Fix high-priority issues (major functionality)"
+  expected_output = "HIGH issues resolved or documented with workaround approaches"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If fix introduces new issues, rollback and document as 'requires alternative approach'"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 4
+  description = "Address medium-priority issues (quality improvements)"
+  expected_output = "MEDIUM issues resolved OR documented for future iteration"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+  [[tasks.steps]]
+  id = 5
+  description = "Document low-priority issues"
+  expected_output = "known_issues.md file with LOW severity issue documentation"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+  [[tasks.steps]]
+  id = 6
+  description = "Update project documentation"
+  expected_output = "Updated documentation reflecting current project state"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If no existing documentation, create basic usage documentation"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 7
+  description = "Create fixes summary log"
+  expected_output = "Comprehensive fixes_applied.log with all changes documented"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+# === TASK 4: Verify Resolution and Generate Report ===
+
+[[tasks]]
+id = 4
+description = "Verify Resolution and Generate Report - Confirm fixes work, original Definition of Complete satisfied"
+research_enabled = false
+
+  [[tasks.steps]]
+  id = 1
+  description = "Re-run original verification methods"
+  expected_output = "Verification results table showing status (PASS/FAIL) for each Definition of Complete criterion"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If automated verification not possible, perform manual verification against criteria"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Test all critical functionality"
+  expected_output = "Functional test results with pass/fail status for each critical feature"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If formal test suite doesn't exist, create and execute ad-hoc tests for critical paths"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 3
+  description = "Verify no regressions introduced"
+  expected_output = "Regression test results confirming no new issues introduced"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If pre-troubleshooting baseline unclear, test basic functionality end-to-end"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 4
+  description = "Generate troubleshooting report"
+  expected_output = "Complete Troubleshooting_Report_[PROJECT_CODE].md with all sections"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+  [[tasks.steps]]
+  id = 5
+  description = "Update original project status"
+  expected_output = "Updated progress_[descriptor].json with current goal_achievement_status"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+  [[tasks.steps]]
+  id = 6
+  description = "Generate completion summary for Human CoDesigner"
+  expected_output = "CoDesigner_Summary.md with clear status and next actions"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+  [[tasks.steps]]
+  id = 7
+  description = "Request Human CoDesigner confirmation (if required)"
+  expected_output = "Human confirmation of project status OR guidance for remaining work"
+  critical_flag = false
+  mode = "collaborative"  # CONDITIONAL - only if issues remain
+  max_retries = 1
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If all CRITICAL issues resolved, mark troubleshooting as complete without escalation"
+    trigger_condition = "primary_failure"
+
+[error_propagation]
+enabled = true
+read_prior_steps = true
+dependency_tracking = true
+propagation_strategy = "collaborative_review"  # Escalate for unresolvable issues
+failure_threshold = 3  # After 3 consecutive failures, escalate
+
+[logging]
+output_file = "progress_Troubleshoot.json"
+log_events = ["start", "step_complete", "retry", "error", "completion", "fix_applied", "verification"]
+record_retries = true
+record_timestamps = true
+record_mode_switches = true
+log_fixes = true  # Special: log all fixes applied
+log_issues_found = true  # Special: log all issues identified
+
+[verification]
+check_task_alignment = true
+check_step_order = true
+check_file_integrity = true
+check_mode_consistency = true
+validate_backup_coverage = true
+verify_cross_references = true
+check_expected_outputs = true
+validate_backup_trigger_conditions = true
+verify_definition_of_complete = true  # Special: verify against original SPEC's criteria
+
+# v2.0 enhancements
+validate_state_tracking = true  # Verify current_state is maintained
+validate_task_transitions = true  # Verify valid state transitions
+validate_backup_before_modification = true  # Verify backup exists before file modifications
+validate_issue_documentation = true  # Verify all issues documented before fixing
+validate_fix_workflow_checklist = true  # Verify fix checklist followed
+
+[progress_tracking]
+progress_file = "progress_Troubleshoot.json"
+fields = ["task_id", "step_id", "status", "retry_count", "timestamp", "message", "issues_found", "fixes_applied"]
+update_frequency = "on_step_completion"
+
+# State tracking fields (added in v2.0)
+[progress_tracking.current_state]
+enabled = true
+fields = ["task", "step", "issue_in_progress", "mode", "last_action", "awaiting", "backup_location", "fixes_count", "issues_remaining"]
+update_after_every_action = true
+
+[progress_tracking.task_transitions]
+enabled = true
+track_transitions = true
+fields = ["from_task", "to_task", "timestamp", "reason", "verification"]
+
+# === TROUBLESHOOTING-SPECIFIC CONFIGURATION ===
+
+[troubleshooting]
+# Special section for troubleshooting parameters
+severity_levels = ["CRITICAL", "HIGH", "MEDIUM", "LOW"]
+required_resolution = ["CRITICAL", "HIGH"]  # These must be resolved for completion
+fix_verification_required = true  # Test each fix before moving to next
+backup_before_fixing = true  # Create backup before applying fixes
+rollback_on_regression = true  # Rollback if fix introduces new issues
+max_fix_attempts_per_issue = 3  # Try up to 3 different approaches per issue
+context_efficient_mode = true  # Optimize for fresh LLM context (summarize, don't repeat)
+
+[reporting]
+generate_detailed_report = true
+report_filename = "Troubleshooting_Report_[PROJECT_CODE].md"
+include_before_after = true  # Document state before and after fixes
+include_root_cause_analysis = true
+include_prevention_recommendations = true
+

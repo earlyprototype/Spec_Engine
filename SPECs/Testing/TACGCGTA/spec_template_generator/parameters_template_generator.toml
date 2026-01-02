@@ -1,0 +1,53 @@
+# Parameters: Template Generator
+# DNA Profile: TACGCGTA (LOW RISK)
+
+[execution]
+default_mode = "dynamic"
+
+[goal]
+description = "Build system to generate SPEC files from goal descriptions"
+
+[error_propagation]
+enabled = true
+strategy = "continue_and_log"
+
+[[tasks]]
+id = 1
+[[tasks.steps]]
+id = 1
+critical_flag = false
+[[tasks.steps]]
+id = 2
+critical_flag = true
+[[tasks.steps]]
+id = 3
+critical_flag = false
+
+[[tasks]]
+id = 2
+[[tasks.steps]]
+id = 1
+critical_flag = true
+[[tasks.steps]]
+id = 2
+critical_flag = true
+[[tasks.steps]]
+id = 3
+critical_flag = false
+
+[[tasks]]
+id = 3
+[[tasks.steps]]
+id = 1
+critical_flag = true
+[[tasks.steps]]
+id = 2
+critical_flag = false
+
+[validation]
+critical_percentage_actual = 50
+total_steps = 8
+critical_steps = 4
+
+
+

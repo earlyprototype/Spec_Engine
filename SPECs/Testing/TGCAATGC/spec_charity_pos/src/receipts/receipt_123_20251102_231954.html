@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Receipt RCP-000123</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+        }
+        .shop-name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .info {
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+        .items {
+            margin: 20px 0;
+        }
+        .item-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        .item-name {
+            flex: 1;
+        }
+        .item-qty {
+            width: 40px;
+            text-align: center;
+        }
+        .item-price {
+            width: 80px;
+            text-align: right;
+        }
+        .divider {
+            border-top: 1px dashed #000;
+            margin: 10px 0;
+        }
+        .total {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: right;
+            margin: 15px 0;
+        }
+        .payment {
+            margin: 15px 0;
+            font-size: 14px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 2px solid #000;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="shop-name">The Good Cause Charity Shop</div>
+        <div>42 Market Street, Townville, TC1 2AB</div>
+        <div>Tel: 01234 567890</div>
+        <div>Charity No: 987654</div>
+    </div>
+    
+    <div class="info">
+        <div>Receipt: RCP-000123</div>
+        <div>Date: 02/11/2025 23:19</div>
+        <div>Cashier: Alice</div>
+    </div>
+    
+    <div class="divider"></div>
+    
+    <div class="items">
+
+        <div class="item-row">
+            <span class="item-name">Book - The Great Gatsby</span>
+            <span class="item-qty">1 x</span>
+            <span class="item-price">£3.50</span>
+            <span class="item-price">£3.50</span>
+        </div>
+
+        <div class="item-row">
+            <span class="item-name">Mug</span>
+            <span class="item-qty">2 x</span>
+            <span class="item-price">£2.00</span>
+            <span class="item-price">£4.00</span>
+        </div>
+
+        <div class="item-row">
+            <span class="item-name">T-Shirt</span>
+            <span class="item-qty">1 x</span>
+            <span class="item-price">£8.00</span>
+            <span class="item-price">£8.00</span>
+        </div>
+
+    </div>
+    
+    <div class="divider"></div>
+    
+    <div class="total">
+        TOTAL: £15.50
+    </div>
+    
+    <div class="payment">
+        <div>Payment Method: CASH</div>
+        <div>Cash Given: £20.00</div>
+        <div>Change: £4.50</div>
+
+    </div>
+    
+    <div class="footer">
+        <p>Thank you for supporting our charity!</p>
+        <p>Your purchase helps make a difference.</p>
+    </div>
+</body>
+</html>

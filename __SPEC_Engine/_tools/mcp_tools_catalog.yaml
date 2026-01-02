@@ -1,0 +1,3976 @@
+# MCP Tools Catalog for SPEC Engine
+# Curated list of Model Context Protocol servers and their tools
+# Organized by category, ranked by popularity (estimated usage)
+
+---
+
+## MCP Servers by Category
+
+Web Development
+- cloudflare-browser-rendering
+- webflow-remote
+- wix
+
+Databases
+- postgres
+- SQLite
+- mongodb
+- redis
+- clickhouse
+- neon
+- redis-cloud
+- astra-db
+- pinecone
+- couchbase
+- singlestore
+- atlan
+- cockroachdb
+- oracle
+- schemacrawler-ai
+- dreamfactory-mcp
+- kafka-schema-reg-mcp
+- sqlite-mcp-server
+- database-server
+- instant
+- prisma-postgres
+
+Cloud & Infrastructure
+- fetch
+- time
+- puppeteer
+- filesystem
+- github
+- google-maps
+- git
+- gitlab
+- sentry
+- aws-kb-retrieval-server
+- context7
+- playwright
+- github-official
+- duckduckgo
+- desktop-commander
+- aws-core-mcp-server
+- aws-documentation
+- aws-diagram
+- aws-terraform
+- aws-cdk-mcp-server
+- wikipedia-mcp
+- node-code-sandbox
+- perplexity-ask
+- kubernetes
+- dockerhub
+- wolfram-alpha
+- browserbase
+- neo4j-cypher
+- neo4j-memory
+- azure
+- line
+- neo4j-cloud-aura-api
+- terraform
+- hyperbrowser
+- chroma
+- ref
+- cloud-run-mcp
+- neo4j-data-modeling
+- kubectl-mcp-server
+- jetbrains
+- mcp-discord
+- openapi-schema
+- e2b
+- osp_marketing_tools
+- mcp-api-gateway
+- dart
+- github-chat
+- kagisearch
+- npm-sentinel
+- databutton
+- atlas-docs
+- postman
+- razorpay
+- cyreslab-ai-shodan
+- opik
+- circleci
+- heroku
+- scrapegraph
+- glif
+- lara
+- oxylabs
+- webflow
+- aks
+- render
+- dappier
+- hostinger-mcp-server
+- edubase
+- box
+- kong
+- handwriting-ocr
+- scrapezy
+- veyrax
+- gyazo
+- keboola-mcp
+- audiense-insights
+- descope
+- devhub-cms
+- bitrefill
+- fibery
+- hyperspell
+- multiversx-mx
+- iaptic
+- risken
+- triplewhale
+- tembo
+- hackle
+- flexprice
+- buildkite
+- cdata-connectcloud
+- husqvarna-automower
+- text-to-graphql
+- mapbox-devkit
+- google-maps-comprehensive
+- pref-editor
+- smartbear
+- beagle-security
+- ros2
+- sequa
+- tigris
+- stackhawk
+- stackgen
+- cloudflare-container
+- cloudflare-workers-bindings
+- cloudflare-workers-builds
+- curl
+- docker
+- globalping
+- grafbase
+- openmesh
+- polar-signals
+- pulumi-remote
+
+APIs & Integration
+- cloudflare-graphql
+
+Data & Analysis
+- nasdaq-data-link
+- octagon
+
+AI & ML
+- sequentialthinking
+- memory
+- omi
+- playwright-mcp-server
+- elevenlabs
+- pluggedin-mcp-proxy
+- novita
+- okta-mcp-fctr
+- teamwork
+- pia
+- task-orchestrator
+- hoverfly-mcp-server
+- audioscrape
+- cloudflare-ai-gateway
+- cloudflare-autorag
+- dappier-remote
+- hugging-face
+- llmtxt
+- needle
+- scorecard
+- wayfound
+
+Development Tools
+- grafana
+- dynatrace-mcp-server
+- prometheus
+- inspektor-gadget
+- suzieq
+- thingsboard
+- victoriametrics
+- maestro-mcp-server
+- cloudflare-digital-experience-monitoring
+- cloudflare-logpush
+- cloudflare-observability
+- sentry-remote
+
+Search & Research
+- everart
+- youtube_transcript
+- firecrawl
+- brave
+- exa
+- mcp-hackernews
+- tavily
+- elasticsearch
+- paper-search
+- arxiv-mcp-server
+- apify-mcp-server
+- openbnb-airbnb
+- openweather
+- minecraft-wiki
+- needle-mcp
+- vuln-nist-mcp-server
+- hdx
+- explorium
+- supadata
+
+Communication
+- slack
+- resend
+- mcp-reddit
+- securenote-link-mcp-server
+- gmail-mcp
+- dialer
+- telnyx
+
+Version Control
+- gitmcp
+
+Project Management
+- asana
+- linear
+- monday
+
+Documentation & Learning
+- astro-docs
+- cloudflare-docs
+- deepwiki
+- javadocs
+- microsoft-learn
+- notion-remote
+
+Security & Compliance
+- ramparts
+- firewalla-mcp-server
+- root
+- cloudflare-audit-logs
+- cloudflare-one-casb
+- semgrep
+
+Productivity & Collaboration
+- notion
+- atlassian
+- obsidian
+- onlyoffice-docspace
+- airtable-mcp-server
+- pomodash
+- simplechecklist
+- waystation
+
+Content Processing & Media
+- markitdown
+- markdownify
+- ffmpeg
+- schogini-mcp-image-border
+- invideo
+
+Code Quality & Development
+- sonarqube
+- ast-grep
+- mcp-python-refactoring
+- effect-mcp
+- maven-tools-mcp
+- next-devtools-mcp
+
+Data Visualization & BI
+- vizro
+- metabase
+- cloudflare-dns-analytics
+
+Payment Processing
+- stripe
+- stripe-remote
+- paypal
+- dodo-payments
+- mercado-pago
+- quantconnect
+- zerodha-kite
+
+Trading & Financial Automation
+- hummingbot-mcp
+- manifold
+
+E-commerce & Marketplace
+- mercado-libre
+
+CRM & Business Management
+- hubspot
+- close
+- opine-mcp-server
+- linkedin-mcp-server
+
+Healthcare & Medical
+- charmhealth-mcp-server
+- cylera-mcp-server
+
+Workflow & Process Management
+- camunda
+- carbon-voice
+
+Specialized Development
+  Blockchain & Smart Contracts:
+  - openzeppelin-cairo
+  - openzeppelin-solidity
+  - openzeppelin-stellar
+  - openzeppelin-stylus
+  
+  Code Execution:
+  - mcp-code-interpreter
+  
+  Geospatial:
+  - mapbox
+  
+  Game Development:
+  - unreal-engine-mcp-server
+  
+  File Systems:
+  - rust-mcp-filesystem
+  
+  Meeting Tools:
+  - firefly
+  
+  Utilities:
+  - openapi
+  - find-a-domain
+  - short-io
+  - remote-mcp
+  - rube
+  - cloudflare-radar
+  - apify
+
+---
+
+## Categories
+
+### 1. Web Development
+Tools for web scraping, browser automation, and HTTP operations
+
+#### cloudflare-browser-rendering (Popularity: ★☆☆☆☆)
+Fetch web pages, convert them to markdown and take screenshots.
+- **Tools (0):**
+- **Use cases:** tools, browser, rendering
+- **Tags:** [tools, browser, rendering, screenshots, cloudflare, remote]
+
+#### webflow-remote (Popularity: ★☆☆☆☆)
+Design and build professional websites visually with no-code tools, advanced CMS, and responsive layouts.
+- **Tools (0):**
+- **Use cases:** web, cms, design
+- **Tags:** [web, cms, design, remote]
+
+#### wix (Popularity: ★☆☆☆☆)
+Build and manage websites with drag-and-drop tools, content management, and dynamic pages.
+- **Tools (0):**
+- **Use cases:** web, cms, website builder
+- **Tags:** [web, cms, website-builder, remote]
+---
+
+### 2. Databases
+Database operations and management
+
+#### postgres (Popularity: ★★★★★)
+Connect with read-only access to PostgreSQL databases. This server enables LLMs to inspect database schemas and execute read-only queries.
+- **Tools (1):**
+  - `query`
+- **Use cases:** data management
+- **Tags:** [postgres, database]
+
+#### SQLite (Popularity: ★★★★★)
+Database interaction and business intelligence capabilities.
+- **Tools (6):**
+  - `append_insight`
+  - `create_table`
+  - `describe_table`
+  - `list_tables`
+  - `read_query`
+  - `write_query`
+- **Use cases:** data management
+- **Tags:** [sqlite, database]
+
+#### mongodb (Popularity: ★★★☆☆)
+A Model Context Protocol server to connect to MongoDB databases and MongoDB Atlas Clusters.
+- **Tools (22):**
+  - `aggregate`
+  - `collection-indexes`
+  - `collection-schema`
+  - `collection-storage-size`
+  - `connect`
+  - `count`
+  - `create-collection`
+  - `create-index`
+  - `db-stats`
+  - `delete-many`
+  - `drop-collection`
+  - `drop-database`
+  - `drop-index`
+  - `explain`
+  - `export`
+  - ... and 7 more
+- **Use cases:** data management
+- **Tags:** [mongodb, database]
+
+#### redis (Popularity: ★★★☆☆)
+Access to Redis database operations.
+- **Tools (44):**
+  - `client_list`
+  - `create_vector_index_hash`
+  - `dbsize`
+  - `delete`
+  - `expire`
+  - `get`
+  - `get_index_info`
+  - `get_indexed_keys_number`
+  - `get_indexes`
+  - `get_vector_from_hash`
+  - `hdel`
+  - `hexists`
+  - `hget`
+  - `hgetall`
+  - `hset`
+  - ... and 29 more
+- **Use cases:** data management
+- **Tags:** [redis, database]
+
+#### clickhouse (Popularity: ★★★☆☆)
+Official ClickHouse MCP Server.
+- **Tools (3):**
+  - `list_databases`
+  - `list_tables`
+  - `run_select_query`
+- **Use cases:** database, clickhouse
+- **Tags:** [database, clickhouse]
+
+#### neon (Popularity: ★★☆☆☆)
+MCP server for interacting with Neon Management API and databases.
+- **Tools (19):**
+  - `__node_version`
+  - `complete_database_migration`
+  - `complete_query_tuning`
+  - `create_branch`
+  - `create_project`
+  - `delete_branch`
+  - `delete_project`
+  - `describe_branch`
+  - `describe_project`
+  - `describe_table_schema`
+  - `explain_sql_statement`
+  - `get_connection_string`
+  - `get_database_tables`
+  - `list_projects`
+  - `prepare_database_migration`
+  - ... and 4 more
+- **Use cases:** data management, API integration
+- **Tags:** [neon, database]
+
+#### redis-cloud (Popularity: ★★☆☆☆)
+MCP Server for Redis Cloud's API, allowing you to manage your Redis Cloud resources using natural language.
+- **Tools (18):**
+  - `create-essential-database`
+  - `create-essential-subscription`
+  - `create-pro-database`
+  - `create-pro-subscription`
+  - `delete-essential-subscription`
+  - `get-current-account`
+  - `get-current-payment-methods`
+  - `get-database-modules`
+  - `get-essential-databases`
+  - `get-essential-subscription-by-id`
+  - `get-essential-subscriptions`
+  - `get-essentials-plans`
+  - `get-pro-databases`
+  - `get-pro-plans-regions`
+  - `get-pro-subscription`
+  - ... and 3 more
+- **Use cases:** API integration
+- **Tags:** [redis-cloud, database]
+
+#### astra-db (Popularity: ★★☆☆☆)
+An MCP server for Astra DB workloads.
+- **Tools (16):**
+  - `BulkCreateRecords`
+  - `BulkDeleteRecords`
+  - `BulkUpdateRecords`
+  - `CreateCollection`
+  - `CreateRecord`
+  - `DeleteCollection`
+  - `DeleteRecord`
+  - `EstimateDocumentCount`
+  - `FindRecord`
+  - `GetCollections`
+  - `GetRecord`
+  - `HelpAddToClient`
+  - `ListRecords`
+  - `OpenBrowser`
+  - `UpdateCollection`
+  - ... and 1 more
+- **Use cases:** astra db, database
+- **Tags:** [astra-db, database]
+
+#### pinecone (Popularity: ★★☆☆☆)
+Pinecone Assistant MCP server.
+- **Tools (1):**
+  - `assistant_context`
+- **Use cases:** database, machine learning
+- **Tags:** [database, machine-learning]
+
+#### couchbase (Popularity: ★★☆☆☆)
+Couchbase is a distributed document database with a powerful search engine and in-built operational and analytical capabilities.
+- **Tools (13):**
+  - `delete_document_by_id`
+  - `get_buckets_in_cluster`
+  - `get_cluster_health_and_services`
+  - `get_collections_in_scope`
+  - `get_document_by_id`
+  - `get_index_advisor_recommendations`
+  - `get_schema_for_collection`
+  - `get_scopes_and_collections_in_bucket`
+  - `get_scopes_in_bucket`
+  - `get_server_configuration_status`
+  - `run_sql_plus_plus_query`
+  - `test_cluster_connection`
+  - `upsert_document_by_id`
+- **Use cases:** search, data management
+- **Tags:** [couchbase, database]
+
+#### singlestore (Popularity: ★★☆☆☆)
+MCP server for interacting with SingleStore Management API and services.
+- **Tools (16):**
+  - `create_job_from_notebook`
+  - `create_notebook_file`
+  - `create_starter_workspace`
+  - `delete_job`
+  - `get_job`
+  - `get_user_info`
+  - `list_regions`
+  - `list_sharedtier_regions`
+  - `list_starter_workspaces`
+  - `organization_info`
+  - `resume_workspace`
+  - `run_sql`
+  - `terminate_starter_workspace`
+  - `upload_notebook_file`
+  - `workspace_groups_info`
+  - ... and 1 more
+- **Use cases:** API integration
+- **Tags:** [singlestore, database]
+
+#### atlan (Popularity: ★★☆☆☆)
+MCP server for interacting with Atlan services including asset search, updates, and lineage traversal for comprehensive data governance and discovery.
+- **Tools (7):**
+  - `create_glossaries`
+  - `create_glossary_categories`
+  - `create_glossary_terms`
+  - `get_assets_by_dsl_tool`
+  - `search_assets_tool`
+  - `traverse_lineage_tool`
+  - `update_assets_tool`
+- **Use cases:** search, data management
+- **Tags:** [atlan, metadata]
+
+#### cockroachdb (Popularity: ★★☆☆☆)
+Enable AI agents to manage, monitor, and query CockroachDB using natural language. Perform complex database operations, cluster management, and query execution seamlessly through AI-driven workflows. Integrate effortlessly with MCP clients for scalable and high-performance data operations.
+- **Tools (29):**
+  - `analyze_performance`
+  - `analyze_schema`
+  - `bulk_import`
+  - `connect`
+  - `connect_database`
+  - `create_database`
+  - `create_index`
+  - `create_table`
+  - `create_view`
+  - `describe_table`
+  - `drop_database`
+  - `drop_index`
+  - `drop_table`
+  - `drop_view`
+  - `execute_query`
+  - ... and 14 more
+- **Use cases:** data management, monitoring
+- **Tags:** [cockroachdb, database]
+
+#### oracle (Popularity: ★☆☆☆☆)
+Connect to Oracle databases via MCP, providing secure read-only access with support for schema exploration, query execution, and metadata inspection.
+- **Tools (6):**
+  - `describe_table`
+  - `execute_query`
+  - `get_table_constraints`
+  - `get_table_indexes`
+  - `list_schemas`
+  - `list_tables`
+- **Use cases:** data management
+- **Tags:** [oracle, database, sql, enterprise]
+
+#### schemacrawler-ai (Popularity: ★☆☆☆☆)
+The SchemaCrawler AI MCP Server enables natural language interaction with your database schema using an MCP client in "Agent" mode. It allows users to explore tables, columns, foreign keys, triggers, stored procedures and more simply by asking questions like "Explain the code for the interest calculation stored procedure". You can also ask it to help with SQL, since it knows your schema. This is ideal for developers, DBAs, and data analysts who want to streamline schema comprehension and query development without diving into dense documentation.
+- **Tools (8):**
+  - `describe-routines`
+  - `describe-tables`
+  - `get-schemacrawler-version`
+  - `lint`
+  - `list`
+  - `list-across-tables`
+  - `server-information`
+  - `table-sample`
+- **Use cases:** data management
+- **Tags:** [ai, database]
+
+#### dreamfactory-mcp (Popularity: ★☆☆☆☆)
+DreamFactory is a REST API generation platform with support for hundreds of data sources, including Microsoft SQL Server, MySQL, PostgreSQL, and MongoDB. The DreamFactory MCP Server makes it easy for users to securely interact with their data sources via an MCP client.
+- **Tools (8):**
+  - `call-stored-function`
+  - `call-stored-procedure`
+  - `get-stored-functions`
+  - `get-stored-procedures`
+  - `get-table-data`
+  - `get-table-schema`
+  - `get-tables`
+  - `list-tools`
+- **Use cases:** data management, API integration
+- **Tags:** [database]
+
+#### kafka-schema-reg-mcp (Popularity: ★☆☆☆☆)
+Comprehensive MCP server for Kafka Schema Registry operations. Features multi-registry support, schema contexts, migration tools, OAuth authentication, and 57+ tools for complete schema management. Supports SLIM_MODE for optimal performance.
+- **Tools (29):**
+  - `check_compatibility`
+  - `count_contexts`
+  - `count_schema_versions`
+  - `count_schemas`
+  - `create_context`
+  - `export_schema`
+  - `export_subject`
+  - `generate_resource_templates`
+  - `get_default_registry`
+  - `get_global_config`
+  - `get_mcp_compliance_status_tool`
+  - `get_mode`
+  - `get_registry_info`
+  - `get_schema`
+  - `get_schema_by_id`
+  - ... and 14 more
+- **Use cases:** kafka, schema registry, database
+- **Tags:** [kafka, schema-registry, database, devops, streaming]
+
+#### sqlite-mcp-server (Popularity: ★☆☆☆☆)
+The SQLite MCP Server transforms SQLite into a powerful, AI-ready database engine. It combines standard relational operations with advanced analytics, text and vector search, geospatial capabilities, and intelligent workflow automation. By layering business intelligence tools, semantic resources, and guided prompts on top of SQLite, it enables both developers and AI assistants to interact with data more naturally and effectively.  The SQLite MCP Server transforms SQLite into a powerful, AI-ready database engine. It combines standard relational operations with advanced analytics, text and vector search, geospatial capabilities, and intelligent workflow automation. By layering business intelligence tools, semantic resources, and guided prompts on top of SQLite, it enables both developers and AI assistants to interact with data more naturally and effectively.    This makes it not just a database interface, but a **workflow-aware assistant** for developers and AI systems.    ## Key Features    * **Advanced Text Processing**: Comprehensive text analysis toolkit with 8 specialized tools: PCRE regex extraction/replacement, fuzzy matching with Levenshtein distance, phonetic matching (Soundex/Metaphone), text similarity analysis (Cosine/Jaccard), normalization operations, pattern validation, advanced multi-method search, and comprehensive text validation  * **Statistical Analysis Library**: Comprehensive statistical functions for data analysis including descriptive statistics, percentile analysis, and time series analysis  * **JSONB Binary Storage**: Efficient binary JSON storage for improved performance and reduced storage requirements  * **Transaction Safety**: All write operations automatically wrapped in transactions with proper rollback on errors  * **Foreign Key Enforcement**: Automatic enforcement of foreign key constraints across all connections  * **Advanced SQL Support**: Complex queries including window functions, subqueries, and advanced filtering  * **Business Intelligence**: Integrated memo resource for capturing business insights during analysis  * **Enhanced Error Handling**: Detailed diagnostics for JSON-related errors with specific suggestions for fixing issues  * **Multi-Level Caching**: Hierarchical caching for optimal performance  * **Pattern Recognition**: Automatic optimization of frequently executed queries  * **JSON Validation**: Prevents invalid JSON from being stored in the database  * **WAL Mode Compatible**: Works alongside the existing Write-Ahead Logging (WAL) journal mode  * **Comprehensive Schema Tools**: Enhanced tools for exploring and documenting database structure  * **Database Administration Tools**: Complete suite of maintenance tools including VACUUM, ANALYZE, integrity checks, performance statistics, and index usage analysis  * **Full-Text Search (FTS5)**: Comprehensive FTS5 implementation with table creation, index management, and enhanced search with BM25 ranking and snippets  * **Backup/Restore Operations**: Enterprise-grade backup and restore capabilities with SQLite backup API, integrity verification, and safety confirmations  * **Advanced PRAGMA Operations**: Comprehensive SQLite configuration management, performance optimization, and database introspection tools  * **Virtual Table Management**: Complete virtual table lifecycle management for R-Tree spatial indexing, CSV file access, and sequence generation  * **SpatiaLite Geospatial Analytics**: Enterprise-grade GIS capabilities with spatial indexing, geometric operations, and comprehensive spatial analysis  * **Enhanced Virtual Tables**: Smart CSV/JSON import with automatic data type inference, nested object flattening, and schema analysis  * **Semantic/Vector Search**: AI-native semantic search with embedding storage, cosine similarity, and hybrid keyword+semantic ranking  * **Vector Index Optimization**: Approximate Nearest Neighbor (ANN) search with k-means clustering and spatial indexing for sub-linear O(log n) performance  * **Intelligent MCP Resources**: Dynamic database meta-awareness with real-time schema, capabilities, statistics, search indexes, and performance insights  * **Guided MCP Prompts**: Intelligent workflow automation with semantic query translation, table summarization, database optimization, and hybrid search recipesThe SQLite MCP Server transforms SQLite into a powerful, AI-ready database engine. It combines standard relational operations with advanced analytics, text and vector search, geospatial capabilities, and intelligent workflow automation. By layering business intelligence tools, semantic resources, and guided prompts on top of SQLite, it enables both developers and AI assistants to interact with data more naturally and effectively.    This makes it not just a database interface, but a **workflow-aware assistant** for developers and AI systems.    ## Key Features    * **Advanced Text Processing**: Comprehensive text analysis toolkit with 8 specialized tools: PCRE regex extraction/replacement, fuzzy matching with Levenshtein distance, phonetic matching (Soundex/Metaphone), text similarity analysis (Cosine/Jaccard), normalization operations, pattern validation, advanced multi-method search, and comprehensive text validation  * **Statistical Analysis Library**: Comprehensive statistical functions for data analysis including descriptive statistics, percentile analysis, and time series analysis  * **JSONB Binary Storage**: Efficient binary JSON storage for improved performance and reduced storage requirements  * **Transaction Safety**: All write operations automatically wrapped in transactions with proper rollback on errors  * **Foreign Key Enforcement**: Automatic enforcement of foreign key constraints across all connections  * **Advanced SQL Support**: Complex queries including window functions, subqueries, and advanced filtering  * **Business Intelligence**: Integrated memo resource for capturing business insights during analysis  * **Enhanced Error Handling**: Detailed diagnostics for JSON-related errors with specific suggestions for fixing issues  * **Multi-Level Caching**: Hierarchical caching for optimal performance  * **Pattern Recognition**: Automatic optimization of frequently executed queries  * **JSON Validation**: Prevents invalid JSON from being stored in the database  * **WAL Mode Compatible**: Works alongside the existing Write-Ahead Logging (WAL) journal mode  * **Comprehensive Schema Tools**: Enhanced tools for exploring and documenting database structure  * **Database Administration Tools**: Complete suite of maintenance tools including VACUUM, ANALYZE, integrity checks, performance statistics, and index usage analysis  * **Full-Text Search (FTS5)**: Comprehensive FTS5 implementation with table creation, index management, and enhanced search with BM25 ranking and snippets  * **Backup/Restore Operations**: Enterprise-grade backup and restore capabilities with SQLite backup API, integrity verification, and safety confirmations  * **Advanced PRAGMA Operations**: Comprehensive SQLite configuration management, performance optimization, and database introspection tools  * **Virtual Table Management**: Complete virtual table lifecycle management for R-Tree spatial indexing, CSV file access, and sequence generation  * **SpatiaLite Geospatial Analytics**: Enterprise-grade GIS capabilities with spatial indexing, geometric operations, and comprehensive spatial analysis  * **Enhanced Virtual Tables**: Smart CSV/JSON import with automatic data type inference, nested object flattening, and schema analysis  * **Semantic/Vector Search**: AI-native semantic search with embedding storage, cosine similarity, and hybrid keyword+semantic ranking  * **Vector Index Optimization**: Approximate Nearest Neighbor (ANN) search with k-means clustering and spatial indexing for sub-linear O(log n) performance  * **Intelligent MCP Resources**: Dynamic database meta-awareness with real-time schema, capabilities, statistics, search indexes, and performance insights  * **Guided MCP Prompts**: Intelligent workflow automation with semantic query translation, table summarization, database optimization, and hybrid search recipes.
+- **Tools (25):**
+  - `read_query`
+  - `write_query`
+  - `create_table`
+  - `list_tables`
+  - `describe_table`
+  - `append_insight`
+  - `create_fts_table`
+  - `fts_search`
+  - `create_embeddings_table`
+  - `semantic_search`
+  - `hybrid_search`
+  - `descriptive_statistics`
+  - `correlation_analysis`
+  - `regression_analysis`
+  - `outlier_detection`
+  - ... and 10 more
+- **Use cases:** search, data management, automation, API integration
+- **Tags:** [database]
+
+#### database-server (Popularity: ★☆☆☆☆)
+Comprehensive database server supporting PostgreSQL, MySQL, and SQLite with natural language SQL query capabilities. Enables AI agents to interact with databases through both direct SQL and natural language queries.
+- **Tools (7):**
+  - `query_database`
+  - `list_tables`
+  - `describe_table`
+  - `execute_sql`
+  - `connect_to_database`
+  - `get_connection_examples`
+  - `get_current_database_info`
+- **Use cases:** data management
+- **Tags:** [database, sql, postgresql, mysql, sqlite, natural-language]
+
+#### instant (Popularity: ★☆☆☆☆)
+Build real-time, offline-first applications with a modern Firebase-like database and instant synchronization.
+- **Tools (0):**
+- **Use cases:** data management
+- **Tags:** [database, realtime, backend, remote]
+
+#### prisma-postgres (Popularity: ★☆☆☆☆)
+Access PostgreSQL databases through Prisma's type-safe ORM with automated migrations and intuitive query building.
+- **Tools (0):**
+- **Use cases:** data management
+- **Tags:** [database, postgres, orm, remote]
+---
+
+### 3. Cloud & Infrastructure
+Cloud services and infrastructure management
+
+#### fetch (Popularity: ★★★★★)
+Fetches a URL from the internet and extracts its contents as markdown.
+- **Tools (1):**
+  - `fetch`
+- **Use cases:** fetch, devops
+- **Tags:** [fetch, devops]
+
+#### time (Popularity: ★★★★★)
+Time and timezone conversion capabilities.
+- **Tools (2):**
+  - `convert_time`
+  - `get_current_time`
+- **Use cases:** time, devops
+- **Tags:** [time, devops]
+
+#### puppeteer (Popularity: ★★★★★)
+Browser automation and web scraping using Puppeteer.
+- **Tools (7):**
+  - `puppeteer_click`
+  - `puppeteer_evaluate`
+  - `puppeteer_fill`
+  - `puppeteer_hover`
+  - `puppeteer_navigate`
+  - `puppeteer_screenshot`
+  - `puppeteer_select`
+- **Use cases:** automation, API integration
+- **Tags:** [puppeteer, devops]
+
+#### filesystem (Popularity: ★★★★★)
+Local filesystem access with configurable allowed paths.
+- **Tools (11):**
+  - `create_directory`
+  - `directory_tree`
+  - `edit_file`
+  - `get_file_info`
+  - `list_allowed_directories`
+  - `list_directory`
+  - `move_file`
+  - `read_file`
+  - `read_multiple_files`
+  - `search_files`
+  - `write_file`
+- **Use cases:** filesystem, devops
+- **Tags:** [filesystem, devops]
+
+#### github (Popularity: ★★★★★)
+Tools for interacting with the GitHub API, enabling file operations, repository management, search functionality, and more.
+- **Tools (26):**
+  - `add_issue_comment`
+  - `create_branch`
+  - `create_issue`
+  - `create_or_update_file`
+  - `create_pull_request`
+  - `create_pull_request_review`
+  - `create_repository`
+  - `fork_repository`
+  - `get_file_contents`
+  - `get_issue`
+  - `get_pull_request`
+  - `get_pull_request_comments`
+  - `get_pull_request_files`
+  - `get_pull_request_reviews`
+  - `get_pull_request_status`
+  - ... and 11 more
+- **Use cases:** search, API integration
+- **Tags:** [github, devops]
+
+#### google-maps (Popularity: ★★★★★)
+Tools for interacting with the Google Maps API.
+- **Tools (7):**
+  - `maps_directions`
+  - `maps_distance_matrix`
+  - `maps_elevation`
+  - `maps_geocode`
+  - `maps_place_details`
+  - `maps_reverse_geocode`
+  - `maps_search_places`
+- **Use cases:** API integration
+- **Tags:** [google-maps, devops]
+
+#### git (Popularity: ★★★★★)
+Git repository interaction and automation.
+- **Tools (12):**
+  - `git_add`
+  - `git_checkout`
+  - `git_commit`
+  - `git_create_branch`
+  - `git_diff`
+  - `git_diff_staged`
+  - `git_diff_unstaged`
+  - `git_init`
+  - `git_log`
+  - `git_reset`
+  - `git_show`
+  - `git_status`
+- **Use cases:** automation
+- **Tags:** [gitl, devops]
+
+#### gitlab (Popularity: ★★★★★)
+MCP Server for the GitLab API, enabling project management, file operations, and more.
+- **Tools (9):**
+  - `create_branch`
+  - `create_issue`
+  - `create_merge_request`
+  - `create_or_update_file`
+  - `create_repository`
+  - `fork_repository`
+  - `get_file_contents`
+  - `push_files`
+  - `search_repositories`
+- **Use cases:** API integration
+- **Tags:** [gitlab, devops]
+
+#### sentry (Popularity: ★★★★★)
+A Model Context Protocol server for retrieving and analyzing issues from Sentry.io. This server provides tools to inspect error reports, stacktraces, and other debugging information from your Sentry account.
+- **Tools (1):**
+  - `get_sentry_issue`
+- **Use cases:** sentry, devops
+- **Tags:** [sentry, devops]
+
+#### aws-kb-retrieval-server (Popularity: ★★★★★)
+An MCP server implementation for retrieving information from the AWS Knowledge Base using the Bedrock Agent Runtime.
+- **Tools (1):**
+  - `retrieve_from_aws_kb`
+- **Use cases:** aws, devops
+- **Tags:** [aws, devops]
+
+#### context7 (Popularity: ★★★★★)
+Context7 MCP Server -- Up-to-date code documentation for LLMs and AI code editors.
+- **Tools (2):**
+  - `get-library-docs`
+  - `resolve-library-id`
+- **Use cases:** context7, devops
+- **Tags:** [context7, devops]
+
+#### playwright (Popularity: ★★★★★)
+Playwright MCP server.
+- **Tools (21):**
+  - `browser_click`
+  - `browser_close`
+  - `browser_console_messages`
+  - `browser_drag`
+  - `browser_evaluate`
+  - `browser_file_upload`
+  - `browser_fill_form`
+  - `browser_handle_dialog`
+  - `browser_hover`
+  - `browser_install`
+  - `browser_navigate`
+  - `browser_navigate_back`
+  - `browser_network_requests`
+  - `browser_press_key`
+  - `browser_resize`
+  - ... and 6 more
+- **Use cases:** playwright, devops
+- **Tags:** [playwright, devops]
+
+#### github-official (Popularity: ★★★★★)
+Official GitHub MCP Server, by GitHub. Provides seamless integration with GitHub APIs, enabling advanced automation and interaction capabilities for developers and tools.
+- **Tools (40):**
+  - `add_comment_to_pending_review`
+  - `add_issue_comment`
+  - `assign_copilot_to_issue`
+  - `create_branch`
+  - `create_or_update_file`
+  - `create_pull_request`
+  - `create_repository`
+  - `delete_file`
+  - `fork_repository`
+  - `get_commit`
+  - `get_file_contents`
+  - `get_label`
+  - `get_latest_release`
+  - `get_me`
+  - `get_release_by_tag`
+  - ... and 25 more
+- **Use cases:** automation, API integration
+- **Tags:** [github, devops]
+
+#### duckduckgo (Popularity: ★★★★★)
+A Model Context Protocol (MCP) server that provides web search capabilities through DuckDuckGo, with additional features for content fetching and parsing.
+- **Tools (2):**
+  - `fetch_content`
+  - `search`
+- **Use cases:** search
+- **Tags:** [duckduckgo, devops]
+
+#### desktop-commander (Popularity: ★★★★★)
+Search, update, manage files and run terminal commands with AI.
+- **Tools (25):**
+  - `create_directory`
+  - `edit_block`
+  - `force_terminate`
+  - `get_config`
+  - `get_file_info`
+  - `get_more_search_results`
+  - `get_prompts`
+  - `get_recent_tool_calls`
+  - `get_usage_stats`
+  - `give_feedback_to_desktop_commander`
+  - `interact_with_process`
+  - `kill_process`
+  - `list_directory`
+  - `list_processes`
+  - `list_searches`
+  - ... and 10 more
+- **Use cases:** search
+- **Tags:** [desktop-commander, devops, filesystem, terminal, automation, file-management]
+
+#### aws-core-mcp-server (Popularity: ★★★★★)
+Starting point for using the awslabs MCP servers.
+- **Tools (1):**
+  - `prompt_understanding`
+- **Use cases:** aws core mcp server, devops
+- **Tags:** [aws-core-mcp-server, devops]
+
+#### aws-documentation (Popularity: ★★★★★)
+Tools to access AWS documentation, search for content, and get recommendations.
+- **Tools (3):**
+  - `read_documentation`
+  - `recommend`
+  - `search_documentation`
+- **Use cases:** search
+- **Tags:** [aws-documentation, devops]
+
+#### aws-diagram (Popularity: ★★★★☆)
+Seamlessly create diagrams using the Python diagrams package DSL. This server allows you to generate AWS diagrams, sequence diagrams, flow diagrams, and class diagrams using Python code.
+- **Tools (3):**
+  - `generate_diagram`
+  - `get_diagram_examples`
+  - `list_icons`
+- **Use cases:** aws diagram, devops
+- **Tags:** [aws-diagram, devops]
+
+#### aws-terraform (Popularity: ★★★★☆)
+Terraform on AWS best practices, infrastructure as code patterns, and security compliance with Checkov.
+- **Tools (7):**
+  - `ExecuteTerraformCommand`
+  - `ExecuteTerragruntCommand`
+  - `RunCheckovScan`
+  - `SearchAwsProviderDocs`
+  - `SearchAwsccProviderDocs`
+  - `SearchSpecificAwsIaModules`
+  - `SearchUserProvidedModule`
+- **Use cases:** aws, terraform
+- **Tags:** [aws, terraform]
+
+#### aws-cdk-mcp-server (Popularity: ★★★★☆)
+AWS Cloud Development Kit (CDK) best practices, infrastructure as code patterns, and security compliance with CDK Nag.
+- **Tools (7):**
+  - `CDKGeneralGuidance`
+  - `CheckCDKNagSuppressions`
+  - `ExplainCDKNagRule`
+  - `GenerateBedrockAgentSchema`
+  - `GetAwsSolutionsConstructPattern`
+  - `LambdaLayerDocumentationProvider`
+  - `SearchGenAICDKConstructs`
+- **Use cases:** aws cdk mcp server, devops
+- **Tags:** [aws-cdk-mcp-server, devops]
+
+#### wikipedia-mcp (Popularity: ★★★★☆)
+A Model Context Protocol (MCP) server that retrieves information from Wikipedia to provide context to LLMs.
+- **Tools (11):**
+  - `extract_key_facts`
+  - `get_article`
+  - `get_coordinates`
+  - `get_links`
+  - `get_related_topics`
+  - `get_sections`
+  - `get_summary`
+  - `search_wikipedia`
+  - `summarize_article_for_query`
+  - `summarize_article_section`
+  - `test_wikipedia_connectivity`
+- **Use cases:** wikipedia mcp, devops
+- **Tags:** [wikipedia-mcp, devops]
+
+#### node-code-sandbox (Popularity: ★★★★☆)
+A Node.jsÔÇôbased Model Context Protocol server that spins up disposable Docker containers to execute arbitrary JavaScript.
+- **Tools (7):**
+  - `get_dependency_types`
+  - `run_js`
+  - `run_js_ephemeral`
+  - `sandbox_exec`
+  - `sandbox_initialize`
+  - `sandbox_stop`
+  - `search_npm_packages`
+- **Use cases:** node code sandbox, devops
+- **Tags:** [node-code-sandbox, devops]
+
+#### perplexity-ask (Popularity: ★★★☆☆)
+Connector for Perplexity API, to enable real-time, web-wide research.
+- **Tools (3):**
+  - `perplexity_ask`
+  - `perplexity_reason`
+  - `perplexity_research`
+- **Use cases:** search, API integration
+- **Tags:** [perplexity-ask, devops]
+
+#### kubernetes (Popularity: ★★★☆☆)
+Connect to a Kubernetes cluster and manage it.
+- **Tools (22):**
+  - `cleanup`
+  - `exec_in_pod`
+  - `explain_resource`
+  - `install_helm_chart`
+  - `kubectl_apply`
+  - `kubectl_context`
+  - `kubectl_create`
+  - `kubectl_delete`
+  - `kubectl_describe`
+  - `kubectl_generic`
+  - `kubectl_get`
+  - `kubectl_logs`
+  - `kubectl_patch`
+  - `kubectl_rollout`
+  - `kubectl_scale`
+  - ... and 7 more
+- **Use cases:** kubernetes, devops
+- **Tags:** [kubernetes, devops]
+
+#### dockerhub (Popularity: ★★★☆☆)
+Docker Hub official MCP server.
+- **Tools (13):**
+  - `checkRepository`
+  - `checkRepositoryTag`
+  - `createRepository`
+  - `dockerHardenedImages`
+  - `getPersonalNamespace`
+  - `getRepositoryInfo`
+  - `getRepositoryTag`
+  - `listAllNamespacesMemberOf`
+  - `listNamespaces`
+  - `listRepositoriesByNamespace`
+  - `listRepositoryTags`
+  - `search`
+  - `updateRepositoryInfo`
+- **Use cases:** docker, dockerhub
+- **Tags:** [docker, dockerhub]
+
+#### wolfram-alpha (Popularity: ★★★☆☆)
+Connect your chat repl to wolfram alpha computational intelligence.
+- **Tools (1):**
+  - `query-wolfram-alpha`
+- **Use cases:** wolfram alpha, devops
+- **Tags:** [wolfram-alpha, devops]
+
+#### browserbase (Popularity: ★★★☆☆)
+Allow LLMs to control a browser with Browserbase and Stagehand for AI-powered web automation, intelligent data extraction, and screenshot capture.
+- **Tools (8):**
+  - `browserbase_screenshot`
+  - `browserbase_session_close`
+  - `browserbase_session_create`
+  - `browserbase_stagehand_act`
+  - `browserbase_stagehand_extract`
+  - `browserbase_stagehand_get_url`
+  - `browserbase_stagehand_navigate`
+  - `browserbase_stagehand_observe`
+- **Use cases:** data management, automation
+- **Tags:** [browserbase, browser-automation, web-scraping, devops]
+
+#### neo4j-cypher (Popularity: ★★★☆☆)
+Interact with Neo4j using Cypher graph queries.
+- **Tools (3):**
+  - `get_neo4j_schema`
+  - `read_neo4j_cypher`
+  - `write_neo4j_cypher`
+- **Use cases:** neo4j cypher, devops
+- **Tags:** [neo4j-cypher, devops]
+
+#### neo4j-memory (Popularity: ★★★☆☆)
+Provide persistent memory capabilities through Neo4j graph database integration.
+- **Tools (9):**
+  - `add_observations`
+  - `create_entities`
+  - `create_relations`
+  - `delete_entities`
+  - `delete_observations`
+  - `delete_relations`
+  - `find_memories_by_name`
+  - `read_graph`
+  - `search_memories`
+- **Use cases:** data management
+- **Tags:** [neo4j-memory, devops]
+
+#### azure (Popularity: ★★★☆☆)
+The Azure MCP Server, bringing the power of Azure to your agents.
+- **Tools (27):**
+  - `azmcp-appconfig-account-list`
+  - `azmcp-appconfig-kv-delete`
+  - `azmcp-appconfig-kv-list`
+  - `azmcp-appconfig-kv-lock`
+  - `azmcp-appconfig-kv-set`
+  - `azmcp-appconfig-kv-show`
+  - `azmcp-appconfig-kv-unlock`
+  - `azmcp-cosmos-account-list`
+  - `azmcp-cosmos-database-container-item-query`
+  - `azmcp-cosmos-database-container-list`
+  - `azmcp-cosmos-database-list`
+  - `azmcp-extension-az`
+  - `azmcp-extension-azd`
+  - `azmcp-group-list`
+  - `azmcp-monitor-log-query`
+  - ... and 12 more
+- **Use cases:** azure, devops
+- **Tags:** [azure, devops]
+
+#### line (Popularity: ★★★☆☆)
+MCP server that integrates the LINE Messaging API to connect an AI Agent to the LINE Official Account.
+- **Tools (10):**
+  - `broadcast_flex_message`
+  - `broadcast_text_message`
+  - `cancel_rich_menu_default`
+  - `delete_rich_menu`
+  - `get_message_quota`
+  - `get_profile`
+  - `get_rich_menu_list`
+  - `push_flex_message`
+  - `push_text_message`
+  - `set_rich_menu_default`
+- **Use cases:** API integration
+- **Tags:** [line, devops]
+
+#### neo4j-cloud-aura-api (Popularity: ★★★☆☆)
+Manage Neo4j Aura database instances through the Neo4j Aura API.
+- **Tools (12):**
+  - `create_instance`
+  - `delete_instance`
+  - `get_instance_by_name`
+  - `get_instance_details`
+  - `get_tenant_details`
+  - `list_instances`
+  - `list_tenants`
+  - `pause_instance`
+  - `resume_instance`
+  - `update_instance_memory`
+  - `update_instance_name`
+  - `update_instance_vector_optimization`
+- **Use cases:** data management, API integration
+- **Tags:** [neo4j-cloud-aura-api, devops]
+
+#### terraform (Popularity: ★★★☆☆)
+The Terraform MCP Server provides seamless integration with Terraform ecosystem, enabling advanced automation and interaction capabilities for Infrastructure as Code (IaC) development.
+- **Tools (9):**
+  - `get_latest_module_version`
+  - `get_latest_provider_version`
+  - `get_module_details`
+  - `get_policy_details`
+  - `get_provider_capabilities`
+  - `get_provider_details`
+  - `search_modules`
+  - `search_policies`
+  - `search_providers`
+- **Use cases:** automation
+- **Tags:** [hashicorp, terraform]
+
+#### hyperbrowser (Popularity: ★★☆☆☆)
+A MCP server implementation for hyperbrowser.
+- **Tools (10):**
+  - `browser_use_agent`
+  - `claude_computer_use_agent`
+  - `crawl_webpages`
+  - `create_profile`
+  - `delete_profile`
+  - `extract_structured_data`
+  - `list_profiles`
+  - `openai_computer_use_agent`
+  - `scrape_webpage`
+  - `search_with_bing`
+- **Use cases:** hyperbrowser, devops
+- **Tags:** [hyperbrowser, devops]
+
+#### chroma (Popularity: ★★☆☆☆)
+A Model Context Protocol (MCP) server implementation that provides database capabilities for Chroma.
+- **Tools (13):**
+  - `chroma_add_documents`
+  - `chroma_create_collection`
+  - `chroma_delete_collection`
+  - `chroma_delete_documents`
+  - `chroma_fork_collection`
+  - `chroma_get_collection_count`
+  - `chroma_get_collection_info`
+  - `chroma_get_documents`
+  - `chroma_list_collections`
+  - `chroma_modify_collection`
+  - `chroma_peek_collection`
+  - `chroma_query_documents`
+  - `chroma_update_documents`
+- **Use cases:** data management
+- **Tags:** [chroma, devops]
+
+#### ref (Popularity: ★★☆☆☆)
+Ref powerful search tool connets your coding tools with documentation context. It includes an up-to-date index of public documentation and it can ingest your private documentation (eg. GitHub repos, PDFs) as well.
+- **Tools (2):**
+  - `ref_read_url`
+  - `ref_search_documentation`
+- **Use cases:** search
+- **Tags:** [devops, documentation]
+
+#### cloud-run-mcp (Popularity: ★★☆☆☆)
+MCP server to deploy apps to Cloud Run.
+- **Tools (8):**
+  - `create_project`
+  - `deploy_container_image`
+  - `deploy_file_contents`
+  - `deploy_local_folder`
+  - `get_service`
+  - `get_service_log`
+  - `list_projects`
+  - `list_services`
+- **Use cases:** deployment
+- **Tags:** [devops]
+
+#### neo4j-data-modeling (Popularity: ★★☆☆☆)
+MCP server that assists in creating, validating and visualizing graph data models.
+- **Tools (11):**
+  - `export_to_arrows_json`
+  - `get_constraints_cypher_queries`
+  - `get_example_data_model`
+  - `get_mermaid_config_str`
+  - `get_node_cypher_ingest_query`
+  - `get_relationship_cypher_ingest_query`
+  - `list_example_data_models`
+  - `load_from_arrows_json`
+  - `validate_data_model`
+  - `validate_node`
+  - `validate_relationship`
+- **Use cases:** data management
+- **Tags:** [neo4j-data-modeling, devops]
+
+#### kubectl-mcp-server (Popularity: ★★☆☆☆)
+MCP Server that enables AI assistants to interact with Kubernetes clusters via kubectl operations.
+- **Tools (26):**
+  - `check_pod_health`
+  - `create_deployment`
+  - `delete_resource`
+  - `get_api_resources`
+  - `get_cluster_roles`
+  - `get_configmaps`
+  - `get_current_context`
+  - `get_deployments`
+  - `get_events`
+  - `get_logs`
+  - `get_namespaces`
+  - `get_nodes`
+  - `get_pod_events`
+  - `get_pods`
+  - `get_rbac_roles`
+  - ... and 11 more
+- **Use cases:** kubectl mcp server, kubernetes, kubectl
+- **Tags:** [kubectl-mcp-server, kubernetes, kubectl, devops]
+
+#### jetbrains (Popularity: ★★☆☆☆)
+A model context protocol server to work with JetBrains IDEs: IntelliJ, PyCharm, WebStorm, etc. Also, works with Android Studio.
+- **Tools (30):**
+  - `create_new_file_with_text`
+  - `execute_action_by_id`
+  - `execute_terminal_command`
+  - `find_commit_by_message`
+  - `find_files_by_name_substring`
+  - `get_all_open_file_paths`
+  - `get_all_open_file_texts`
+  - `get_debugger_breakpoints`
+  - `get_file_text_by_path`
+  - `get_open_in_editor_file_path`
+  - `get_open_in_editor_file_text`
+  - `get_progress_indicators`
+  - `get_project_dependencies`
+  - `get_project_modules`
+  - `get_project_vcs_status`
+  - ... and 15 more
+- **Use cases:** jetbrains, devops
+- **Tags:** [jetbrains, devops]
+
+#### mcp-discord (Popularity: ★★☆☆☆)
+Interact with the Discord platform.
+- **Tools (20):**
+  - `discord_add_multiple_reactions`
+  - `discord_add_reaction`
+  - `discord_create_forum_post`
+  - `discord_create_text_channel`
+  - `discord_create_webhook`
+  - `discord_delete_channel`
+  - `discord_delete_forum_post`
+  - `discord_delete_message`
+  - `discord_delete_webhook`
+  - `discord_edit_webhook`
+  - `discord_get_forum_channels`
+  - `discord_get_forum_post`
+  - `discord_get_server_info`
+  - `discord_login`
+  - `discord_read_messages`
+  - ... and 5 more
+- **Use cases:** discord, devops
+- **Tags:** [discord, devops]
+
+#### openapi-schema (Popularity: ★★☆☆☆)
+OpenAPI Schema Model Context Protocol Server.
+- **Tools (10):**
+  - `get-component`
+  - `get-endpoint`
+  - `get-examples`
+  - `get-path-parameters`
+  - `get-request-body`
+  - `get-response-schema`
+  - `list-components`
+  - `list-endpoints`
+  - `list-security-schemes`
+  - `search-schema`
+- **Use cases:** API integration
+- **Tags:** [openapi-schema, devops]
+
+#### e2b (Popularity: ★★☆☆☆)
+Giving Claude ability to run code with E2B via MCP (Model Context Protocol).
+- **Tools (1):**
+  - `run_code`
+- **Use cases:** e2b, devops
+- **Tags:** [e2b, devops]
+
+#### osp_marketing_tools (Popularity: ★★☆☆☆)
+A Model Context Protocol (MCP) server that empowers LLMs to use some of Open Srategy Partners' core writing and product marketing techniques.
+- **Tools (6):**
+  - `get_editing_codes`
+  - `get_meta_guide`
+  - `get_on_page_seo_guide`
+  - `get_value_map_positioning_guide`
+  - `get_writing_guide`
+  - `health_check`
+- **Use cases:** osp_marketing_tools, devops
+- **Tags:** [osp_marketing_tools, devops]
+
+#### mcp-api-gateway (Popularity: ★★☆☆☆)
+A universal MCP (Model Context Protocol) server to integrate any API with Claude Desktop using only Docker configurations.
+- **Tools (2):**
+  - `execute_api`
+  - `get_api_info`
+- **Use cases:** API integration
+- **Tags:** [api-gateway, devops]
+
+#### dart (Popularity: ★★☆☆☆)
+Dart AI Model Context Protocol (MCP) server.
+- **Tools (16):**
+  - `add_task_comment`
+  - `create_doc`
+  - `create_task`
+  - `delete_doc`
+  - `delete_task`
+  - `get_config`
+  - `get_dartboard`
+  - `get_doc`
+  - `get_folder`
+  - `get_task`
+  - `get_view`
+  - `list_docs`
+  - `list_task_comments`
+  - `list_tasks`
+  - `update_doc`
+  - ... and 1 more
+- **Use cases:** dart, devops
+- **Tags:** [dart, devops]
+
+#### github-chat (Popularity: ★★☆☆☆)
+A Model Context Protocol (MCP) for analyzing and querying GitHub repositories using the GitHub Chat API.
+- **Tools (2):**
+  - `index_repository`
+  - `query_repository`
+- **Use cases:** API integration
+- **Tags:** [github-chat, devops]
+
+#### kagisearch (Popularity: ★★☆☆☆)
+The Official Model Context Protocol (MCP) server for Kagi search & other tools.
+- **Tools (2):**
+  - `kagi_search_fetch`
+  - `kagi_summarizer`
+- **Use cases:** search
+- **Tags:** [kagisearch, devops]
+
+#### npm-sentinel (Popularity: ★★☆☆☆)
+MCP server that enables intelligent NPM package analysis powered by AI.
+- **Tools (19):**
+  - `npmAlternatives`
+  - `npmChangelogAnalysis`
+  - `npmCompare`
+  - `npmDeprecated`
+  - `npmDeps`
+  - `npmLatest`
+  - `npmLicenseCompatibility`
+  - `npmMaintainers`
+  - `npmMaintenance`
+  - `npmPackageReadme`
+  - `npmQuality`
+  - `npmRepoStats`
+  - `npmScore`
+  - `npmSearch`
+  - `npmSize`
+  - ... and 4 more
+- **Use cases:** npm, npm package
+- **Tags:** [npm, npm-package]
+
+#### databutton (Popularity: ★★☆☆☆)
+Databutton MCP Server.
+- **Tools (1):**
+  - `submit_app_requirements`
+- **Use cases:** data management
+- **Tags:** [databutton, devops]
+
+#### atlas-docs (Popularity: ★★☆☆☆)
+Provide LLMs hosted, clean markdown documentation of libraries and frameworks.
+- **Tools (5):**
+  - `get_docs_full`
+  - `get_docs_index`
+  - `get_docs_page`
+  - `list_docs`
+  - `search_docs`
+- **Use cases:** atlas docs, devops
+- **Tags:** [atlas-docs, devops]
+
+#### postman (Popularity: ★★☆☆☆)
+Postman's MCP server connects AI agents, assistants, and chatbots directly to your APIs on Postman. Use natural language to prompt AI to automate work across your Postman collections, environments, workspaces, and more.
+- **Tools (38):**
+  - `createCollection`
+  - `createCollectionRequest`
+  - `createCollectionResponse`
+  - `createEnvironment`
+  - `createMock`
+  - `createSpec`
+  - `createSpecFile`
+  - `createWorkspace`
+  - `duplicateCollection`
+  - `generateCollection`
+  - `generateSpecFromCollection`
+  - `getAllSpecs`
+  - `getAuthenticatedUser`
+  - `getCollection`
+  - `getCollections`
+  - ... and 23 more
+- **Use cases:** API integration
+- **Tags:** [devops]
+
+#### razorpay (Popularity: ★★☆☆☆)
+Razorpay's Official MCP Server.
+- **Tools (42):**
+  - `capture_payment`
+  - `close_qr_code`
+  - `create_instant_settlement`
+  - `create_order`
+  - `create_payment_link`
+  - `create_qr_code`
+  - `create_refund`
+  - `fetch_all_instant_settlements`
+  - `fetch_all_orders`
+  - `fetch_all_payment_links`
+  - `fetch_all_payments`
+  - `fetch_all_payouts`
+  - `fetch_all_qr_codes`
+  - `fetch_all_refunds`
+  - `fetch_all_settlements`
+  - ... and 27 more
+- **Use cases:** razorpay, devops
+- **Tags:** [razorpay, devops]
+
+#### cyreslab-ai-shodan (Popularity: ★★☆☆☆)
+A Model Context Protocol server that provides access to Shodan API functionality.
+- **Tools (5):**
+  - `get_host_info`
+  - `get_ssl_info`
+  - `scan_network_range`
+  - `search_iot_devices`
+  - `search_shodan`
+- **Use cases:** API integration
+- **Tags:** [cyreslab-ai-shodan, devops]
+
+#### opik (Popularity: ★★☆☆☆)
+Model Context Protocol (MCP) implementation for Opik enabling seamless IDE integration and unified access to prompts, projects, traces, and metrics.
+- **Tools (13):**
+  - `add-trace-feedback`
+  - `create-project`
+  - `create-prompt`
+  - `get-prompt-version`
+  - `get-prompts`
+  - `get-trace-by-id`
+  - `get-trace-stats`
+  - `get-trace-threads`
+  - `list-projects`
+  - `list-traces`
+  - `opik-integration-docs`
+  - `save-prompt-version`
+  - `search-traces`
+- **Use cases:** opik, devops
+- **Tags:** [opik, devops]
+
+#### circleci (Popularity: ★★☆☆☆)
+A specialized server implementation for the Model Context Protocol (MCP) designed to integrate with CircleCI's development workflow. This project serves as a bridge between CircleCI's infrastructure and the Model Context Protocol, enabling enhanced AI-powered development experiences.
+- **Tools (12):**
+  - `analyze_diff`
+  - `config_helper`
+  - `create_prompt_template`
+  - `find_flaky_tests`
+  - `get_build_failure_logs`
+  - `get_job_test_results`
+  - `get_latest_pipeline_status`
+  - `list_followed_projects`
+  - `recommend_prompt_template_tests`
+  - `rerun_workflow`
+  - `run_evaluation_tests`
+  - `run_pipeline`
+- **Use cases:** circleci, devops
+- **Tags:** [circleci, devops]
+
+#### heroku (Popularity: ★★☆☆☆)
+Heroku Platform MCP Server using the Heroku CLI.
+- **Tools (34):**
+  - `create_addon`
+  - `create_app`
+  - `deploy_one_off_dyno`
+  - `deploy_to_heroku`
+  - `get_addon_info`
+  - `get_app_info`
+  - `get_app_logs`
+  - `list_addon_plans`
+  - `list_addon_services`
+  - `list_addons`
+  - `list_apps`
+  - `list_private_spaces`
+  - `list_teams`
+  - `maintenance_off`
+  - `maintenance_on`
+  - ... and 19 more
+- **Use cases:** heroku, devops
+- **Tags:** [heroku, devops]
+
+#### scrapegraph (Popularity: ★★☆☆☆)
+ScapeGraph MCP Server.
+- **Tools (5):**
+  - `markdownify`
+  - `searchscraper`
+  - `smartcrawler_fetch_results`
+  - `smartcrawler_initiate`
+  - `smartscraper`
+- **Use cases:** scrapegraph, devops
+- **Tags:** [scrapegraph, devops]
+
+#### glif (Popularity: ★★☆☆☆)
+Easily run glif.app AI workflows inside your LLM: image generators, memes, selfies, and more. Glif supports all major multimedia AI models inside one app.
+- **Tools (10):**
+  - `glif_info`
+  - `list_featured_glifs`
+  - `list_saved_glif_tools`
+  - `my_glif_user_info`
+  - `my_glifs`
+  - `remove_all_glif_tools`
+  - `remove_glif_tool`
+  - `run_glif`
+  - `save_glif_as_tool`
+  - `search_glifs`
+- **Use cases:** glif, devops
+- **Tags:** [glif, devops]
+
+#### lara (Popularity: ★★☆☆☆)
+Connect to Lara Translate API, enabling powerful translation capabilities with support for language detection and context-aware translations.
+- **Tools (10):**
+  - `add_translation`
+  - `check_import_status`
+  - `create_memory`
+  - `delete_memory`
+  - `delete_translation`
+  - `import_tmx`
+  - `list_languages`
+  - `list_memories`
+  - `translate`
+  - `update_memory`
+- **Use cases:** API integration
+- **Tags:** [lara, devops]
+
+#### oxylabs (Popularity: ★★☆☆☆)
+A Model Context Protocol (MCP) server that enables AI assistants like Claude to seamlessly access web data through Oxylabs' powerful web scraping technology.
+- **Tools (4):**
+  - `amazon_product_scraper`
+  - `amazon_search_scraper`
+  - `google_search_scraper`
+  - `universal_scraper`
+- **Use cases:** data management, API integration
+- **Tags:** [oxylabs, devops]
+
+#### webflow (Popularity: ★★☆☆☆)
+Model Context Protocol (MCP) server for the Webflow Data API.
+- **Tools (21):**
+  - `collection_fields_create_option`
+  - `collection_fields_create_reference`
+  - `collection_fields_create_static`
+  - `collection_fields_update`
+  - `collections_create`
+  - `collections_get`
+  - `collections_items_create_item`
+  - `collections_items_create_item_live`
+  - `collections_items_list_items`
+  - `collections_items_publish_items`
+  - `collections_items_update_items`
+  - `collections_items_update_items_live`
+  - `collections_list`
+  - `pages_get_content`
+  - `pages_get_metadata`
+  - ... and 6 more
+- **Use cases:** data management, API integration
+- **Tags:** [webflow, devops]
+
+#### aks (Popularity: ★★☆☆☆)
+Azure Kubernetes Service (AKS) official MCP server.
+- **Tools (15):**
+  - `az_advisor_recommendation`
+  - `az_aks_operations`
+  - `az_compute_operations`
+  - `az_fleet`
+  - `az_monitoring`
+  - `az_network_resources`
+  - `get_aks_vmss_info`
+  - `inspektor_gadget_observability`
+  - `kubectl_cluster`
+  - `kubectl_config`
+  - `kubectl_diagnostics`
+  - `kubectl_resources`
+  - `list_detectors`
+  - `run_detector`
+  - `run_detectors_by_category`
+- **Use cases:** devops, azure, kubernetes
+- **Tags:** [devops, azure, kubernetes, aks]
+
+#### render (Popularity: ★★☆☆☆)
+Interact with your Render resources via LLMs.
+- **Tools (22):**
+  - `create_key_value`
+  - `create_postgres`
+  - `create_static_site`
+  - `create_web_service`
+  - `get_deploy`
+  - `get_key_value`
+  - `get_metrics`
+  - `get_postgres`
+  - `get_selected_workspace`
+  - `get_service`
+  - `list_deploys`
+  - `list_key_value`
+  - `list_log_label_values`
+  - `list_logs`
+  - `list_postgres_instances`
+  - ... and 7 more
+- **Use cases:** render, devops
+- **Tags:** [render, devops]
+
+#### dappier (Popularity: ★★☆☆☆)
+Enable fast, free real-time web search and access premium data from trusted media brandsÔÇönews, financial markets, sports, entertainment, weather, and more. Build powerful AI agents with Dappier.
+- **Tools (2):**
+  - `dappier_ai_recommendations`
+  - `dappier_real_time_search`
+- **Use cases:** search, data management
+- **Tags:** [dappier, devops]
+
+#### hostinger-mcp-server (Popularity: ★★☆☆☆)
+Interact with Hostinger services over the Hostinger API.
+- **Tools (113):**
+  - `DNS_deleteDNSRecordsV1`
+  - `DNS_getDNSRecordsV1`
+  - `DNS_getDNSSnapshotListV1`
+  - `DNS_getDNSSnapshotV1`
+  - `DNS_resetDNSRecordsV1`
+  - `DNS_restoreDNSSnapshotV1`
+  - `DNS_updateDNSRecordsV1`
+  - `DNS_validateDNSRecordsV1`
+  - `VPS_activateFirewallV1`
+  - `VPS_attachPublicKeyV1`
+  - `VPS_createFirewallRuleV1`
+  - `VPS_createNewFirewallV1`
+  - `VPS_createNewProjectV1`
+  - `VPS_createPTRRecordV1`
+  - `VPS_createPostInstallScriptV1`
+  - ... and 98 more
+- **Use cases:** API integration
+- **Tags:** [devops]
+
+#### edubase (Popularity: ★★☆☆☆)
+The EduBase MCP server enables Claude and other LLMs to interact with EduBase's comprehensive e-learning platform through the Model Context Protocol (MCP).
+- **Tools (157):**
+  - `edubase_delete_class_members`
+  - `edubase_delete_class_permission`
+  - `edubase_delete_class_tag`
+  - `edubase_delete_course_permission`
+  - `edubase_delete_course_tag`
+  - `edubase_delete_course_transfer`
+  - `edubase_delete_event_permission`
+  - `edubase_delete_event_tag`
+  - `edubase_delete_exam`
+  - `edubase_delete_exam_permission`
+  - `edubase_delete_exam_tag`
+  - `edubase_delete_exam_users`
+  - `edubase_delete_integration`
+  - `edubase_delete_integration_permission`
+  - `edubase_delete_integration_tag`
+  - ... and 142 more
+- **Use cases:** edubase, devops
+- **Tags:** [edubase, devops]
+
+#### box (Popularity: ★★☆☆☆)
+An MCP server capable of interacting with the Box API.
+- **Tools (12):**
+  - `box_ai_extract_data`
+  - `box_ask_ai_tool`
+  - `box_ask_ai_tool_multi_file`
+  - `box_authorize_app_tool`
+  - `box_download_file_tool`
+  - `box_list_folder_content_by_folder_id`
+  - `box_manage_folder_tool`
+  - `box_read_tool`
+  - `box_search_folder_by_name`
+  - `box_search_tool`
+  - `box_upload_file_tool`
+  - `box_who_am_i`
+- **Use cases:** API integration
+- **Tags:** [box, devops]
+
+#### kong (Popularity: ★★☆☆☆)
+A Model Context Protocol (MCP) server for interacting with Kong Konnect APIs, allowing AI assistants to query and analyze Kong Gateway configurations, traffic, and analytics.
+- **Tools (10):**
+  - `check_control_plane_group_membership`
+  - `get_consumer_requests`
+  - `get_control_plane`
+  - `list_consumers`
+  - `list_control_plane_group_memberships`
+  - `list_control_planes`
+  - `list_plugins`
+  - `list_routes`
+  - `list_services`
+  - `query_api_requests`
+- **Use cases:** API integration
+- **Tags:** [kong, devops, service-mesh]
+
+#### handwriting-ocr (Popularity: ★★☆☆☆)
+Model Context Protocol (MCP) Server for Handwriting OCR.
+- **Tools (3):**
+  - `check_status`
+  - `get_text`
+  - `upload_document`
+- **Use cases:** handwriting ocr, devops
+- **Tags:** [handwriting-ocr, devops]
+
+#### scrapezy (Popularity: ★★☆☆☆)
+A Model Context Protocol server for Scrapezy that enables AI models to extract structured data from websites.
+- **Tools (1):**
+  - `extract-structured-data`
+- **Use cases:** data management
+- **Tags:** [scrapezy, devops]
+
+#### veyrax (Popularity: ★★☆☆☆)
+VeyraX MCP is the only connection you need to access all your tools in any MCP-compatible environment.
+- **Tools (3):**
+  - `get_flow`
+  - `get_tools`
+  - `tool_call`
+- **Use cases:** veyrax, devops
+- **Tags:** [veyrax, devops]
+
+#### gyazo (Popularity: ★★☆☆☆)
+Official Model Context Protocol server for Gyazo.
+- **Tools (4):**
+  - `gyazo_image`
+  - `gyazo_latest_image`
+  - `gyazo_search`
+  - `gyazo_upload`
+- **Use cases:** gyazo, devops
+- **Tags:** [gyazo, devops]
+
+#### keboola-mcp (Popularity: ★★☆☆☆)
+Keboola MCP Server is an open-source bridge between your Keboola project and modern AI tools.
+- **Tools (33):**
+  - `add_config_row`
+  - `create_config`
+  - `create_flow`
+  - `create_oauth_url`
+  - `create_sql_transformation`
+  - `docs_query`
+  - `find_component_id`
+  - `get_bucket`
+  - `get_component`
+  - `get_config`
+  - `get_config_examples`
+  - `get_flow`
+  - `get_flow_schema`
+  - `get_job`
+  - `get_project_info`
+  - ... and 18 more
+- **Use cases:** data platform, etl pipeline, storage
+- **Tags:** [data-platform, etl-pipeline, storage]
+
+#### audiense-insights (Popularity: ★★☆☆☆)
+Audiense Insights MCP Server is a server based on the Model Context Protocol (MCP) that allows Claude and other MCP-compatible clients to interact with your Audiense Insights account.
+- **Tools (8):**
+  - `compare-audience-influencers`
+  - `get-audience-content`
+  - `get-audience-insights`
+  - `get-baselines`
+  - `get-categories`
+  - `get-report-info`
+  - `get-reports`
+  - `report-summary`
+- **Use cases:** audiense insights, devops
+- **Tags:** [audiense-insights, devops]
+
+#### descope (Popularity: ★★☆☆☆)
+The Descope Model Context Protocol (MCP) server provides an interface to interact with Descope's Management APIs, enabling the search and retrieval of project-related information.
+- **Tools (4):**
+  - `create-user`
+  - `invite-user`
+  - `search-audits`
+  - `search-users`
+- **Use cases:** search, API integration
+- **Tags:** [descope, devops]
+
+#### devhub-cms (Popularity: ★★☆☆☆)
+DevHub CMS LLM integration through the Model Context Protocol.
+- **Tools (10):**
+  - `create_blog_post`
+  - `get_blog_post`
+  - `get_businesses`
+  - `get_hours_of_operation`
+  - `get_locations`
+  - `get_nearest_location`
+  - `site_from_url`
+  - `update_blog_post`
+  - `update_hours`
+  - `upload_image`
+- **Use cases:** devhub cms, devops
+- **Tags:** [devhub-cms, devops]
+
+#### bitrefill (Popularity: ★★☆☆☆)
+A Model Context Protocol Server connector for Bitrefill public API, to enable AI agents to search and shop on Bitrefill.
+- **Tools (12):**
+  - `categories`
+  - `create_invoice`
+  - `detail`
+  - `get_account_balance`
+  - `get_invoice`
+  - `get_invoices`
+  - `get_order`
+  - `get_orders`
+  - `pay_invoice`
+  - `ping`
+  - `search`
+  - `unseal_order`
+- **Use cases:** search, API integration
+- **Tags:** [bitrefill, devops]
+
+#### fibery (Popularity: ★★☆☆☆)
+Interact with your Fibery workspace.
+- **Tools (7):**
+  - `create_entities_batch`
+  - `create_entity`
+  - `current_date`
+  - `describe_database`
+  - `list_databases`
+  - `query_database`
+  - `update_entity`
+- **Use cases:** fibery, devops
+- **Tags:** [fibery, devops]
+
+#### hyperspell (Popularity: ★★☆☆☆)
+Hyperspell MCP Server.
+- **Tools (3):**
+  - `Add File`
+  - `Add Memory`
+  - `Search Hyperspell`
+- **Use cases:** hyperspell, devops
+- **Tags:** [hyperspell, devops]
+
+#### multiversx-mx (Popularity: ★★☆☆☆)
+MCP Server for MultiversX.
+- **Tools (14):**
+  - `create-sft-nft-mesdt-tokens`
+  - `create-wallet`
+  - `get-balance-of-address`
+  - `get-network`
+  - `get-tokens-of-address`
+  - `get-wallet-address`
+  - `issue-fungible-token`
+  - `issue-meta-esdt-collection`
+  - `issue-nft-collection`
+  - `issue-semi-fungible-collection`
+  - `send-egld`
+  - `send-egld-to-multiple-receivers`
+  - `send-fungible-tokens`
+  - `send-sft-nft-meta-tokens`
+- **Use cases:** multiversx mx, devops
+- **Tags:** [multiversx-mx, devops]
+
+#### iaptic (Popularity: ★★☆☆☆)
+Model Context Protocol server for interacting with iaptic.
+- **Tools (16):**
+  - `customer_add_purchase`
+  - `customer_get`
+  - `customer_list`
+  - `customer_subscription`
+  - `customer_transactions`
+  - `event_list`
+  - `iaptic_current_app`
+  - `iaptic_reset_app`
+  - `iaptic_switch_app`
+  - `purchase_get`
+  - `purchase_list`
+  - `stats_app`
+  - `stats_get`
+  - `stripe_prices`
+  - `transaction_get`
+  - ... and 1 more
+- **Use cases:** iaptic, devops
+- **Tags:** [iaptic, devops]
+
+#### risken (Popularity: ★★☆☆☆)
+RISKEN's official MCP Server.
+- **Tools (4):**
+  - `archive_finding`
+  - `get_project`
+  - `search_alert`
+  - `search_finding`
+- **Use cases:** risken, devops
+- **Tags:** [risken, devops]
+
+#### triplewhale (Popularity: ★★☆☆☆)
+Triplewhale MCP Server.
+- **Tools (1):**
+  - `moby`
+- **Use cases:** triplewhale, devops
+- **Tags:** [triplewhale, devops]
+
+#### tembo (Popularity: ★★☆☆☆)
+MCP server for Tembo Cloud's platform API.
+- **Tools (10):**
+  - `ask_tembo`
+  - `create_instance`
+  - `delete_instance`
+  - `get_all_apps`
+  - `get_all_instances`
+  - `get_app`
+  - `get_instance`
+  - `get_instance_schema`
+  - `patch_instance`
+  - `restore_instance`
+- **Use cases:** API integration
+- **Tags:** [tembo, devops]
+
+#### hackle (Popularity: ★★☆☆☆)
+Model Context Protocol server for Hackle.
+- **Tools (19):**
+  - `active-user-series`
+  - `analytics-chart-detail`
+  - `analytics-chart-list`
+  - `data-report-detail`
+  - `data-report-list`
+  - `experiment-detail`
+  - `experiment-list`
+  - `in-app-message-detail`
+  - `in-app-message-list`
+  - `push-message-detail`
+  - `push-message-list`
+  - `remote-config-create`
+  - `remote-config-detail`
+  - `remote-config-list`
+  - `remote-config-update`
+  - ... and 4 more
+- **Use cases:** hackle, devops
+- **Tags:** [hackle, devops]
+
+#### flexprice (Popularity: ★★☆☆☆)
+Official flexprice MCP Server.
+- **Tools (25):**
+  - `getCustomerById`
+  - `getCustomerByLookupKey`
+  - `getCustomerEntitlements`
+  - `getCustomerSubscriptions`
+  - `getCustomerUsageSummary`
+  - `getCustomers`
+  - `getEventsByCustomer`
+  - `getInvoiceById`
+  - `getInvoiceByNumber`
+  - `getInvoices`
+  - `getInvoicesByCustomerId`
+  - `getPaymentById`
+  - `getPayments`
+  - `getPlanById`
+  - `getPlans`
+  - ... and 10 more
+- **Use cases:** flexprice, devops
+- **Tags:** [flexprice, devops]
+
+#### buildkite (Popularity: ★★☆☆☆)
+Buildkite MCP lets agents interact with Buildkite Builds, Jobs, Logs, Packages and Test Suites.
+- **Tools (24):**
+  - `access_token`
+  - `create_build`
+  - `create_pipeline`
+  - `current_user`
+  - `get_artifact`
+  - `get_build`
+  - `get_build_test_engine_runs`
+  - `get_cluster`
+  - `get_cluster_queue`
+  - `get_failed_executions`
+  - `get_job_logs`
+  - `get_jobs`
+  - `get_pipeline`
+  - `get_test`
+  - `get_test_run`
+  - ... and 9 more
+- **Use cases:** automation
+- **Tags:** [devops]
+
+#### cdata-connectcloud (Popularity: ★★☆☆☆)
+This fully functional MCP Server allows you to connect to any data source in Connect Cloud from Claude Desktop.
+- **Tools (12):**
+  - `execData`
+  - `getCatalogs`
+  - `getColumns`
+  - `getExportedKeys`
+  - `getImportedKeys`
+  - `getIndexes`
+  - `getPrimaryKeys`
+  - `getProcedureParameters`
+  - `getProcedures`
+  - `getSchemas`
+  - `getTables`
+  - `queryData`
+- **Use cases:** data management
+- **Tags:** [cdata-connectcloud, devops]
+
+#### husqvarna-automower (Popularity: ★★☆☆☆)
+MCP Server for huqsvarna automower.
+- **Tools (1):**
+  - `Husqvarna Automowers Status`
+- **Use cases:** husqvarna automower, devops
+- **Tags:** [husqvarna-automower, devops]
+
+#### text-to-graphql (Popularity: ★★☆☆☆)
+Transform natural language queries into GraphQL queries using an AI agent. Provides schema management, query validation, execution, and history tracking.
+- **Tools (5):**
+  - `execute_graphql_query`
+  - `generate_graphql_query`
+  - `get_query_examples`
+  - `get_query_history`
+  - `validate_graphql_query`
+- **Use cases:** monitoring
+- **Tags:** [graphql, ai, natural-language, api, query-generation]
+
+#### mapbox-devkit (Popularity: ★★☆☆☆)
+Direct access to Mapbox developer APIs for AI assistants. Enables style management, token management, GeoJSON preview, and other developer tools for building Mapbox applications.
+- **Tools (17):**
+  - `bounding_box_tool`
+  - `coordinate_conversion_tool`
+  - `country_bounding_box_tool`
+  - `create_style_tool`
+  - `create_token_tool`
+  - `delete_style_tool`
+  - `geojson_preview_tool`
+  - `get_latest_mapbox_docs_tool`
+  - `get_reference_tool`
+  - `list_styles_tool`
+  - `list_tokens_tool`
+  - `preview_style_tool`
+  - `retrieve_style_tool`
+  - `style_builder_tool`
+  - `style_comparison_tool`
+  - ... and 2 more
+- **Use cases:** API integration
+- **Tags:** [mapbox, development, devtools, api, styles]
+
+#### google-maps-comprehensive (Popularity: ★★☆☆☆)
+Complete Google Maps integration with 8 tools including geocoding, places search, directions, elevation data, and more using Google's latest APIs.
+- **Tools (8):**
+  - `maps_directions`
+  - `maps_distance_matrix`
+  - `maps_elevation`
+  - `maps_geocode`
+  - `maps_ping`
+  - `maps_place_details`
+  - `maps_reverse_geocode`
+  - `maps_search_places`
+- **Use cases:** search, data management, automation, API integration
+- **Tags:** [google-maps, maps, geocoding, directions, places, elevation]
+
+#### pref-editor (Popularity: ★★☆☆☆)
+Pref Editor is a tool for viewing and editing Android app preferences during development.
+- **Tools (7):**
+  - `add_preference`
+  - `change_preference`
+  - `delete_preference`
+  - `devices`
+  - `list_apps`
+  - `list_files`
+  - `read_preferences`
+- **Use cases:** android preferences, android development, preferences datastore
+- **Tags:** [android preferences, android development, preferences-datastore, shared-preferences]
+
+#### smartbear (Popularity: ★★☆☆☆)
+MCP server for AI access to SmartBear tools, including BugSnag, Reflect, API Hub, PactFlow.
+- **Tools (38):**
+  - `api_hub_create_api_from_template`
+  - `api_hub_create_or_update_api`
+  - `api_hub_create_portal`
+  - `api_hub_create_portal_product`
+  - `api_hub_delete_portal`
+  - `api_hub_delete_portal_product`
+  - `api_hub_get_api_definition`
+  - `api_hub_get_portal`
+  - `api_hub_get_portal_product`
+  - `api_hub_list_portal_products`
+  - `api_hub_list_portals`
+  - `api_hub_scan_api_standardization`
+  - `api_hub_search_apis_and_domains`
+  - `api_hub_update_portal`
+  - `api_hub_update_portal_product`
+  - ... and 23 more
+- **Use cases:** API integration
+- **Tags:** [smartbear, devops, api-testing, monitoring]
+
+#### beagle-security (Popularity: ★★☆☆☆)
+Connects with the Beagle Security backend using a user token to manage applications, run automated security tests, track vulnerabilities across environments, and gain intelligence from Application and API vulnerability data.
+- **Tools (17):**
+  - `beagle_create_application`
+  - `beagle_create_project`
+  - `beagle_delete_application`
+  - `beagle_delete_project`
+  - `beagle_get_application`
+  - `beagle_get_domain_signature`
+  - `beagle_get_test_result`
+  - `beagle_get_test_status`
+  - `beagle_list_applications`
+  - `beagle_list_projects`
+  - `beagle_list_running_tests`
+  - `beagle_list_test_sessions`
+  - `beagle_modify_application`
+  - `beagle_modify_project`
+  - `beagle_start_test`
+  - ... and 2 more
+- **Use cases:** data management, monitoring, automation, API integration
+- **Tags:** [devops]
+
+#### ros2 (Popularity: ★★☆☆☆)
+Python server implementing Model Context Protocol (MCP) for ROS2.
+- **Tools (8):**
+  - `ros2_get_message_fields`
+  - `ros2_get_messages`
+  - `ros2_interface_list`
+  - `ros2_service_call`
+  - `ros2_service_list`
+  - `ros2_topic_list`
+  - `ros2_topic_publish`
+  - `ros2_topic_subscribe`
+- **Use cases:** devops
+- **Tags:** [devops]
+
+#### sequa (Popularity: ★★☆☆☆)
+Stop stitching context for Copilot and Cursor. With Sequa MCP, your AI tools know your entire codebase and docs out of the box.
+- **Tools (1):**
+  - `system_context_ag37WVIy`
+- **Use cases:** search, ai, devops
+- **Tags:** [search, ai, devops]
+
+#### tigris (Popularity: ★★☆☆☆)
+Tigris is a globally distributed S3-compatible object storage service that provides low latency anywhere in the world, enabling developers to store and access any amount of data for a wide range of use cases.
+- **Tools (10):**
+  - `tigris_create_bucket`
+  - `tigris_delete_bucket`
+  - `tigris_delete_object`
+  - `tigris_get_object`
+  - `tigris_get_signed_url_object`
+  - `tigris_list_buckets`
+  - `tigris_list_objects`
+  - `tigris_put_object`
+  - `tigris_put_object_from_path`
+  - `tigris_upload_file_and_get_url`
+- **Use cases:** data management
+- **Tags:** [s3-storage, storage, tigris, tigris-data]
+
+#### stackhawk (Popularity: ★☆☆☆☆)
+A Model Context Protocol (MCP) server for integrating with StackHawk's security scanning platform. Provides security analytics, YAML configuration management, sensitive data/threat surface analysis, and anti-hallucination tools for LLMs.
+- **Tools (16):**
+  - `check_repository_attack_surface`
+  - `check_repository_sensitive_data`
+  - `create_stackhawk_config`
+  - `generate_security_dashboard`
+  - `get_app_findings_for_triage`
+  - `get_organization_info`
+  - `get_sensitive_data_summary`
+  - `get_stackhawk_scan_instructions`
+  - `get_stackhawk_schema`
+  - `list_application_repository_connections`
+  - `list_applications`
+  - `run_stackhawk_scan`
+  - `search_vulnerabilities`
+  - `setup_stackhawk_for_project`
+  - `validate_field_exists`
+  - ... and 1 more
+- **Use cases:** data management
+- **Tags:** [devops, stackhawk, appsec]
+
+#### stackgen (Popularity: ★☆☆☆☆)
+AI-powered DevOps assistant for managing cloud infrastructure and applications.
+- **Tools (4):**
+  - `destroy_deployment`
+  - `detect-drift`
+  - `download-iac`
+  - `provision_appstack`
+- **Use cases:** stackgen, opentofu
+- **Tags:** [stackgen, opentofu]
+
+#### cloudflare-container (Popularity: ★☆☆☆☆)
+Spin up a sandbox development environment.
+- **Tools (0):**
+- **Use cases:** devops, containers, development
+- **Tags:** [devops, containers, development, cloudflare, remote]
+
+#### cloudflare-workers-bindings (Popularity: ★☆☆☆☆)
+Build Workers applications with storage, AI, and compute primitives.
+- **Tools (0):**
+- **Use cases:** devops, serverless, cloudflare
+- **Tags:** [devops, serverless, cloudflare, remote]
+
+#### cloudflare-workers-builds (Popularity: ★☆☆☆☆)
+Get insights and manage your Cloudflare Workers Builds.
+- **Tools (0):**
+- **Use cases:** devops, builds, cloudflare
+- **Tags:** [devops, builds, cloudflare, remote]
+
+#### curl (Popularity: ★☆☆☆☆)
+Standard curl tool.
+- **Tools (1):**
+  - `curl`
+- **Use cases:** http
+- **Tags:** [http]
+
+#### docker (Popularity: ★☆☆☆☆)
+Use the Docker CLI.
+- **Tools (1):**
+  - `docker`
+- **Use cases:** docker
+- **Tags:** [docker]
+
+#### globalping (Popularity: ★☆☆☆☆)
+Run network tests like ping, traceroute, and DNS queries from hundreds of global probes for monitoring and debugging.
+- **Tools (0):**
+- **Use cases:** monitoring, automation
+- **Tags:** [devops, monitoring, network, remote]
+
+#### grafbase (Popularity: ★☆☆☆☆)
+Build and deploy high-performance GraphQL APIs with federation, edge computing, and enterprise-grade governance.
+- **Tools (0):**
+- **Use cases:** deployment, API integration
+- **Tags:** [devops, graphql, database, remote]
+
+#### openmesh (Popularity: ★☆☆☆☆)
+Discover and connect to a curated marketplace of MCP servers for extending AI agent capabilities.
+- **Tools (4):**
+  - `discover_service`
+  - `call_service`
+  - `report_experience`
+  - `get_alternative`
+- **Use cases:** infrastructure, discovery, mesh
+- **Tags:** [infrastructure, discovery, mesh, remote]
+
+#### polar-signals (Popularity: ★☆☆☆☆)
+MCP server for Polar Signals Cloud continuous profiling platform, enabling AI assistants to analyze CPU performance, memory usage, and identify optimization opportunities in production systems.
+- **Tools (0):**
+- **Use cases:** devops, profiling, performance
+- **Tags:** [devops, profiling, performance, remote]
+
+#### pulumi-remote (Popularity: ★☆☆☆☆)
+Create, deploy, and manage cloud infrastructure using your favorite language.
+- **Tools (0):**
+- **Use cases:** deployment
+- **Tags:** [devops, remote]
+---
+
+### 4. APIs & Integration
+Third-party service integrations
+
+#### cloudflare-graphql (Popularity: ★☆☆☆☆)
+Get analytics data using Cloudflare's GraphQL API.
+- **Tools (0):**
+- **Use cases:** data management, API integration
+- **Tags:** [analytics, graphql, api, cloudflare, remote]
+---
+
+### 5. Data & Analysis
+Data processing and analysis
+
+#### nasdaq-data-link (Popularity: ★★☆☆☆)
+MCP server to interact with the data feeds provided by the Nasdaq Data Link. Developed by the community and maintained by Stefano Amorelli.
+- **Tools (5):**
+  - `export_dataset`
+  - `get_dataset`
+  - `get_dataset_metadata`
+  - `list_databases`
+  - `search_datasets`
+- **Use cases:** data management
+- **Tags:** [nasdaq, finance, data, intelligence]
+
+#### octagon (Popularity: ★☆☆☆☆)
+Access comprehensive market intelligence, analyze SEC filings, earnings transcripts, and financial data to uncover investment opportunities.
+- **Tools (0):**
+- **Use cases:** data management
+- **Tags:** [analytics, market-intelligence, data, remote]
+---
+
+### 6. AI & ML
+AI and machine learning integrations
+
+#### sequentialthinking (Popularity: ★★★★★)
+Dynamic and reflective problem-solving through thought sequences.
+- **Tools (1):**
+  - `sequentialthinking`
+- **Use cases:** mcp, ai
+- **Tags:** [mcp, ai]
+
+#### memory (Popularity: ★★★★★)
+Knowledge graph-based persistent memory system.
+- **Tools (9):**
+  - `add_observations`
+  - `create_entities`
+  - `create_relations`
+  - `delete_entities`
+  - `delete_observations`
+  - `delete_relations`
+  - `open_nodes`
+  - `read_graph`
+  - `search_nodes`
+- **Use cases:** mcp, ai
+- **Tags:** [mcp, ai]
+
+#### omi (Popularity: ★★★★☆)
+A Model Context Protocol server for Omi interaction and automation. This server provides tools to read, search, and manipulate Memories and Conversations.
+- **Tools (6):**
+  - `create_memory`
+  - `delete_memory`
+  - `edit_memory`
+  - `get_conversation_by_id`
+  - `get_conversations`
+  - `get_memories`
+- **Use cases:** search, automation
+- **Tags:** [ai]
+
+#### playwright-mcp-server (Popularity: ★★★★☆)
+Playwright Model Context Protocol Server - Tool to automate Browsers and APIs in Claude Desktop, Cline, Cursor IDE and More 🔌.
+- **Tools (32):**
+  - `clear_codegen_session`
+  - `end_codegen_session`
+  - `get_codegen_session`
+  - `playwright_assert_response`
+  - `playwright_click`
+  - `playwright_click_and_switch_tab`
+  - `playwright_close`
+  - `playwright_console_logs`
+  - `playwright_custom_user_agent`
+  - `playwright_delete`
+  - `playwright_drag`
+  - `playwright_evaluate`
+  - `playwright_expect_response`
+  - `playwright_fill`
+  - `playwright_get`
+  - ... and 17 more
+- **Use cases:** API integration
+- **Tags:** [ai]
+
+#### elevenlabs (Popularity: ★★★☆☆)
+Official ElevenLabs Model Context Protocol (MCP) server that enables interaction with powerful Text to Speech and audio processing APIs.
+- **Tools (24):**
+  - `add_knowledge_base_to_agent`
+  - `check_subscription`
+  - `compose_music`
+  - `create_agent`
+  - `create_composition_plan`
+  - `create_voice_from_preview`
+  - `get_agent`
+  - `get_conversation`
+  - `get_voice`
+  - `isolate_audio`
+  - `list_agents`
+  - `list_conversations`
+  - `list_models`
+  - `list_phone_numbers`
+  - `make_outbound_call`
+  - ... and 9 more
+- **Use cases:** API integration
+- **Tags:** [elevenlabs, elevenlabs-api]
+
+#### pluggedin-mcp-proxy (Popularity: ★★☆☆☆)
+A unified MCP proxy that aggregates multiple MCP servers into one interface, enabling seamless tool discovery and management across all your AI interactions. Manage all your MCP servers from a single connection point with RAG capabilities and real-time notifications.
+- **Tools (6):**
+  - `pluggedin_ask_knowledge_base`
+  - `pluggedin_delete_notification`
+  - `pluggedin_discover_tools`
+  - `pluggedin_list_notifications`
+  - `pluggedin_mark_notification_done`
+  - `pluggedin_send_notification`
+- **Use cases:** productivity, proxy, management
+- **Tags:** [productivity, proxy, management, tools, ai]
+
+#### novita (Popularity: ★★☆☆☆)
+Seamless interaction with Novita AI platform resources.
+- **Tools (20):**
+  - `create-container-registry-auth`
+  - `create-gpu-instance`
+  - `create-network-storage`
+  - `create-template`
+  - `delete-container-registry-auth`
+  - `delete-gpu-instance`
+  - `delete-network-storage`
+  - `delete-template`
+  - `get-gpu-instance`
+  - `get-template`
+  - `list-clusters`
+  - `list-container-registry-auths`
+  - `list-gpu-instances`
+  - `list-network-storage`
+  - `list-products`
+  - ... and 5 more
+- **Use cases:** novita, ai
+- **Tags:** [novita, ai]
+
+#### okta-mcp-fctr (Popularity: ★★☆☆☆)
+Secure Okta identity and access management via Model Context Protocol (MCP). Access Okta users, groups, applications, logs, and policies through AI assistants with enterprise-grade security.
+- **Tools (20):**
+  - `analyze_login_risk`
+  - `analyze_user_app_access`
+  - `get_current_time`
+  - `get_okta_application`
+  - `get_okta_event_logs`
+  - `get_okta_group`
+  - `get_okta_policy_rule`
+  - `get_okta_user`
+  - `list_okta_application_groups`
+  - `list_okta_application_users`
+  - `list_okta_applications`
+  - `list_okta_group_users`
+  - `list_okta_groups`
+  - `list_okta_network_zones`
+  - `list_okta_policy_rules`
+  - ... and 5 more
+- **Use cases:** ai, okta, identity
+- **Tags:** [ai, okta, identity, access-management, security, authentication]
+
+#### teamwork (Popularity: ★★☆☆☆)
+Tools for Teamwork.com products.
+- **Tools (104):**
+  - `twdesk-create_company`
+  - `twdesk-create_customer`
+  - `twdesk-create_file`
+  - `twdesk-create_message`
+  - `twdesk-create_priority`
+  - `twdesk-create_status`
+  - `twdesk-create_tag`
+  - `twdesk-create_ticket`
+  - `twdesk-create_type`
+  - `twdesk-get_company`
+  - `twdesk-get_customer`
+  - `twdesk-get_inbox`
+  - `twdesk-get_priority`
+  - `twdesk-get_status`
+  - `twdesk-get_tag`
+  - ... and 89 more
+- **Use cases:** ai, artificial intelligence, teamwork
+- **Tags:** [ai, artificial-intelligence, teamwork]
+
+#### pia (Popularity: ★☆☆☆☆)
+An MCP server to help make U.S. Government open datasets AI-friendly.
+- **Tools (11):**
+  - `fetch`
+  - `pia_search_content`
+  - `pia_search_content_congress`
+  - `pia_search_content_crs`
+  - `pia_search_content_doj`
+  - `pia_search_content_facets`
+  - `pia_search_content_gao`
+  - `pia_search_content_oig`
+  - `pia_search_titles`
+  - `pia_search_titles_facets`
+  - `search`
+- **Use cases:** data management
+- **Tags:** [ai]
+
+#### task-orchestrator (Popularity: ★☆☆☆☆)
+Model Context Protocol (MCP) server for comprehensive task and feature management, providing AI assistants with a structured, context-efficient way to interact with project data.
+- **Tools (42):**
+  - `add_section`
+  - `add_template_section`
+  - `apply_template`
+  - `bulk_create_sections`
+  - `bulk_delete_sections`
+  - `bulk_update_sections`
+  - `bulk_update_tasks`
+  - `create_dependency`
+  - `create_feature`
+  - `create_project`
+  - `create_task`
+  - `create_template`
+  - `delete_dependency`
+  - `delete_feature`
+  - `delete_project`
+  - ... and 27 more
+- **Use cases:** data management
+- **Tags:** [tasks, database]
+
+#### hoverfly-mcp-server (Popularity: ★☆☆☆☆)
+A Model Context Protocol (MCP) server that exposes Hoverfly as a programmable tool for AI assistants like Cursor, Claude, GitHub Copilot, and others supporting MCP. It enables dynamic mocking of third-party APIs to unblock development, automate testing, and simulate unavailable services during integration.
+- **Tools (12):**
+  - `add_hoverfly_mock`
+  - `clear_hoverfly_mocks`
+  - `download_hoverfly_simulation`
+  - `fetch_hoverfly_version`
+  - `get_hoverfly_debug_logs`
+  - `get_hoverfly_documentation`
+  - `get_hoverfly_status`
+  - `list_hoverfly_mocks`
+  - `show_hoverfly_endpoints_info`
+  - `start_hoverfly_web_server`
+  - `stop_hoverfly_server`
+  - `suggest_hoverfly_matchers`
+- **Use cases:** automation, API integration
+- **Tags:** [ai, service-virtualization, http-mocking, devtools]
+
+#### audioscrape (Popularity: ★☆☆☆☆)
+Search and analyze audio content from a massive database of podcasts, interviews, and other talks.
+- **Tools (0):**
+- **Use cases:** search, data management
+- **Tags:** [ai, rag, audio, remote]
+
+#### cloudflare-ai-gateway (Popularity: ★☆☆☆☆)
+Search your logs, get details about the prompts and responses.
+- **Tools (0):**
+- **Use cases:** search
+- **Tags:** [ai, gateway, logs, cloudflare, remote]
+
+#### cloudflare-autorag (Popularity: ★☆☆☆☆)
+List and search documents on your AutoRAGs.
+- **Tools (0):**
+- **Use cases:** search
+- **Tags:** [ai, rag, documents, cloudflare, remote]
+
+#### dappier-remote (Popularity: ★☆☆☆☆)
+Enable fast, free real-time web search and access premium data from trusted media brandsÔÇönews, financial markets, sports, entertainment, weather, and more. Build powerful AI agents with Dappier.
+- **Tools (0):**
+- **Use cases:** search, data management
+- **Tags:** [ai, rag, knowledge-base, remote]
+
+#### hugging-face (Popularity: ★☆☆☆☆)
+Tools for interacting with Hugging Face models, datasets, research papers, and more.
+- **Tools (9):**
+  - `hf_whoami`
+  - `space_search`
+  - `model_search`
+  - `paper_search`
+  - `dataset_search`
+  - `hub_repo_details`
+  - `hf_doc_search`
+  - `hf_doc_fetch`
+  - `gr1_flux1_schnell_infer`
+- **Use cases:** search, data management
+- **Tags:** [ai, machine-learning, models, remote]
+
+#### llmtxt (Popularity: ★☆☆☆☆)
+Discovers and retrieves llms.txt from websites.
+- **Tools (2):**
+  - `get_domain_llms_txt_as_docs`
+  - `git`
+- **Use cases:** ai, llm, text processing
+- **Tags:** [ai, llm, text-processing, remote]
+
+#### needle (Popularity: ★☆☆☆☆)
+Production-ready RAG service to search and retrieve data from your documents.
+- **Tools (0):**
+- **Use cases:** search, data management
+- **Tags:** [ai, rag, knowledge-base, remote]
+
+#### scorecard (Popularity: ★☆☆☆☆)
+Test and evaluate LLM applications with structured testing, continuous monitoring, and performance benchmarking.
+- **Tools (0):**
+- **Use cases:** monitoring, automation
+- **Tags:** [ai, evaluation, testing, remote]
+
+#### wayfound (Popularity: ★☆☆☆☆)
+WayfoundÔÇÖs MCP server allows business users to govern, supervise, and improve AI Agents.
+- **Tools (4):**
+  - `list_agents`
+  - `get_agent_details`
+  - `get_manager_analysis_for_agent`
+  - `get_improvement_suggestions_for_agents`
+- **Use cases:** ai
+- **Tags:** [ai]
+---
+
+### 7. Development Tools
+Developer productivity tools
+
+#### grafana (Popularity: ★★★★★)
+MCP server for Grafana.
+- **Tools (50):**
+  - `add_activity_to_incident`
+  - `create_alert_rule`
+  - `create_folder`
+  - `create_incident`
+  - `delete_alert_rule`
+  - `fetch_pyroscope_profile`
+  - `find_error_pattern_logs`
+  - `find_slow_requests`
+  - `generate_deeplink`
+  - `get_alert_group`
+  - `get_alert_rule_by_uid`
+  - `get_assertions`
+  - `get_current_oncall_users`
+  - `get_dashboard_by_uid`
+  - `get_dashboard_panel_queries`
+  - ... and 35 more
+- **Use cases:** grafana, monitoring
+- **Tags:** [grafana, monitoring]
+
+#### dynatrace-mcp-server (Popularity: ★★☆☆☆)
+This MCP Server allows interaction with the Dynatrace observability platform, brining real-time observability data directly into your development workflow.
+- **Tools (16):**
+  - `chat_with_davis_copilot`
+  - `create_workflow_for_notification`
+  - `execute_dql`
+  - `explain_dql_in_natural_language`
+  - `find_entity_by_name`
+  - `generate_dql_from_natural_language`
+  - `get_entity_details`
+  - `get_environment_info`
+  - `get_kubernetes_events`
+  - `get_logs_for_entity`
+  - `get_ownership`
+  - `list_problems`
+  - `list_vulnerabilities`
+  - `make_workflow_public`
+  - `send_slack_message`
+  - ... and 1 more
+- **Use cases:** data management
+- **Tags:** [Dynatrace, Observability, Monitoring]
+
+#### prometheus (Popularity: ★★☆☆☆)
+A Model Context Protocol (MCP) server that enables AI assistants to query and analyze Prometheus metrics through standardized interfaces. Connect to your Prometheus instance to retrieve metrics, perform queries, and gain insights into your system's performance and health.
+- **Tools (6):**
+  - `execute_query`
+  - `execute_range_query`
+  - `get_metric_metadata`
+  - `get_targets`
+  - `health_check`
+  - `list_metrics`
+- **Use cases:** ai, devops, llm
+- **Tags:** [ai, devops, llm, model-context-protocol, prometheus, metrics]
+
+#### inspektor-gadget (Popularity: ★★☆☆☆)
+AI interface to troubleshoot and observe Kubernetes/Container workloads.
+- **Tools (37):**
+  - `gadget_advise_networkpolicy`
+  - `gadget_advise_seccomp`
+  - `gadget_audit_seccomp`
+  - `gadget_bpfstats`
+  - `gadget_deadlock`
+  - `gadget_fdpass`
+  - `gadget_fsnotify`
+  - `gadget_profile_blockio`
+  - `gadget_profile_cpu`
+  - `gadget_profile_qdisc_latency`
+  - `gadget_profile_tcprtt`
+  - `gadget_snapshot_process`
+  - `gadget_snapshot_socket`
+  - `gadget_tcpdump`
+  - `gadget_top_blockio`
+  - ... and 22 more
+- **Use cases:** inspektor gadget, kubernetes, monitoring
+- **Tags:** [inspektor-gadget, kubernetes, monitoring, ebpf]
+
+#### suzieq (Popularity: ★★☆☆☆)
+MCP Server to interact with a SuzieQ network observability instance via its REST API.
+- **Tools (2):**
+  - `run_suzieq_show`
+  - `run_suzieq_summarize`
+- **Use cases:** API integration
+- **Tags:** [observability]
+
+#### thingsboard (Popularity: ★☆☆☆☆)
+Connect your AI workflows to the ThingsBoard IoT Platform through this MCP server.  Enables LLMs to query device telemetry, manage IoT entities (devices, assets, customers), and analyze sensor data - all through natural language.  Perfect for building AI-powered IoT monitoring, predictive maintenance, and automated device management workflows. Supports both ThingsBoard Community Edition and Professional Edition.
+- **Tools (62):**
+  - `findByFrom`
+  - `findByFromWithRelationType`
+  - `findByTo`
+  - `findByToWithRelationType`
+  - `findInfoByFrom`
+  - `findInfoByTo`
+  - `getAdminSettings`
+  - `getAlarmById`
+  - `getAlarmInfoById`
+  - `getAlarmTypes`
+  - `getAlarms`
+  - `getAllAlarms`
+  - `getAllCustomerUsers`
+  - `getAssetById`
+  - `getAssetsByEntityGroupId`
+  - ... and 47 more
+- **Use cases:** data management, monitoring
+- **Tags:** [thingsboard, iot platform, monitoring, data-visualization, device-management]
+
+#### victoriametrics (Popularity: ★☆☆☆☆)
+Provides access to your VictoriaMetrics instance and seamless integration with VictoriaMetrics APIs and documentation. It can give you a comprehensive interface for monitoring, observability, and debugging tasks related to your VictoriaMetrics instances, enable advanced automation and interaction capabilities for engineers and tools.
+- **Tools (19):**
+  - `active_queries`
+  - `alerts`
+  - `documentation`
+  - `downsampling_filters_debug`
+  - `explain_query`
+  - `flags`
+  - `label_values`
+  - `labels`
+  - `metric_relabel_debug`
+  - `metrics`
+  - `prettify_query`
+  - `query`
+  - `query_range`
+  - `retention_filters_debug`
+  - `rules`
+  - ... and 4 more
+- **Use cases:** monitoring, automation, API integration
+- **Tags:** [monitoring, observability, metrics, victoriametrics, devops, sre]
+
+#### maestro-mcp-server (Popularity: ★☆☆☆☆)
+A Model Context Protocol (MCP) server exposing Bitcoin blockchain data through the Maestro API platform. Provides tools to explore blocks, transactions, addresses, inscriptions, runes, and other metaprotocol data.
+- **Tools (35):**
+  - `get_address_activity`
+  - `get_address_balance`
+  - `get_address_balance_historical`
+  - `get_address_brc20`
+  - `get_address_brc20_transfer_inscriptions`
+  - `get_address_inscriptions`
+  - `get_address_inscription_activity`
+  - `get_address_runes`
+  - `get_address_rune_activity`
+  - `get_address_rune_utxos`
+  - `get_address_statistics`
+  - `get_address_txs`
+  - `get_address_utxos`
+  - `get_mempool_address_balance`
+  - `get_mempool_address_runes`
+  - ... and 20 more
+- **Use cases:** data management, API integration
+- **Tags:** [monitoring, blockchain, bitcoin, rpc]
+
+#### cloudflare-digital-experience-monitoring (Popularity: ★☆☆☆☆)
+Get quick insight on critical applications for your organization.
+- **Tools (0):**
+- **Use cases:** monitoring, digital experience, applications
+- **Tags:** [monitoring, digital-experience, applications, cloudflare, remote]
+
+#### cloudflare-logpush (Popularity: ★☆☆☆☆)
+Get quick summaries for Logpush job health.
+- **Tools (0):**
+- **Use cases:** monitoring, logs, logpush
+- **Tags:** [monitoring, logs, logpush, cloudflare, remote]
+
+#### cloudflare-observability (Popularity: ★☆☆☆☆)
+Monitor application performance, analyze logs, and gain insights with comprehensive observability tools and real-time analytics.
+- **Tools (0):**
+- **Use cases:** monitoring
+- **Tags:** [monitoring, observability, cloudflare, remote]
+
+#### sentry-remote (Popularity: ★☆☆☆☆)
+Track application errors, monitor performance, and debug issues in real-time across your entire development stack.
+- **Tools (0):**
+- **Use cases:** monitoring
+- **Tags:** [monitoring, error-tracking, debugging, remote]
+---
+
+### 8. Search & Research
+Search engines and research tools
+
+#### everart (Popularity: ★★★★★)
+Image generation server using EverArt's API.
+- **Tools (1):**
+  - `generate_image`
+- **Use cases:** API integration
+- **Tags:** [everart, search]
+
+#### youtube_transcript (Popularity: ★★★★★)
+Retrieves transcripts for given YouTube video URLs.
+- **Tools (3):**
+  - `get_timed_transcript`
+  - `get_transcript`
+  - `get_video_info`
+- **Use cases:** youtube, search
+- **Tags:** [youtube, search]
+
+#### firecrawl (Popularity: ★★★★☆)
+🔥 Official Firecrawl MCP Server - Adds powerful web scraping and search to Cursor, Claude and any other LLM clients.
+- **Tools (6):**
+  - `firecrawl_check_crawl_status`
+  - `firecrawl_crawl`
+  - `firecrawl_extract`
+  - `firecrawl_map`
+  - `firecrawl_scrape`
+  - `firecrawl_search`
+- **Use cases:** search, API integration
+- **Tags:** [firecrawl, search, scraping]
+
+#### brave (Popularity: ★★★★☆)
+Search the Web for pages, images, news, videos, and more using the Brave Search API.
+- **Tools (6):**
+  - `brave_image_search`
+  - `brave_local_search`
+  - `brave_news_search`
+  - `brave_summarizer`
+  - `brave_video_search`
+  - `brave_web_search`
+- **Use cases:** search, API integration
+- **Tags:** [brave, search]
+
+#### exa (Popularity: ★★★☆☆)
+Exa MCP for web search and web crawling!.
+- **Tools (1):**
+  - `web_search_exa`
+- **Use cases:** search
+- **Tags:** [exa, devops, search]
+
+#### mcp-hackernews (Popularity: ★★★☆☆)
+A Model Context Protocol (MCP) server that provides access to Hacker News stories, comments, and user data, with support for search and content retrieval.
+- **Tools (4):**
+  - `get_stories`
+  - `get_story_info`
+  - `get_user_info`
+  - `search_stories`
+- **Use cases:** search, data management
+- **Tags:** [search, blog]
+
+#### tavily (Popularity: ★★★☆☆)
+The Tavily MCP server provides seamless interaction with the tavily-search and tavily-extract tools, real-time web search capabilities through the tavily-search tool and Intelligent data extraction from web pages via the tavily-extract tool.
+- **Tools (4):**
+  - `tavily-crawl`
+  - `tavily-extract`
+  - `tavily-map`
+  - `tavily-search`
+- **Use cases:** search, data management
+- **Tags:** [tavily, search]
+
+#### elasticsearch (Popularity: ★★★☆☆)
+Interact with your Elasticsearch indices through natural language conversations.
+- **Tools (5):**
+  - `esql`
+  - `get_mappings`
+  - `get_shards`
+  - `list_indices`
+  - `search`
+- **Use cases:** search
+- **Tags:** [elasticsearch, search]
+
+#### paper-search (Popularity: ★★★☆☆)
+A MCP for searching and downloading academic papers from multiple sources like arXiv, PubMed, bioRxiv, etc.
+- **Tools (23):**
+  - `download_arxiv`
+  - `download_biorxiv`
+  - `download_crossref`
+  - `download_iacr`
+  - `download_medrxiv`
+  - `download_pubmed`
+  - `download_semantic`
+  - `get_crossref_paper_by_doi`
+  - `read_arxiv_paper`
+  - `read_biorxiv_paper`
+  - `read_crossref_paper`
+  - `read_iacr_paper`
+  - `read_medrxiv_paper`
+  - `read_pubmed_paper`
+  - `read_semantic_paper`
+  - ... and 8 more
+- **Use cases:** search
+- **Tags:** [academic, search]
+
+#### arxiv-mcp-server (Popularity: ★★☆☆☆)
+The ArXiv MCP Server provides a comprehensive bridge between AI assistants and arXiv's research repository through the Model Context Protocol (MCP).   Features: ÔÇó Search arXiv papers with advanced filtering ÔÇó Download and store papers locally as markdown ÔÇó Read and analyze paper content ÔÇó Deep research analysis prompts ÔÇó Local paper management and storage ÔÇó Enhanced tool descriptions optimized for local AI models ÔÇó Docker MCP Gateway compatible with detailed context  Perfect for researchers, academics, and AI assistants conducting literature reviews and research analysis.  **Recent Update**: Enhanced tool descriptions specifically designed to resolve local AI model confusion and improve Docker MCP Gateway compatibility.
+- **Tools (4):**
+  - `download_paper`
+  - `list_papers`
+  - `read_paper`
+  - `search_papers`
+- **Use cases:** search
+- **Tags:** [arxiv, research, academic, papers, search, ai]
+
+#### apify-mcp-server (Popularity: ★★☆☆☆)
+Apify is the world's largest marketplace of tools for web scraping, data extraction, and web automation. You can extract structured data from social media, e-commerce, search engines, maps, travel sites, or any other website.
+- **Tools (7):**
+  - `apify-slash-rag-web-browser`
+  - `call-actor`
+  - `fetch-actor-details`
+  - `fetch-apify-docs`
+  - `get-actor-output`
+  - `search-actors`
+  - `search-apify-docs`
+- **Use cases:** search, data management, automation, API integration
+- **Tags:** [productivity, search, mcp, automation, web scraping, api]
+
+#### openbnb-airbnb (Popularity: ★★☆☆☆)
+MCP Server for searching Airbnb and get listing details.
+- **Tools (2):**
+  - `airbnb_listing_details`
+  - `airbnb_search`
+- **Use cases:** search
+- **Tags:** [airbnb, openbnb]
+
+#### openweather (Popularity: ★★☆☆☆)
+A simple MCP service that provides current weather and 5-day forecast using the free OpenWeatherMap API.
+- **Tools (1):**
+  - `weather`
+- **Use cases:** API integration
+- **Tags:** [weather-api]
+
+#### minecraft-wiki (Popularity: ★★☆☆☆)
+A MCP Server for browsing the official Minecraft Wiki!.
+- **Tools (9):**
+  - `MinecraftWiki_getCategoriesForPage`
+  - `MinecraftWiki_getPageContent`
+  - `MinecraftWiki_getPageSection`
+  - `MinecraftWiki_getPageSummary`
+  - `MinecraftWiki_getSectionsInPage`
+  - `MinecraftWiki_listAllCategories`
+  - `MinecraftWiki_listCategoryMembers`
+  - `MinecraftWiki_resolveRedirect`
+  - `MinecraftWiki_searchWiki`
+- **Use cases:** games, minecraft, search
+- **Tags:** [games, minecraft, search]
+
+#### needle-mcp (Popularity: ★★☆☆☆)
+Production-ready RAG service to search and retrieve data from your documents.
+- **Tools (7):**
+  - `needle_add_file`
+  - `needle_create_collection`
+  - `needle_get_collection_details`
+  - `needle_get_collection_stats`
+  - `needle_list_collections`
+  - `needle_list_files`
+  - `needle_search`
+- **Use cases:** search, data management
+- **Tags:** [needle, search, productivity, rag, semantic-search, document-management]
+
+#### vuln-nist-mcp-server (Popularity: ★☆☆☆☆)
+This MCP server exposes tools to query the NVD/CVE REST API and return formatted text results suitable for LLM consumption via the MCP protocol. It includes automatic query chunking for large date ranges and parallel processing for improved performance.
+- **Tools (6):**
+  - `cve_change_history`
+  - `cves_by_cpe`
+  - `get_cve_by_id`
+  - `get_temporal_context`
+  - `kevs_between`
+  - `search_cves`
+- **Use cases:** API integration
+- **Tags:** [search, cybersecurity, vulns, cves]
+
+#### hdx (Popularity: ★☆☆☆☆)
+HDX MCP Server provides access to humanitarian data through the Humanitarian Data Exchange (HDX) API - https://data.humdata.org/hapi. This server offers 33 specialized tools for retrieving humanitarian information including affected populations (refugees, IDPs, returnees), baseline demographics, food security indicators, conflict data, funding information, and operational presence across hundreds of countries and territories. See repository for instructions on getting a free HDX_APP_INDENTIFIER for access.
+- **Tools (29):**
+  - `affected_people_humanitarian_needs_get`
+  - `affected_people_idps_get`
+  - `affected_people_refugees_get`
+  - `affected_people_returnees_get`
+  - `baseline_population_get`
+  - `climate_rainfall_get`
+  - `coordination_conflict_events_get`
+  - `coordination_funding_get`
+  - `coordination_national_risk_get`
+  - `coordination_operational_presence_get`
+  - `food_prices_get`
+  - `food_security_get`
+  - `hdx_get_dataset_info`
+  - `hdx_search_locations`
+  - `hdx_server_info`
+  - ... and 14 more
+- **Use cases:** data management, API integration
+- **Tags:** [search]
+
+#### explorium (Popularity: ★☆☆☆☆)
+Discover companies, contacts, and business insightsÔÇöpowered by dozens of trusted external data sources.
+- **Tools (12):**
+  - `match-business`
+  - `fetch-businesses`
+  - `fetch-businesses-statistics`
+  - `fetch-businesses-events`
+  - `enrich-business`
+  - `match-prospects`
+  - `fetch-prospects`
+  - `fetch-prospects-events`
+  - `fetch-prospects-statistics`
+  - `enrich-prospects`
+  - `autocomplete`
+  - `web-search`
+- **Use cases:** data management
+- **Tags:** [search, explorium, b2b-data, business, prospecting, emails]
+
+#### supadata (Popularity: ★☆☆☆☆)
+Official Supadata MCP Server - Adds powerful video & web scraping to Cursor, Claude and any other LLM clients.
+- **Tools (6):**
+  - `supadata_check_crawl_status`
+  - `supadata_check_transcript_status`
+  - `supadata_crawl`
+  - `supadata_map`
+  - `supadata_scrape`
+  - `supadata_transcript`
+- **Use cases:** data management, API integration
+- **Tags:** [supadata, transcript, scraping, youtube, tiktok, twitter]
+---
+
+### 9. Communication
+Communication and messaging services
+
+#### slack (Popularity: ★★★★★)
+Interact with Slack Workspaces over the Slack API.
+- **Tools (8):**
+  - `slack_add_reaction`
+  - `slack_get_channel_history`
+  - `slack_get_thread_replies`
+  - `slack_get_user_profile`
+  - `slack_get_users`
+  - `slack_list_channels`
+  - `slack_post_message`
+  - `slack_reply_to_thread`
+- **Use cases:** API integration
+- **Tags:** [slack, communication]
+
+#### resend (Popularity: ★★☆☆☆)
+Send emails directly from Cursor with this email sending MCP server.
+- **Tools (1):**
+  - `send-email`
+- **Use cases:** resend, email
+- **Tags:** [resend, email]
+
+#### mcp-reddit (Popularity: ★★☆☆☆)
+A comprehensive Model Context Protocol (MCP) server for Reddit integration. This server enables AI agents to interact with Reddit programmatically through a standardized interface.
+- **Tools (6):**
+  - `fetchPosts`
+  - `getComments`
+  - `getSubredditInfo`
+  - `postComment`
+  - `postToSubreddit`
+  - `searchPosts`
+- **Use cases:** communication
+- **Tags:** [communication]
+
+#### securenote-link-mcp-server (Popularity: ★★☆☆☆)
+SecureNote.link MCP Server - allowing AI agents to securely share sensitive information through end-to-end encrypted notes.
+- **Tools (5):**
+  - `check_api_health`
+  - `get_instructions`
+  - `retrieve_and_decrypt_secret`
+  - `send_secure_note`
+  - `send_secure_note_return_api_url_and_key`
+- **Use cases:** communication
+- **Tags:** [communication]
+
+#### gmail-mcp (Popularity: ★☆☆☆☆)
+A Model Context Protocol server for Gmail operations using IMAP/SMTP with app password authentication. Supports listing messages, searching emails, and sending messages. To create your app password, visit your Google Account settings under Security > App Passwords. Or visit the link https://myaccount.google.com/apppasswords.
+- **Tools (3):**
+  - `listMessages`
+  - `findMessage`
+  - `sendMessage`
+- **Use cases:** search
+- **Tags:** [email, gmail, imap, smtp, communication]
+
+#### dialer (Popularity: ★☆☆☆☆)
+Enable AI agents to conduct professional outbound calls for research, interviews, and market validation using your phone number.
+- **Tools (0):**
+- **Use cases:** search
+- **Tags:** [communication, telephony, outbound, remote]
+
+#### telnyx (Popularity: ★☆☆☆☆)
+Enables interaction with powerful telephony, messaging, and AI assistant APIs.
+- **Tools (0):**
+- **Use cases:** API integration
+- **Tags:** [communication, telephony, sms, remote]
+---
+
+### 10. Version Control
+Source control platforms
+
+#### gitmcp (Popularity: ★☆☆☆☆)
+Tools for interacting with Git repositories.
+- **Tools (5):**
+  - `match_common_libs_owner_repo_mapping`
+  - `fetch_generic_documentation`
+  - `search_generic_documentation`
+  - `search_generic_code`
+  - `fetch_generic_url_content`
+- **Use cases:** git, version control, development
+- **Tags:** [git, version-control, development, remote]
+---
+
+### 11. Project Management
+Project and task management tools
+
+#### asana (Popularity: ★☆☆☆☆)
+Interact with your Asana workspace.
+- **Tools (0):**
+- **Use cases:** productivity, project management, collaboration
+- **Tags:** [productivity, project-management, collaboration, remote]
+
+#### linear (Popularity: ★☆☆☆☆)
+Track issues, plan sprints, and manage product development with a fast, keyboard-first interface designed for software teams.
+- **Tools (0):**
+- **Use cases:** monitoring
+- **Tags:** [productivity, project-management, issue-tracking, remote]
+
+#### monday (Popularity: ★☆☆☆☆)
+Manage projects, workflows, and team collaboration with AI-powered automation and customizable boards.
+- **Tools (0):**
+- **Use cases:** automation
+- **Tags:** [productivity, project-management, workflow, remote]
+---
+
+### 12. Documentation & Learning
+Documentation and learning resources
+
+#### astro-docs (Popularity: ★☆☆☆☆)
+Access the latest Astro web framework documentation, guides, and API references.
+- **Tools (1):**
+  - `search_astro_docs`
+- **Use cases:** automation, API integration
+- **Tags:** [documentation, astro, web-framework, remote]
+
+#### cloudflare-docs (Popularity: ★☆☆☆☆)
+Access the latest documentation on Cloudflare products such as Workers, Pages, R2, D1, KV.
+- **Tools (2):**
+  - `search_cloudflare_documentation`
+  - `migrate_pages_to_workers_guide`
+- **Use cases:** automation
+- **Tags:** [documentation, cloudflare, cloud, remote]
+
+#### deepwiki (Popularity: ★☆☆☆☆)
+Tools for fetching and asking questions about GitHub repositories.
+- **Tools (3):**
+  - `read_wiki_structure`
+  - `read_wiki_contents`
+  - `ask_question`
+- **Use cases:** knowledge, wiki, documentation
+- **Tags:** [knowledge, wiki, documentation, remote]
+
+#### javadocs (Popularity: ★☆☆☆☆)
+Access to Java, Kotlin, and Scala library documentation.
+- **Tools (3):**
+  - `get_latest_version`
+  - `get_javadoc_content_list`
+  - `get_javadoc_symbol_contents`
+- **Use cases:** documentation, java, api
+- **Tags:** [documentation, java, api, remote]
+
+#### microsoft-learn (Popularity: ★☆☆☆☆)
+Add trusted and up-to-date content from Microsoft Learn to your AI agent.
+- **Tools (3):**
+  - `microsoft_docs_search`
+  - `microsoft_docs_fetch`
+  - `microsoft_code_sample_search`
+- **Use cases:** microsoft learn, documentation, remote
+- **Tags:** [microsoft-learn, documentation, remote]
+
+#### notion-remote (Popularity: ★☆☆☆☆)
+Manage projects, create documentation, and organize information in collaborative workspaces.
+- **Tools (0):**
+- **Use cases:** productivity, documentation, collaboration
+- **Tags:** [productivity, documentation, collaboration, remote]
+---
+
+### 13. Security & Compliance
+Security and compliance tools
+
+#### ramparts (Popularity: ★★☆☆☆)
+A comprehensive security scanner for MCP servers with YARA rules and static analysis capabilities.
+- **Tools (2):**
+  - `scan`
+  - `scan-config`
+- **Use cases:** security, vulnerability scanning, mcp server analysis
+- **Tags:** [security, vulnerability-scanning, mcp-server-analysis, yara-rules]
+
+#### firewalla-mcp-server (Popularity: ★★☆☆☆)
+Real-time network monitoring, security analysis, and firewall management through 28 specialized tools. Access security alerts, network flows, device status, and firewall rules directly from your Firewalla device.
+- **Tools (28):**
+  - `create_target_list`
+  - `delete_target_list`
+  - `get_active_alarms`
+  - `get_alarm_trends`
+  - `get_bandwidth_usage`
+  - `get_boxes`
+  - `get_device_status`
+  - `get_flow_data`
+  - `get_flow_insights`
+  - `get_network_rules`
+  - `get_network_rules_summary`
+  - `get_offline_devices`
+  - `get_recent_flow_activity`
+  - `get_rule_trends`
+  - `get_simple_statistics`
+  - ... and 13 more
+- **Use cases:** monitoring
+- **Tags:** [firewall, security, monitoring, network, threat-detection]
+
+#### root (Popularity: ★☆☆☆☆)
+MCP server that provides container image vulnerability scanning and remediation capabilities through Root.io.
+- **Tools (11):**
+  - `create_registry_integration`
+  - `get_image_remediation`
+  - `get_remediation_continuity_summary`
+  - `get_remediation_details_by_scan_id`
+  - `get_remediation_status`
+  - `get_user_info`
+  - `list_remediation_continuity_summaries`
+  - `list_unique_fqins`
+  - `ping`
+  - `registries_credentials_list`
+  - `trigger_remediation`
+- **Use cases:** security, vulnerability, scanning
+- **Tags:** [security, vulnerability, scanning, remediation]
+
+#### cloudflare-audit-logs (Popularity: ★☆☆☆☆)
+Query audit logs and generate reports for review.
+- **Tools (0):**
+- **Use cases:** security, audit, logs
+- **Tags:** [security, audit, logs, compliance, cloudflare, remote]
+
+#### cloudflare-one-casb (Popularity: ★☆☆☆☆)
+Quickly identify any security misconfigurations for SaaS applications to safeguard users & data.
+- **Tools (0):**
+- **Use cases:** data management
+- **Tags:** [security, casb, saas, cloudflare-one, remote]
+
+#### semgrep (Popularity: ★☆☆☆☆)
+MCP server for using Semgrep to scan code for security vulnerabilities.
+- **Tools (8):**
+  - `semgrep_rule_schema`
+  - `get_supported_languages`
+  - `semgrep_findings`
+  - `semgrep_scan_with_custom_rule`
+  - `semgrep_scan`
+  - `semgrep_scan_local`
+  - `security_check`
+  - `get_abstract_syntax_tree`
+- **Use cases:** security, code analysis, sast
+- **Tags:** [security, code-analysis, sast, remote]
+---
+
+### 14. Other Tools
+Additional tools and utilities
+
+#### markitdown (Popularity: ★★★★★)
+A lightweight MCP server for calling MarkItDown.
+- **Tools (1):**
+  - `convert_to_markdown`
+- **Use cases:** productivity, markdown, conversion
+- **Tags:** [productivity, markdown, conversion, pdf, docx, pptx]
+
+#### notion (Popularity: ★★★★☆)
+Official Notion MCP Server.
+- **Tools (19):**
+  - `API-create-a-comment`
+  - `API-create-a-database`
+  - `API-delete-a-block`
+  - `API-get-block-children`
+  - `API-get-self`
+  - `API-get-user`
+  - `API-get-users`
+  - `API-patch-block-children`
+  - `API-patch-page`
+  - `API-post-database-query`
+  - `API-post-page`
+  - `API-post-search`
+  - `API-retrieve-a-block`
+  - `API-retrieve-a-comment`
+  - `API-retrieve-a-database`
+  - ... and 4 more
+- **Use cases:** notion, secrets
+- **Tags:** [notion, secrets]
+
+#### atlassian (Popularity: ★★★★☆)
+Tools for Atlassian products (Confluence and Jira). This integration supports both Atlassian Cloud and Jira Server/Data Center deployments.
+- **Tools (37):**
+  - `confluence_add_comment`
+  - `confluence_add_label`
+  - `confluence_create_page`
+  - `confluence_delete_page`
+  - `confluence_get_comments`
+  - `confluence_get_labels`
+  - `confluence_get_page`
+  - `confluence_get_page_children`
+  - `confluence_search`
+  - `confluence_update_page`
+  - `jira_add_comment`
+  - `jira_add_worklog`
+  - `jira_batch_create_issues`
+  - `jira_batch_get_changelogs`
+  - `jira_create_issue`
+  - ... and 22 more
+- **Use cases:** data management, deployment
+- **Tags:** [atlassian, confluence, jira]
+
+#### obsidian (Popularity: ★★★★☆)
+MCP server that interacts with Obsidian via the Obsidian rest API community plugin.
+- **Tools (12):**
+  - `obsidian_append_content`
+  - `obsidian_batch_get_file_contents`
+  - `obsidian_complex_search`
+  - `obsidian_delete_file`
+  - `obsidian_get_file_contents`
+  - `obsidian_get_periodic_note`
+  - `obsidian_get_recent_changes`
+  - `obsidian_get_recent_periodic_notes`
+  - `obsidian_list_files_in_dir`
+  - `obsidian_list_files_in_vault`
+  - `obsidian_patch_content`
+  - `obsidian_simple_search`
+- **Use cases:** API integration
+- **Tags:** [obsidian, productivity]
+
+#### vizro (Popularity: ★★★☆☆)
+provides tools and templates to create a functioning Vizro chart or dashboard step by step.
+- **Tools (6):**
+  - `get_model_json_schema`
+  - `get_sample_data_info`
+  - `get_vizro_chart_or_dashboard_plan`
+  - `load_and_analyze_data`
+  - `validate_chart_code`
+  - `validate_dashboard_config`
+- **Use cases:** dashboard, data visualization, plotly
+- **Tags:** [dashboard, data-visualization, plotly, plotly-dash, pydantic, python]
+
+#### markdownify (Popularity: ★★★☆☆)
+A Model Context Protocol server for converting almost anything to Markdown.
+- **Tools (10):**
+  - `audio-to-markdown`
+  - `bing-search-to-markdown`
+  - `docx-to-markdown`
+  - `get-markdown-file`
+  - `image-to-markdown`
+  - `pdf-to-markdown`
+  - `pptx-to-markdown`
+  - `webpage-to-markdown`
+  - `xlsx-to-markdown`
+  - `youtube-to-markdown`
+- **Use cases:** productivity, markdown, conversion
+- **Tags:** [productivity, markdown, conversion, pdf, docx, pptx]
+
+#### sonarqube (Popularity: ★★★☆☆)
+Interact with SonarQube Cloud, Server and Community build over the web API. Analyze code to identify quality and security issues.
+- **Tools (22):**
+  - `analyze_code_snippet`
+  - `change_sonar_issue_status`
+  - `create_webhook`
+  - `get_component_measures`
+  - `get_project_quality_gate_status`
+  - `get_raw_source`
+  - `get_scm_info`
+  - `get_system_health`
+  - `get_system_info`
+  - `get_system_logs`
+  - `get_system_status`
+  - `list_languages`
+  - `list_portfolios`
+  - `list_quality_gates`
+  - `list_rule_repositories`
+  - ... and 7 more
+- **Use cases:** API integration
+- **Tags:** [sonarqube]
+
+#### stripe (Popularity: ★★★☆☆)
+Interact with Stripe services over the Stripe API.
+- **Tools (22):**
+  - `cancel_subscription`
+  - `create_coupon`
+  - `create_customer`
+  - `create_invoice`
+  - `create_invoice_item`
+  - `create_payment_link`
+  - `create_price`
+  - `create_product`
+  - `create_refund`
+  - `finalize_invoice`
+  - `list_coupons`
+  - `list_customers`
+  - `list_disputes`
+  - `list_invoices`
+  - `list_payment_intents`
+  - ... and 7 more
+- **Use cases:** API integration
+- **Tags:** [stripe, finance]
+
+#### linkedin-mcp-server (Popularity: ★★☆☆☆)
+This MCP server allows Claude and other AI assistants to access your LinkedIn. Scrape LinkedIn profiles and companies, get your recommended jobs, and perform job searches. Set your li_at LinkedIn cookie to use this server.
+- **Tools (6):**
+  - `close_session`
+  - `get_company_profile`
+  - `get_job_details`
+  - `get_person_profile`
+  - `get_recommended_jobs`
+  - `search_jobs`
+- **Use cases:** search
+- **Tags:** [linkedin, business, scraping, profiles, jobs, networking]
+
+#### ast-grep (Popularity: ★★☆☆☆)
+ast-grep is a fast and polyglot tool for code structural search, lint, rewriting at large scale.
+- **Tools (1):**
+  - `ast-grep`
+- **Use cases:** search
+- **Tags:** [code, refactoring, grep]
+
+#### airtable-mcp-server (Popularity: ★★☆☆☆)
+Provides AI assistants with direct access to Airtable bases, allowing them to read schemas, query records, and interact with your Airtable data. Supports listing bases, retrieving table structures, and searching through records to help automate workflows and answer questions about your organized data.
+- **Tools (15):**
+  - `create_comment`
+  - `create_field`
+  - `create_record`
+  - `create_table`
+  - `delete_records`
+  - `describe_table`
+  - `get_record`
+  - `list_bases`
+  - `list_comments`
+  - `list_records`
+  - `list_tables`
+  - `search_records`
+  - `update_field`
+  - `update_records`
+  - `update_table`
+- **Use cases:** search, data management
+- **Tags:** [productivity]
+
+#### mapbox (Popularity: ★★☆☆☆)
+Transform any AI agent into a geospatially-aware system with Mapbox APIs. Provides geocoding, POI search, routing, travel time matrices, isochrones, and static map generation.
+- **Tools (9):**
+  - `category_list_tool`
+  - `category_search_tool`
+  - `directions_tool`
+  - `isochrone_tool`
+  - `matrix_tool`
+  - `reverse_geocode_tool`
+  - `search_and_geocode_tool`
+  - `static_map_image_tool`
+  - `version_tool`
+- **Use cases:** search, API integration
+- **Tags:** [mapbox, maps, geospatial, navigation, geocoding]
+
+#### effect-mcp (Popularity: ★★☆☆☆)
+Tools and resources for writing Effect code in Typescript.
+- **Tools (2):**
+  - `effect_docs_search`
+  - `get_effect_doc`
+- **Use cases:** productivity
+- **Tags:** [productivity]
+
+#### mcp-code-interpreter (Popularity: ★★☆☆☆)
+A Python-based execution tool that mimics a Jupyter notebook environment. It accepts code snippets, executes them, and maintains state across sessions ÔÇö preserving variables, imports, and past results. Ideal for iterative development, debugging, or code execution.
+- **Tools (1):**
+  - `execute_code`
+- **Use cases:** productivity
+- **Tags:** [productivity]
+
+#### mcp-python-refactoring (Popularity: ★★☆☆☆)
+Educational Python refactoring assistant that provides guided suggestions for AI assistants.  Features: ÔÇó Step-by-step refactoring instructions without modifying code ÔÇó Comprehensive code analysis using professional tools (Rope, Radon, Vulture, Jedi, LibCST, Pyrefly) ÔÇó Educational approach teaching refactoring patterns through guided practice ÔÇó Support for both guide-only and apply-changes modes ÔÇó Identifies long functions, high complexity, dead code, and type issues ÔÇó Provides precise line numbers and specific refactoring instructions ÔÇó Compatible with all AI assistants (Claude, GPT, Cursor, Continue, etc.)  Perfect for developers learning refactoring patterns while maintaining full control over code changes. Acts as a refactoring mentor rather than an automated code modifier.
+- **Tools (9):**
+  - `analyze_python_file`
+  - `analyze_python_package`
+  - `analyze_security_and_patterns`
+  - `analyze_test_coverage`
+  - `find_long_functions`
+  - `find_package_issues`
+  - `get_extraction_guidance`
+  - `get_package_metrics`
+  - `tdd_refactoring_guidance`
+- **Use cases:** python, refactoring, code analysis
+- **Tags:** [python, refactoring, code-analysis, education, development, code-quality]
+
+#### rust-mcp-filesystem (Popularity: ★★☆☆☆)
+The Rust MCP Filesystem is a high-performance, asynchronous, and lightweight Model Context Protocol (MCP) server built in Rust for secure and efficient filesystem operations. Designed with security in mind, it operates in read-only mode by default and restricts clients from updating allowed directories via MCP Roots unless explicitly enabled, ensuring robust protection against unauthorized access. Leveraging asynchronous I/O, it delivers blazingly fast performance with a minimal resource footprint. Optimized for token efficiency, the Rust MCP Filesystem enables large language models (LLMs) to precisely target searches and edits within specific sections of large files and restrict operations by file size range, making it ideal for efficient file exploration, automation, and system integration.
+- **Tools (24):**
+  - `calculate_directory_size`
+  - `create_directory`
+  - `directory_tree`
+  - `edit_file`
+  - `find_duplicate_files`
+  - `find_empty_directories`
+  - `get_file_info`
+  - `head_file`
+  - `list_allowed_directories`
+  - `list_directory`
+  - `list_directory_with_sizes`
+  - `move_file`
+  - `read_file_lines`
+  - `read_media_file`
+  - `read_multiple_media_files`
+  - ... and 9 more
+- **Use cases:** search, automation
+- **Tags:** [productivity]
+
+#### metabase (Popularity: ★★☆☆☆)
+A comprehensive MCP server for Metabase with 70+ tools.
+- **Tools (28):**
+  - `add_card_to_dashboard`
+  - `create_card`
+  - `create_collection`
+  - `create_dashboard`
+  - `create_database_connection`
+  - `create_permission_group`
+  - `create_user`
+  - `delete_card`
+  - `delete_dashboard`
+  - `execute_card`
+  - `execute_query`
+  - `get_dashboard_cards`
+  - `get_database_schema`
+  - `get_database_sync_status`
+  - `get_database_tables`
+  - ... and 13 more
+- **Use cases:** data visualization
+- **Tags:** [data-visualization]
+
+#### unreal-engine-mcp-server (Popularity: ★★☆☆☆)
+A comprehensive Model Context Protocol (MCP) server that enables AI assistants to control Unreal Engine via Remote Control API. Built with TypeScript and designed for game development automation.
+- **Tools (13):**
+  - `animation_physics`
+  - `build_environment`
+  - `console_command`
+  - `control_actor`
+  - `control_editor`
+  - `create_effect`
+  - `inspect`
+  - `manage_asset`
+  - `manage_blueprint`
+  - `manage_level`
+  - `manage_rc`
+  - `manage_sequence`
+  - `system_control`
+- **Use cases:** automation, API integration
+- **Tags:** [games, unreal-engine, game-development, automation, editor]
+
+#### onlyoffice-docspace (Popularity: ★★☆☆☆)
+ONLYOFFICE DocSpace is a room-based collaborative platform which allows organizing a clear file structure depending on users' needs or project goals.
+- **Tools (23):**
+  - `archive_room`
+  - `copy_batch_items`
+  - `create_folder`
+  - `create_room`
+  - `delete_file`
+  - `delete_folder`
+  - `download_file_as_text`
+  - `get_all_people`
+  - `get_file_info`
+  - `get_folder_content`
+  - `get_folder_info`
+  - `get_my_folder`
+  - `get_room_access_levels`
+  - `get_room_info`
+  - `get_room_security_info`
+  - ... and 8 more
+- **Use cases:** onlyoffice, docspace, productivity
+- **Tags:** [onlyoffice, docspace, productivity]
+
+#### openapi (Popularity: ★★☆☆☆)
+Fetch, validate, and generate code or curl from any OpenAPI or Swagger spec - all from a single URL.
+- **Tools (5):**
+  - `create_csharp_snippet`
+  - `generate_curl_command`
+  - `get_known_responses`
+  - `get_list_of_operations`
+  - `validate_document`
+- **Use cases:** API integration
+- **Tags:** [productivity]
+
+#### schogini-mcp-image-border (Popularity: ★★☆☆☆)
+This adds a border to an image and returns base64 encoded image.
+- **Tools (3):**
+  - `add-two-numbers`
+  - `image-border`
+  - `image-meta`
+- **Use cases:** productivity
+- **Tags:** [productivity]
+
+#### quantconnect (Popularity: ★★☆☆☆)
+The QuantConnect MCP Server is a bridge for AIs (such as Claude and OpenAI o3 Pro) to interact with our cloud platform. When equipped with our MCP, the AI can perform tasks on your behalf through our API such as updating projects, writing strategies, backtesting, and deploying strategies to production live-trading.
+- **Tools (64):**
+  - `abort_optimization`
+  - `authorize_connection`
+  - `broadcast_live_command`
+  - `check_initialization_errors`
+  - `check_syntax`
+  - `complete_code`
+  - `create_backtest`
+  - `create_compile`
+  - `create_file`
+  - `create_live_algorithm`
+  - `create_live_command`
+  - `create_optimization`
+  - `create_project`
+  - `create_project_collaborator`
+  - `delete_backtest`
+  - ... and 49 more
+- **Use cases:** deployment, automation, API integration
+- **Tags:** [finance]
+
+#### charmhealth-mcp-server (Popularity: ★☆☆☆☆)
+An MCP server for CharmHealth EHR that allows LLMs and MCP clients to interact with patient records, encounters, and practice information.
+- **Tools (14):**
+  - `findPatients`
+  - `getPracticeInfo`
+  - `manageAppointments`
+  - `manageEncounter`
+  - `managePatient`
+  - `managePatientAllergies`
+  - `managePatientDiagnoses`
+  - `managePatientDrugs`
+  - `managePatientFiles`
+  - `managePatientLabs`
+  - `managePatientNotes`
+  - `managePatientRecalls`
+  - `managePatientVitals`
+  - `reviewPatientHistory`
+- **Use cases:** charmhealth, ehr, medical
+- **Tags:** [charmhealth, ehr, medical, productivity]
+
+#### camunda (Popularity: ★☆☆☆☆)
+Tools to interact with the Camunda 7 Community Edition Engine using the Model Context Protocol (MCP). Whether you're automating workflows, querying process instances, or integrating with external systems, Camunda MCP Server is your agentic solution for seamless interaction with Camunda.
+- **Tools (12):**
+  - `complete_user_task`
+  - `count_incidents`
+  - `count_instances`
+  - `count_user_tasks`
+  - `count_variables`
+  - `list_definitions`
+  - `list_incidents`
+  - `list_instances`
+  - `list_user_tasks`
+  - `list_variables`
+  - `resolve_incident`
+  - `send_message`
+- **Use cases:** productivity
+- **Tags:** [productivity]
+
+#### pomodash (Popularity: ★☆☆☆☆)
+Connect your AI assistant to PomoDash for seamless task and project management.
+- **Tools (14):**
+  - `create_category`
+  - `create_note`
+  - `create_note_for_project`
+  - `create_note_for_task`
+  - `create_task`
+  - `create_task_for_project`
+  - `delete_note`
+  - `delete_task`
+  - `list_categories`
+  - `list_note_references`
+  - `list_notes`
+  - `list_tasks`
+  - `update_note`
+  - `update_task`
+- **Use cases:** tasks, productivity, pomodoro
+- **Tags:** [tasks, productivity, pomodoro, notes, projects, planning]
+
+#### next-devtools-mcp (Popularity: ★☆☆☆☆)
+next-devtools-mcp is a Model Context Protocol (MCP) server that provides Next.js development tools and utilities for AI coding assistants.
+- **Tools (5):**
+  - `browser_eval`
+  - `enable_cache_components`
+  - `nextjs_docs`
+  - `nextjs_runtime`
+  - `upgrade_nextjs_16`
+- **Use cases:** devtools, nextjs
+- **Tags:** [devtools, nextjs]
+
+#### zerodha-kite (Popularity: ★☆☆☆☆)
+MCP server for Zerodha Kite Connect API - India's leading stock broker trading platform. Execute trades, manage portfolios, and access real-time market data for NSE, BSE, and other Indian exchanges.
+- **Tools (15):**
+  - `place_order`
+  - `modify_order`
+  - `cancel_order`
+  - `get_positions`
+  - `get_holdings`
+  - `get_margins`
+  - `get_quote`
+  - `get_historical_data`
+  - `get_instruments`
+  - `get_orders`
+  - `get_trades`
+  - `get_order_history`
+  - `get_profile`
+  - `get_ltp`
+  - `get_market_status`
+- **Use cases:** data management, API integration
+- **Tags:** [finance, trading, stocks, india]
+
+#### hummingbot-mcp (Popularity: ★☆☆☆☆)
+Hummingbot MCP is an open-source toolset that lets you control and monitor your Hummingbot trading bots through AI-powered commands and automation.
+- **Tools (18):**
+  - `configure_api_servers`
+  - `deploy_bot_with_controllers`
+  - `explore_controllers`
+  - `get_active_bots_status`
+  - `get_bot_logs`
+  - `get_candles`
+  - `get_funding_rate`
+  - `get_order_book`
+  - `get_orders`
+  - `get_portfolio_balances`
+  - `get_positions`
+  - `get_prices`
+  - `manage_bot_execution`
+  - `modify_controllers`
+  - `place_order`
+  - ... and 3 more
+- **Use cases:** monitoring, automation
+- **Tags:** [finance]
+
+#### cylera-mcp-server (Popularity: ★☆☆☆☆)
+Brings context about device inventory, threats, risks and utilization powered by the Cylera Partner API into an LLM.
+- **Tools (7):**
+  - `get_device`
+  - `get_procedures`
+  - `get_device_attributes`
+  - `get_risk_mitigations`
+  - `get_subnets`
+  - `get_vulnerabilities`
+  - `search_for_devices`
+- **Use cases:** API integration
+- **Tags:** [productivity]
+
+#### maven-tools-mcp (Popularity: ★☆☆☆☆)
+JVM dependency intelligence for any build tool using Maven Central Repository. Includes Context7 integration for upgrade documentation and guidance.
+- **Tools (10):**
+  - `analyze_dependency_age`
+  - `analyze_project_health`
+  - `analyze_release_patterns`
+  - `check_multiple_dependencies`
+  - `check_version_exists`
+  - `compare_dependency_versions`
+  - `get_latest_version`
+  - `get_library_docs`
+  - `get_version_timeline`
+  - `resolve_library_id`
+- **Use cases:** maven, dependencies, java
+- **Tags:** [maven, dependencies, java, gradle, sbt, mill]
+
+#### simplechecklist (Popularity: ★☆☆☆☆)
+Advanced SimpleCheckList with MCP server and SQLite database for comprehensive task management.  Features: ÔÇó Complete project and task management system ÔÇó Hierarchical organization (Projects ÔåÆ Groups ÔåÆ Task Lists ÔåÆ Tasks ÔåÆ Subtasks) ÔÇó SQLite database for data persistence ÔÇó RESTful API with comprehensive endpoints ÔÇó MCP protocol compliance for AI assistant integration ÔÇó Docker-optimized deployment with stability improvements  **v1.0.1 Update**: Enhanced Docker stability with improved container lifecycle management. Default mode optimized for containerized deployment with reliable startup and shutdown processes.  Perfect for AI assistants managing complex project workflows and task hierarchies.
+- **Tools (20):**
+  - `list_projects`
+  - `create_project`
+  - `get_project`
+  - `update_project`
+  - `delete_project`
+  - `list_groups`
+  - `create_group`
+  - `list_task_lists`
+  - `create_task_list`
+  - `list_tasks`
+  - `create_task`
+  - `toggle_task_completion`
+  - `update_task`
+  - `delete_task`
+  - `list_subtasks`
+  - ... and 5 more
+- **Use cases:** data management, deployment, API integration
+- **Tags:** [productivity, task-management, checklist, sqlite, docker-stable]
+
+#### opine-mcp-server (Popularity: ★☆☆☆☆)
+A Model Context Protocol (MCP) server for querying deals and evaluations from the Opine CRM API.
+- **Tools (4):**
+  - `get_deal`
+  - `list_deals`
+  - `list_evaluations`
+  - `list_tickets`
+- **Use cases:** API integration
+- **Tags:** [productivity]
+
+#### apify (Popularity: ★☆☆☆☆)
+Apify is the world's largest marketplace of tools for web scraping, data extraction, and web automation. You can extract structured data from social media, e-commerce, search engines, maps, travel sites, or any other website.
+- **Tools (0):**
+- **Use cases:** search, data management, automation, API integration
+- **Tags:** [automation, web-scraping, data-extraction, remote]
+
+#### carbon-voice (Popularity: ★☆☆☆☆)
+Communicate asynchronously with voice messages featuring AI transcription, summaries, and automated action item extraction.
+- **Tools (0):**
+- **Use cases:** productivity, voice, automation
+- **Tags:** [productivity, voice, automation, remote]
+
+#### close (Popularity: ★☆☆☆☆)
+Streamline sales processes with integrated calling, email, SMS, and automated workflows for small and scaling businesses.
+- **Tools (0):**
+- **Use cases:** crm, sales, customer management
+- **Tags:** [crm, sales, customer-management, remote]
+
+#### cloudflare-dns-analytics (Popularity: ★☆☆☆☆)
+Optimize DNS performance and debug issues based on current set up.
+- **Tools (0):**
+- **Use cases:** analytics, dns, performance
+- **Tags:** [analytics, dns, performance, cloudflare, remote]
+
+#### cloudflare-radar (Popularity: ★☆☆☆☆)
+Get global Internet traffic insights, trends, URL scans, and other utilities.
+- **Tools (0):**
+- **Use cases:** analytics, internet traffic, cloudflare
+- **Tags:** [analytics, internet-traffic, cloudflare, remote]
+
+#### dodo-payments (Popularity: ★☆☆☆☆)
+Tools for cross-border payments, taxes, and compliance.
+- **Tools (0):**
+- **Use cases:** payments, finance, transactions
+- **Tags:** [payments, finance, transactions, remote]
+
+#### ffmpeg (Popularity: ★☆☆☆☆)
+Use ffmpeg to process video files.
+- **Tools (3):**
+  - `imagemagick`
+  - `file-exists`
+  - `ffmpeg`
+- **Use cases:** ffmpeg, video
+- **Tags:** [ffmpeg, video]
+
+#### find-a-domain (Popularity: ★☆☆☆☆)
+Tools for finding domain names.
+- **Tools (2):**
+  - `check_domain`
+  - `list_tlds`
+- **Use cases:** tools, domain, productivity
+- **Tags:** [tools, domain, productivity, remote]
+
+#### firefly (Popularity: ★☆☆☆☆)
+Transcribe, summarize, and analyze meetings with AI-powered note-taking across video conferencing platforms.
+- **Tools (0):**
+- **Use cases:** productivity, meetings, transcription
+- **Tags:** [productivity, meetings, transcription, remote]
+
+#### hubspot (Popularity: ★☆☆☆☆)
+Unite marketing, sales, and customer service with AI-powered automation, lead management, and comprehensive analytics.
+- **Tools (0):**
+- **Use cases:** automation
+- **Tags:** [crm, marketing, sales, remote]
+
+#### invideo (Popularity: ★☆☆☆☆)
+Create professional marketing videos with AI-powered generation, templates, and automated voiceovers.
+- **Tools (0):**
+- **Use cases:** media, video, content creation
+- **Tags:** [media, video, content-creation, remote]
+
+#### manifold (Popularity: ★☆☆☆☆)
+Tools for accessing the Manifold Markets online prediction market platform.
+- **Tools (5):**
+  - `search-markets`
+  - `get-market`
+  - `get-user`
+  - `get-bets`
+  - `search-users`
+- **Use cases:** analytics, forecasting, prediction markets
+- **Tags:** [analytics, forecasting, prediction-markets, remote]
+
+#### mercado-libre (Popularity: ★☆☆☆☆)
+Provides access to Mercado Libre E-Commerce API.
+- **Tools (0):**
+- **Use cases:** API integration
+- **Tags:** [commerce, marketplace, latin-america, remote]
+
+#### mercado-pago (Popularity: ★☆☆☆☆)
+Provides access to Mercado Pago Marketplace API.
+- **Tools (0):**
+- **Use cases:** API integration
+- **Tags:** [payments, finance, latin-america, remote]
+
+#### openzeppelin-cairo (Popularity: ★☆☆☆☆)
+Access to OpenZeppelin Cairo Contracts.
+- **Tools (8):**
+  - `cairo-erc20`
+  - `cairo-erc721`
+  - `cairo-erc1155`
+  - `cairo-account`
+  - `cairo-multisig`
+  - `cairo-governor`
+  - `cairo-vesting`
+  - `cairo-custom`
+- **Use cases:** blockchain, cairo, smart contracts
+- **Tags:** [blockchain, cairo, smart-contracts, remote]
+
+#### openzeppelin-solidity (Popularity: ★☆☆☆☆)
+Access to OpenZeppelin Solidity Contracts.
+- **Tools (8):**
+  - `solidity-erc20`
+  - `solidity-erc721`
+  - `solidity-erc1155`
+  - `solidity-stablecoin`
+  - `solidity-rwa`
+  - `solidity-account`
+  - `solidity-governor`
+  - `solidity-custom`
+- **Use cases:** blockchain, solidity, smart contracts
+- **Tags:** [blockchain, solidity, smart-contracts, remote]
+
+#### openzeppelin-stellar (Popularity: ★☆☆☆☆)
+Access to OpenZeppelin Stellar Contracts.
+- **Tools (3):**
+  - `stellar-fungible`
+  - `stellar-stablecoin`
+  - `stellar-non-fungible`
+- **Use cases:** blockchain, stellar, smart contracts
+- **Tags:** [blockchain, stellar, smart-contracts, remote]
+
+#### openzeppelin-stylus (Popularity: ★☆☆☆☆)
+Access to OpenZeppelin Stylus Contracts.
+- **Tools (3):**
+  - `stylus-erc20`
+  - `stylus-erc721`
+  - `stylus-erc1155`
+- **Use cases:** blockchain, stylus, smart contracts
+- **Tags:** [blockchain, stylus, smart-contracts, remote]
+
+#### paypal (Popularity: ★☆☆☆☆)
+Process online payments, manage transactions, and integrate PayPal's payment solutions into applications.
+- **Tools (0):**
+- **Use cases:** payments, finance, transactions
+- **Tags:** [payments, finance, transactions, remote]
+
+#### remote-mcp (Popularity: ★☆☆☆☆)
+Tools for finding remote MCP servers.
+- **Tools (1):**
+  - `ListRemoteMCPServers`
+- **Use cases:** tools, mcp, directory
+- **Tags:** [tools, mcp, directory, remote]
+
+#### rube (Popularity: ★☆☆☆☆)
+Access to Rube's catalog of remote MCP servers.
+- **Tools (0):**
+- **Use cases:** tools, automation, remote
+- **Tags:** [tools, automation, remote]
+
+#### short-io (Popularity: ★☆☆☆☆)
+Access to Short.io's link shortener and analytics tools.
+- **Tools (0):**
+- **Use cases:** tools, url shortener, analytics
+- **Tags:** [tools, url-shortener, analytics, remote]
+
+#### stripe-remote (Popularity: ★☆☆☆☆)
+Interact with Stripe services over the Stripe API.
+- **Tools (0):**
+- **Use cases:** API integration
+- **Tags:** [payments, finance, billing, remote]
+
+#### waystation (Popularity: ★☆☆☆☆)
+Connect AI to your productivity ecosystem with integrations across Notion, Slack, Asana, Monday.com, and 50+ other business tools.
+- **Tools (0):**
+- **Use cases:** productivity, workflow, automation
+- **Tags:** [productivity, workflow, automation, remote]
+---
+
+
+## Total: 269 MCP Servers, 2900+ Individual Tools, 24 Categories
+
+**Last Updated:** 2025-11-03
+**Version:** 2.1.0
+
+## Usage Notes
+
+1. **Selection Process:** Review categories relevant to your goal type
+2. **Tool Count:** Each MCP provides 1-100+ individual tools
+3. **Installation:** Manual installation required - see MCP documentation
+4. **Popularity:** ★★★★★ (very high) to ★☆☆☆☆ (niche use)
+5. **Classification:** Mark tools as "Required" or "Optional" during selection
+
+## Category Usage Guidelines
+
+- **Web apps:** Web Development, Databases, Cloud & Infrastructure, Testing
+- **APIs:** APIs & Integration, Testing, Development Tools
+- **Desktop apps:** File Operations, Databases (local), Development Tools
+- **Data/Research:** Data & Analysis, Search & Research, File Operations
+- **E-commerce:** Payment & Commerce, Databases, Web Development, File Operations
+- **DevOps:** Cloud & Infrastructure, Docker, Kubernetes, Version Control
+- **Documentation:** Documentation & Learning, Search & Research
+

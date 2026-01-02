@@ -1,0 +1,530 @@
+# Parameters for SPEClet 0: Platform Infrastructure
+# Generated: 2025-11-03
+# SPEClet ID: 0
+# Dependencies: None (Foundation)
+# Part of: Innovation Consultancy Dashboard (DNA: GCATTAGC)
+
+[metadata]
+speclet_id = 0
+speclet_name = "Platform Infrastructure"
+descriptor = "platform"
+version = "1.0"
+generated_date = "2025-11-03T18:56:00Z"
+dna_code = "GCATTAGC"
+experimental_speclet = true
+
+[goal]
+description = "Create the foundational platform infrastructure for the Innovation Consultancy Dashboard, including authentication, database, routing, and base UI components"
+singular = true
+measurable = true
+
+[software_stack]
+deployment_type = "web_app"
+primary_language = "javascript"
+framework = "react_vite"
+backend = "insforge_baas"
+database = "insforge_postgresql"
+ui_library = "tailwind_css"
+routing = "react_router_v6"
+packaging_method = "vite_build"
+state_management = "react_context"
+
+[user_interface]
+required = true
+interface_type = "web_browser"
+target_users = "innovation_consultants_and_clients"
+skill_level = "none"
+accessibility = ["clear_labels", "mobile_responsive", "readable_typography", "high_contrast"]
+
+[deployment]
+target_platform = "web_browsers"
+installation_type = "url_access"
+startup_method = "navigate_to_url"
+configuration_required = ["insforge_api_credentials"]
+hosting_options = ["vercel", "netlify", "insforge_hosting"]
+
+[completion_criteria]
+functional_complete = true
+interface_complete = true
+deployment_complete = true
+production_ready = true
+user_tested = false
+documentation_complete = true
+
+acceptance_criteria = [
+    "User can register and login",
+    "User can create and view projects",
+    "User can navigate through all 5 stages",
+    "Data persists between sessions",
+    "Application deployed and accessible via URL",
+    "All interface contract items delivered"
+]
+
+[interface_contract]
+# What this SPEClet MUST provide for dependent SPEClets (1-5)
+provides = [
+    "authentication_system",
+    "database_schema", 
+    "base_ui_components",
+    "api_endpoints",
+    "routing_infrastructure"
+]
+
+required_by_speclets = [1, 2, 3, 4, 5]
+
+[dependencies]
+speclet_dependencies = []  # No dependencies - this is foundation
+blocking_speclets = [1, 2, 3, 4, 5]  # All stage modules blocked until this completes
+
+[execution]
+mode = "dynamic"
+escalation_threshold = 3
+
+[error_propagation]
+propagation_enabled = true
+propagation_strategy = "collaborative_review"
+failure_threshold = 3
+read_prior_steps = true
+
+# Task Definitions
+
+[[tasks]]
+id = 1
+description = "Initialize Insforge Backend"
+research_enabled = false
+
+  [[tasks.steps]]
+  id = 1
+  description = "Create Insforge project and configure authentication"
+  expected_output = "Insforge project created with auth enabled, API credentials obtained"
+  critical_flag = true
+  mode = "collaborative"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If Insforge unavailable, use Firebase as BaaS alternative"
+    trigger_condition = "primary_failure"
+    execution_method = "cognitive"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Define database schema in Insforge"
+  expected_output = "Database tables created with correct fields and relationships"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use Insforge CLI or API to programmatically create schema"
+    trigger_condition = "primary_failure"
+    execution_method = "cognitive"
+
+  [[tasks.steps]]
+  id = 3
+  description = "Configure API endpoints in Insforge"
+  expected_output = "API endpoints accessible and documented"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use Insforge auto-generated CRUD endpoints if manual setup complex"
+    trigger_condition = "primary_failure"
+    execution_method = "cognitive"
+
+  [[tasks.steps]]
+  id = 4
+  description = "Test backend connectivity and authentication"
+  expected_output = "All endpoints returning expected responses"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Write simple Node.js test script to verify API"
+    trigger_condition = "primary_failure"
+    execution_method = "tool"
+
+[[tasks]]
+id = 2
+description = "Set Up React Frontend Application"
+research_enabled = false
+
+  [[tasks.steps]]
+  id = 1
+  description = "Initialize React project with Vite"
+  expected_output = "React project initialized with dev server running"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use Create React App if Vite setup fails"
+    trigger_condition = "primary_failure"
+    execution_method = "cognitive"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Install dependencies (React Router, Tailwind CSS, Insforge SDK)"
+  expected_output = "All dependencies installed, package.json updated"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Install minimal dependencies first, add others incrementally"
+    trigger_condition = "primary_failure"
+    execution_method = "cognitive"
+
+  [[tasks.steps]]
+  id = 3
+  description = "Configure Tailwind CSS for styling"
+  expected_output = "Tailwind classes working in components"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use CDN version of Tailwind if build setup complex"
+    trigger_condition = "primary_failure"
+    execution_method = "cognitive"
+
+  [[tasks.steps]]
+  id = 4
+  description = "Set up React Router with placeholder routes"
+  expected_output = "Navigation between routes working"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use simple conditional rendering if router setup complex"
+    trigger_condition = "primary_failure"
+    execution_method = "cognitive"
+
+  [[tasks.steps]]
+  id = 5
+  description = "Configure Insforge SDK in React app"
+  expected_output = "Insforge SDK initialized, API calls working"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use fetch API directly if SDK integration difficult"
+    trigger_condition = "primary_failure"
+    execution_method = "cognitive"
+
+[[tasks]]
+id = 3
+description = "Implement Authentication Flow"
+research_enabled = false
+
+  [[tasks.steps]]
+  id = 1
+  description = "Create registration form component"
+  expected_output = "Registration form rendering and capturing input"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use simple HTML form if React form library complex"
+    trigger_condition = "primary_failure"
+    execution_method = "cognitive"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Implement registration logic with Insforge"
+  expected_output = "New users can register successfully, receive confirmation"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use Insforge SDK helper methods if direct API complex"
+    trigger_condition = "primary_failure"
+    execution_method = "cognitive"
+
+  [[tasks.steps]]
+  id = 3
+  description = "Create login form component"
+  expected_output = "Login form rendering and capturing credentials"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Reuse registration form component with mode toggle"
+    trigger_condition = "primary_failure"
+    execution_method = "cognitive"
+
+  [[tasks.steps]]
+  id = 4
+  description = "Implement login/logout logic"
+  expected_output = "Users can login, logout, session persists across page refresh"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use localStorage for session if Insforge session complex"
+    trigger_condition = "primary_failure"
+    execution_method = "cognitive"
+
+  [[tasks.steps]]
+  id = 5
+  description = "Add authentication guards to routes"
+  expected_output = "Unauthenticated users redirected to login"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use conditional rendering in each route if guard component complex"
+    trigger_condition = "primary_failure"
+    execution_method = "cognitive"
+
+[[tasks]]
+id = 4
+description = "Build Project Management System"
+research_enabled = false
+
+  [[tasks.steps]]
+  id = 1
+  description = "Create project creation form component"
+  expected_output = "Form component rendering and capturing project name"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+  [[tasks.steps]]
+  id = 2
+  description = "Implement project creation API call"
+  expected_output = "New projects created in database, associated with user"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use Insforge SDK create method if direct API complex"
+    trigger_condition = "primary_failure"
+    execution_method = "cognitive"
+
+  [[tasks.steps]]
+  id = 3
+  description = "Create project list/dashboard view"
+  expected_output = "Dashboard showing all user projects"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Display as simple list if card layout complex"
+    trigger_condition = "primary_failure"
+    execution_method = "cognitive"
+
+  [[tasks.steps]]
+  id = 4
+  description = "Implement project selection functionality"
+  expected_output = "Clicking project navigates to its Discovery stage"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use URL params if context management complex"
+    trigger_condition = "primary_failure"
+    execution_method = "cognitive"
+
+[[tasks]]
+id = 5
+description = "Create Base UI Components and Stage Navigation"
+research_enabled = false
+
+  [[tasks.steps]]
+  id = 1
+  description = "Build Layout component with header and navigation"
+  expected_output = "Layout component wrapping all authenticated pages"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use minimal layout if complex design difficult"
+    trigger_condition = "primary_failure"
+    execution_method = "cognitive"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Create StageNav component (5-stage tab navigation)"
+  expected_output = "Stage navigation tabs rendering, active state showing"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use simple link list if tabs complex"
+    trigger_condition = "primary_failure"
+    execution_method = "cognitive"
+
+  [[tasks.steps]]
+  id = 3
+  description = "Implement stage routing and placeholder views"
+  expected_output = "Each stage route rendering placeholder content"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use single component with stage prop if separate files complex"
+    trigger_condition = "primary_failure"
+    execution_method = "cognitive"
+
+  [[tasks.steps]]
+  id = 4
+  description = "Add mobile-responsive styling"
+  expected_output = "Interface adapts to mobile/tablet screens"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use CSS media queries if Tailwind approach complex"
+    trigger_condition = "primary_failure"
+    execution_method = "cognitive"
+
+  [[tasks.steps]]
+  id = 5
+  description = "Implement stage data persistence structure"
+  expected_output = "Stage data saves to database, persists between sessions"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use localStorage temporarily if API integration complex"
+    trigger_condition = "primary_failure"
+    execution_method = "cognitive"
+
+[[tasks]]
+id = 6
+description = "Deploy Platform and Verify Interface Contract"
+research_enabled = false
+
+  [[tasks.steps]]
+  id = 1
+  description = "Configure production build settings"
+  expected_output = "Production config ready, no hardcoded credentials"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use .env file if environment variable setup complex"
+    trigger_condition = "primary_failure"
+    execution_method = "cognitive"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Build production bundle"
+  expected_output = "Optimized production files in dist/ folder"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use development build temporarily if production build fails"
+    trigger_condition = "primary_failure"
+    execution_method = "cognitive"
+
+  [[tasks.steps]]
+  id = 3
+  description = "Deploy to web hosting (Vercel/Netlify/Insforge hosting)"
+  expected_output = "Application accessible via public URL"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use Netlify if Vercel deployment fails"
+    trigger_condition = "primary_failure"
+    execution_method = "cognitive"
+
+    [[tasks.steps.backups]]
+    id = 2
+    description = "Use Insforge hosting if both external hosts fail"
+    trigger_condition = "backup_1_failure"
+    execution_method = "cognitive"
+
+  [[tasks.steps]]
+  id = 4
+  description = "Verify interface contract deliverables"
+  expected_output = "Checklist confirming all interface contract items delivered"
+  critical_flag = true
+  mode = "collaborative"
+  max_retries = 1
+
+  [[tasks.steps]]
+  id = 5
+  description = "Create local deployment documentation"
+  expected_output = "Documentation enabling local development setup"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Create simple SETUP.md if comprehensive README complex"
+    trigger_condition = "primary_failure"
+    execution_method = "cognitive"
+
+[constraints]
+backend_preference = "insforge_baas"
+mobile_responsive_required = true
+non_technical_ux_required = true
+interface_contract_enforcement = true
+secure_authentication_required = true
+
+[components]
+insforge_backend = "BaaS platform providing auth, database, API"
+react_frontend = "Frontend application framework"
+vite_build_system = "Fast development and build tool"
+tailwind_css = "Utility-first CSS framework"
+react_router = "Client-side routing"
+
+[progress_tracking]
+log_file = "progress_speclet_0_platform.json"
+master_log = "progress_innovation_dashboard_MASTER.json"
+speclet_status_update_required = true
+
+[verification]
+pre_execution = true
+post_execution = true
+interface_contract_verification = true
+

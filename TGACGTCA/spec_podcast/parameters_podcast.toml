@@ -1,0 +1,376 @@
+# parameters_podcast.toml
+# Template Version: 1.0
+# Last Updated: 2025-11-03
+# Purpose: Machine-readable parameters for podcast website deployment
+
+[meta]
+file_role = "Machine-readable parameters for podcast website execution"
+created_by = "commander-spec.md"
+goal_descriptor = "podcast"
+related_files = ["spec_podcast.md", "exe_podcast.md"]
+log_output = "progress_podcast.json"
+created_date = "2025-11-03"
+version = "1.0"
+
+[execution]
+default_mode = "dynamic"  # Autonomous with intelligent escalation (recommended)
+
+[goal]
+description = "Deploy a production-ready podcast website featuring latest episode display, paginated episode listings, audio playback functionality, email subscription system, and administrative content management panel"
+
+# === SOFTWARE STACK & DEPLOYMENT (MANDATORY for build/create goals) ===
+
+[software_stack]
+deployment_type = "web_app"
+primary_language = "javascript"
+framework = "nextjs"
+database = "insforge_provided"
+ui_library = "shadcn_ui"
+component_system = "shadcn_ui_with_mcp"
+styling_approach = "tailwind_css_with_css_variables"
+packaging_method = "vercel_netlify_static"
+
+[user_interface]
+required = true
+interface_type = "web"
+target_users = "podcast_listeners_and_administrators"
+skill_level = "none"
+accessibility = ["responsive_design", "intuitive_navigation", "clear_audio_controls"]
+
+[deployment]
+target_platform = "web"
+installation_type = "web_url"
+configuration_required = ["domain_name", "insforge_api_keys", "email_service_credentials"]
+startup_method = "open_url"
+
+[completion_criteria]
+acceptance_criteria = [
+    "Homepage displays latest episode with play functionality",
+    "Episode listing page shows 20 episodes per page with working pagination",
+    "Audio player works across Chrome, Firefox, Safari, and Edge browsers",
+    "Email signup form captures subscribers and sends confirmation emails",
+    "Admin panel allows authenticated users to add, edit, and delete episodes",
+    "Website deployed to production URL with custom domain and SSL certificate",
+    "Responsive design verified on mobile, tablet, and desktop devices",
+    "Admin can upload new episode with audio file without developer assistance",
+    "Cross-browser testing passed on all target browsers",
+    "Email deliverability tested at ≥95% success rate"
+]
+
+functional_complete = true
+interface_complete = true
+deployment_complete = true
+production_ready = true
+user_tested = true
+documentation_complete = true
+
+[constraints]
+cross_browser_compatibility = ["chrome", "firefox", "safari", "edge"]
+responsive_breakpoints = ["mobile", "tablet", "desktop"]
+pagination_page_size = 20
+email_deliverability_minimum = 0.95
+admin_usability = "non_technical_users"
+
+# === TASKS AND STEPS ===
+
+[[tasks]]
+id = 1
+description = "Design and Setup Foundation - Establish project architecture, design system, and development environment"
+research_enabled = true
+research_sources = ["web_search", "documentation"]
+
+  [[tasks.steps]]
+  id = 1
+  description = "Research mindfulness web design patterns and colour schemes"
+  expected_output = "Design requirements document specifying colour palette (hex codes), typography choices, layout patterns, and mindfulness-inspired visual elements"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If comprehensive research unavailable, analyse popular mindfulness apps (Calm, Headspace) and podcast platforms for design patterns"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Create design system and visual identity"
+  expected_output = "Design system documentation with colour palette (hex codes), font families, spacing scale, and sample component mockups"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If custom design system too complex, adapt existing design system (Material UI, Chakra UI) with mindfulness colour overrides"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 3
+  description = "Initialize project with Next.js, shadcn/ui, and Insforge backend"
+  expected_output = "Initialized project repository with working development server, shadcn/ui configured with components.json, Insforge connection verified, database schema created, Tailwind CSS and CSS variables configured"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+  mcp_tools_available = true
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If Insforge integration issues arise, use Supabase as alternative BaaS"
+    trigger_condition = "primary_failure"
+
+    [[tasks.steps.backups]]
+    id = 2
+    description = "If BaaS approach blocked, set up custom Express.js backend with PostgreSQL and JWT authentication"
+    trigger_condition = "backup_1_failure"
+
+  [[tasks.steps]]
+  id = 4
+  description = "Configure development environment and tooling"
+  expected_output = "Development environment configured with linting rules, code formatting, version control initialized, and README with setup instructions"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+[[tasks]]
+id = 2
+description = "Implement Core Podcast Features - Build episode display, pagination, and audio playback functionality"
+research_enabled = false
+
+  [[tasks.steps]]
+  id = 1
+  description = "Build homepage with featured latest episode using shadcn/ui components"
+  expected_output = "Homepage displays latest episode with all metadata, styled using shadcn/ui Card component with mindfulness theme, responsive across devices"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+  mcp_tools_available = true
+  shadcn_components_needed = ["card"]
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If dynamic fetching fails, implement static generation with revalidation"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Create episode listing page with pagination using shadcn/ui components"
+  expected_output = "Episode listing page with working pagination using shadcn/ui Pagination component, showing 20 episodes per page in Card layouts, navigation controls functional"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+  mcp_tools_available = true
+  shadcn_components_needed = ["card", "pagination"]
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If server-side pagination complex, implement client-side pagination with all episodes loaded"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 3
+  description = "Implement responsive audio player component"
+  expected_output = "Functional audio player component that works across browsers (Chrome, Firefox, Safari, Edge) and devices (mobile, tablet, desktop)"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If custom player development blocked, integrate third-party player library (React Player, Plyr)"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 4
+  description = "Apply mindfulness design system consistently"
+  expected_output = "All pages styled consistently with mindfulness-inspired design, colour palette applied correctly, responsive design verified on mobile/tablet/desktop"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+[[tasks]]
+id = 3
+description = "Build Email Subscription System - Create email signup form with backend integration for managing subscribers"
+research_enabled = false
+
+  [[tasks.steps]]
+  id = 1
+  description = "Design and implement email signup form UI using shadcn/ui components"
+  expected_output = "Email signup form UI implemented using shadcn/ui components, form validation functional with error states, styled consistently with mindfulness design system"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+  mcp_tools_available = true
+  shadcn_components_needed = ["form", "input", "button", "toast"]
+
+  [[tasks.steps]]
+  id = 2
+  description = "Connect form to Insforge backend and email service"
+  expected_output = "Form submission saves email to database, triggers confirmation email, API handles errors gracefully (duplicate emails, invalid formats)"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If Insforge email service unavailable, integrate directly with SendGrid or Mailgun API"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 3
+  description = "Create subscription confirmation workflow"
+  expected_output = "Confirmation email sent with activation link, clicking link marks subscriber as confirmed, welcome message displayed"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If double opt-in too complex, implement single opt-in with immediate subscription activation"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 4
+  description = "Test email delivery and subscriber database"
+  expected_output = "Test subscriptions successful across 3+ email providers, emails delivered to inbox within 1 minute, database records accurate"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+[[tasks]]
+id = 4
+description = "Develop Admin Panel - Build authenticated admin interface for episode and subscriber management"
+research_enabled = false
+
+  [[tasks.steps]]
+  id = 1
+  description = "Implement authentication system using Insforge"
+  expected_output = "Admin login page functional, authentication prevents unauthorized access to admin routes, session persists across page refreshes, logout works correctly"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If Insforge auth issues arise, implement NextAuth.js with email/password provider"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Build episode management CRUD interface using shadcn/ui components"
+  expected_output = "Admin can add new episode with all fields using shadcn/ui form components, edit existing episodes, delete episodes with confirmation dialog, changes reflect immediately on frontend"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+  mcp_tools_available = true
+  shadcn_components_needed = ["table", "form", "dialog", "button"]
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If file upload to Insforge complex, implement URL input for externally hosted audio files"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 3
+  description = "Create subscriber list management view using shadcn/ui Table component"
+  expected_output = "Admin can view complete subscriber list in shadcn/ui Table with email addresses, subscription dates, and confirmation status badges, list paginated if >50 subscribers"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+  mcp_tools_available = true
+  shadcn_components_needed = ["table", "input", "badge"]
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If export functionality complex, provide read-only list view without export"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 4
+  description = "Test admin workflows and usability"
+  expected_output = "Admin workflows tested and verified usable by non-technical content manager, any UX issues documented and resolved"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+[[tasks]]
+id = 5
+description = "Deploy and Production Verification - Deploy to production environment, configure domains, and verify all features"
+research_enabled = false
+
+  [[tasks.steps]]
+  id = 1
+  description = "Deploy frontend to production hosting platform"
+  expected_output = "Frontend deployed and accessible via production URL, Insforge backend connected successfully, environment variables configured correctly"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If Vercel deployment issues, deploy to Netlify"
+    trigger_condition = "primary_failure"
+
+    [[tasks.steps.backups]]
+    id = 2
+    description = "If both Vercel and Netlify fail, deploy to custom VPS with PM2 process manager"
+    trigger_condition = "backup_1_failure"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Configure production domain and SSL"
+  expected_output = "Custom domain resolves to website, HTTPS enabled with valid SSL certificate, HTTP redirects to HTTPS"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+  [[tasks.steps]]
+  id = 3
+  description = "Perform end-to-end production testing"
+  expected_output = "All features functional in production, cross-browser testing passed (Chrome, Firefox, Safari, Edge), mobile/tablet/desktop responsiveness verified, no critical bugs detected"
+  critical_flag = true
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If production testing reveals critical issues, create hotfix branch, deploy fix, re-test"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 4
+  description = "Document deployment and create user guides"
+  expected_output = "Deployment documentation complete with configuration steps, admin user guide created with step-by-step instructions and screenshots for adding/editing episodes"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+[error_propagation]
+enabled = true
+read_prior_steps = true
+dependency_tracking = true
+propagation_strategy = "collaborative_review"
+failure_threshold = 3
+
+[logging]
+output_file = "progress_podcast.json"
+log_events = ["start", "step_complete", "retry", "error", "completion"]
+record_retries = true
+record_timestamps = true
+record_mode_switches = true
+
+[verification]
+check_task_alignment = true
+check_step_order = true
+check_file_integrity = true
+check_mode_consistency = true
+validate_backup_coverage = true
+verify_cross_references = true
+check_expected_outputs = true
+validate_backup_trigger_conditions = true
+
+[progress_tracking]
+progress_file = "progress_podcast.json"
+fields = ["task_id", "step_id", "status", "retry_count", "timestamp", "message", "method_used", "backup_attempts"]
+update_frequency = "on_step_completion"
+
