@@ -654,6 +654,112 @@ This Article exists because:
 
 ---
 
+## Article XV: The Slow-Code Principle (Lia Integration)
+
+### Section 15.1: Understanding Over Speed
+Specs MUST prioritise human understanding over rapid execution when appropriate.
+
+**Rationale:** While automation and speed are valuable, they must not come at the cost of human comprehension. The "Troubleshooting Cliff" phenomenon demonstrates that AI tools achieve near-perfect creation success but fail catastrophically during debugging when developers don't understand the code.
+
+**Requirement:** When education or understanding is a goal component, specs MUST include mechanisms for knowledge transfer, not just task completion.
+
+### Section 15.2: Education Mode
+When `education_mode = true` in execution configuration:
+- Approval gates MUST increase at critical decision points
+- Rationale explanations are MANDATORY for each approach selected
+- Alternative approaches MUST be presented for learning comparison
+- Pros/cons analysis MUST be provided before human selection
+- Learning checkpoints MUST be logged to notepad
+
+**Behaviour Pattern:**
+```
+1. PAUSE before critical step
+2. EXPLAIN current situation and objective
+3. PRESENT alternative approaches with trade-offs
+4. RECOMMEND approach with detailed rationale
+5. REQUEST human review and decision
+6. EXECUTE approved approach
+7. EXPLAIN outcome and lessons learned
+```
+
+### Section 15.3: Knowledge Capture Requirement
+Every spec execution MUST generate both:
+- Machine-readable progress log (`progress_[descriptor].json`)
+- Human-readable knowledge capture (`notepad_[descriptor].md`)
+
+**Notepad Requirements:**
+The notepad MUST capture across execution:
+- Key insights and discoveries
+- Technical decisions with rationale
+- Ideas for future enhancement
+- Cross-system connections and patterns
+- Observations from both AI executor and human user
+
+**Update Frequency:** Configurable per spec (per_step, per_task, or end_only), default is per_task.
+
+### Section 15.4: Troubleshooting Ecosystem Parity
+Problem diagnosis and resolution MUST be given equal weight to creation workflows.
+
+**Requirements:**
+- System MUST provide dedicated troubleshooting TOOLSPECs equivalent to creation TOOLSPECs
+- Troubleshooting workflows MUST be systematic, not ad-hoc
+- Three troubleshooting modes MUST be supported:
+  - **Diagnostic:** Fix broken functionality (Troubleshoot TOOLSPEC)
+  - **Archaeological:** Understand mysterious code (WTF TOOLSPEC)
+  - **Forensic:** Investigate critical failures (Forensic TOOLSPEC)
+
+**Rationale:** The "Troubleshooting Cliff" is a real failure mode where AI excels at creation but fails at debugging. Constitutional parity ensures troubleshooting receives systematic support.
+
+### Section 15.5: Pre-built Workflow Library
+The system MUST maintain a curated library of reusable TOOLSPECs for common workflows, organised by category:
+- Development (feature implementation, testing, specification)
+- Quality (review, architecture, security, optimisation)
+- Problem Solving (troubleshoot, archaeology, forensics)
+- Research & Learning (research, learning, paper analysis)
+- Knowledge (documentation, standards)
+- Strategy (innovation, integration)
+
+**Purpose:** Reduce time-to-value for common tasks while maintaining flexibility for novel goals.
+
+### Section 15.6: MCP Protocol Integration
+The framework MUST expose capabilities via Model Context Protocol for external integration:
+- **Resources:** Constitution, TOOLSPECs, templates accessible as MCP resources
+- **Tools:** Spec generation, validation, TOOLSPEC recommendation exposed as MCP tools
+- **Prompts:** Workflow starters available as MCP prompts
+
+**Rationale:** Enable use of SPEC Engine within other AI tools and workflows, not just standalone.
+
+### Section 15.7: Enforcement
+This Article is enforced through:
+
+**Template-Level:**
+- Notepad template MUST exist in `_templates/notepad_template.md`
+- All spec templates MUST include notepad section
+- Parameters template MUST include `[knowledge_capture]` configuration
+- Exe template MUST include notepad update logic (Section 2.7)
+
+**Execution-Level:**
+- Executor MUST create notepad file at spec start
+- Executor MUST update notepad per configured frequency
+- Education mode checkpoints MUST log to both progress.json and notepad
+- TOOLSPEC library MUST be maintained and indexed
+
+**Documentation-Level:**
+- README MUST highlight troubleshooting ecosystem as key feature
+- Workflow selection guide MUST be provided
+- Education mode usage MUST be documented
+
+### Section 15.8: Rationale
+This Article integrates Lia Workflow Specs' "slow-code" philosophy with SPEC Engine's structural rigour:
+
+**Problem Identified:** Pure speed-focused AI coding creates technical debt and comprehension gaps. Developers ship fast but debug poorly because they don't understand generated code.
+
+**Solution:** Constitutional requirement for understanding-focused features (education mode, notepad) alongside execution-focused features (dynamic mode, validation).
+
+**Core Principle:** "Understanding over speed, when understanding matters." Not all tasks require learning, but when they do, the system must support it constitutionally, not as an afterthought.
+
+---
+
 ## Enforcement
 
 ### Three-Layer Enforcement System
@@ -762,6 +868,7 @@ This Constitution establishes the **immutable foundation** for the SPECS system.
 **Maintenance:** Amendments to this Constitution MUST be documented in version history below.
 
 **Version History:**
+- v1.4 (2026-01-02): Added Article XV (The Slow-Code Principle) integrating Lia Workflow Specs philosophy - education mode, knowledge capture, troubleshooting ecosystem parity, workflow library, MCP integration
 - v1.3 (2025-11-03): Amended Article II to add SPECLet abstraction layer for complex multi-phase goals, enabling parallel execution with dependency management
 - v1.2 (2025-11-02): Added Article XI (Method Execution Order and Backup Justification) to prevent premature backup usage
 - v1.1 (2025-11-02): Added Article XIV (Complete Systems Require Deployable Artifacts) based on Charity Shop POS testing learnings

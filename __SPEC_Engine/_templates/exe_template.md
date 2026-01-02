@@ -994,6 +994,85 @@ When a step's primary method fails:
 
 ---
 
+## 2.7 Notepad Update (Knowledge Capture)
+
+After completing each task (or per configured frequency), update the knowledge capture notepad:
+
+### When to Update
+Check `[knowledge_capture].update_frequency` in parameters_[descriptor].toml:
+- **per_task** (default): Update after each task completion
+- **per_step**: Update after each step completion (detailed, verbose)
+- **end_only**: Update only at spec completion (minimal)
+
+### Update Process
+
+1. **Reflect on execution outcomes:**
+   - What was learned during this task/step?
+   - What technical decisions were made and why?
+   - Were there any surprises or unexpected challenges?
+   - What patterns or connections emerged?
+
+2. **Identify key insights:**
+   - **Key Insights:** Discoveries, aha moments, important realizations
+   - **Technical Notes:** Implementation details, architectural decisions, trade-offs made
+   - **Ideas for Enhancement:** Future improvements, features, optimizations identified
+   - **Cross-System Connections:** Links to other projects, reusable patterns, shared components
+   - **AI Observations:** What the LLM executor learned from this execution
+   - **Human Observations:** Any user feedback or notes (if in collaborative mode)
+
+3. **Format the update:**
+   ```markdown
+   ### [Task X or Step X.Y] - [Timestamp]
+   
+   **Insight:** [Key discovery or learning]
+   
+   **Technical Decision:** [Decision made and rationale]
+   
+   **Connection:** [Related pattern or project, if any]
+   ```
+
+4. **Append to notepad_[descriptor].md:**
+   - Open notepad file (create if doesn't exist using notepad_template.md)
+   - Append under appropriate section (Key Insights, Technical Notes, etc.)
+   - Add entry to Execution Timeline table
+   - Save file
+
+5. **Log to progress.json:**
+   ```json
+   {
+     "task_id": "2",
+     "notepad_update": {
+       "timestamp": "[ISO-8601]",
+       "insights_captured": 2,
+       "technical_notes": 1,
+       "ideas": 1
+     }
+   }
+   ```
+
+### Example Notepad Entry
+
+```markdown
+## Key Insights
+
+### Task 2: Database Schema Design - 2026-01-02 14:30
+
+**Insight:** Using JSONB for flexible attributes avoids schema migrations but requires careful indexing strategy.
+
+**Technical Decision:** Chose PostgreSQL JSONB over separate EAV tables because query performance is acceptable for <10k records and schema flexibility is critical for evolving requirements.
+
+**Connection:** This pattern mirrors the approach used in [related_project] - could extract to shared library.
+```
+
+### Constitutional Requirement
+
+Per Article XV, Section 15.3:
+- Knowledge capture is **MANDATORY** for all spec executions
+- Both machine-readable (progress.json) and human-readable (notepad.md) logs must be generated
+- Notepad provides cumulative learning across executions and sessions
+
+---
+
 ## 3. Mode Control
 
 ### Silent Mode
@@ -1113,6 +1192,135 @@ Mode changes are always logged with:
 - cause of switch (failure pattern, confidence drop, threshold breach)
 - attempted methods summary
 - current consecutive failure count
+
+### Education Mode
+
+**Behaviour:** Autonomous execution with enhanced learning opportunities and approval gates.
+
+**Philosophy:** Per Article XV (The Slow-Code Principle), understanding over speed when learning matters.
+
+**When to Use:**
+- Learning new frameworks or patterns
+- Training on project-specific workflows
+- Building understanding before autonomous execution
+- Onboarding new team members to codebase
+
+**Execution Flow:**
+
+When `execution.default_mode = "education"` or mode switches to education:
+
+1. **Execute step autonomously** (like silent mode initially)
+
+2. **At critical steps or key decisions:**
+   - PAUSE execution
+   - PRESENT education checkpoint
+   - EXPLAIN situation and available approaches
+   - COMPARE alternatives with pros/cons
+   - RECOMMEND approach with rationale
+   - REQUEST human review
+   - EXECUTE approved approach
+   - EXPLAIN outcome and lessons learned
+
+3. **Education Checkpoint Format:**
+
+```
+[EDUCATION CHECKPOINT - Step X.Y]
+
+Situation: [What we're about to do and why]
+
+Available Approaches:
+  A. [Primary method]
+     Pros: [Advantages, when to use]
+     Cons: [Disadvantages, risks]
+     
+  B. [Backup 1]
+     Pros: [Advantages, when to use]
+     Cons: [Disadvantages, risks]
+
+Recommendation: [Approach A]
+Rationale: [Why this approach is best for current situation]
+
+Continue with recommended approach? [Y/n/explain more/try different]
+```
+
+4. **User Response Handling:**
+   - **Y or Enter:** Execute recommended approach
+   - **n:** Present alternative approaches again
+   - **explain more:** Provide deeper technical explanation
+   - **try different:** Allow user to select specific approach
+
+5. **After Execution:**
+```
+[EDUCATION OUTCOME - Step X.Y]
+
+Approach Used: [Which method was executed]
+Result: [What happened]
+Lesson Learned: [Key takeaway for future similar situations]
+Alternative Would Have: [Brief note on what other approaches would have done differently]
+
+Proceeding to next step...
+```
+
+6. **Learning Log to Notepad:**
+   - All education checkpoints logged to notepad
+   - Decisions made with rationale
+   - Outcomes and lessons learned
+   - Cumulative knowledge building
+
+**Configuration (from parameters.toml):**
+
+```toml
+[education]
+enabled = true
+approval_gates = "increased"        # How many checkpoints
+rationale_required = true           # Always explain why
+alternatives_shown = true           # Always show options
+comparison_depth = "detailed"       # How deep to compare
+learning_pace = "moderate"          # How often to pause
+```
+
+**Learning Pace:**
+- **slow:** Pause at every critical step and many non-critical steps (thorough but time-intensive)
+- **moderate:** Pause at critical steps and key decision points (balanced, recommended)
+- **fast:** Pause only at major decisions (minimal overhead)
+
+**Comparison Depth:**
+- **brief:** Simple pros/cons lists
+- **moderate:** Pros/cons with examples
+- **detailed:** Comprehensive trade-off analysis with code examples
+
+**When NOT to Use Education Mode:**
+- Routine workflows you understand well
+- Time-critical troubleshooting
+- Production incidents requiring speed
+- Workflows with no novel learning value
+
+**Education Mode vs Collaborative Mode:**
+
+| Aspect | Education | Collaborative |
+|--------|-----------|---------------|
+| **Goal** | Learning & understanding | Control & oversight |
+| **Pauses** | Key decisions + explanation | Every critical step |
+| **Information** | Teaches alternatives & rationale | Confirms approach |
+| **Outcome** | Knowledge accumulation | Task completion |
+| **Best For** | Learning new patterns | High-stakes execution |
+
+**Logging:**
+
+Education mode adds to progress.json:
+```json
+{
+  "step_id": "2.3",
+  "mode": "education",
+  "education_checkpoint": {
+    "approaches_presented": 2,
+    "recommended": "primary",
+    "user_selected": "primary",
+    "rationale_provided": true,
+    "lesson_logged": true
+  }
+}
+```
 
 ---
 

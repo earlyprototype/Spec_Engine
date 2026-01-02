@@ -1,0 +1,365 @@
+# parameters_Forensic.toml
+# Template Version: 1.4
+# Last Updated: 2026-01-02
+# Purpose: Machine-readable parameters for Forensic root cause investigation
+
+[meta]
+file_role = "Machine-readable parameters for forensic investigation"
+created_by = "Constitutional Slow-Code Engine v2.0"
+goal_descriptor = "Forensic"
+related_files = ["Forensic_SPEC.md", "exe_Forensic.md"]
+log_output = "progress_Forensic.json"
+notepad_output = "notepad_Forensic.md"
+created_date = "2026-01-02"
+version = "1.0"
+
+[execution]
+default_mode = "collaborative"  # Forensic investigations typically require human coordination
+
+[goal]
+description = "Conduct systematic forensic investigation to determine root cause, blast radius, and remediation for critical production incidents"
+
+[software_stack]
+deployment_type = "not_applicable"
+primary_language = ""
+framework = "none"
+database = "none"
+ui_library = "none"
+packaging_method = "none"
+
+[user_interface]
+required = false
+interface_type = "none"
+target_users = "incident_responders"
+skill_level = "advanced"
+accessibility = []
+
+[deployment]
+target_platform = "not_applicable"
+installation_type = "none"
+configuration_required = []
+startup_method = "not_applicable"
+
+[completion_criteria]
+acceptance_criteria = [
+    "Incident timeline reconstructed with accurate timestamps",
+    "Root cause identified with supporting evidence",
+    "Blast radius quantified with specific numbers (systems, users, data)",
+    "Contributing factors documented",
+    "Remediation recommendations provided (immediate and long-term)",
+    "Prevention measures proposed",
+    "Postmortem report generated following 5-part structure"
+]
+
+[mcp_tools]
+required = []
+recommended = ["git", "github", "postgres"]
+optional = ["docker", "slack"]
+
+[mcp_tools.verification]
+check_on_startup = true
+halt_if_required_missing = false
+warn_if_recommended_missing = true
+log_available_tools = true
+
+[[tasks]]
+id = 1
+description = "Evidence Gathering - collect all incident-related evidence"
+
+  [[tasks.steps]]
+  id = 1
+  description = "Collect system logs (application, system, network)"
+  expected_output = "Log collection manifest listing all logs, time ranges, and sizes"
+  critical_flag = true
+  mode = "collaborative"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If centralized logging unavailable, collect from individual servers/containers"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Capture error messages and stack traces"
+  expected_output = "Categorized error list with frequencies and timestamps"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If structured logging missing, use regex patterns to extract errors"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 3
+  description = "Document environmental state (versions, config, dependencies)"
+  expected_output = "Environment snapshot document (YAML or JSON format)"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If version info not logged, infer from deployment logs and git history"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 4
+  description = "Preserve evidence (timestamped snapshots)"
+  expected_output = "Evidence archive with SHA256 checksums for integrity"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If disk space limited, compress logs and store critical evidence only"
+    trigger_condition = "primary_failure"
+
+[[tasks]]
+id = 2
+description = "Timeline Reconstruction - build chronological sequence"
+
+  [[tasks.steps]]
+  id = 1
+  description = "Establish incident start time"
+  expected_output = "Incident start timestamp with supporting evidence"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If exact start unclear, establish time range and note uncertainty"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Identify trigger event or initial symptom"
+  expected_output = "Trigger event description with timestamp and evidence"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If trigger not in logs, interview operators/users for context"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 3
+  description = "Map sequence of failures (cascade analysis)"
+  expected_output = "Timeline diagram showing cascade across systems"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If cascade is complex, create simplified diagram focusing on critical path"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 4
+  description = "Identify detection/discovery time"
+  expected_output = "Detection timestamp and method (alert name, user report)"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If detection time unclear, use first remediation action as proxy"
+    trigger_condition = "primary_failure"
+
+[[tasks]]
+id = 3
+description = "Root Cause Analysis - determine fundamental cause"
+
+  [[tasks.steps]]
+  id = 1
+  description = "Generate hypotheses (5 Whys, Fishbone)"
+  expected_output = "List of 3-7 hypotheses ranked by likelihood"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If 5 Whys insufficient, use fault tree analysis"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Test hypotheses against evidence"
+  expected_output = "Hypothesis evaluation matrix"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If evidence ambiguous, design targeted experiments"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 3
+  description = "Reproduce issue in controlled environment (if possible)"
+  expected_output = "Reproduction steps or documentation of why reproduction failed"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If full reproduction impossible, reproduce simplified version"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 4
+  description = "Confirm root cause with proof"
+  expected_output = "Root cause statement with evidence chain"
+  critical_flag = true
+  mode = "collaborative"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If definitive proof unavailable, provide most likely root cause with confidence level"
+    trigger_condition = "primary_failure"
+
+[[tasks]]
+id = 4
+description = "Blast Radius Assessment - quantify full impact"
+
+  [[tasks.steps]]
+  id = 1
+  description = "Identify affected systems and services"
+  expected_output = "List of affected systems with impact severity"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If dependencies unclear, use architecture diagram to infer"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Quantify data impact (corrupted, lost, exposed)"
+  expected_output = "Data impact report with specific counts"
+  critical_flag = true
+  mode = "collaborative"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If exact quantification impossible, provide estimates with confidence intervals"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 3
+  description = "Determine user impact (count, severity, duration)"
+  expected_output = "User impact metrics (users affected, error rate, duration)"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If user metrics unavailable, extrapolate from system load"
+    trigger_condition = "primary_failure"
+
+[[tasks]]
+id = 5
+description = "Remediation & Prevention - define fixes and safeguards"
+
+  [[tasks.steps]]
+  id = 1
+  description = "Immediate fix (stop the bleeding)"
+  expected_output = "Immediate remediation action plan with rollback procedure"
+  critical_flag = true
+  mode = "collaborative"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If clean fix unavailable, define temporary workaround"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Long-term remediation (address root cause)"
+  expected_output = "Detailed remediation plan with implementation steps"
+  critical_flag = true
+  mode = "collaborative"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If complex remediation needed, break into phased approach"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 3
+  description = "Prevention measures (monitoring, safeguards)"
+  expected_output = "Prevention checklist (new alerts, rate limits, validation checks)"
+  critical_flag = false
+  mode = "dynamic"
+  max_retries = 1
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If monitoring infrastructure limited, prioritize most critical safeguards"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 4
+  description = "Documentation and postmortem report"
+  expected_output = "Postmortem document following 5-part structure"
+  critical_flag = true
+  mode = "collaborative"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If time-constrained, create abbreviated postmortem with link to full investigation"
+    trigger_condition = "primary_failure"
+
+[error_propagation]
+enabled = true
+read_prior_steps = true
+dependency_tracking = true
+propagation_strategy = "collaborative_review"
+failure_threshold = 2  # Lower threshold for critical forensics
+
+[knowledge_capture]
+enabled = true
+notepad_path = "notepad_Forensic.md"
+capture_types = ["insights", "technical_notes", "ideas", "connections", "observations"]
+update_frequency = "per_task"
+
+[logging]
+output_file = "progress_Forensic.json"
+log_events = ["start", "step_complete", "retry", "error", "completion"]
+record_retries = true
+record_timestamps = true
+record_mode_switches = true
+
+[verification]
+check_task_alignment = true
+check_step_order = true
+check_file_integrity = true
+check_mode_consistency = true
+validate_backup_coverage = true
+verify_cross_references = true
+check_expected_outputs = true
+validate_backup_trigger_conditions = true
+
+[progress_tracking]
+progress_file = "progress_Forensic.json"
+fields = ["task_id", "step_id", "status", "retry_count", "timestamp", "message"]
+update_frequency = "on_step_completion"

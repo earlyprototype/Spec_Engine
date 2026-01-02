@@ -11,6 +11,23 @@
 
 ---
 
+## Knowledge Capture (Notepad)
+
+**Purpose:** Capture insights, observations, and learnings during execution.
+
+This notepad will be populated during execution with:
+- Key insights and aha moments
+- Technical discoveries and decisions
+- Ideas for future enhancements
+- Cross-system connections and patterns
+- Observations from both AI executor and human user
+
+**File:** `notepad_[descriptor].md` (automatically created during execution)
+
+**Update Frequency:** Configured in parameters.toml (per_task by default)
+
+---
+
 ## Software Stack & Architecture
 
 **MANDATORY for goals containing: "build", "create", "system", "application", "app", "develop"**
