@@ -1,0 +1,463 @@
+# Research SPEC_Engine Parameters
+# Machine-readable configuration for SPEC_Engine competitive research
+
+version = "1.0"
+last_updated = "2026-01-02"
+descriptor = "Research_SPEC_Engine"
+
+[goal]
+statement = "Conduct comprehensive research on SPEC_Engine, compare it to similar workflow/specification frameworks, and produce a detailed analysis report highlighting strengths, weaknesses, and opportunities for improvement."
+measurable = true
+singular = true
+
+[components]
+spec_engine_docs = "__SPEC_Engine/ directory containing README, GETTING_STARTED, Constitution, templates, workflow diagrams"
+external_frameworks = "Similar frameworks: Lia Workflow Specs, GitHub Spec Kit, MetaGPT, self-improving AI systems"
+research_sources = "Web search, academic papers, GitHub repositories, official documentation"
+output_location = "@filing/ for report storage"
+
+[constraints]
+min_frameworks_compared = 6
+min_comparison_dimensions = 8
+citations_required = true
+use_uk_english = true
+evidence_based = true
+preserve_sources = true
+
+[execution]
+default_mode = "dynamic"
+escalation_triggers = ["insufficient_results", "ambiguous_findings", "multiple_equal_priorities"]
+
+[mcp_tools]
+required = ["tavily-search", "huggingface"]
+recommended = ["github"]
+optional = ["context7"]
+
+[mcp_tools.verification]
+check_on_startup = true
+halt_if_required_missing = true
+warn_if_recommended_missing = true
+log_available_tools = true
+
+[completion_criteria]
+acceptance_criteria = [
+    "Comprehensive research report saved to @filing/SPEC_Engine_Research_Report.md",
+    "At least 6 similar frameworks analysed in depth",
+    "Minimum 8 comparison dimensions covered",
+    "SWOT analysis complete with prioritised opportunities",
+    "All findings backed by citations",
+    "Report includes actionable recommendations"
+]
+
+# Task 0: Prepare Research Scope
+[[tasks]]
+id = 0
+description = "Define clear research boundaries and success criteria"
+critical_balance = 0.67  # 2 of 3 steps critical
+
+[[tasks.steps]]
+id = 0
+description = "Read SPEC_Engine core documentation"
+expected_output = "Complete understanding of SPEC_Engine features, architecture, and principles"
+method = "primary"
+primary_method = "Read README.md, GETTING_STARTED.md, constitution.md, DESIGN_PHILOSOPHY.md"
+critical = true
+mode = "silent"
+max_retries = 2
+
+[[tasks.steps]]
+id = 1
+description = "Identify comparison dimensions"
+expected_output = "List of 8+ comparison dimensions (architecture, governance, execution, etc.)"
+method = "primary"
+primary_method = "Extract key features from documentation for comparison"
+backup_1 = "If features unclear, analyse template structures directly"
+critical = true
+mode = "silent"
+max_retries = 2
+
+[[tasks.steps]]
+id = 2
+description = "Define research questions"
+expected_output = "Structured list of research questions guiding investigation"
+method = "primary"
+primary_method = "Formulate specific questions about similar systems, differences, innovations"
+critical = false
+mode = "silent"
+max_retries = 1
+
+# Task 1: Discover Similar Frameworks
+[[tasks]]
+id = 1
+description = "Find frameworks with comparable goals and approaches"
+critical_balance = 0.50  # 2 of 4 steps critical
+research_enabled = true
+research_sources = ["web_search", "github_repos", "academic"]
+
+[[tasks.steps]]
+id = 0
+description = "Web search for specification-driven frameworks"
+expected_output = "List of 10-15 candidate frameworks with URLs"
+method = "primary"
+primary_method = "Search: specification-driven development, LLM workflow systems, goal-driven AI frameworks"
+backup_1 = "If results too broad, narrow to structured LLM task frameworks"
+critical = true
+mode = "silent"
+max_retries = 2
+
+[[tasks.steps]]
+id = 1
+description = "Search academic papers for self-improving systems"
+expected_output = "List of relevant academic papers and systems"
+method = "primary"
+primary_method = "Search Hugging Face papers: self-improving AI frameworks, meta-programming systems"
+backup_1 = "Search arXiv if Hugging Face insufficient"
+critical = false
+mode = "silent"
+max_retries = 2
+
+[[tasks.steps]]
+id = 2
+description = "Identify GitHub repositories of similar systems"
+expected_output = "List of open-source repositories with star counts"
+method = "primary"
+primary_method = "Search GitHub for specification framework, workflow engine LLM, structured prompts"
+critical = false
+mode = "silent"
+max_retries = 2
+
+[[tasks.steps]]
+id = 3
+description = "Filter to most relevant frameworks"
+expected_output = "Shortlist of 3-5 frameworks for deep analysis"
+method = "primary"
+primary_method = "Select frameworks sharing core characteristics: structured specs, LLM execution, workflow management"
+backup_1 = "If too many candidates, prioritise by popularity and feature overlap"
+critical = true
+mode = "silent"
+max_retries = 2
+
+# Task 2: Deep Analysis of Similar Frameworks
+[[tasks]]
+id = 2
+description = "Understand each framework's architecture, philosophy, and capabilities"
+critical_balance = 0.40  # 2 of 5 steps critical
+research_enabled = true
+research_sources = ["documentation", "github_repos", "technical_specs"]
+
+[[tasks.steps]]
+id = 0
+description = "Extract core architecture for each framework"
+expected_output = "Architecture summary for each framework (file structure, components, data flow)"
+method = "primary"
+primary_method = "Read official documentation, README files, architecture docs"
+backup_1 = "If documentation sparse, analyse repository structure and code"
+critical = true
+mode = "silent"
+max_retries = 2
+
+[[tasks.steps]]
+id = 1
+description = "Identify execution models"
+expected_output = "Execution model comparison showing autonomous vs supervised approaches"
+method = "primary"
+primary_method = "Document how each framework executes workflows (modes, escalation, autonomy)"
+critical = true
+mode = "silent"
+max_retries = 2
+
+[[tasks.steps]]
+id = 2
+description = "Analyse governance and quality mechanisms"
+expected_output = "Governance comparison showing how each enforces quality"
+method = "primary"
+primary_method = "Extract constitutional principles, validation rules, quality checks"
+backup_1 = "If principles not explicit, infer from template structures and examples"
+critical = false
+mode = "silent"
+max_retries = 2
+
+[[tasks.steps]]
+id = 3
+description = "Document unique features and innovations"
+expected_output = "List of unique features per framework"
+method = "primary"
+primary_method = "Identify features that distinguish each framework"
+critical = false
+mode = "silent"
+max_retries = 1
+
+[[tasks.steps]]
+id = 4
+description = "Assess maturity and adoption"
+expected_output = "Maturity assessment for each framework"
+method = "primary"
+primary_method = "Check GitHub stars, commit frequency, issues, community activity, citations"
+backup_1 = "If metrics unavailable, assess documentation quality as proxy for maturity"
+critical = false
+mode = "silent"
+max_retries = 1
+
+# Task 3: Comparative Analysis
+[[tasks]]
+id = 3
+description = "Systematically compare SPEC_Engine to similar frameworks across all dimensions"
+critical_balance = 0.57  # 4 of 7 steps critical
+
+[[tasks.steps]]
+id = 0
+description = "Create comparison matrix (architecture)"
+expected_output = "Architecture comparison matrix"
+method = "primary"
+primary_method = "Build table comparing file structure, components, modularity, template systems"
+critical = true
+mode = "silent"
+max_retries = 2
+
+[[tasks.steps]]
+id = 1
+description = "Create comparison matrix (governance)"
+expected_output = "Governance comparison matrix"
+method = "primary"
+primary_method = "Compare constitutional principles, validation mechanisms, quality enforcement"
+critical = true
+mode = "silent"
+max_retries = 2
+
+[[tasks.steps]]
+id = 2
+description = "Create comparison matrix (execution & modes)"
+expected_output = "Execution comparison matrix"
+method = "primary"
+primary_method = "Compare execution modes, escalation strategies, autonomy levels, error handling"
+critical = true
+mode = "silent"
+max_retries = 2
+
+[[tasks.steps]]
+id = 3
+description = "Create comparison matrix (user experience)"
+expected_output = "UX comparison matrix"
+method = "primary"
+primary_method = "Compare ease of use, documentation quality, learning curve, tooling"
+critical = false
+mode = "silent"
+max_retries = 1
+
+[[tasks.steps]]
+id = 4
+description = "Create comparison matrix (features & capabilities)"
+expected_output = "Features comparison matrix"
+method = "primary"
+primary_method = "Compare feature sets, extensibility, integrations, supported workflows"
+critical = false
+mode = "silent"
+max_retries = 1
+
+[[tasks.steps]]
+id = 5
+description = "Identify unique SPEC_Engine innovations"
+expected_output = "List of SPEC_Engine's unique value propositions"
+method = "primary"
+primary_method = "Highlight features present in SPEC_Engine but absent or weaker in alternatives"
+critical = true
+mode = "silent"
+max_retries = 2
+
+[[tasks.steps]]
+id = 6
+description = "Identify features SPEC_Engine lacks"
+expected_output = "Gap analysis showing missing capabilities"
+method = "primary"
+primary_method = "Highlight valuable features in alternatives that SPEC_Engine could adopt"
+critical = true
+mode = "silent"
+max_retries = 2
+
+# Task 4: SWOT Analysis
+[[tasks]]
+id = 4
+description = "Synthesise findings into strengths, weaknesses, opportunities, and threats"
+critical_balance = 0.80  # 4 of 5 steps critical
+
+[[tasks.steps]]
+id = 0
+description = "Identify SPEC_Engine strengths"
+expected_output = "Strengths list with evidence from comparisons"
+method = "primary"
+primary_method = "Based on comparison matrices, list what SPEC_Engine does better than alternatives"
+critical = true
+mode = "silent"
+max_retries = 2
+
+[[tasks.steps]]
+id = 1
+description = "Identify SPEC_Engine weaknesses"
+expected_output = "Weaknesses list with specific examples from competing frameworks"
+method = "primary"
+primary_method = "Based on gap analysis, list areas where SPEC_Engine lags behind alternatives"
+critical = true
+mode = "silent"
+max_retries = 2
+
+[[tasks.steps]]
+id = 2
+description = "Identify opportunities"
+expected_output = "Opportunities list with potential improvements and innovations to adopt"
+method = "primary"
+primary_method = "Cross-reference weaknesses with features from alternatives, emerging trends, user needs"
+backup_1 = "If opportunities unclear, review academic papers for cutting-edge concepts"
+critical = true
+mode = "silent"
+max_retries = 2
+
+[[tasks.steps]]
+id = 3
+description = "Identify threats"
+expected_output = "Threats list showing competitive risks"
+method = "primary"
+primary_method = "Analyse competitive advantages of alternatives, trends that could make SPEC_Engine obsolete"
+critical = false
+mode = "silent"
+max_retries = 1
+
+[[tasks.steps]]
+id = 4
+description = "Prioritise opportunities"
+expected_output = "Prioritised opportunity matrix showing quick wins and strategic investments"
+method = "primary"
+primary_method = "Rank opportunities by impact (high/medium/low) and effort (high/medium/low)"
+critical = true
+mode = "silent"
+max_retries = 2
+
+# Task 5: Generate Research Report
+[[tasks]]
+id = 5
+description = "Synthesise all findings into comprehensive, actionable research report"
+critical_balance = 0.70  # 7 of 10 steps critical
+
+[[tasks.steps]]
+id = 0
+description = "Structure report outline"
+expected_output = "Report structure with section headings"
+method = "primary"
+primary_method = "Create hierarchical outline: Executive Summary, Methodology, Profiles, Analysis, SWOT, Recommendations"
+critical = true
+mode = "silent"
+max_retries = 1
+
+[[tasks.steps]]
+id = 1
+description = "Write executive summary"
+expected_output = "1-2 page executive summary"
+method = "primary"
+primary_method = "Summarise key findings, SPEC_Engine position, top 3-5 recommendations"
+critical = true
+mode = "silent"
+max_retries = 2
+
+[[tasks.steps]]
+id = 2
+description = "Document methodology"
+expected_output = "Methodology section explaining how research was conducted"
+method = "primary"
+primary_method = "Describe research process, sources used, selection criteria, comparison dimensions"
+critical = false
+mode = "silent"
+max_retries = 1
+
+[[tasks.steps]]
+id = 3
+description = "Write framework profiles"
+expected_output = "Detailed profiles section (2-3 pages per framework)"
+method = "primary"
+primary_method = "For each framework, provide overview, architecture, key features, maturity"
+critical = true
+mode = "silent"
+max_retries = 2
+
+[[tasks.steps]]
+id = 4
+description = "Integrate comparison matrices"
+expected_output = "Comparative analysis section with tables and commentary"
+method = "primary"
+primary_method = "Embed all comparison tables from Task 3 with analysis narratives"
+critical = true
+mode = "silent"
+max_retries = 2
+
+[[tasks.steps]]
+id = 5
+description = "Write SWOT analysis section"
+expected_output = "SWOT section with prioritised opportunities"
+method = "primary"
+primary_method = "Present strengths, weaknesses, opportunities, threats with evidence"
+critical = true
+mode = "silent"
+max_retries = 2
+
+[[tasks.steps]]
+id = 6
+description = "Write recommendations"
+expected_output = "Recommendations section (3-5 priority 1 items, 5-8 priority 2/3 items)"
+method = "primary"
+primary_method = "Based on opportunities, provide specific actionable recommendations with rationale"
+backup_1 = "If recommendations unclear, focus on highest-impact opportunities from priority matrix"
+critical = true
+mode = "silent"
+max_retries = 2
+
+[[tasks.steps]]
+id = 7
+description = "Add citations and references"
+expected_output = "References section with complete citation information"
+method = "primary"
+primary_method = "List all sources used (URLs, papers, repositories) with proper formatting"
+critical = true
+mode = "silent"
+max_retries = 2
+
+[[tasks.steps]]
+id = 8
+description = "Save report to @filing/"
+expected_output = "Report file created in @filing/ directory"
+method = "primary"
+primary_method = "Write complete report to @filing/SPEC_Engine_Research_Report.md"
+backup_1 = "If @filing/ inaccessible, save to workspace root and log location"
+critical = true
+mode = "silent"
+max_retries = 2
+
+[[tasks.steps]]
+id = 9
+description = "Create executive summary as separate file"
+expected_output = "Standalone summary file for quick reference"
+method = "primary"
+primary_method = "Extract executive summary to @filing/SPEC_Engine_Research_Summary.md"
+critical = false
+mode = "silent"
+max_retries = 1
+
+# Error Propagation Configuration
+[error_propagation]
+enabled = true
+read_prior_steps = true
+dependency_tracking = true
+propagation_strategy = "collaborative_review"
+failure_threshold = 3
+
+# Validation Requirements
+[validation]
+pre_flight_required = true
+constitutional_compliance = true
+bridging_verification = true
+minimum_quality_threshold = 0.80
+
+# Logging Configuration
+[logging]
+log_file = "progress_Research_SPEC_Engine.json"
+comprehensive = true
+track_research_sources = true
+track_framework_discoveries = true
+track_comparison_metrics = true

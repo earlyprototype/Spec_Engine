@@ -1,0 +1,285 @@
+# parameters_WTF.toml
+# Template Version: 1.4
+# Last Updated: 2026-01-02
+# Purpose: Machine-readable parameters for WTF (What's This Feature) archaeology
+
+[meta]
+file_role = "Machine-readable parameters for feature archaeology"
+created_by = "Constitutional Slow-Code Engine v2.0"
+goal_descriptor = "WTF"
+related_files = ["WTF_SPEC.md", "exe_WTF.md"]
+log_output = "progress_WTF.json"
+notepad_output = "notepad_WTF.md"
+created_date = "2026-01-02"
+version = "1.0"
+
+[execution]
+default_mode = "dynamic"
+# Dynamic mode: autonomous with intelligent escalation (recommended for code archaeology)
+
+[goal]
+description = "Reverse-engineer and document the purpose, behaviour, and dependencies of an unknown code feature or module"
+
+# WTF is analysis/documentation, not build/create
+[software_stack]
+deployment_type = "not_applicable"
+primary_language = ""
+framework = "none"
+database = "none"
+ui_library = "none"
+packaging_method = "none"
+
+[user_interface]
+required = false
+interface_type = "none"
+target_users = "developers"
+skill_level = "advanced"
+accessibility = []
+
+[deployment]
+target_platform = "not_applicable"
+installation_type = "none"
+configuration_required = []
+startup_method = "not_applicable"
+
+[completion_criteria]
+acceptance_criteria = [
+    "Feature purpose documented with user stories",
+    "Code flow diagram created for main execution paths",
+    "Dependencies mapped (upstream and downstream)",
+    "Edge cases and failure modes identified",
+    "Usage examples provided with expected outputs",
+    "Integration points documented",
+    "Documentation reviewed by unfamiliar party and confirmed understandable"
+]
+
+[mcp_tools]
+required = []
+recommended = ["git", "github"]
+optional = ["browser"]
+
+[mcp_tools.verification]
+check_on_startup = true
+halt_if_required_missing = false
+warn_if_recommended_missing = true
+log_available_tools = true
+
+[[tasks]]
+id = 1
+description = "Initial Code Survey - map structure and identify components"
+
+  [[tasks.steps]]
+  id = 1
+  description = "Identify entry points (public APIs, main functions)"
+  expected_output = "List of 3-10 entry points with signatures and file locations"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If no clear public API, identify all function definitions and filter by naming conventions"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Map data structures and types"
+  expected_output = "Data model diagram or structured list showing relationships"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If no explicit types, infer from usage patterns and variable names"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 3
+  description = "Extract comments and documentation fragments"
+  expected_output = "Consolidated documentation fragments with source references"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If no comments exist, note this absence as documentation need"
+    trigger_condition = "primary_failure"
+
+[[tasks]]
+id = 2
+description = "Behaviour Analysis - understand runtime behaviour"
+
+  [[tasks.steps]]
+  id = 1
+  description = "Trace execution paths for common scenarios"
+  expected_output = "Flowchart or step-by-step execution description for 2-3 scenarios"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If code is too complex, identify branching points and document decision logic"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Identify side effects (I/O, state changes, external calls)"
+  expected_output = "List of all side effects with triggering conditions"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If side effects are implicit, trace function calls to external libraries"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 3
+  description = "Document error handling patterns"
+  expected_output = "Error taxonomy (what can go wrong, how it's handled)"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If no explicit error handling, document failure modes and risks"
+    trigger_condition = "primary_failure"
+
+[[tasks]]
+id = 3
+description = "Dependency Mapping - understand relationships"
+
+  [[tasks.steps]]
+  id = 1
+  description = "Identify upstream dependencies (what this code relies on)"
+  expected_output = "Dependency tree showing all upstream dependencies with purposes"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If dependencies are complex, focus on direct dependencies only"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Identify downstream dependents (what relies on this code)"
+  expected_output = "List of all calling code with usage context"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "Use git grep or IDE search if code navigation is unavailable"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 3
+  description = "Map external integrations (APIs, databases, services)"
+  expected_output = "Integration diagram showing external touchpoints"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If integrations are hidden, trace network/IO calls to infer connections"
+    trigger_condition = "primary_failure"
+
+[[tasks]]
+id = 4
+description = "Documentation Generation - create comprehensive documentation"
+
+  [[tasks.steps]]
+  id = 1
+  description = "Write 'What It Does' summary in plain English"
+  expected_output = "Feature overview document (3-5 paragraphs) including purpose, key concepts, architecture"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If feature is complex, write multiple summaries at different technical levels"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 2
+  description = "Create usage examples"
+  expected_output = "3-5 runnable example snippets with comments explaining each step"
+  critical_flag = true
+  mode = "dynamic"
+  max_retries = 2
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If examples can't run standalone, provide pseudocode with detailed explanations"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 3
+  description = "Document known issues and workarounds"
+  expected_output = "Issues list with workarounds and links to related tickets/PRs"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If no formal issue tracking, search comments for FIXME/HACK/TODO"
+    trigger_condition = "primary_failure"
+
+  [[tasks.steps]]
+  id = 4
+  description = "Create integration guide"
+  expected_output = "Integration guide with do's/don'ts, gotchas, and extension points"
+  critical_flag = false
+  mode = "silent"
+  max_retries = 1
+
+    [[tasks.steps.backups]]
+    id = 1
+    description = "If extension points aren't clear, document current integration patterns from dependents"
+    trigger_condition = "primary_failure"
+
+[error_propagation]
+enabled = true
+read_prior_steps = true
+dependency_tracking = true
+propagation_strategy = "collaborative_review"
+failure_threshold = 3
+
+[knowledge_capture]
+enabled = true
+notepad_path = "notepad_WTF.md"
+capture_types = ["insights", "technical_notes", "ideas", "connections", "observations"]
+update_frequency = "per_task"
+
+[logging]
+output_file = "progress_WTF.json"
+log_events = ["start", "step_complete", "retry", "error", "completion"]
+record_retries = true
+record_timestamps = true
+record_mode_switches = true
+
+[verification]
+check_task_alignment = true
+check_step_order = true
+check_file_integrity = true
+check_mode_consistency = true
+validate_backup_coverage = true
+verify_cross_references = true
+check_expected_outputs = true
+validate_backup_trigger_conditions = true
+
+[progress_tracking]
+progress_file = "progress_WTF.json"
+fields = ["task_id", "step_id", "status", "retry_count", "timestamp", "message"]
+update_frequency = "on_step_completion"

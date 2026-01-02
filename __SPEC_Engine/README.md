@@ -1,8 +1,45 @@
 # SPEC Engine Documentation
 
-**Version:** 1.3  
-**Last Updated:** 2025-11-03  
-**Purpose:** Structured workflow system for LLM-driven goal achievement
+**Version:** 2.0 - Constitutional Slow-Code Engine  
+**Last Updated:** 2 January 2026  
+**Purpose:** Structured workflow system for LLM-driven goal achievement with integrated slow-code philosophy
+
+---
+
+## What's New in v2.0 🎉
+
+The Constitutional Slow-Code Engine merges SPEC Engine's structural rigour with Lia Workflow Specs' troubleshooting ecosystem and educational philosophy:
+
+### Headline Features
+
+**🔍 Troubleshooting Ecosystem** (Article XV)
+- **WTF TOOLSPEC:** Feature archaeology for mysterious/legacy code
+- **Forensic TOOLSPEC:** Root cause investigation for critical incidents
+- **Enhanced Troubleshoot:** Integrated decision tree for all troubleshooting scenarios
+- **Systematic debugging:** Structured approach to the "Troubleshooting Cliff"
+
+**📓 Knowledge Capture** (Article XV.3)
+- **Notepad system:** Human-readable insights alongside machine logs
+- Captures key discoveries, technical decisions, ideas for enhancement
+- Cumulative learning across executions and sessions
+
+**🎓 Education Mode** (Article XV.2)
+- Approval gates with explanation and alternatives
+- Pros/cons analysis for different approaches
+- Learning checkpoints logged to notepad
+- Understanding over speed when learning matters
+
+**📚 TOOLSPEC Library** (Article XV.5)
+- 5 available TOOLSPECs (Troubleshoot, WTF, Forensic, Better_SPEC, Dev_Analysis)
+- 13 more planned (Dev, Review, Architecture, Security, Research, Learn, etc.)
+- Quick selection guide and decision trees
+- Reduces time-to-value for common workflows
+
+### Constitutional Updates
+- **Article XV:** The Slow-Code Principle (new)
+- Updated templates with notepad integration
+- Education mode execution logic
+- Troubleshooting ecosystem parity
 
 ---
 
@@ -11,8 +48,11 @@
 The SPEC Engine is a constitutional framework that transforms high-level goals into structured, executable specifications for LLMs. It provides:
 
 - **Goal-driven architecture:** Every element serves a singular North Star goal
-- **Constitutional governance:** 14 Articles ensure quality and consistency
+- **Constitutional governance:** 15 Articles ensure quality and consistency (now includes Slow-Code Principle)
 - **Three-file architecture:** Human-readable + Machine-readable + Execution controller
+- **Knowledge capture:** Both machine logs (progress.json) and human insights (notepad.md)
+- **Troubleshooting first:** Dedicated ecosystem for debugging and understanding
+- **Education mode:** Learning-focused execution with approval gates and explanations
 - **Project-level configuration:** Optional DNA profiles for per-project preferences
 - **Built-in validation:** Pre-flight, runtime, and post-execution quality checks
 
@@ -21,11 +61,11 @@ The SPEC Engine is a constitutional framework that transforms high-level goals i
 ## Quick Start: First Time Here?
 
 **Step 1: Read This Overview** (you are here)  
-**Step 2: Read `WORKFLOW_DIAGRAM.md`** - See the complete lifecycle  
+**Step 2: Read `GETTING_STARTED_v2.md`** - Quick start tutorial (NEW v2.0)  
 **Step 3: Read `_Constitution/constitution.md`** - Understand governing principles  
-**Step 4: Try creating a spec with `_Commander_SPEC/Spec_Commander.md`**
+**Step 4: Try a TOOLSPEC from `_TOOLSPECs/` or create custom spec with Commander
 
-**For Beginners:** Start with `GETTING_STARTED.md` (beginner-friendly tutorial)
+**For Beginners:** Start with `GETTING_STARTED_v2.md` (15-minute tutorial with examples)
 
 ---
 
@@ -61,10 +101,24 @@ _DNA/
 _templates/
 ├── Spec_template.md         📄 Human-readable spec structure
 ├── parameters_template.toml ⚙️  Machine-readable parameters
-└── exe_template.md          🚀 Execution controller logic
+├── exe_template.md          🚀 Execution controller logic
+└── notepad_template.md      📓 Knowledge capture template (NEW v2.0)
 ```
 
 **These are templates** - don't edit directly. Commander generates from these.
+
+### TOOLSPEC Library (NEW v2.0)
+```
+_TOOLSPECs/
+├── README_WORKFLOW_LIBRARY.md  📚 Quick selection guide
+├── Troubleshoot/               🔧 Fix broken development code
+├── WTF/                        🔍 Understand mysterious code
+├── Forensic/                   🕵️ Investigate critical failures
+├── Better_SPEC/                ✨ Improve SPEC quality
+└── Dev_Analysis/               📊 Development analysis
+```
+
+**Use these** for common workflow patterns. See `README_WORKFLOW_LIBRARY.md` for selection guide.
 
 ### Meta-Documentation
 ```
@@ -83,7 +137,7 @@ GETTING_STARTED.md           Beginner tutorial (coming soon)
 ```
 ┌─────────────────────────────────────────────────────┐
 │  SYSTEM CONSTITUTION (immutable)                    │
-│  Articles I-XIV                                     │
+│  Articles I-XV (now includes Slow-Code Principle)  │
 │  _Constitution/constitution.md                      │
 └──────────────────┬──────────────────────────────────┘
                    │ governs
@@ -367,6 +421,7 @@ Status: ACHIEVED (all pass) / PARTIAL (core works, deployment incomplete) / NOT 
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 2.0 | 2026-01-02 | **Constitutional Slow-Code Engine** - Integrated Lia Workflow Specs philosophy: Article XV (Slow-Code Principle), troubleshooting ecosystem (WTF, Forensic), knowledge capture (notepad.md), education mode, TOOLSPEC library with 5 available workflows |
 | 1.3 | 2025-11-03 | Added SPECLet abstraction layer for complex multi-phase goals with parallel execution support |
 | 1.0 | 2025-11-02 | Initial README created during structural review |
 

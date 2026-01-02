@@ -1,7 +1,7 @@
 # Troubleshoot SPEC
 
-**Version:** 2.0  
-**Last Updated:** 2025-11-07  
+**Version:** 2.1  
+**Last Updated:** 2 January 2026  
 **Purpose:** Systematically diagnose and resolve issues in a recently completed SPEC project with fresh LLM context
 
 ---
@@ -9,6 +9,35 @@
 ## Goal
 
 Systematically diagnose and resolve post-development issues in a completed SPEC project, producing a fully functional deliverable that meets all Definition of Complete criteria.
+
+---
+
+## Troubleshooting Ecosystem
+
+This TOOLSPEC is part of a three-spec troubleshooting ecosystem:
+
+| TOOLSPEC | When to Use | Output |
+|----------|-------------|--------|
+| **Troubleshoot** | Post-development issues blocking goal | Fixed deliverables |
+| **WTF** | Mysterious/legacy code needs understanding | Documentation |
+| **Forensic** | Critical failure needs root cause | Investigation report |
+
+**Decision Tree:**
+1. Is this a production incident with data loss/security breach? → Use **Forensic**
+2. Is the code mysterious/undocumented and you need to understand it? → Use **WTF**
+3. Is something broken and needs fixing? → Use **Troubleshoot** (this spec)
+
+**When to use Troubleshoot:**
+- Development project completed but deliverables don't work
+- Tests fail or quality standards not met
+- Definition of Complete criteria not achieved
+- Non-critical bugs blocking project completion
+- Integration issues between components
+
+**When NOT to use Troubleshoot:**
+- Production system crash → Use **Forensic**
+- Code works but you don't understand it → Use **WTF**
+- New feature development → Use **Dev** or custom spec
 
 ---
 

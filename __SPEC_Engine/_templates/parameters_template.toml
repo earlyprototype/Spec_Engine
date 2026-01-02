@@ -13,11 +13,25 @@ created_date = "YYYY-MM-DD"
 version = "1.0"
 
 [execution]
-default_mode = "dynamic"  # Options: "dynamic" (default), "silent", "collaborative"
+default_mode = "dynamic"  # Options: "dynamic" (default), "silent", "collaborative", "education"
 # User will be prompted at runtime to confirm or change mode
-# Dynamic mode: autonomous with intelligent escalation
-# Silent mode: fully autonomous, minimal interruption
-# Collaborative mode: pause at each critical decision
+# Dynamic mode: autonomous with intelligent escalation (recommended for most workflows)
+# Silent mode: fully autonomous, minimal interruption (routine workflows)
+# Collaborative mode: pause at each critical decision (high-stakes workflows)
+# Education mode: autonomous with enhanced learning opportunities (learning-focused)
+
+[education]
+# Only applies when execution.default_mode = "education"
+# Education mode provides enhanced learning checkpoints for understanding
+enabled = false                     # Set true to enable education-specific features
+approval_gates = "increased"        # Show approval gates at critical steps
+rationale_required = true           # Explain WHY decisions made
+alternatives_shown = true           # Present alternative approaches with trade-offs
+comparison_depth = "detailed"       # Options: "brief", "moderate", "detailed"
+learning_pace = "moderate"          # Options: "slow", "moderate", "fast"
+# slow: pause frequently for deep understanding
+# moderate: pause at key decision points (recommended)
+# fast: minimal pauses, focus on outcomes
 
 [goal]
 description = "[Insert goal description]"
@@ -363,6 +377,15 @@ propagation_strategy = "collaborative_review"  # Options: "halt_on_critical", "c
                                        # Recommended for dynamic mode: "collaborative_review"
                                        # Recommended for silent mode: "halt_on_critical"
 failure_threshold = 3                  # Escalate after N consecutive failures (for dynamic mode)
+
+[knowledge_capture]
+enabled = true                         # Generate notepad_[descriptor].md alongside progress.json
+notepad_path = "notepad_[descriptor].md"
+capture_types = ["insights", "technical_notes", "ideas", "connections", "observations"]
+update_frequency = "per_task"          # Options: "per_step", "per_task", "end_only"
+                                       # per_step: Update after every step (detailed but verbose)
+                                       # per_task: Update after each task completion (balanced, recommended)
+                                       # end_only: Update only at spec completion (minimal)
 
 [logging]
 output_file = "progress_[descriptor].json"
