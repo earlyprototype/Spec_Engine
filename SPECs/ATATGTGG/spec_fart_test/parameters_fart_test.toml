@@ -1,0 +1,16 @@
+# fart_test - Parameters
+# Generated: 2026-01-02T21:51:35.928Z
+
+[metadata]
+spec_version = "1.0"
+created_date = "2026-01-02"
+descriptor = "fart_test"
+
+[goal]
+statement = "create a virtual fart museum"
+singular = true
+
+[definition_of_complete]
+primary_deliverable = "TODO"
+quality_standards = ["TODO"]
+verification_method = "TODO"

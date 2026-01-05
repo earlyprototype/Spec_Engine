@@ -70,3 +70,12 @@ Projects are organized by 8-character "DNA Codes" (e.g., `TGACGTCA`).
     *   **Dynamic (Default):** Autonomous with intelligent escalation.
     *   **Silent:** Fully autonomous (use with caution).
     *   **Collaborative:** Human-in-the-loop for every critical decision.
+
+## 6. Future Direction: V3.0 Biological Framework (Proposed)
+
+**Philosophy:** Moving from "Mechanical Construction" to "Organic Growth".
+*   **Immune System:** Divergence is not just failure, but an antigen. The system learns "antibodies" (prevention rules) from every error.
+*   **Epigenetics:** The SPEC is a genome (potential); the Environment determines the phenotype (expression). The same DNA behaves differently in "Prototype" vs "Production" contexts.
+*   **Morphogenesis:** Instead of prescriptive steps, Specs define "Growth Rules" and "Attractors". The architecture emerges from exploring the environment (e.g., "If file system exists -> grow browser; if not -> grow CRUD").
+
+**Status:** Proposal Phase. See `@_structureNewProposal.md`.

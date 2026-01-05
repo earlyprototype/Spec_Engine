@@ -1,0 +1,37 @@
+# docker-compose.yml - NOT NEEDED
+# 
+# You're using the existing 'plasticflower-neo4j' container instead
+# of creating a new one. This avoids port conflicts and keeps everything
+# in one Neo4j instance.
+#
+# The pattern extraction system will use a separate database called 'patterns'
+# within your existing Neo4j instance to keep data organized.
+#
+# Original config commented out below for reference:
+#
+# version: '3.8'
+# 
+# services:
+#   neo4j:
+#     image: neo4j:latest
+#     container_name: spec-engine-graph
+#     ports:
+#       - "7474:7474"  # HTTP (Browser UI)
+#       - "7687:7687"  # Bolt protocol
+#     environment:
+#       - NEO4J_AUTH=neo4j/password
+#       - NEO4J_PLUGINS=["apoc"]  # Optional: APOC procedures
+#       - NEO4J_dbms_memory_heap_max__size=2G
+#       - NEO4J_dbms_memory_pagecache_size=1G
+#     volumes:
+#       - neo4j_data:/data
+#       - neo4j_logs:/logs
+#       - neo4j_import:/var/lib/neo4j/import
+#       - neo4j_plugins:/plugins
+#     restart: unless-stopped
+# 
+# volumes:
+#   neo4j_data:
+#   neo4j_logs:
+#   neo4j_import:
+#   neo4j_plugins:
