@@ -571,6 +571,10 @@
             });
             updateDomainBreakdown();
             
+            // Get user's min limit for validation
+            const defaultMinLimit = document.getElementById('defaultMinLimit').value.trim();
+            const minValidationResults = defaultMinLimit ? parseInt(defaultMinLimit) : 5;
+            
             try {
                 const response = await fetch('http://localhost:8000/extract', {
                     method: 'POST',
@@ -578,7 +582,8 @@
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        queries: currentQueries
+                        queries: currentQueries,
+                        min_validation_results: minValidationResults
                     })
                 });
                 

@@ -70,6 +70,7 @@ def extract():
     try:
         data = request.json
         queries = data.get('queries', [])
+        min_validation_results = data.get('min_validation_results', 5)
         
         if not queries:
             return jsonify({'error': 'No queries provided'}), 400
@@ -96,7 +97,7 @@ def extract():
         }
         
         # Start extraction in background thread
-        thread = threading.Thread(target=run_extraction, args=(queries,))
+        thread = threading.Thread(target=run_extraction, args=(queries, min_validation_results))
         thread.start()
         
         return jsonify({'status': 'started', 'total': len(queries)})
@@ -198,14 +199,14 @@ def log_console(message):
     print(console_msg, flush=True)
     extraction_status['logs'].append(message)
 
-def run_extraction(queries):
+def run_extraction(queries, min_validation_results=5):
     """Run pattern extraction in background."""
     global extraction_status
     
     try:
         # Phase 1: Validate all queries first
         extraction_status['phase'] = 'validating'
-        log_console("[PHASE 1] Validating queries...")
+        log_console(f"[PHASE 1] Validating queries (min results: {min_validation_results})...")
         
         validated_queries = []
         failed_queries = []
@@ -220,8 +221,8 @@ def run_extraction(queries):
             log_console(f"Query {i+1}/{len(queries)}: {query}")
             
             try:
-                # Validate and refine query
-                status, refined_query, result_count = extractor.validate_and_refine_query(query, min_results=5)
+                # Validate and refine query using user's min threshold
+                status, refined_query, result_count = extractor.validate_and_refine_query(query, min_results=min_validation_results)
                 
                 extraction_status['validation_results'][domain_name] = {
                     'original_query': query,

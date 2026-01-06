@@ -1,0 +1,1005 @@
+{
+  "trajectory_id": "general_20260106_212350",
+  "domain": "general",
+  "search_query": "topic:retrieval-augmented-generation topic:knowledge-graph stars:>500",
+  "limit": 50,
+  "started_at": "2026-01-06T21:23:50.919628",
+  "events": [
+    {
+      "timestamp": "2026-01-06T21:23:50.919628",
+      "elapsed_seconds": 0.0,
+      "type": "extraction_started",
+      "level": "info",
+      "data": {
+        "domain": "general",
+        "query": "topic:retrieval-augmented-generation topic:knowledge-graph stars:>500",
+        "limit": 50
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:23:51.426850",
+      "elapsed_seconds": 0.5072221755981445,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "HKUDS/LightRAG",
+        "stars": 27063
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:23:52.911382",
+      "elapsed_seconds": 1.9917538166046143,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "HKUDS/LightRAG",
+        "quality_score": 0.92,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.88
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:23:53.385979",
+      "elapsed_seconds": 2.466351270675659,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "HKUDS/LightRAG",
+        "success": true,
+        "response_time_seconds": 0.474
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:23:53.871139",
+      "elapsed_seconds": 2.951510429382324,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "HKUDS/LightRAG",
+        "success": true,
+        "response_time_seconds": 0.485
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:24:23.886949",
+      "elapsed_seconds": 32.96732044219971,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "HKUDS/LightRAG",
+        "success": true,
+        "response_time_seconds": 29.134,
+        "pattern_name": "Microservices/Modular Architecture",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:25:01.491706",
+      "elapsed_seconds": 70.57207798957825,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Microservices/Modular Architecture",
+        "success": true,
+        "response_time_seconds": 37.605
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:25:01.492734",
+      "elapsed_seconds": 70.57310581207275,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "HKUDS/LightRAG",
+        "status": "partial",
+        "time_seconds": 70.07
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:25:01.568442",
+      "elapsed_seconds": 70.64881420135498,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "memvid/memvid",
+        "stars": 11017
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:25:05.137655",
+      "elapsed_seconds": 74.21856260299683,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "memvid/memvid",
+        "quality_score": 0.872,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.955
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:25:05.576596",
+      "elapsed_seconds": 74.65696740150452,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "memvid/memvid",
+        "success": true,
+        "response_time_seconds": 0.437
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:25:06.152450",
+      "elapsed_seconds": 75.23282194137573,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "memvid/memvid",
+        "success": true,
+        "response_time_seconds": 0.574
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:25:16.270926",
+      "elapsed_seconds": 85.3512978553772,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Microservices/Modular Architecture",
+        "validation_score": 0.92,
+        "needs_review": false,
+        "response_time_seconds": 14.418
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:25:30.897535",
+      "elapsed_seconds": 99.97790694236755,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "memvid/memvid",
+        "success": true,
+        "response_time_seconds": 23.944,
+        "pattern_name": "Self-Contained Data Capsule (File-Based Memory)",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:25:31.867005",
+      "elapsed_seconds": 100.94737648963928,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Self-Contained Data Capsule (File-Based Memory)",
+        "success": true,
+        "response_time_seconds": 0.969
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:25:31.868539",
+      "elapsed_seconds": 100.94891047477722,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "memvid/memvid",
+        "status": "partial",
+        "time_seconds": 30.3
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:25:31.945352",
+      "elapsed_seconds": 101.02572441101074,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "DEEP-PolyU/Awesome-GraphRAG",
+        "stars": 2012
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:25:33.293066",
+      "elapsed_seconds": 102.37343764305115,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "DEEP-PolyU/Awesome-GraphRAG",
+        "quality_score": 0.865,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.91
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:25:33.769956",
+      "elapsed_seconds": 102.85032820701599,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "DEEP-PolyU/Awesome-GraphRAG",
+        "success": true,
+        "response_time_seconds": 0.477
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:25:34.193371",
+      "elapsed_seconds": 103.27374339103699,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "DEEP-PolyU/Awesome-GraphRAG",
+        "success": true,
+        "response_time_seconds": 0.423
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:25:46.799848",
+      "elapsed_seconds": 115.88021945953369,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Microservices/Modular Architecture",
+        "judge_score": 0.9,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 29.533
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:25:48.571507",
+      "elapsed_seconds": 117.65187883377075,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "DEEP-PolyU/Awesome-GraphRAG",
+        "success": true,
+        "response_time_seconds": 13.559,
+        "pattern_name": "awesome_list",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:25:48.937350",
+      "elapsed_seconds": 118.01772141456604,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "awesome_list",
+        "success": true,
+        "response_time_seconds": 0.366
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:25:49.113291",
+      "elapsed_seconds": 118.1936628818512,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "DEEP-PolyU/Awesome-GraphRAG",
+        "status": "partial",
+        "time_seconds": 17.17
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:25:49.137997",
+      "elapsed_seconds": 118.2183690071106,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "satellitecomponent/Neurite",
+        "stars": 1957
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:25:49.493237",
+      "elapsed_seconds": 118.5736083984375,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Self-Contained Data Capsule (File-Based Memory)",
+        "validation_score": 0.99,
+        "needs_review": false,
+        "response_time_seconds": 17.381
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:25:50.306056",
+      "elapsed_seconds": 119.38642811775208,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "satellitecomponent/Neurite",
+        "quality_score": 0.851,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:25:50.777104",
+      "elapsed_seconds": 119.8574755191803,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "satellitecomponent/Neurite",
+        "success": true,
+        "response_time_seconds": 0.469
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:25:51.198150",
+      "elapsed_seconds": 120.27852177619934,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "satellitecomponent/Neurite",
+        "success": true,
+        "response_time_seconds": 0.421
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:26:00.622344",
+      "elapsed_seconds": 129.70271563529968,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "awesome_list",
+        "validation_score": 1.0,
+        "needs_review": false,
+        "response_time_seconds": 11.252
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:26:26.280455",
+      "elapsed_seconds": 155.36082673072815,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Self-Contained Data Capsule (File-Based Memory)",
+        "judge_score": 0.885,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 34.919
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:26:28.990724",
+      "elapsed_seconds": 158.07109546661377,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "satellitecomponent/Neurite",
+        "success": true,
+        "response_time_seconds": 37.317,
+        "pattern_name": "Single-Page Web Application (SPA)",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:26:29.090411",
+      "elapsed_seconds": 158.17078256607056,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Single-Page Web Application (SPA)",
+        "success": true,
+        "response_time_seconds": 0.1
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:26:29.092487",
+      "elapsed_seconds": 158.17285895347595,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "satellitecomponent/Neurite",
+        "status": "successful",
+        "time_seconds": 39.95
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:26:29.095078",
+      "elapsed_seconds": 158.17544960975647,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "Zleap-AI/SAG",
+        "stars": 1107
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:26:29.264017",
+      "elapsed_seconds": 158.34438920021057,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "awesome_list",
+        "judge_score": 0.97,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 28.605
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:26:32.768225",
+      "elapsed_seconds": 161.84859657287598,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "Zleap-AI/SAG",
+        "quality_score": 0.708,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.91
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:26:33.210884",
+      "elapsed_seconds": 162.29125571250916,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "Zleap-AI/SAG",
+        "success": true,
+        "response_time_seconds": 0.442
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:26:33.691813",
+      "elapsed_seconds": 162.77218508720398,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "Zleap-AI/SAG",
+        "success": true,
+        "response_time_seconds": 0.481
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:26:48.440117",
+      "elapsed_seconds": 177.52048897743225,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Single-Page Web Application (SPA)",
+        "validation_score": 0.975,
+        "needs_review": false,
+        "response_time_seconds": 19.307
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:27:15.951593",
+      "elapsed_seconds": 205.0319652557373,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "Zleap-AI/SAG",
+        "success": true,
+        "response_time_seconds": 41.243,
+        "pattern_name": "Hybrid RAG Architecture with Dynamic Knowledge Graph Generation",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:27:16.130416",
+      "elapsed_seconds": 205.21078777313232,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Hybrid RAG Architecture with Dynamic Knowledge Graph Generation",
+        "success": true,
+        "response_time_seconds": 0.179
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:27:16.130416",
+      "elapsed_seconds": 205.21078777313232,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "Zleap-AI/SAG",
+        "status": "successful",
+        "time_seconds": 47.04
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:27:16.132015",
+      "elapsed_seconds": 205.2123863697052,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "BaranziniLab/KG_RAG",
+        "stars": 928
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:27:18.420943",
+      "elapsed_seconds": 207.50131464004517,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "BaranziniLab/KG_RAG",
+        "quality_score": 0.817,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:27:18.870565",
+      "elapsed_seconds": 207.950936794281,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "BaranziniLab/KG_RAG",
+        "success": true,
+        "response_time_seconds": 0.448
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:27:19.324182",
+      "elapsed_seconds": 208.4045534133911,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "BaranziniLab/KG_RAG",
+        "success": true,
+        "response_time_seconds": 0.453
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:27:24.124631",
+      "elapsed_seconds": 213.20500326156616,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Single-Page Web Application (SPA)",
+        "judge_score": 0.89,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 35.634
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:27:30.126568",
+      "elapsed_seconds": 219.20693945884705,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Hybrid RAG Architecture with Dynamic Knowledge Graph Generation",
+        "validation_score": 0.98,
+        "needs_review": false,
+        "response_time_seconds": 13.971
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:27:42.612753",
+      "elapsed_seconds": 231.69312524795532,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "BaranziniLab/KG_RAG",
+        "success": true,
+        "response_time_seconds": 22.454,
+        "pattern_name": "Knowledge Graph-Augmented Retrieval Augmented Generation (RAG) System",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:27:42.846966",
+      "elapsed_seconds": 231.9273374080658,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Knowledge Graph-Augmented Retrieval Augmented Generation (RAG) System",
+        "success": true,
+        "response_time_seconds": 0.234
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:27:42.846966",
+      "elapsed_seconds": 231.9273374080658,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "BaranziniLab/KG_RAG",
+        "status": "successful",
+        "time_seconds": 26.71
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:27:42.849000",
+      "elapsed_seconds": 231.92937183380127,
+      "type": "neo4j_storage",
+      "level": "error",
+      "data": {
+        "pattern": "Knowledge Graph-Augmented Retrieval Augmented Generation (RAG) System",
+        "success": false,
+        "response_time_seconds": 0.236,
+        "error": "cannot schedule new futures after shutdown"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:27:42.849000",
+      "elapsed_seconds": 231.92937183380127,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "BaranziniLab/KG_RAG",
+        "status": "failed",
+        "time_seconds": 26.72
+      }
+    },
+    {
+      "timestamp": "2026-01-06T21:27:42.853164",
+      "elapsed_seconds": 231.9335355758667,
+      "type": "extraction_finished",
+      "level": "info",
+      "data": {
+        "total_repos": 7,
+        "successful": 3,
+        "partial": 3,
+        "failed": 1,
+        "total_time": 231.93
+      }
+    }
+  ],
+  "repositories": [
+    {
+      "repo_name": "HKUDS/LightRAG",
+      "repo_url": "https://github.com/HKUDS/LightRAG",
+      "stars": 27063,
+      "started_at": "2026-01-06T21:23:51.426850",
+      "start_time": 1767734631.4268508,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.4740731716156006
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.4845893383026123
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 29.134037256240845,
+          "pattern_name": "Microservices/Modular Architecture"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 37.60475754737854
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "HKUDS/LightRAG",
+        "quality_score": 0.92,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.88
+      },
+      "finished_at": "2026-01-06T21:25:01.492734",
+      "total_time_seconds": 70.06588363647461
+    },
+    {
+      "repo_name": "memvid/memvid",
+      "repo_url": "https://github.com/memvid/memvid",
+      "stars": 11017,
+      "started_at": "2026-01-06T21:25:01.568442",
+      "start_time": 1767734701.5684428,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.4374048709869385
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.5743730068206787
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.92,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 23.943908214569092,
+          "pattern_name": "Self-Contained Data Capsule (File-Based Memory)"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.9694695472717285
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "memvid/memvid",
+        "quality_score": 0.872,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.955
+      },
+      "validation": {
+        "pattern": "Microservices/Modular Architecture",
+        "validation_score": 0.92,
+        "needs_review": false,
+        "response_time_seconds": 14.418
+      },
+      "finished_at": "2026-01-06T21:25:31.868539",
+      "total_time_seconds": 30.30009627342224
+    },
+    {
+      "repo_name": "DEEP-PolyU/Awesome-GraphRAG",
+      "repo_url": "https://github.com/DEEP-PolyU/Awesome-GraphRAG",
+      "stars": 2012,
+      "started_at": "2026-01-06T21:25:31.945352",
+      "start_time": 1767734731.945353,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.47689056396484375
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.4234151840209961
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 13.55887508392334,
+          "pattern_name": "awesome_list"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.3658425807952881
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "DEEP-PolyU/Awesome-GraphRAG",
+        "quality_score": 0.865,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.91
+      },
+      "finished_at": "2026-01-06T21:25:49.113291",
+      "total_time_seconds": 17.167938470840454
+    },
+    {
+      "repo_name": "satellitecomponent/Neurite",
+      "repo_url": "https://github.com/satellitecomponent/Neurite",
+      "stars": 1957,
+      "started_at": "2026-01-06T21:25:49.137997",
+      "start_time": 1767734749.1379976,
+      "events": [
+        {
+          "type": "critic_validation",
+          "validation_score": 0.99,
+          "needs_review": false
+        },
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.4690835475921631
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.42104625701904297
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 1.0,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 37.31652355194092,
+          "pattern_name": "Single-Page Web Application (SPA)"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.09968709945678711
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "successful",
+      "errors": [],
+      "validation": {
+        "pattern": "awesome_list",
+        "validation_score": 1.0,
+        "needs_review": false,
+        "response_time_seconds": 11.252
+      },
+      "quality_metrics": {
+        "repo": "satellitecomponent/Neurite",
+        "quality_score": 0.851,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      },
+      "finished_at": "2026-01-06T21:26:29.092487",
+      "total_time_seconds": 39.954489946365356
+    },
+    {
+      "repo_name": "Zleap-AI/SAG",
+      "repo_url": "https://github.com/Zleap-AI/SAG",
+      "stars": 1107,
+      "started_at": "2026-01-06T21:26:29.095078",
+      "start_time": 1767734789.0950782,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.44231653213500977
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.4809293746948242
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.975,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 41.2431914806366,
+          "pattern_name": "Hybrid RAG Architecture with Dynamic Knowledge Graph Generation"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.17882251739501953
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "successful",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "Zleap-AI/SAG",
+        "quality_score": 0.708,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.91
+      },
+      "validation": {
+        "pattern": "Single-Page Web Application (SPA)",
+        "validation_score": 0.975,
+        "needs_review": false,
+        "response_time_seconds": 19.307
+      },
+      "finished_at": "2026-01-06T21:27:16.130416",
+      "total_time_seconds": 47.035338163375854
+    },
+    {
+      "repo_name": "BaranziniLab/KG_RAG",
+      "repo_url": "https://github.com/BaranziniLab/KG_RAG",
+      "stars": 928,
+      "started_at": "2026-01-06T21:27:16.132015",
+      "start_time": 1767734836.132015,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.4480142593383789
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.45258474349975586
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.98,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 22.454444408416748,
+          "pattern_name": "Knowledge Graph-Augmented Retrieval Augmented Generation (RAG) System"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.23421216011047363
+        },
+        {
+          "type": "neo4j_storage",
+          "success": false,
+          "response_time": 0.23624658584594727
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "failed",
+      "errors": [
+        "Neo4j: cannot schedule new futures after shutdown"
+      ],
+      "quality_metrics": {
+        "repo": "BaranziniLab/KG_RAG",
+        "quality_score": 0.817,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      },
+      "validation": {
+        "pattern": "Hybrid RAG Architecture with Dynamic Knowledge Graph Generation",
+        "validation_score": 0.98,
+        "needs_review": false,
+        "response_time_seconds": 13.971
+      },
+      "finished_at": "2026-01-06T21:27:42.849000",
+      "total_time_seconds": 26.71698546409607
+    }
+  ],
+  "summary": {
+    "total_repos": 7,
+    "successful": 3,
+    "partial": 3,
+    "failed": 1,
+    "total_time_seconds": 231.93,
+    "success_rate_percent": 85.7
+  },
+  "finished_at": "2026-01-06T21:27:42.853164"
+}
