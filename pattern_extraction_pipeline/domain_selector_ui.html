@@ -549,7 +549,13 @@
                 updateDomainBreakdown();
                 
                 if (status.running) {
-                    document.getElementById('extractionStatus').textContent = 'Extracting...';
+                    if (status.phase === 'validating') {
+                        document.getElementById('extractionStatus').textContent = 'Validating queries...';
+                    } else if (status.phase === 'extracting') {
+                        document.getElementById('extractionStatus').textContent = 'Extracting patterns...';
+                    } else {
+                        document.getElementById('extractionStatus').textContent = 'Processing...';
+                    }
                 } else {
                     document.getElementById('extractionStatus').textContent = 'Complete!';
                     clearInterval(statusInterval);
@@ -561,9 +567,10 @@
                 logsContainer.innerHTML = status.logs.map(log => {
                     let color = '#f8f8f2';
                     if (log.includes('[OK]')) color = '#50fa7b';
-                    else if (log.includes('[ERROR]')) color = '#ff5555';
-                    else if (log.includes('[COMPLETE]')) color = '#8be9fd';
+                    else if (log.includes('[ERROR]') || log.includes('[FATAL]')) color = '#ff5555';
+                    else if (log.includes('[COMPLETE]') || log.includes('PHASE')) color = '#8be9fd';
                     else if (log.includes('Extracting')) color = '#f1fa8c';
+                    else if (log.includes('Validating') || log.includes('Refined')) color = '#bd93f9';
                     return `<div style="color: ${color};">${log}</div>`;
                 }).join('');
                 logsContainer.scrollTop = logsContainer.scrollHeight;
