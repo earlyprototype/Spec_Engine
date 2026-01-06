@@ -321,16 +321,18 @@ Return ONLY the new query, nothing else."""
             # Check if repository already analyzed
             existing = self._check_if_repo_exists(repo.html_url)
             if existing and not force_reanalyse:
-                print(f"  [SKIP] Already analyzed on {existing['extracted_at'].strftime('%Y-%m-%d')}")
-                print(f"         Quality: {existing['quality_score']:.2f}, Stars: {existing['stars']}")
+                # Handle null extracted_at
+                date_str = existing['extracted_at'].strftime('%Y-%m-%d') if existing.get('extracted_at') else 'unknown date'
+                print(f"  [SKIP] Already analyzed on {date_str}")
+                print(f"         Quality: {existing.get('quality_score', 0):.2f}, Stars: {existing.get('stars', 0)}")
                 extraction_stats['skipped'] += 1
                 
                 # Log trajectory skip
                 if self.trajectory_logger:
                     self.trajectory_logger.log_repository_skipped(
                         repo.full_name, 
-                        existing['extracted_at'],
-                        existing['quality_score']
+                        existing.get('extracted_at'),
+                        existing.get('quality_score', 0)
                     )
                 continue
             

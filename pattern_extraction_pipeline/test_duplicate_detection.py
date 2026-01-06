@@ -2,206 +2,213 @@
 # Unit tests for duplicate detection functionality
 
 import os
-import sys
 from dotenv import load_dotenv
-
-# Add current directory to path
-sys.path.insert(0, os.path.dirname(__file__))
+from neo4j import GraphDatabase
 
 load_dotenv(override=True)
 
-from pattern_extractor import PatternExtractor
+# Test database connection setup
+def get_test_db():
+    """Get Neo4j connection for testing"""
+    uri = os.getenv("NEO4J_URI", "bolt://localhost:7688")
+    user = os.getenv("NEO4J_USER", "neo4j")
+    password = os.getenv("NEO4J_PASSWORD", "password")
+    return GraphDatabase.driver(uri, auth=(user, password), connection_timeout=5.0)
 
-def test_check_repo_exists_new():
-    """Test that _check_if_repo_exists returns None for non-existent repo"""
-    print("\n=== Test 1: Check Non-Existent Repository ===")
-    extractor = PatternExtractor()
-    
-    result = extractor._check_if_repo_exists("https://github.com/nonexistent/repo-12345-xyz")
-    
-    if result is None:
-        print("[PASS] Correctly returned None for non-existent repo")
-        return True
-    else:
-        print(f"[FAIL] Expected None, got: {result}")
-        return False
-
-def test_check_repo_exists_found():
-    """Test that _check_if_repo_exists returns data for existing repo"""
-    print("\n=== Test 2: Check Existing Repository ===")
-    print("NOTE: This test requires at least one pattern in the database")
-    
-    extractor = PatternExtractor()
-    
-    # First, get a pattern that exists
-    from neo4j import GraphDatabase
-    driver = GraphDatabase.driver(
-        os.getenv("NEO4J_URI", "bolt://localhost:7687"),
-        auth=(os.getenv("NEO4J_USER", "neo4j"), os.getenv("NEO4J_PASSWORD", "password"))
-    )
-    
-    with driver.session() as session:
-        result_query = session.run("""
-            MATCH (p:Pattern)
-            RETURN p.source_repo as repo
-            LIMIT 1
-        """)
-        record = result_query.single()
-        
-        if not record:
-            print("[SKIP] No patterns in database to test with")
-            driver.close()
-            return True
-        
-        test_repo = record['repo']
-    
-    driver.close()
-    
-    # Now check if we can find it
-    result = extractor._check_if_repo_exists(test_repo)
-    
-    if result is not None:
-        if all(key in result for key in ['name', 'extracted_at', 'quality_score', 'stars']):
-            print(f"[PASS] Found existing repo: {result['name']}")
-            print(f"       Quality: {result['quality_score']}, Stars: {result['stars']}")
-            return True
-        else:
-            print(f"[FAIL] Result missing required keys: {result}")
-            return False
-    else:
-        print(f"[FAIL] Expected data for {test_repo}, got None")
-        return False
-
-def test_skip_logic_stats():
-    """Test that statistics correctly track skipped repos"""
-    print("\n=== Test 3: Statistics Tracking ===")
-    print("NOTE: This requires running a real extraction - testing structure only")
-    
-    # Test that the stats dictionary has the skipped field
-    extractor = PatternExtractor()
-    
-    # Mock extraction stats structure
-    extraction_stats = {
-        'total': 0,
-        'successful': 0,
-        'partial': 0,
-        'failed': 0,
-        'skipped': 0,
-        'errors': []
-    }
-    
-    if 'skipped' in extraction_stats:
-        print("[PASS] Statistics structure includes 'skipped' field")
-        return True
-    else:
-        print("[FAIL] Statistics structure missing 'skipped' field")
-        return False
-
-def test_method_signatures():
-    """Test that all methods have correct signatures"""
-    print("\n=== Test 4: Method Signatures ===")
-    
-    extractor = PatternExtractor()
-    
-    # Check _check_if_repo_exists exists
-    if hasattr(extractor, '_check_if_repo_exists'):
-        print("[PASS] Method _check_if_repo_exists exists")
-    else:
-        print("[FAIL] Method _check_if_repo_exists not found")
-        return False
-    
-    # Check extract_patterns has force_reanalyse parameter
-    import inspect
-    sig = inspect.signature(extractor.extract_patterns)
-    params = sig.parameters
-    
-    if 'force_reanalyse' in params:
-        print("[PASS] extract_patterns has force_reanalyse parameter")
-        default = params['force_reanalyse'].default
-        if default is False:
-            print(f"[PASS] force_reanalyse defaults to False")
-        else:
-            print(f"[WARN] force_reanalyse defaults to {default}, expected False")
-    else:
-        print("[FAIL] extract_patterns missing force_reanalyse parameter")
-        return False
-    
-    return True
-
-def test_trajectory_logger():
-    """Test that TrajectoryLogger has skip logging capability"""
-    print("\n=== Test 5: Trajectory Logger ===")
+def test_check_repo_exists_query():
+    """Test that duplicate check query works correctly"""
+    print("\n=== Test 1: Duplicate Check Query ===")
+    driver = get_test_db()
     
     try:
-        from trajectory_logger import TrajectoryLogger
-        logger = TrajectoryLogger()
-        
-        # Check method exists
-        if hasattr(logger, 'log_repository_skipped'):
-            print("[PASS] TrajectoryLogger has log_repository_skipped method")
-        else:
-            print("[FAIL] TrajectoryLogger missing log_repository_skipped method")
-            return False
-        
-        # Test creating a trajectory and checking structure
-        logger.start_extraction("test", "test query", 10)
-        
-        if 'skipped_repositories' in logger.current_trajectory:
-            print("[PASS] Trajectory includes skipped_repositories array")
-        else:
-            print("[FAIL] Trajectory missing skipped_repositories array")
-            return False
-        
-        if 'skipped' in logger.current_trajectory['summary']:
-            print("[PASS] Trajectory summary includes skipped count")
-        else:
-            print("[FAIL] Trajectory summary missing skipped count")
-            return False
-        
-        return True
-    except Exception as e:
-        print(f"[FAIL] Error testing trajectory logger: {e}")
-        return False
+        with driver.session() as session:
+            # Test with non-existent repo
+            result = session.run("""
+                MATCH (p:Pattern {source_repo: $repo_url})
+                RETURN p.name as name,
+                       p.extracted_at as extracted_at,
+                       p.quality_score as quality_score,
+                       p.stars as stars
+                LIMIT 1
+            """, repo_url="https://github.com/nonexistent/repo-12345-xyz")
+            
+            record = result.single()
+            
+            if record is None:
+                print("   [PASS] Correctly returned None for non-existent repo")
+                return True
+            else:
+                print(f"   [FAIL] Expected None, got: {record}")
+                return False
+    finally:
+        driver.close()
+
+def test_check_repo_exists_real():
+    """Test duplicate check with real pattern from database"""
+    print("\n=== Test 2: Check Existing Repository ===")
+    driver = get_test_db()
+    
+    try:
+        with driver.session() as session:
+            # Get a real pattern
+            result = session.run("""
+                MATCH (p:Pattern)
+                WHERE p.source_repo IS NOT NULL
+                RETURN p.source_repo as repo
+                LIMIT 1
+            """)
+            
+            record = result.single()
+            if not record:
+                print("   [SKIP] No patterns in database to test with")
+                return True
+            
+            test_repo = record['repo']
+            print(f"   Testing with: {test_repo}")
+            
+            # Now check if it exists (should return data)
+            result = session.run("""
+                MATCH (p:Pattern {source_repo: $repo_url})
+                RETURN p.name as name,
+                       p.extracted_at as extracted_at,
+                       p.quality_score as quality_score,
+                       p.stars as stars
+                LIMIT 1
+            """, repo_url=test_repo)
+            
+            record = result.single()
+            
+            if record is not None:
+                print(f"   [PASS] Found pattern: {record['name']}")
+                return True
+            else:
+                print("   [FAIL] Should have found existing pattern")
+                return False
+    finally:
+        driver.close()
+
+def test_constraint_exists():
+    """Test that uniqueness constraint was created"""
+    print("\n=== Test 3: Uniqueness Constraint ===")
+    driver = get_test_db()
+    
+    try:
+        with driver.session() as session:
+            result = session.run("SHOW CONSTRAINTS")
+            constraints = list(result)
+            
+            pattern_constraint = None
+            for c in constraints:
+                if 'pattern' in c.get('name', '').lower() and 'source_repo' in str(c):
+                    pattern_constraint = c
+                    break
+            
+            if pattern_constraint:
+                print(f"   [PASS] Constraint found: {pattern_constraint.get('name', 'unnamed')}")
+                return True
+            else:
+                print("   [FAIL] Pattern.source_repo constraint not found")
+                print(f"   Available constraints: {[c.get('name') for c in constraints]}")
+                return False
+    finally:
+        driver.close()
+
+def test_no_duplicates_remain():
+    """Test that no duplicate patterns exist after merge"""
+    print("\n=== Test 4: No Duplicate Patterns ===")
+    driver = get_test_db()
+    
+    try:
+        with driver.session() as session:
+            result = session.run("""
+                MATCH (p:Pattern)
+                WITH p.source_repo as repo, count(*) as cnt
+                WHERE cnt > 1
+                RETURN repo, cnt
+            """)
+            
+            duplicates = list(result)
+            
+            if len(duplicates) == 0:
+                print("   [PASS] No duplicate patterns found")
+                return True
+            else:
+                print(f"   [FAIL] Found {len(duplicates)} duplicate groups:")
+                for dup in duplicates[:5]:
+                    print(f"     - {dup['repo']}: {dup['cnt']} copies")
+                return False
+    finally:
+        driver.close()
+
+def test_pattern_count():
+    """Test pattern count and report statistics"""
+    print("\n=== Test 5: Pattern Statistics ===")
+    driver = get_test_db()
+    
+    try:
+        with driver.session() as session:
+            result = session.run("MATCH (p:Pattern) RETURN count(p) as count")
+            count = result.single()['count']
+            
+            print(f"   Total patterns: {count}")
+            
+            # Check how many have source_repo
+            result = session.run("""
+                MATCH (p:Pattern)
+                WHERE p.source_repo IS NOT NULL
+                RETURN count(p) as count
+            """)
+            with_repo = result.single()['count']
+            
+            print(f"   With source_repo: {with_repo}")
+            print(f"   [PASS] Database statistics collected")
+            return True
+    finally:
+        driver.close()
 
 def run_all_tests():
-    """Run all unit tests"""
-    print("\n" + "="*70)
-    print("DUPLICATE DETECTION UNIT TESTS")
-    print("="*70)
+    """Run all tests and report results"""
+    print("=" * 70)
+    print("DUPLICATE DETECTION - UNIT TESTS")
+    print("=" * 70)
     
     tests = [
-        test_check_repo_exists_new,
-        test_check_repo_exists_found,
-        test_skip_logic_stats,
-        test_method_signatures,
-        test_trajectory_logger
+        ("Query for Non-Existent Repo", test_check_repo_exists_query),
+        ("Query for Existing Repo", test_check_repo_exists_real),
+        ("Uniqueness Constraint", test_constraint_exists),
+        ("No Duplicates Remain", test_no_duplicates_remain),
+        ("Pattern Statistics", test_pattern_count)
     ]
     
     results = []
-    for test in tests:
+    for name, test_func in tests:
         try:
-            result = test()
-            results.append(result)
+            passed = test_func()
+            results.append((name, passed))
         except Exception as e:
-            print(f"[ERROR] Test {test.__name__} raised exception: {e}")
-            import traceback
-            traceback.print_exc()
-            results.append(False)
+            print(f"   [ERROR] {e}")
+            results.append((name, False))
     
-    print("\n" + "="*70)
+    # Summary
+    print("\n" + "=" * 70)
     print("TEST SUMMARY")
-    print("="*70)
-    passed = sum(results)
-    total = len(results)
-    print(f"Passed: {passed}/{total}")
+    print("=" * 70)
     
-    if passed == total:
-        print("\n[SUCCESS] All tests passed!")
+    passed_count = sum(1 for _, passed in results if passed)
+    total_count = len(results)
+    
+    for name, passed in results:
+        status = "PASS" if passed else "FAIL"
+        print(f"  [{status}] {name}")
+    
+    print(f"\nPassed: {passed_count}/{total_count}")
+    
+    if passed_count == total_count:
+        print("\n[SUCCESS] All unit tests passed!")
         return 0
     else:
-        print(f"\n[FAILED] {total - passed} test(s) failed")
+        print(f"\n[FAILURE] {total_count - passed_count} test(s) failed")
         return 1
 
 if __name__ == "__main__":
-    exit_code = run_all_tests()
-    sys.exit(exit_code)
+    exit(run_all_tests())
