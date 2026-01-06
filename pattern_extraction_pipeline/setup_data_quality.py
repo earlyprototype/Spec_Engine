@@ -32,6 +32,14 @@ def setup_constraints_and_cleanup():
         except Exception as e:
             print(f"[WARN] Constraint constraint: {e}")
         
+        # Create unique constraint for Pattern.source_repo
+        try:
+            session.run("CREATE CONSTRAINT pattern_repo_unique IF NOT EXISTS FOR (p:Pattern) REQUIRE p.source_repo IS UNIQUE")
+            print("[OK] Pattern.source_repo unique constraint created")
+        except Exception as e:
+            print(f"[ERROR] Pattern constraint failed: {e}")
+            print("Run duplicate cleanup first!")
+        
         print("\n=== Step 2: Finding Duplicates ===")
         
         # Find duplicate technologies (case-insensitive)
@@ -67,6 +75,25 @@ def setup_constraints_and_cleanup():
                 print(f"  - {record['duplicate_names']} ({record['duplicate_count']} nodes)")
         else:
             print("No constraint duplicates found")
+        
+        # Find duplicate patterns
+        result = session.run("""
+            MATCH (p:Pattern)
+            WITH p.source_repo as repo, count(*) as cnt
+            WHERE cnt > 1
+            RETURN repo, cnt
+            ORDER BY cnt DESC
+        """)
+        
+        duplicates = list(result)
+        if duplicates:
+            print(f"Found {len(duplicates)} duplicate pattern groups:")
+            for record in duplicates[:10]:
+                print(f"  - {record['repo']}: {record['cnt']} duplicates")
+            if len(duplicates) > 10:
+                print(f"  ... and {len(duplicates) - 10} more")
+        else:
+            print("No pattern duplicates found")
         
         print("\n=== Step 3: Merging Duplicate Technologies ===")
         
@@ -144,6 +171,50 @@ def setup_constraints_and_cleanup():
                 merged_count += 1
         
         print(f"[OK] Merged {merged_count} duplicate constraint nodes")
+        
+        print("\n=== Step 4.5: Merging Duplicate Patterns ===")
+        
+        # Get all duplicate pattern groups
+        dup_groups = session.run("""
+            MATCH (p:Pattern)
+            WITH p.source_repo as repo, collect(p) AS nodes
+            WHERE size(nodes) > 1
+            RETURN repo, nodes
+        """)
+        
+        merged_count = 0
+        for group in dup_groups:
+            nodes = group['nodes']
+            # Keep the most recent one (highest quality or most recent extraction)
+            primary = max(nodes, key=lambda n: (n.get('quality_score', 0), n.get('extracted_at', '')))
+            duplicates = [n for n in nodes if n.element_id != primary.element_id]
+            
+            for dup in duplicates:
+                # Transfer all relationships to primary
+                session.run("""
+                    MATCH (dup) WHERE elementId(dup) = $dup_id
+                    MATCH (primary) WHERE elementId(primary) = $primary_id
+                    OPTIONAL MATCH (dup)-[r]-(other)
+                    WITH dup, primary, r, other, type(r) as rel_type
+                    WHERE other IS NOT NULL AND elementId(other) <> $primary_id
+                    CALL apoc.create.relationship(
+                        CASE WHEN startNode(r) = dup THEN primary ELSE other END,
+                        rel_type,
+                        properties(r),
+                        CASE WHEN startNode(r) = dup THEN other ELSE primary END
+                    ) YIELD rel
+                    DELETE r
+                """, dup_id=dup.element_id, primary_id=primary.element_id)
+                
+                # Delete duplicate
+                session.run("""
+                    MATCH (dup) WHERE elementId(dup) = $dup_id
+                    DETACH DELETE dup
+                """, dup_id=dup.element_id)
+                
+                merged_count += 1
+        
+        print(f"[OK] Merged {merged_count} duplicate pattern nodes")
         
         print("\n=== Step 5: Normalizing Existing Data ===")
         

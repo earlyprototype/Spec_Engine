@@ -90,6 +90,34 @@ class PatternExtractor:
         """Normalize constraint rules."""
         return constraint.strip().lower().replace(' ', '_')
     
+    def _check_if_repo_exists(self, repo_url):
+        """
+        Check if repository has already been analyzed.
+        
+        Args:
+            repo_url: Repository URL to check
+        
+        Returns:
+            dict or None: Pattern details if exists, None otherwise
+                {
+                    'name': str,
+                    'extracted_at': datetime,
+                    'quality_score': float,
+                    'stars': int
+                }
+        """
+        with self.neo4j.session() as session:
+            result = session.run("""
+                MATCH (p:Pattern {source_repo: $repo_url})
+                RETURN p.name as name, 
+                       p.extracted_at as extracted_at,
+                       p.quality_score as quality_score,
+                       p.stars as stars
+                LIMIT 1
+            """, repo_url=repo_url)
+            record = result.single()
+            return dict(record) if record else None
+    
     def __init__(self, progress_callback=None):
         self.github = Github(os.getenv("GITHUB_TOKEN"))
         
@@ -929,36 +957,45 @@ Return ONLY the new query, nothing else."""
         
         with self.neo4j.session() as session:
             session.run("""
-                // Create pattern node with quality metrics, validation placeholders, judge placeholders, and extraction metadata
-                CREATE (p:Pattern {
-                    name: $pattern_name,
-                    confidence: $confidence,
-                    source_repo: $source_repo,
-                    stars: $stars,
-                    reasoning: $reasoning,
-                    quality_score: $quality_score,
-                    freshness_score: $freshness_score,
-                    maintenance_score: $maintenance_score,
-                    validation_score: 0.0,
-                    needs_review: true,
-                    critic_notes: "Validation pending...",
-                    judge_score: 0.0,
-                    judge_feedback: "Judge evaluation pending...",
-                    extraction_status: $extraction_status,
-                    has_readme: $has_readme,
-                    has_structure: $has_structure,
-                    has_dependencies: $has_dependencies,
-                    has_quality_metrics: $has_quality_metrics,
-                    extracted_at: datetime()
-                })
+                // MERGE pattern node by source_repo (handles both create and update)
+                MERGE (p:Pattern {source_repo: $source_repo})
+                ON CREATE SET 
+                    p.name = $pattern_name,
+                    p.confidence = $confidence,
+                    p.stars = $stars,
+                    p.reasoning = $reasoning,
+                    p.quality_score = $quality_score,
+                    p.freshness_score = $freshness_score,
+                    p.maintenance_score = $maintenance_score,
+                    p.validation_score = 0.0,
+                    p.needs_review = true,
+                    p.critic_notes = "Validation pending...",
+                    p.judge_score = 0.0,
+                    p.judge_feedback = "Judge evaluation pending...",
+                    p.extraction_status = $extraction_status,
+                    p.has_readme = $has_readme,
+                    p.has_structure = $has_structure,
+                    p.has_dependencies = $has_dependencies,
+                    p.has_quality_metrics = $has_quality_metrics,
+                    p.extracted_at = datetime()
+                ON MATCH SET
+                    p.name = $pattern_name,
+                    p.confidence = $confidence,
+                    p.stars = $stars,
+                    p.reasoning = $reasoning,
+                    p.quality_score = $quality_score,
+                    p.freshness_score = $freshness_score,
+                    p.maintenance_score = $maintenance_score,
+                    p.extraction_status = $extraction_status,
+                    p.has_readme = $has_readme,
+                    p.has_structure = $has_structure,
+                    p.has_dependencies = $has_dependencies,
+                    p.has_quality_metrics = $has_quality_metrics,
+                    p.extracted_at = datetime()
                 
-                // MERGE requirement node (reuse if exists)
-                MERGE (r:Requirement {
-                    type: $req_type,
-                    domain: $req_domain
-                })
-                
-                CREATE (r)-[:SOLVED_BY]->(p)
+                // MERGE requirement node and relationship
+                MERGE (r:Requirement {type: $req_type, domain: $req_domain})
+                MERGE (r)-[:SOLVED_BY]->(p)
                 
                 // MERGE constraints with weights
                 WITH p
