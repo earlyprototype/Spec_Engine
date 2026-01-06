@@ -512,17 +512,27 @@
                 <div class="query-item">
                     <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 5px;">
                         <h4 style="flex: 1; margin: 0;"><code>${query.query}</code></h4>
-                        <div style="display: flex; align-items: center; gap: 5px;">
-                            <label style="font-size: 12px; color: #666; margin: 0;">Limit:</label>
-                            <input 
-                                type="number" 
-                                id="queryLimit_${index}"
-                                value="${query.limit}"
-                                min="1"
-                                max="100"
-                                style="width: 70px; padding: 6px; border: 2px solid #e0e0e0; border-radius: 4px; font-size: 14px; text-align: center;"
-                                onchange="updateQueryLimit(${index}, this.value)"
-                            >
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <label style="font-size: 12px; color: #666; margin: 0; display: flex; align-items: center; gap: 5px;">
+                                <input 
+                                    type="checkbox" 
+                                    id="forceReanalyse_${index}"
+                                    onchange="updateForceFlag(${index}, this.checked)"
+                                >
+                                Force Re-analyze
+                            </label>
+                            <div style="display: flex; align-items: center; gap: 5px;">
+                                <label style="font-size: 12px; color: #666; margin: 0;">Limit:</label>
+                                <input 
+                                    type="number" 
+                                    id="queryLimit_${index}"
+                                    value="${query.limit}"
+                                    min="1"
+                                    max="100"
+                                    style="width: 70px; padding: 6px; border: 2px solid #e0e0e0; border-radius: 4px; font-size: 14px; text-align: center;"
+                                    onchange="updateQueryLimit(${index}, this.value)"
+                                >
+                            </div>
                         </div>
                     </div>
                     <p style="margin: 0;">${query.purpose}</p>
@@ -543,6 +553,17 @@
                 currentQueries[index].limit = limit;
                 console.log(`Updated query ${index} limit to ${limit}`);
                 // Regenerate the script with updated limits
+                const script = generateBatchScript(currentQueries);
+                document.getElementById('scriptOutput').textContent = script;
+            }
+        }
+        
+        // Function to update force re-analyze flag for individual queries
+        function updateForceFlag(index, forceFlag) {
+            if (currentQueries[index]) {
+                currentQueries[index].force_reanalyse = forceFlag;
+                console.log(`Query ${index} force re-analyze: ${forceFlag}`);
+                // Regenerate batch script with updated settings
                 const script = generateBatchScript(currentQueries);
                 document.getElementById('scriptOutput').textContent = script;
             }

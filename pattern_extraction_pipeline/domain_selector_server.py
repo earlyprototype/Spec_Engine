@@ -290,8 +290,10 @@ def run_extraction(queries, min_validation_results=5):
             
             try:
                 # Extract patterns (validation already done, so skip it)
-                log_console(f"  Searching GitHub for {limit} repos...")
-                patterns = extractor.extract_patterns(query, limit=limit, validate=False)
+                # Extract force flag from query object
+                force_flag = validated.get('force_reanalyse', False)
+                log_console(f"  Searching GitHub for {limit} repos... (force={force_flag})")
+                patterns = extractor.extract_patterns(query, limit=limit, validate=False, force_reanalyse=force_flag)
                 # Note: extraction_status['completed'] is updated in real-time via callback
                 extraction_status['domain_results'][domain_name] = {
                     'status': 'complete',

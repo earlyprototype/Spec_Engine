@@ -276,7 +276,7 @@ Return ONLY the new query, nothing else."""
         except:
             return 'failed', search_query, 0
     
-    def extract_patterns(self, search_query, limit=100, validate=True, min_results=5, domain="general"):
+    def extract_patterns(self, search_query, limit=100, validate=True, min_results=5, domain="general", force_reanalyse=False):
         """
         Main extraction pipeline.
         
@@ -286,6 +286,7 @@ Return ONLY the new query, nothing else."""
             validate: Whether to validate and refine query first
             min_results: Minimum results required if validating
             domain: Domain name for trajectory logging
+            force_reanalyse: Whether to re-analyze repositories that have already been processed
         
         Returns:
             List of extracted patterns
@@ -310,11 +311,28 @@ Return ONLY the new query, nothing else."""
             'successful': 0,
             'partial': 0,
             'failed': 0,
+            'skipped': 0,
             'errors': []
         }
         
         for i, repo in enumerate(repos, 1):
             print(f"\n[{i}/{len(repos)}] Analyzing {repo.full_name}...")
+            
+            # Check if repository already analyzed
+            existing = self._check_if_repo_exists(repo.html_url)
+            if existing and not force_reanalyse:
+                print(f"  [SKIP] Already analyzed on {existing['extracted_at'].strftime('%Y-%m-%d')}")
+                print(f"         Quality: {existing['quality_score']:.2f}, Stars: {existing['stars']}")
+                extraction_stats['skipped'] += 1
+                
+                # Log trajectory skip
+                if self.trajectory_logger:
+                    self.trajectory_logger.log_repository_skipped(
+                        repo.full_name, 
+                        existing['extracted_at'],
+                        existing['quality_score']
+                    )
+                continue
             
             # Start repository trajectory
             if self.trajectory_logger:
@@ -559,10 +577,15 @@ Return ONLY the new query, nothing else."""
         print(f"  Successful (complete data): {stats['successful']}")
         print(f"  Partial (missing some data): {stats['partial']}")
         print(f"  Failed: {stats['failed']}")
+        print(f"  Skipped (duplicates): {stats['skipped']}")
         
         if stats['successful'] + stats['partial'] > 0:
             success_rate = ((stats['successful'] + stats['partial']) / stats['total']) * 100
             print(f"\nSuccess rate: {success_rate:.1f}%")
+        
+        if stats['skipped'] > 0:
+            skip_rate = (stats['skipped'] / stats['total']) * 100
+            print(f"Skip rate: {skip_rate:.1f}% (already analyzed)")
         
         if stats['errors']:
             print(f"\nFailed repositories ({len(stats['errors'])}):")

@@ -67,11 +67,13 @@ class TrajectoryLogger:
             "started_at": datetime.now().isoformat(),
             "events": [],
             "repositories": [],
+            "skipped_repositories": [],
             "summary": {
                 "total_repos": 0,
                 "successful": 0,
                 "partial": 0,
                 "failed": 0,
+                "skipped": 0,
                 "total_time_seconds": 0
             }
         }
@@ -291,6 +293,26 @@ class TrajectoryLogger:
         
         self.log_event("critic_validation", data)
     
+    def log_repository_skipped(self, repo_name, previous_extraction_date, quality_score):
+        """
+        Log when a repository is skipped due to prior extraction.
+        
+        Args:
+            repo_name: Repository full name
+            previous_extraction_date: When it was previously extracted
+            quality_score: Quality score from previous extraction
+        """
+        data = {
+            'repo': repo_name,
+            'reason': 'already_analyzed',
+            'previous_extraction': previous_extraction_date.isoformat(),
+            'quality_score': round(quality_score, 3)
+        }
+        
+        self.current_trajectory['skipped_repositories'].append(data)
+        self.current_trajectory["summary"]["skipped"] += 1
+        self.log_event("repository_skipped", data)
+    
     def finish_repository(self, extraction_status: str):
         """
         Finish processing current repository.
@@ -350,6 +372,7 @@ class TrajectoryLogger:
             "successful": self.current_trajectory["summary"]["successful"],
             "partial": self.current_trajectory["summary"]["partial"],
             "failed": self.current_trajectory["summary"]["failed"],
+            "skipped": self.current_trajectory["summary"]["skipped"],
             "total_time": round(total_time, 2)
         })
         
