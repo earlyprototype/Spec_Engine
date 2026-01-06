@@ -34,8 +34,8 @@ Write-Host ""
 Write-Host "[3/3] Configuring database..." -ForegroundColor Yellow
 $envContent = Get-Content .env -Raw
 if ($envContent -notmatch "NEO4J_DATABASE") {
-    Add-Content .env "`nNEO4J_DATABASE=patterns"
-    Write-Host "  [OK] Added NEO4J_DATABASE=patterns to .env" -ForegroundColor Green
+    Add-Content .env "`nNEO4J_DATABASE=specengine"
+    Write-Host "  [OK] Added NEO4J_DATABASE=specengine to .env" -ForegroundColor Green
 } else {
     Write-Host "  [OK] NEO4J_DATABASE already configured" -ForegroundColor Green
 }

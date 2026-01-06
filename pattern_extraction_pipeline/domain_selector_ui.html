@@ -245,6 +245,16 @@
             overflow-x: auto;
             white-space: pre;
         }
+        
+        input[type="number"]:hover {
+            border-color: #667eea;
+        }
+        
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
     </style>
 </head>
 <body>
@@ -272,6 +282,37 @@
                         id="technologies" 
                         placeholder="e.g., nodejs, socketio, redis"
                     >
+                </div>
+                
+                <div class="form-group">
+                    <label>Query Limits (optional)</label>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div>
+                            <label for="defaultMaxLimit" style="font-weight: normal; font-size: 13px; color: #666;">Default Max Results</label>
+                            <input 
+                                type="number" 
+                                id="defaultMaxLimit" 
+                                placeholder="20"
+                                min="1"
+                                max="100"
+                                style="padding: 8px;"
+                            >
+                        </div>
+                        <div>
+                            <label for="defaultMinLimit" style="font-weight: normal; font-size: 13px; color: #666;">Default Min Results</label>
+                            <input 
+                                type="number" 
+                                id="defaultMinLimit" 
+                                placeholder="5"
+                                min="1"
+                                max="50"
+                                style="padding: 8px;"
+                            >
+                        </div>
+                    </div>
+                    <p style="font-size: 12px; color: #666; margin-top: 8px;">
+                        Override LLM-suggested limits. Leave blank to use AI recommendations.
+                    </p>
                 </div>
                 
                 <button type="submit" class="btn" id="analyseBtn">
@@ -420,6 +461,26 @@
         });
         
         function displayResults(data) {
+            // Apply user-defined default limits if provided
+            const defaultMaxLimit = document.getElementById('defaultMaxLimit').value.trim();
+            const defaultMinLimit = document.getElementById('defaultMinLimit').value.trim();
+            
+            if (defaultMaxLimit) {
+                const maxLimit = parseInt(defaultMaxLimit);
+                data.suggested_queries = data.suggested_queries.map(q => ({
+                    ...q,
+                    limit: Math.min(q.limit, maxLimit)
+                }));
+            }
+            
+            if (defaultMinLimit) {
+                const minLimit = parseInt(defaultMinLimit);
+                data.suggested_queries = data.suggested_queries.map(q => ({
+                    ...q,
+                    limit: Math.max(q.limit, minLimit)
+                }));
+            }
+            
             // Store queries for extraction
             currentQueries = data.suggested_queries;
             
@@ -445,12 +506,26 @@
                 </div>
             `).join('');
             
-            // Queries
+            // Queries with editable limits
             const queriesContainer = document.getElementById('queries');
-            queriesContainer.innerHTML = data.suggested_queries.map(query => `
+            queriesContainer.innerHTML = data.suggested_queries.map((query, index) => `
                 <div class="query-item">
-                    <h4><code>${query.query}</code> <span style="color: #999;">(limit: ${query.limit})</span></h4>
-                    <p>${query.purpose}</p>
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 5px;">
+                        <h4 style="flex: 1; margin: 0;"><code>${query.query}</code></h4>
+                        <div style="display: flex; align-items: center; gap: 5px;">
+                            <label style="font-size: 12px; color: #666; margin: 0;">Limit:</label>
+                            <input 
+                                type="number" 
+                                id="queryLimit_${index}"
+                                value="${query.limit}"
+                                min="1"
+                                max="100"
+                                style="width: 70px; padding: 6px; border: 2px solid #e0e0e0; border-radius: 4px; font-size: 14px; text-align: center;"
+                                onchange="updateQueryLimit(${index}, this.value)"
+                            >
+                        </div>
+                    </div>
+                    <p style="margin: 0;">${query.purpose}</p>
                 </div>
             `).join('');
             
@@ -459,6 +534,18 @@
             document.getElementById('scriptOutput').textContent = script;
             
             results.style.display = 'block';
+        }
+        
+        // Function to update individual query limits
+        function updateQueryLimit(index, newLimit) {
+            const limit = parseInt(newLimit);
+            if (limit > 0 && currentQueries[index]) {
+                currentQueries[index].limit = limit;
+                console.log(`Updated query ${index} limit to ${limit}`);
+                // Regenerate the script with updated limits
+                const script = generateBatchScript(currentQueries);
+                document.getElementById('scriptOutput').textContent = script;
+            }
         }
         
         runExtractionBtn.addEventListener('click', async () => {

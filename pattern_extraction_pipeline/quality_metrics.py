@@ -57,7 +57,7 @@ class QualityMetricsCalculator:
             'forks': repo.forks_count,
             'watchers': repo.watchers_count,
             'open_issues': repo.open_issues_count,
-            'contributors': repo.get_contributors().totalCount if hasattr(repo, 'get_contributors') else 0,
+            'contributors': self._get_contributor_count(repo),
             'repo_age_months': self._get_repo_age_months(repo),
             'days_since_update': self._get_days_since_update(repo)
         }
@@ -206,17 +206,14 @@ class QualityMetricsCalculator:
             score += 0.15
         
         # Contributors (indicates community involvement)
-        try:
-            contributor_count = repo.get_contributors().totalCount
-            if contributor_count >= 50:
-                score += 0.15  # Large community
-            elif contributor_count >= 20:
-                score += 0.1  # Active community
-            elif contributor_count >= 5:
-                score += 0.05  # Small team
-            # else: single maintainer or very small
-        except:
-            pass
+        contributor_count = self._get_contributor_count(repo)
+        if contributor_count >= 50:
+            score += 0.15  # Large community
+        elif contributor_count >= 20:
+            score += 0.1  # Active community
+        elif contributor_count >= 5:
+            score += 0.05  # Small team
+        # else: single maintainer or very small
         
         return min(score, 1.0)
     
@@ -254,6 +251,27 @@ class QualityMetricsCalculator:
         now = datetime.now(timezone.utc)
         delta = now - updated_at
         return delta.days
+    
+    def _get_contributor_count(self, repo) -> int:
+        """
+        Safely get contributor count.
+        GitHub API returns 403 for repos with very large contributor lists.
+        In those cases, estimate based on other metrics.
+        """
+        try:
+            return repo.get_contributors().totalCount
+        except Exception as e:
+            # GitHub API error for repos with too many contributors
+            # This typically means it's a VERY large, active project
+            error_msg = str(e)
+            if "403" in error_msg and "contributor list is too large" in error_msg:
+                # Very large project - estimate high contributor count
+                # Use stars/forks as rough proxy
+                estimated = max(repo.stargazers_count // 100, repo.forks_count // 10)
+                return min(estimated, 1000)  # Cap at 1000
+            else:
+                # Other API error - default to 0
+                return 0
     
     def get_quality_tier(self, composite_score: float) -> str:
         """

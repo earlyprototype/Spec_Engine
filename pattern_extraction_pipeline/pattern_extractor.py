@@ -3,15 +3,81 @@
 
 import os
 import json
-from github import Github
+import time
+from datetime import datetime
+from concurrent.futures import ThreadPoolExecutor
+from github import Github, GithubException, RateLimitExceededException
 import google.generativeai as genai
 from neo4j import GraphDatabase
+from neo4j.exceptions import ServiceUnavailable, TransientError
+from tenacity import (
+    retry,
+    stop_after_attempt,
+    wait_exponential,
+    retry_if_exception_type,
+    before_sleep_log,
+    after_log
+)
+import logging
+
+# Configure logging for retry attempts
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 try:
     from quality_metrics import QualityMetricsCalculator
     QUALITY_METRICS_AVAILABLE = True
 except ImportError:
     QUALITY_METRICS_AVAILABLE = False
+
+try:
+    from pattern_critic import PatternCritic
+    PATTERN_CRITIC_AVAILABLE = True
+except ImportError:
+    PATTERN_CRITIC_AVAILABLE = False
+    logger.warning("PatternCritic not available - validation will be skipped")
+
+try:
+    from trajectory_logger import TrajectoryLogger
+    TRAJECTORY_LOGGER_AVAILABLE = True
+except ImportError:
+    TRAJECTORY_LOGGER_AVAILABLE = False
+    logger.warning("TrajectoryLogger not available - trajectory logging will be skipped")
+
+try:
+    from quality_judge import QualityJudge
+    QUALITY_JUDGE_AVAILABLE = True
+except ImportError:
+    QUALITY_JUDGE_AVAILABLE = False
+    logger.warning("QualityJudge not available - judge evaluation will be skipped")
+
+# Retry decorator configurations
+# GitHub API: Handle rate limits and transient errors
+github_retry = retry(
+    stop=stop_after_attempt(3),
+    wait=wait_exponential(multiplier=1, min=4, max=10),
+    retry=retry_if_exception_type((GithubException, RateLimitExceededException, ConnectionError, TimeoutError)),
+    before_sleep=before_sleep_log(logger, logging.WARNING),
+    after=after_log(logger, logging.INFO)
+)
+
+# Gemini LLM: Handle quota/service errors
+llm_retry = retry(
+    stop=stop_after_attempt(3),
+    wait=wait_exponential(multiplier=1, min=4, max=10),
+    retry=retry_if_exception_type((Exception,)),  # Catch Gemini-specific errors
+    before_sleep=before_sleep_log(logger, logging.WARNING),
+    after=after_log(logger, logging.INFO)
+)
+
+# Neo4j: Handle connection and transient errors
+neo4j_retry = retry(
+    stop=stop_after_attempt(3),
+    wait=wait_exponential(multiplier=1, min=4, max=10),
+    retry=retry_if_exception_type((ServiceUnavailable, TransientError, ConnectionError)),
+    before_sleep=before_sleep_log(logger, logging.WARNING),
+    after=after_log(logger, logging.INFO)
+)
 
 class PatternExtractor:
     @staticmethod
@@ -29,7 +95,8 @@ class PatternExtractor:
         
         # Configure Google Gemini with direct API key (disable Cloud SDK auth)
         from dotenv import load_dotenv
-        load_dotenv()
+        # Use override=True to ensure .env file takes precedence over system variables
+        load_dotenv(override=True)
         api_key = os.getenv("GEMINI_API_KEY")
         if not api_key:
             raise ValueError("GEMINI_API_KEY not found in .env file")
@@ -51,6 +118,26 @@ class PatternExtractor:
             self.quality_calculator = QualityMetricsCalculator()
         else:
             self.quality_calculator = None
+        
+        # Pattern critic for async validation
+        if PATTERN_CRITIC_AVAILABLE:
+            self.critic = PatternCritic()
+            self.critic_executor = ThreadPoolExecutor(max_workers=3, thread_name_prefix="critic_judge")
+        else:
+            self.critic = None
+            self.critic_executor = None
+        
+        # Quality judge for advanced evaluation
+        if QUALITY_JUDGE_AVAILABLE:
+            self.judge = QualityJudge()
+        else:
+            self.judge = None
+        
+        # Trajectory logger for extraction path tracking
+        if TRAJECTORY_LOGGER_AVAILABLE:
+            self.trajectory_logger = TrajectoryLogger()
+        else:
+            self.trajectory_logger = None
         
         # Progress callback for real-time updates
         self.progress_callback = progress_callback
@@ -161,7 +248,7 @@ Return ONLY the new query, nothing else."""
         except:
             return 'failed', search_query, 0
     
-    def extract_patterns(self, search_query, limit=100, validate=True, min_results=5):
+    def extract_patterns(self, search_query, limit=100, validate=True, min_results=5, domain="general"):
         """
         Main extraction pipeline.
         
@@ -170,13 +257,18 @@ Return ONLY the new query, nothing else."""
             limit: Max repos to analyze
             validate: Whether to validate and refine query first
             min_results: Minimum results required if validating
+            domain: Domain name for trajectory logging
         
         Returns:
             List of extracted patterns
         """
+        # Start trajectory logging
+        if self.trajectory_logger:
+            self.trajectory_logger.start_extraction(domain, search_query, limit)
+        
         # Validate query first
         if validate:
-            search_query, result_count = self.validate_and_refine_query(search_query, min_results)
+            status, search_query, result_count = self.validate_and_refine_query(search_query, min_results)
             if result_count < min_results:
                 print(f"[WARNING] Query still only returns {result_count} results, proceeding anyway...")
         
@@ -185,29 +277,124 @@ Return ONLY the new query, nothing else."""
         print(f"Found {len(repos)} repos")
         
         patterns = []
+        extraction_stats = {
+            'total': len(repos),
+            'successful': 0,
+            'partial': 0,
+            'failed': 0,
+            'errors': []
+        }
+        
         for i, repo in enumerate(repos, 1):
             print(f"\n[{i}/{len(repos)}] Analyzing {repo.full_name}...")
             
+            # Start repository trajectory
+            if self.trajectory_logger:
+                self.trajectory_logger.start_repository(repo.full_name, repo.html_url, repo.stargazers_count)
+            
+            # Track what data we successfully fetch
+            data_availability = {
+                'readme': False,
+                'structure': False,
+                'dependencies': False,
+                'quality_metrics': False
+            }
+            
             try:
-                # Calculate quality metrics
+                # Calculate quality metrics (non-critical)
+                quality_metrics = {'composite_score': 0.5, 'freshness_score': 0.5, 'maintenance_score': 0.5}
                 if self.quality_calculator:
-                    quality_metrics = self.quality_calculator.calculate_quality_score(repo)
-                    print(f"  Quality: {quality_metrics['composite_score']:.2f} "
-                          f"({self.quality_calculator.get_quality_tier(quality_metrics['composite_score'])})")
-                else:
-                    quality_metrics = {
-                        'composite_score': 0.5,
-                        'freshness_score': 0.5,
-                        'maintenance_score': 0.5
-                    }
+                    try:
+                        quality_metrics = self.quality_calculator.calculate_quality_score(repo)
+                        data_availability['quality_metrics'] = True
+                        print(f"  Quality: {quality_metrics['composite_score']:.2f} "
+                              f"({self.quality_calculator.get_quality_tier(quality_metrics['composite_score'])})")
+                        
+                        # Log quality metrics
+                        if self.trajectory_logger:
+                            self.trajectory_logger.log_quality_metrics(
+                                repo.full_name,
+                                quality_metrics['composite_score'],
+                                quality_metrics['freshness_score'],
+                                quality_metrics['maintenance_score']
+                            )
+                    except Exception as qm_error:
+                        logger.warning(f"Quality metrics calculation failed: {qm_error}")
                 
-                # Fetch repo data
-                readme = self._fetch_readme(repo)
-                structure = self._analyze_structure(repo)
-                deps = self._fetch_dependencies(repo)
-                
-                # LLM analysis
+                # Fetch repo data with graceful degradation
+                readme = "No README available"
                 try:
+                    start_time = time.time()
+                    readme = self._fetch_readme(repo)
+                    response_time = time.time() - start_time
+                    data_availability['readme'] = readme != "No README found"
+                    if data_availability['readme']:
+                        print(f"  README: {len(readme)} chars")
+                    
+                    # Log GitHub API call
+                    if self.trajectory_logger:
+                        self.trajectory_logger.log_github_api_call(
+                            "fetch_readme", repo.full_name, data_availability['readme'], response_time
+                        )
+                except Exception as readme_error:
+                    logger.warning(f"README fetch failed: {readme_error}")
+                    print(f"  [WARN] README unavailable, continuing...")
+                    
+                    # Log failed API call
+                    if self.trajectory_logger:
+                        self.trajectory_logger.log_github_api_call(
+                            "fetch_readme", repo.full_name, False, 0, str(readme_error)
+                        )
+                
+                structure = {"directories": []}
+                try:
+                    start_time = time.time()
+                    structure = self._analyze_structure(repo)
+                    response_time = time.time() - start_time
+                    data_availability['structure'] = len(structure.get('directories', [])) > 0
+                    if data_availability['structure']:
+                        print(f"  Structure: {len(structure['directories'])} directories")
+                    
+                    # Log GitHub API call
+                    if self.trajectory_logger:
+                        self.trajectory_logger.log_github_api_call(
+                            "analyze_structure", repo.full_name, data_availability['structure'], response_time
+                        )
+                except Exception as struct_error:
+                    logger.warning(f"Structure analysis failed: {struct_error}")
+                    print(f"  [WARN] Structure analysis unavailable, continuing...")
+                    
+                    # Log failed API call
+                    if self.trajectory_logger:
+                        self.trajectory_logger.log_github_api_call(
+                            "analyze_structure", repo.full_name, False, 0, str(struct_error)
+                        )
+                
+                deps = {}
+                try:
+                    deps = self._fetch_dependencies(repo)
+                    data_availability['dependencies'] = bool(deps)
+                    if data_availability['dependencies']:
+                        print(f"  Dependencies: found")
+                except Exception as deps_error:
+                    logger.warning(f"Dependencies fetch failed: {deps_error}")
+                
+                # Check if we have enough data for LLM extraction
+                has_readme = data_availability['readme']
+                has_structure = data_availability['structure']
+                
+                if not has_readme and not has_structure:
+                    print(f"  [SKIP] Insufficient data (no README or structure)")
+                    extraction_stats['failed'] += 1
+                    extraction_stats['errors'].append({
+                        'repo': repo.full_name,
+                        'reason': 'No README or structure data available'
+                    })
+                    continue
+                
+                # LLM analysis (critical - must succeed)
+                try:
+                    start_time = time.time()
                     pattern = self._extract_with_llm(
                         repo_name=repo.full_name,
                         repo_url=repo.html_url,
@@ -216,8 +403,30 @@ Return ONLY the new query, nothing else."""
                         structure=structure,
                         dependencies=deps
                     )
+                    response_time = time.time() - start_time
+                    
+                    # Log LLM extraction
+                    if self.trajectory_logger:
+                        self.trajectory_logger.log_llm_extraction(
+                            repo.full_name, True, response_time,
+                            pattern.get('pattern_name'), pattern.get('confidence')
+                        )
                 except Exception as llm_error:
+                    response_time = time.time() - start_time if 'start_time' in locals() else 0
                     print(f"  [ERROR] LLM extraction failed: {llm_error}")
+                    extraction_stats['failed'] += 1
+                    extraction_stats['errors'].append({
+                        'repo': repo.full_name,
+                        'reason': f'LLM extraction error: {str(llm_error)[:100]}'
+                    })
+                    
+                    # Log failed LLM extraction
+                    if self.trajectory_logger:
+                        self.trajectory_logger.log_llm_extraction(
+                            repo.full_name, False, response_time, error=str(llm_error)
+                        )
+                        self.trajectory_logger.finish_repository("failed")
+                    
                     continue
                 
                 # Add quality metrics to pattern
@@ -225,44 +434,149 @@ Return ONLY the new query, nothing else."""
                 pattern['freshness_score'] = quality_metrics['freshness_score']
                 pattern['maintenance_score'] = quality_metrics['maintenance_score']
                 
-                # Store in graph
+                # Add extraction metadata
+                pattern['extraction_status'] = 'partial' if not all(data_availability.values()) else 'complete'
+                pattern['data_availability'] = data_availability
+                
+                # Store in graph (critical - must succeed)
                 try:
+                    start_time = time.time()
                     self._store_pattern(pattern)
+                    response_time = time.time() - start_time
                     patterns.append(pattern)
-                    print(f"  [OK] Pattern: {pattern['pattern_name']}")
+                    
+                    # Log Neo4j storage
+                    if self.trajectory_logger:
+                        self.trajectory_logger.log_neo4j_storage(
+                            pattern['pattern_name'], True, response_time
+                        )
+                    
+                    # Track success type
+                    if pattern['extraction_status'] == 'complete':
+                        extraction_stats['successful'] += 1
+                        print(f"  [OK] Pattern: {pattern['pattern_name']} (complete data)")
+                        if self.trajectory_logger:
+                            self.trajectory_logger.finish_repository("successful")
+                    else:
+                        extraction_stats['partial'] += 1
+                        missing = [k for k, v in data_availability.items() if not v]
+                        print(f"  [OK] Pattern: {pattern['pattern_name']} (partial - missing: {', '.join(missing)})")
+                        if self.trajectory_logger:
+                            self.trajectory_logger.finish_repository("partial")
+                    
+                    # Prepare repository context for judge
+                    repo_context = {
+                        'description': repo.description or '',
+                        'readme': readme[:1000] if readme != "No README available" else '',
+                        'stars': repo.stargazers_count,
+                        'language': repo.language or 'Unknown'
+                    }
+                    
+                    # Trigger async validation and judge evaluation (non-blocking)
+                    self._validate_pattern_async(pattern, repo_context)
                     
                     # Notify callback if provided
                     if self.progress_callback:
                         self.progress_callback(pattern)
+                        
                 except Exception as store_error:
+                    response_time = time.time() - start_time if 'start_time' in locals() else 0
                     print(f"  [ERROR] Failed to store pattern: {store_error}")
+                    extraction_stats['failed'] += 1
+                    extraction_stats['errors'].append({
+                        'repo': repo.full_name,
+                        'reason': f'Storage error: {str(store_error)[:100]}'
+                    })
+                    
+                    # Log failed storage
+                    if self.trajectory_logger:
+                        self.trajectory_logger.log_neo4j_storage(
+                            pattern.get('pattern_name', 'unknown'), False, response_time, str(store_error)
+                        )
+                        self.trajectory_logger.finish_repository("failed")
+                    
                     continue
                 
             except Exception as e:
                 print(f"  [ERROR] Unexpected error: {type(e).__name__}: {e}")
-                import traceback
-                traceback.print_exc()
+                logger.error(f"Unexpected error processing {repo.full_name}", exc_info=True)
+                extraction_stats['failed'] += 1
+                extraction_stats['errors'].append({
+                    'repo': repo.full_name,
+                    'reason': f'Unexpected error: {str(e)[:100]}'
+                })
+                
+                # Log failed repository
+                if self.trajectory_logger:
+                    self.trajectory_logger.finish_repository("failed")
+                
                 continue
         
-        print(f"\nExtracted {len(patterns)} patterns")
+        # Print extraction statistics
+        self._print_extraction_stats(extraction_stats)
+        
+        # Finish trajectory logging
+        if self.trajectory_logger:
+            trajectory_file = self.trajectory_logger.finish_extraction()
+            print(f"\nTrajectory saved: {trajectory_file}")
+        
         return patterns
+        
+    def _print_extraction_stats(self, stats):
+        """Print detailed extraction statistics."""
+        print("\n" + "="*60)
+        print("EXTRACTION STATISTICS")
+        print("="*60)
+        print(f"Total repositories processed: {stats['total']}")
+        print(f"  Successful (complete data): {stats['successful']}")
+        print(f"  Partial (missing some data): {stats['partial']}")
+        print(f"  Failed: {stats['failed']}")
+        
+        if stats['successful'] + stats['partial'] > 0:
+            success_rate = ((stats['successful'] + stats['partial']) / stats['total']) * 100
+            print(f"\nSuccess rate: {success_rate:.1f}%")
+        
+        if stats['errors']:
+            print(f"\nFailed repositories ({len(stats['errors'])}):")
+            for error in stats['errors'][:10]:  # Show first 10
+                print(f"  - {error['repo']}: {error['reason']}")
+            if len(stats['errors']) > 10:
+                print(f"  ... and {len(stats['errors']) - 10} more")
+        
+        print("="*60)
     
+    @github_retry
     def _fetch_readme(self, repo):
-        """Fetch README content."""
+        """Fetch README content with retry logic for rate limits."""
         try:
+            logger.debug(f"Fetching README for {repo.full_name}")
             readme = repo.get_readme()
             content = readme.decoded_content.decode('utf-8')
             return content[:5000]  # First 5000 chars
-        except:
+        except GithubException as e:
+            logger.warning(f"GitHub API error fetching README for {repo.full_name}: {e}")
+            if e.status == 404:
+                return "No README found"
+            raise  # Let retry handle it
+        except Exception as e:
+            logger.error(f"Unexpected error fetching README for {repo.full_name}: {e}")
             return "No README found"
     
+    @github_retry
     def _analyze_structure(self, repo):
-        """Analyze repo file structure."""
+        """Analyze repo file structure with retry logic."""
         try:
+            logger.debug(f"Analyzing structure for {repo.full_name}")
             contents = repo.get_contents("")
             dirs = [c.path for c in contents if c.type == "dir"]
             return {"directories": dirs[:20]}  # Top 20 dirs
-        except:
+        except GithubException as e:
+            logger.warning(f"GitHub API error analyzing structure for {repo.full_name}: {e}")
+            if e.status == 404:
+                return {"directories": []}
+            raise  # Let retry handle it
+        except Exception as e:
+            logger.error(f"Unexpected error analyzing structure for {repo.full_name}: {e}")
             return {"directories": []}
     
     def _fetch_dependencies(self, repo):
@@ -281,8 +595,10 @@ Return ONLY the new query, nothing else."""
         except:
             return {}
     
+    @llm_retry
     def _extract_with_llm(self, **kwargs):
-        """Use LLM to extract pattern from repo."""
+        """Use LLM to extract pattern from repo with retry logic."""
+        logger.info(f"Extracting pattern with LLM for {kwargs.get('repo_name', 'unknown')}")
         prompt = f"""
         Analyze this GitHub repository and extract architectural pattern with WEIGHTS.
         
@@ -401,8 +717,122 @@ Return ONLY the new query, nothing else."""
         pattern['stars'] = kwargs['stars']
         return pattern
     
+    def _validate_pattern_async(self, pattern, repo_context=None):
+        """
+        Async pattern validation using critic and judge.
+        Returns immediately, validation happens in background.
+        Updates Neo4j with validation and judge results when complete.
+        
+        Args:
+            pattern: Pattern to validate
+            repo_context: Repository context for judge evaluation
+        """
+        if not self.critic:
+            logger.debug("Critic not available, skipping validation")
+            return None
+        
+        # Capture references for closure
+        trajectory_logger = self.trajectory_logger
+        judge = self.judge
+        
+        def validation_task():
+            try:
+                # Step 1: Critic validation
+                logger.info(f"Starting async validation for pattern: {pattern.get('pattern_name', 'unknown')}")
+                start_time = time.time()
+                score, needs_review, notes = self.critic.validate_pattern(pattern)
+                response_time = time.time() - start_time
+                
+                # Update Neo4j with validation results
+                self._update_pattern_validation(
+                    pattern_name=pattern['pattern_name'],
+                    validation_score=score,
+                    needs_review=needs_review,
+                    critic_notes=notes
+                )
+                
+                # Log critic validation
+                if trajectory_logger:
+                    trajectory_logger.log_critic_validation(
+                        pattern['pattern_name'], score, needs_review, response_time
+                    )
+                
+                logger.info(f"Validation complete: {pattern['pattern_name']} - score={score:.2f}, needs_review={needs_review}")
+                
+                # Step 2: Judge evaluation (if available and critic passed threshold)
+                if judge and score >= 0.6:  # Only judge patterns that pass basic validation
+                    try:
+                        logger.info(f"Starting judge evaluation for pattern: {pattern['pattern_name']}")
+                        judge_start = time.time()
+                        judge_score, judge_feedback = judge.evaluate_pattern(pattern, repo_context)
+                        judge_time = time.time() - judge_start
+                        
+                        # Update Neo4j with judge results
+                        self._update_pattern_judge_evaluation(
+                            pattern_name=pattern['pattern_name'],
+                            judge_score=judge_score,
+                            judge_feedback=judge_feedback
+                        )
+                        
+                        # Log judge evaluation
+                        if trajectory_logger:
+                            trajectory_logger.log_event("judge_evaluation", {
+                                "pattern": pattern['pattern_name'],
+                                "judge_score": round(judge_score, 3),
+                                "quality_tier": judge.get_quality_tier(judge_score),
+                                "response_time_seconds": round(judge_time, 3)
+                            })
+                        
+                        logger.info(f"Judge evaluation complete: {pattern['pattern_name']} - score={judge_score:.2f}")
+                        
+                    except Exception as judge_error:
+                        logger.error(f"Judge evaluation failed for {pattern['pattern_name']}: {judge_error}")
+                
+            except Exception as e:
+                logger.error(f"Async validation failed for {pattern.get('pattern_name', 'unknown')}: {e}")
+        
+        # Submit to thread pool (non-blocking)
+        future = self.critic_executor.submit(validation_task)
+        return future
+    
+    @neo4j_retry
+    def _update_pattern_validation(self, pattern_name, validation_score, needs_review, critic_notes):
+        """Update pattern with validation results."""
+        with self.neo4j.session() as session:
+            session.run("""
+                MATCH (p:Pattern {name: $pattern_name})
+                SET p.validation_score = $validation_score,
+                    p.needs_review = $needs_review,
+                    p.critic_notes = $critic_notes,
+                    p.validated_at = datetime()
+            """,
+                pattern_name=pattern_name,
+                validation_score=float(validation_score),
+                needs_review=needs_review,
+                critic_notes=critic_notes
+            )
+        logger.debug(f"Updated validation for pattern: {pattern_name}")
+    
+    @neo4j_retry
+    def _update_pattern_judge_evaluation(self, pattern_name, judge_score, judge_feedback):
+        """Update pattern with judge evaluation results."""
+        with self.neo4j.session() as session:
+            session.run("""
+                MATCH (p:Pattern {name: $pattern_name})
+                SET p.judge_score = $judge_score,
+                    p.judge_feedback = $judge_feedback,
+                    p.judged_at = datetime()
+            """,
+                pattern_name=pattern_name,
+                judge_score=float(judge_score),
+                judge_feedback=judge_feedback
+            )
+        logger.debug(f"Updated judge evaluation for pattern: {pattern_name}")
+    
+    @neo4j_retry
     def _store_pattern(self, pattern):
-        """Store pattern in Neo4j with normalized data and weights."""
+        """Store pattern in Neo4j with normalized data and weights with retry logic."""
+        logger.info(f"Storing pattern '{pattern.get('pattern_name', 'unknown')}' in Neo4j")
         # Normalize technologies with weights
         normalized_techs = []
         technologies = pattern.get('technologies', [])
@@ -473,6 +903,10 @@ Return ONLY the new query, nothing else."""
         freshness_score = pattern.get('freshness_score', 0.5)
         maintenance_score = pattern.get('maintenance_score', 0.5)
         
+        # Get extraction metadata
+        extraction_status = pattern.get('extraction_status', 'unknown')
+        data_availability = pattern.get('data_availability', {})
+        
         # Ensure we have at least one technology
         if not normalized_techs:
             normalized_techs = [{
@@ -495,7 +929,7 @@ Return ONLY the new query, nothing else."""
         
         with self.neo4j.session() as session:
             session.run("""
-                // Create pattern node with quality metrics
+                // Create pattern node with quality metrics, validation placeholders, judge placeholders, and extraction metadata
                 CREATE (p:Pattern {
                     name: $pattern_name,
                     confidence: $confidence,
@@ -505,6 +939,16 @@ Return ONLY the new query, nothing else."""
                     quality_score: $quality_score,
                     freshness_score: $freshness_score,
                     maintenance_score: $maintenance_score,
+                    validation_score: 0.0,
+                    needs_review: true,
+                    critic_notes: "Validation pending...",
+                    judge_score: 0.0,
+                    judge_feedback: "Judge evaluation pending...",
+                    extraction_status: $extraction_status,
+                    has_readme: $has_readme,
+                    has_structure: $has_structure,
+                    has_dependencies: $has_dependencies,
+                    has_quality_metrics: $has_quality_metrics,
                     extracted_at: datetime()
                 })
                 
@@ -550,6 +994,11 @@ Return ONLY the new query, nothing else."""
                 quality_score=float(quality_score),
                 freshness_score=float(freshness_score),
                 maintenance_score=float(maintenance_score),
+                extraction_status=extraction_status,
+                has_readme=data_availability.get('readme', False),
+                has_structure=data_availability.get('structure', False),
+                has_dependencies=data_availability.get('dependencies', False),
+                has_quality_metrics=data_availability.get('quality_metrics', False),
                 req_type=pattern['requirements']['type'],
                 req_domain=pattern['requirements']['domain'],
                 constraints=normalized_constraints,

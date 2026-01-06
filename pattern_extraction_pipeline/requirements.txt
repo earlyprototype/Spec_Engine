@@ -12,3 +12,6 @@ neo4j==5.16.0
 
 # Environment variables
 python-dotenv==1.0.1
+
+# Retry logic with exponential backoff
+tenacity==8.2.3

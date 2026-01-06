@@ -24,7 +24,16 @@ class DomainTopicSelector:
             raise ValueError("GEMINI_API_KEY not found in environment")
         
         genai.configure(api_key=api_key)
-        self.model = genai.GenerativeModel('gemini-2.0-flash-exp')
+        # Use the most capable model for domain analysis (single call, needs high intelligence)
+        # gemini-2.5-pro: Stable, most intelligent, 1M input / 65K output tokens
+        self.model = genai.GenerativeModel(
+            'gemini-2.5-pro',
+            generation_config={
+                'temperature': 0.7,  # Balanced creativity and consistency
+                'top_p': 0.95,
+                'top_k': 40
+            }
+        )
     
     def analyse_requirements(self, description: str, existing_techs: list = None) -> dict:
         """
@@ -44,44 +53,47 @@ class DomainTopicSelector:
         
         prompt = f"""You are an expert in software architecture and GitHub repository analysis.
 
-Given this project description:
+The user is building THIS PROJECT:
 {description}{tech_context}
 
-Provide recommendations for extracting relevant architectural patterns from GitHub.
+Your task: Recommend GitHub search queries to find architectural patterns and implementation examples 
+that would help build THIS SPECIFIC PROJECT.
 
 Respond with a JSON object (no markdown, just raw JSON) with this exact structure:
 {{
   "primary_topics": [
-    {{"topic": "topic-name", "relevance": "why this topic is relevant", "estimated_repos": 100}}
+    {{"topic": "topic-name", "relevance": "why this topic helps THIS PROJECT", "estimated_repos": 100}}
   ],
   "secondary_topics": [
-    {{"topic": "topic-name", "relevance": "why this topic is relevant", "estimated_repos": 50}}
+    {{"topic": "topic-name", "relevance": "why this topic helps THIS PROJECT", "estimated_repos": 50}}
   ],
   "recommended_domains": [
-    {{"domain": "domain_name", "description": "what this domain covers", "priority": "high/medium/low"}}
+    {{"domain": "domain_name", "description": "what aspect of THIS PROJECT this query group covers", "priority": "high/medium/low"}}
   ],
   "suggested_queries": [
-    {{"query": "topic:xxx stars:>5000", "purpose": "what patterns this finds", "limit": 20}}
+    {{"query": "topic:xxx stars:>5000", "purpose": "what patterns this finds for THIS PROJECT", "limit": 20}}
   ],
   "tech_stack_suggestions": [
-    {{"tech": "technology-name", "reason": "why this tech is commonly used"}}
+    {{"tech": "technology-name", "reason": "why this tech would help THIS PROJECT"}}
   ],
   "estimated_extraction_time": "X-Y hours",
   "confidence": "high/medium/low"
 }}
 
-Guidelines:
-- primary_topics: 3-5 most relevant GitHub topics
-- secondary_topics: 3-5 alternative topics for broader coverage
-- recommended_domains: Logical groupings for organising patterns
-- suggested_queries: Ready-to-use GitHub search queries
+CRITICAL GUIDELINES:
+- primary_topics: GitHub topics DIRECTLY RELATED to building THIS PROJECT (not application domains)
+- secondary_topics: Alternative GitHub topics that could provide useful patterns for THIS PROJECT
+- recommended_domains: Logical groupings for organizing the queries BY TECHNICAL AREA OF THIS PROJECT
+  Example for a SPEC engine: "pattern_extraction", "knowledge_graph_management", "llm_integration"
+  NOT application domains like "ecommerce", "finance", "healthcare"
+- suggested_queries: GitHub searches that find repos with patterns/implementations THIS PROJECT needs
 - QUERY FORMATS (choose based on specificity needed):
-  * Topic-based (narrow, specific): "topic:ecommerce stars:>5000" (use single topic only)
-  * Keyword-based (broad, flexible): "ecommerce platform stars:>5000" (can combine multiple keywords)
-  * Scoped keyword: "authentication in:description,readme stars:>10000" (search in specific fields)
+  * Topic-based (narrow, specific): "topic:knowledge-graph stars:>5000" (use single topic only)
+  * Keyword-based (broad, flexible): "pattern extraction llm stars:>5000" (can combine multiple keywords)
+  * Scoped keyword: "neo4j graph database in:description,readme stars:>10000" (search in specific fields)
 - Use realistic star counts (>1000 for niche, >5000 for established, >10000 for popular)
 - Mix both formats for comprehensive coverage
-- Optimise for quality over quantity"""
+- ALL recommendations must be SPECIFIC to helping build THIS PROJECT, not generic patterns"""
 
         try:
             response = self.model.generate_content(prompt)

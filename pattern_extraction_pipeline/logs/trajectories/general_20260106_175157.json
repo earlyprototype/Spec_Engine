@@ -1,0 +1,2483 @@
+{
+  "trajectory_id": "general_20260106_175157",
+  "domain": "general",
+  "search_query": "nextjs saas boilerplate in:readme,description stars:>2000",
+  "limit": 15,
+  "started_at": "2026-01-06T17:51:57.766304",
+  "events": [
+    {
+      "timestamp": "2026-01-06T17:51:57.766304",
+      "elapsed_seconds": 0.0,
+      "type": "extraction_started",
+      "level": "info",
+      "data": {
+        "domain": "general",
+        "query": "nextjs saas boilerplate in:readme,description stars:>2000",
+        "limit": 15
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:51:58.451051",
+      "elapsed_seconds": 0.684746265411377,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "xcomptek/awesome-saas-boilerplates",
+        "stars": 3054
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:51:59.965324",
+      "elapsed_seconds": 2.1990199089050293,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "xcomptek/awesome-saas-boilerplates",
+        "quality_score": 0.775,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:52:00.446161",
+      "elapsed_seconds": 2.679856061935425,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "xcomptek/awesome-saas-boilerplates",
+        "success": true,
+        "response_time_seconds": 0.459
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:52:00.857907",
+      "elapsed_seconds": 3.0916030406951904,
+      "type": "github_api_call",
+      "level": "warning",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "xcomptek/awesome-saas-boilerplates",
+        "success": false,
+        "response_time_seconds": 0.412
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:52:10.771271",
+      "elapsed_seconds": 13.004966259002686,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Kubernetes Native Control Plane",
+        "validation_score": 0.93,
+        "needs_review": false,
+        "response_time_seconds": 12.948
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:52:16.401602",
+      "elapsed_seconds": 18.635298013687134,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Monolithic Application",
+        "judge_score": 0.89,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 38.495
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:52:23.028431",
+      "elapsed_seconds": 25.262126445770264,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "xcomptek/awesome-saas-boilerplates",
+        "success": true,
+        "response_time_seconds": 21.391,
+        "pattern_name": "Curated Informational Directory",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:52:23.090966",
+      "elapsed_seconds": 25.324661254882812,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Curated Informational Directory",
+        "success": true,
+        "response_time_seconds": 0.063
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:52:23.090966",
+      "elapsed_seconds": 25.324661254882812,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "xcomptek/awesome-saas-boilerplates",
+        "status": "partial",
+        "time_seconds": 24.64
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:52:23.093988",
+      "elapsed_seconds": 25.327683925628662,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "ixartz/SaaS-Boilerplate",
+        "stars": 6673
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:52:24.186904",
+      "elapsed_seconds": 26.420599699020386,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "ixartz/SaaS-Boilerplate",
+        "quality_score": 0.909,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:52:24.616841",
+      "elapsed_seconds": 26.850536346435547,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "ixartz/SaaS-Boilerplate",
+        "success": true,
+        "response_time_seconds": 0.429
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:52:24.997399",
+      "elapsed_seconds": 27.2310950756073,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "ixartz/SaaS-Boilerplate",
+        "success": true,
+        "response_time_seconds": 0.381
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:52:38.618348",
+      "elapsed_seconds": 40.85204339027405,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Curated Informational Directory",
+        "validation_score": 0.96,
+        "needs_review": false,
+        "response_time_seconds": 15.5
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:52:44.838975",
+      "elapsed_seconds": 47.072670698165894,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Kubernetes Native Control Plane",
+        "judge_score": 0.86,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 34.036
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:52:48.876222",
+      "elapsed_seconds": 51.10991716384888,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "ixartz/SaaS-Boilerplate",
+        "success": true,
+        "response_time_seconds": 23.51,
+        "pattern_name": "Client-Server with Hybrid Rendering (Next.js)",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:52:48.949487",
+      "elapsed_seconds": 51.18318247795105,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Client-Server with Hybrid Rendering (Next.js)",
+        "success": true,
+        "response_time_seconds": 0.073
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:52:48.950002",
+      "elapsed_seconds": 51.18369770050049,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "ixartz/SaaS-Boilerplate",
+        "status": "successful",
+        "time_seconds": 25.86
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:52:48.951305",
+      "elapsed_seconds": 51.18500113487244,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "prisma/prisma-examples",
+        "stars": 6592
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:52:50.328844",
+      "elapsed_seconds": 52.56253981590271,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "prisma/prisma-examples",
+        "quality_score": 0.761,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.88
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:52:50.774051",
+      "elapsed_seconds": 53.00774669647217,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "prisma/prisma-examples",
+        "success": true,
+        "response_time_seconds": 0.445
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:52:51.177988",
+      "elapsed_seconds": 53.411683797836304,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "prisma/prisma-examples",
+        "success": true,
+        "response_time_seconds": 0.403
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:52:57.741518",
+      "elapsed_seconds": 59.97521376609802,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Client-Server with Hybrid Rendering (Next.js)",
+        "validation_score": 0.98,
+        "needs_review": false,
+        "response_time_seconds": 8.754
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:53:11.534433",
+      "elapsed_seconds": 73.76812863349915,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "prisma/prisma-examples",
+        "success": true,
+        "response_time_seconds": 19.57,
+        "pattern_name": "Fullstack Web Application with ORM",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:53:11.633746",
+      "elapsed_seconds": 73.86744141578674,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Fullstack Web Application with ORM",
+        "success": true,
+        "response_time_seconds": 0.099
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:53:11.634473",
+      "elapsed_seconds": 73.86816883087158,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "prisma/prisma-examples",
+        "status": "partial",
+        "time_seconds": 22.68
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:53:11.635022",
+      "elapsed_seconds": 73.86871790885925,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "unicodeveloper/awesome-nextjs",
+        "stars": 11005
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:53:12.809257",
+      "elapsed_seconds": 75.04295253753662,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "unicodeveloper/awesome-nextjs",
+        "quality_score": 0.746,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.88
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:53:13.236518",
+      "elapsed_seconds": 75.47021412849426,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "unicodeveloper/awesome-nextjs",
+        "success": true,
+        "response_time_seconds": 0.427
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:53:13.632471",
+      "elapsed_seconds": 75.86616683006287,
+      "type": "github_api_call",
+      "level": "warning",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "unicodeveloper/awesome-nextjs",
+        "success": false,
+        "response_time_seconds": 0.396
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:53:16.772792",
+      "elapsed_seconds": 79.00648760795593,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Curated Informational Directory",
+        "judge_score": 0.93,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 38.12
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:53:24.433663",
+      "elapsed_seconds": 86.66735887527466,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Fullstack Web Application with ORM",
+        "validation_score": 0.96,
+        "needs_review": false,
+        "response_time_seconds": 12.709
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:53:27.311144",
+      "elapsed_seconds": 89.54483938217163,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "unicodeveloper/awesome-nextjs",
+        "success": true,
+        "response_time_seconds": 12.887,
+        "pattern_name": "awesome_list_curation",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:53:27.797432",
+      "elapsed_seconds": 90.0311279296875,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "awesome_list_curation",
+        "success": true,
+        "response_time_seconds": 0.486
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:53:27.798644",
+      "elapsed_seconds": 90.03233981132507,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "unicodeveloper/awesome-nextjs",
+        "status": "partial",
+        "time_seconds": 16.16
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:53:27.802152",
+      "elapsed_seconds": 90.03584814071655,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "polarsource/polar",
+        "stars": 8975
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:53:29.118524",
+      "elapsed_seconds": 91.35221934318542,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "polarsource/polar",
+        "quality_score": 0.865,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.82
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:53:29.552750",
+      "elapsed_seconds": 91.7864453792572,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Client-Server with Hybrid Rendering (Next.js)",
+        "judge_score": 0.94,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 31.759
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:53:29.564598",
+      "elapsed_seconds": 91.79829382896423,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "polarsource/polar",
+        "success": true,
+        "response_time_seconds": 0.445
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:53:30.053845",
+      "elapsed_seconds": 92.28881907463074,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "polarsource/polar",
+        "success": true,
+        "response_time_seconds": 0.475
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:53:38.766330",
+      "elapsed_seconds": 101.00002598762512,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "awesome_list_curation",
+        "validation_score": 0.98,
+        "needs_review": false,
+        "response_time_seconds": 10.944
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:53:59.056961",
+      "elapsed_seconds": 121.29065680503845,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Fullstack Web Application with ORM",
+        "judge_score": 0.9,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 34.56
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:54:02.755250",
+      "elapsed_seconds": 124.9889452457428,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "polarsource/polar",
+        "success": true,
+        "response_time_seconds": 31.973,
+        "pattern_name": "Monorepo",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:54:02.789702",
+      "elapsed_seconds": 125.02447986602783,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Monorepo",
+        "success": true,
+        "response_time_seconds": 0.034
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:54:02.790784",
+      "elapsed_seconds": 125.02447986602783,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "polarsource/polar",
+        "status": "partial",
+        "time_seconds": 34.99
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:54:02.791768",
+      "elapsed_seconds": 125.02546381950378,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "birobirobiro/awesome-shadcn-ui",
+        "stars": 18527
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:54:05.377820",
+      "elapsed_seconds": 127.61151576042175,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "birobirobiro/awesome-shadcn-ui",
+        "quality_score": 0.938,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:54:06.115667",
+      "elapsed_seconds": 128.34936237335205,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "birobirobiro/awesome-shadcn-ui",
+        "success": true,
+        "response_time_seconds": 0.738
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:54:06.508633",
+      "elapsed_seconds": 128.74232840538025,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "birobirobiro/awesome-shadcn-ui",
+        "success": true,
+        "response_time_seconds": 0.392
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:54:07.389086",
+      "elapsed_seconds": 129.62331676483154,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "awesome_list_curation",
+        "judge_score": 0.92,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 28.604
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:54:12.910949",
+      "elapsed_seconds": 135.14464449882507,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Monorepo",
+        "validation_score": 0.95,
+        "needs_review": false,
+        "response_time_seconds": 10.048
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:54:23.551506",
+      "elapsed_seconds": 145.7852017879486,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "birobirobiro/awesome-shadcn-ui",
+        "success": true,
+        "response_time_seconds": 16.643,
+        "pattern_name": "Curated List / Content Aggregation Portal",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:54:23.737155",
+      "elapsed_seconds": 145.97085070610046,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Curated List / Content Aggregation Portal",
+        "success": true,
+        "response_time_seconds": 0.186
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:54:23.737155",
+      "elapsed_seconds": 145.97085070610046,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "birobirobiro/awesome-shadcn-ui",
+        "status": "successful",
+        "time_seconds": 20.95
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:54:23.738157",
+      "elapsed_seconds": 145.97185230255127,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "Kiranism/next-shadcn-dashboard-starter",
+        "stars": 5784
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:54:24.858517",
+      "elapsed_seconds": 147.09221243858337,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "Kiranism/next-shadcn-dashboard-starter",
+        "quality_score": 0.89,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.955
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:54:25.295312",
+      "elapsed_seconds": 147.52900767326355,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "Kiranism/next-shadcn-dashboard-starter",
+        "success": true,
+        "response_time_seconds": 0.434
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:54:25.698308",
+      "elapsed_seconds": 147.93200373649597,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "Kiranism/next-shadcn-dashboard-starter",
+        "success": true,
+        "response_time_seconds": 0.396
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:54:37.633597",
+      "elapsed_seconds": 159.86729216575623,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Curated List / Content Aggregation Portal",
+        "validation_score": 0.975,
+        "needs_review": false,
+        "response_time_seconds": 13.867
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:54:49.829598",
+      "elapsed_seconds": 172.06329345703125,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Monorepo",
+        "judge_score": 0.93,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 36.84
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:54:50.855793",
+      "elapsed_seconds": 173.08948874473572,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "Kiranism/next-shadcn-dashboard-starter",
+        "success": true,
+        "response_time_seconds": 24.762,
+        "pattern_name": "Hybrid Client-Server Application (Next.js Monolith)",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:54:51.193507",
+      "elapsed_seconds": 173.42720317840576,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Hybrid Client-Server Application (Next.js Monolith)",
+        "success": true,
+        "response_time_seconds": 0.338
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:54:51.195099",
+      "elapsed_seconds": 173.42879462242126,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "Kiranism/next-shadcn-dashboard-starter",
+        "status": "successful",
+        "time_seconds": 27.46
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:54:51.196499",
+      "elapsed_seconds": 173.43019437789917,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "nestjs/awesome-nestjs",
+        "stars": 12687
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:54:52.569304",
+      "elapsed_seconds": 174.8030002117157,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "nestjs/awesome-nestjs",
+        "quality_score": 0.776,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:54:53.094200",
+      "elapsed_seconds": 175.32789540290833,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "nestjs/awesome-nestjs",
+        "success": true,
+        "response_time_seconds": 0.524
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:54:53.487808",
+      "elapsed_seconds": 175.72150325775146,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "nestjs/awesome-nestjs",
+        "success": true,
+        "response_time_seconds": 0.393
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:55:05.201330",
+      "elapsed_seconds": 187.43502593040466,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Hybrid Client-Server Application (Next.js Monolith)",
+        "validation_score": 0.975,
+        "needs_review": false,
+        "response_time_seconds": 13.863
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:55:05.766782",
+      "elapsed_seconds": 188.0004780292511,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "nestjs/awesome-nestjs",
+        "success": true,
+        "response_time_seconds": 11.516,
+        "pattern_name": "Static Content Repository",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:55:05.995140",
+      "elapsed_seconds": 188.22883582115173,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Static Content Repository",
+        "success": true,
+        "response_time_seconds": 0.228
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:55:05.995800",
+      "elapsed_seconds": 188.2294957637787,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "nestjs/awesome-nestjs",
+        "status": "partial",
+        "time_seconds": 14.8
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:55:05.998562",
+      "elapsed_seconds": 188.232257604599,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "stackshareio/awesome-stacks",
+        "stars": 3805
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:55:07.254490",
+      "elapsed_seconds": 189.4881854057312,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "stackshareio/awesome-stacks",
+        "quality_score": 0.753,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.955
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:55:07.740599",
+      "elapsed_seconds": 189.97429513931274,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "stackshareio/awesome-stacks",
+        "success": true,
+        "response_time_seconds": 0.485
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:55:08.140448",
+      "elapsed_seconds": 190.37414360046387,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "stackshareio/awesome-stacks",
+        "success": true,
+        "response_time_seconds": 0.4
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:55:14.011959",
+      "elapsed_seconds": 196.2456545829773,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Curated List / Content Aggregation Portal",
+        "judge_score": 0.922,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 36.346
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:55:19.709519",
+      "elapsed_seconds": 201.94321489334106,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Static Content Repository",
+        "validation_score": 0.5,
+        "needs_review": true,
+        "response_time_seconds": 13.353
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:55:23.296745",
+      "elapsed_seconds": 205.5304410457611,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "stackshareio/awesome-stacks",
+        "success": true,
+        "response_time_seconds": 14.743,
+        "pattern_name": "Static Site Generation (SSG) with API-Driven Content Enrichment",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:55:23.449215",
+      "elapsed_seconds": 205.68291091918945,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Static Site Generation (SSG) with API-Driven Content Enrichment",
+        "success": true,
+        "response_time_seconds": 0.152
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:55:23.449215",
+      "elapsed_seconds": 205.68291091918945,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "stackshareio/awesome-stacks",
+        "status": "successful",
+        "time_seconds": 17.45
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:55:23.451244",
+      "elapsed_seconds": 205.6849400997162,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "ripienaar/free-for-dev",
+        "stars": 117065
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:55:24.925326",
+      "elapsed_seconds": 207.1590220928192,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "ripienaar/free-for-dev",
+        "quality_score": 0.793,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.955
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:55:25.409665",
+      "elapsed_seconds": 207.6433606147766,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "ripienaar/free-for-dev",
+        "success": true,
+        "response_time_seconds": 0.483
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:55:25.792545",
+      "elapsed_seconds": 208.02624034881592,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "ripienaar/free-for-dev",
+        "success": true,
+        "response_time_seconds": 0.383
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:55:38.391858",
+      "elapsed_seconds": 220.62555360794067,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Static Site Generation (SSG) with API-Driven Content Enrichment",
+        "validation_score": 1.0,
+        "needs_review": false,
+        "response_time_seconds": 14.882
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:55:41.404855",
+      "elapsed_seconds": 223.63855075836182,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "ripienaar/free-for-dev",
+        "success": true,
+        "response_time_seconds": 14.839,
+        "pattern_name": "Awesome List (Curated Content Repository)",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:55:41.986754",
+      "elapsed_seconds": 224.22044968605042,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Awesome List (Curated Content Repository)",
+        "success": true,
+        "response_time_seconds": 0.582
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:55:41.990351",
+      "elapsed_seconds": 224.2240469455719,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "ripienaar/free-for-dev",
+        "status": "partial",
+        "time_seconds": 18.54
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:55:41.999863",
+      "elapsed_seconds": 224.23355841636658,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "yaolifeng0629/Awesome-independent-tools",
+        "stars": 2206
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:55:43.095091",
+      "elapsed_seconds": 225.32878708839417,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "yaolifeng0629/Awesome-independent-tools",
+        "quality_score": 0.835,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.91
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:55:43.602381",
+      "elapsed_seconds": 225.83607625961304,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "yaolifeng0629/Awesome-independent-tools",
+        "success": true,
+        "response_time_seconds": 0.507
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:55:43.992407",
+      "elapsed_seconds": 226.22610306739807,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "yaolifeng0629/Awesome-independent-tools",
+        "success": true,
+        "response_time_seconds": 0.386
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:55:46.447458",
+      "elapsed_seconds": 228.6811535358429,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Hybrid Client-Server Application (Next.js Monolith)",
+        "judge_score": 0.875,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 41.203
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:55:54.542209",
+      "elapsed_seconds": 236.7759051322937,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Awesome List (Curated Content Repository)",
+        "validation_score": 0.975,
+        "needs_review": false,
+        "response_time_seconds": 12.5
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:56:13.297499",
+      "elapsed_seconds": 255.53119468688965,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "yaolifeng0629/Awesome-independent-tools",
+        "success": true,
+        "response_time_seconds": 28.545,
+        "pattern_name": "Content-as-Code (CaC)",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:56:13.642159",
+      "elapsed_seconds": 255.87585425376892,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Content-as-Code (CaC)",
+        "success": true,
+        "response_time_seconds": 0.345
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:56:13.642159",
+      "elapsed_seconds": 255.87585425376892,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "yaolifeng0629/Awesome-independent-tools",
+        "status": "partial",
+        "time_seconds": 31.64
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:56:13.644901",
+      "elapsed_seconds": 255.87859654426575,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "tauri-apps/awesome-tauri",
+        "stars": 6928
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:56:15.047909",
+      "elapsed_seconds": 257.2816050052643,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "tauri-apps/awesome-tauri",
+        "quality_score": 0.809,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.955
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:56:15.537587",
+      "elapsed_seconds": 257.7712826728821,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "tauri-apps/awesome-tauri",
+        "success": true,
+        "response_time_seconds": 0.489
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:56:15.930062",
+      "elapsed_seconds": 258.16375732421875,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "tauri-apps/awesome-tauri",
+        "success": true,
+        "response_time_seconds": 0.392
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:56:17.618204",
+      "elapsed_seconds": 259.85189986228943,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Static Site Generation (SSG) with API-Driven Content Enrichment",
+        "judge_score": 0.9,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 39.182
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:56:25.903964",
+      "elapsed_seconds": 268.1376597881317,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Content-as-Code (CaC)",
+        "validation_score": 1.0,
+        "needs_review": false,
+        "response_time_seconds": 12.121
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:56:28.519456",
+      "elapsed_seconds": 270.75315141677856,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Awesome List (Curated Content Repository)",
+        "judge_score": 0.915,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 33.873
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:56:38.990265",
+      "elapsed_seconds": 281.2239603996277,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "tauri-apps/awesome-tauri",
+        "success": true,
+        "response_time_seconds": 22.649,
+        "pattern_name": "Tauri Hybrid Desktop Application",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:56:39.185620",
+      "elapsed_seconds": 281.41931557655334,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Tauri Hybrid Desktop Application",
+        "success": true,
+        "response_time_seconds": 0.195
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:56:39.186283",
+      "elapsed_seconds": 281.4199786186218,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "tauri-apps/awesome-tauri",
+        "status": "successful",
+        "time_seconds": 25.54
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:56:39.188086",
+      "elapsed_seconds": 281.42178201675415,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "bradtraversy/design-resources-for-developers",
+        "stars": 64035
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:56:40.495616",
+      "elapsed_seconds": 282.72931146621704,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "bradtraversy/design-resources-for-developers",
+        "quality_score": 0.843,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:56:40.956883",
+      "elapsed_seconds": 283.1905789375305,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "bradtraversy/design-resources-for-developers",
+        "success": true,
+        "response_time_seconds": 0.461
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:56:41.357613",
+      "elapsed_seconds": 283.59130859375,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "bradtraversy/design-resources-for-developers",
+        "success": true,
+        "response_time_seconds": 0.399
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:56:50.444795",
+      "elapsed_seconds": 292.6784906387329,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Tauri Hybrid Desktop Application",
+        "validation_score": 1.0,
+        "needs_review": false,
+        "response_time_seconds": 11.215
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:56:59.355974",
+      "elapsed_seconds": 301.58966970443726,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "bradtraversy/design-resources-for-developers",
+        "success": true,
+        "response_time_seconds": 17.229,
+        "pattern_name": "Static Content Hub",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:57:06.803895",
+      "elapsed_seconds": 309.0375909805298,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Static Content Hub",
+        "success": true,
+        "response_time_seconds": 7.447
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:57:06.846247",
+      "elapsed_seconds": 309.0799422264099,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "bradtraversy/design-resources-for-developers",
+        "status": "partial",
+        "time_seconds": 27.66
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:57:06.920082",
+      "elapsed_seconds": 309.1537778377533,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "jnv/lists",
+        "stars": 10864
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:57:08.737430",
+      "elapsed_seconds": 310.9711260795593,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "jnv/lists",
+        "quality_score": 0.798,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:57:09.227550",
+      "elapsed_seconds": 311.46124601364136,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "jnv/lists",
+        "success": true,
+        "response_time_seconds": 0.489
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:57:09.604728",
+      "elapsed_seconds": 311.83842372894287,
+      "type": "github_api_call",
+      "level": "warning",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "jnv/lists",
+        "success": false,
+        "response_time_seconds": 0.377
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:57:20.475431",
+      "elapsed_seconds": 322.7091267108917,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Tauri Hybrid Desktop Application",
+        "judge_score": 0.935,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 28.208
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:57:24.773705",
+      "elapsed_seconds": 327.00740027427673,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Static Content Hub",
+        "validation_score": 0.975,
+        "needs_review": false,
+        "response_time_seconds": 17.626
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:57:26.778172",
+      "elapsed_seconds": 329.0118672847748,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "jnv/lists",
+        "success": true,
+        "response_time_seconds": 16.367,
+        "pattern_name": "Content-as-Code with Static Site Presentation",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:57:38.174451",
+      "elapsed_seconds": 340.40814661979675,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Content-as-Code with Static Site Presentation",
+        "success": true,
+        "response_time_seconds": 11.396
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:57:38.202723",
+      "elapsed_seconds": 340.4364187717438,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "jnv/lists",
+        "status": "partial",
+        "time_seconds": 31.28
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:57:38.222746",
+      "elapsed_seconds": 340.45644187927246,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "taishi-i/awesome-ChatGPT-repositories",
+        "stars": 2782
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:57:39.769338",
+      "elapsed_seconds": 342.0030333995819,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "taishi-i/awesome-ChatGPT-repositories",
+        "quality_score": 0.887,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:57:40.158563",
+      "elapsed_seconds": 342.3922588825226,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "taishi-i/awesome-ChatGPT-repositories",
+        "success": true,
+        "response_time_seconds": 0.378
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:57:40.998275",
+      "elapsed_seconds": 343.2319703102112,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "taishi-i/awesome-ChatGPT-repositories",
+        "success": true,
+        "response_time_seconds": 0.829
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:57:51.623535",
+      "elapsed_seconds": 353.8572311401367,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Content-as-Code with Static Site Presentation",
+        "validation_score": 0.92,
+        "needs_review": false,
+        "response_time_seconds": 10.665
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:57:58.293973",
+      "elapsed_seconds": 360.5276687145233,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "taishi-i/awesome-ChatGPT-repositories",
+        "success": true,
+        "response_time_seconds": 16.383,
+        "pattern_name": "Static Content Catalog",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:57:58.322236",
+      "elapsed_seconds": 360.5559320449829,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Static Content Hub",
+        "judge_score": 0.92,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 30.495
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:58:54.444859",
+      "elapsed_seconds": 416.67855501174927,
+      "type": "neo4j_storage",
+      "level": "error",
+      "data": {
+        "pattern": "Static Content Catalog",
+        "success": false,
+        "response_time_seconds": 55.573,
+        "error": "Failed to read from defunct connection IPv4Address(('localhost', 7688)) (ResolvedIPv4Address(('127.0.0.1', 7688)))"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:58:54.444859",
+      "elapsed_seconds": 416.67855501174927,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "taishi-i/awesome-ChatGPT-repositories",
+        "status": "failed",
+        "time_seconds": 76.22
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:58:54.605063",
+      "elapsed_seconds": 416.8387587070465,
+      "type": "extraction_finished",
+      "level": "info",
+      "data": {
+        "total_repos": 15,
+        "successful": 5,
+        "partial": 9,
+        "failed": 1,
+        "total_time": 416.84
+      }
+    }
+  ],
+  "repositories": [
+    {
+      "repo_name": "xcomptek/awesome-saas-boilerplates",
+      "repo_url": "https://github.com/xcomptek/awesome-saas-boilerplates",
+      "stars": 3054,
+      "started_at": "2026-01-06T17:51:58.451051",
+      "start_time": 1767721918.451051,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.4589674472808838
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": false,
+          "response_time": 0.4117469787597656
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.93,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 21.391293048858643,
+          "pattern_name": "Curated Informational Directory"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.06253480911254883
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": false,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "xcomptek/awesome-saas-boilerplates",
+        "quality_score": 0.775,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      },
+      "validation": {
+        "pattern": "Kubernetes Native Control Plane",
+        "validation_score": 0.93,
+        "needs_review": false,
+        "response_time_seconds": 12.948
+      },
+      "finished_at": "2026-01-06T17:52:23.090966",
+      "total_time_seconds": 24.639914989471436
+    },
+    {
+      "repo_name": "ixartz/SaaS-Boilerplate",
+      "repo_url": "https://github.com/ixartz/SaaS-Boilerplate",
+      "stars": 6673,
+      "started_at": "2026-01-06T17:52:23.093988",
+      "start_time": 1767721943.0939887,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.42933106422424316
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.38055872917175293
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.96,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 23.51006007194519,
+          "pattern_name": "Client-Server with Hybrid Rendering (Next.js)"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.07326531410217285
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "successful",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "ixartz/SaaS-Boilerplate",
+        "quality_score": 0.909,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      },
+      "validation": {
+        "pattern": "Curated Informational Directory",
+        "validation_score": 0.96,
+        "needs_review": false,
+        "response_time_seconds": 15.5
+      },
+      "finished_at": "2026-01-06T17:52:48.950002",
+      "total_time_seconds": 25.856013774871826
+    },
+    {
+      "repo_name": "prisma/prisma-examples",
+      "repo_url": "https://github.com/prisma/prisma-examples",
+      "stars": 6592,
+      "started_at": "2026-01-06T17:52:48.951305",
+      "start_time": 1767721968.9513059,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.445206880569458
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.4033389091491699
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.98,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 19.570278644561768,
+          "pattern_name": "Fullstack Web Application with ORM"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.09931278228759766
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "prisma/prisma-examples",
+        "quality_score": 0.761,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.88
+      },
+      "validation": {
+        "pattern": "Client-Server with Hybrid Rendering (Next.js)",
+        "validation_score": 0.98,
+        "needs_review": false,
+        "response_time_seconds": 8.754
+      },
+      "finished_at": "2026-01-06T17:53:11.634473",
+      "total_time_seconds": 22.683167695999146
+    },
+    {
+      "repo_name": "unicodeveloper/awesome-nextjs",
+      "repo_url": "https://github.com/unicodeveloper/awesome-nextjs",
+      "stars": 11005,
+      "started_at": "2026-01-06T17:53:11.635022",
+      "start_time": 1767721991.6350226,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.4272615909576416
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": false,
+          "response_time": 0.3959527015686035
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.96,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 12.88696002960205,
+          "pattern_name": "awesome_list_curation"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.48628854751586914
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": false,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "unicodeveloper/awesome-nextjs",
+        "quality_score": 0.746,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.88
+      },
+      "validation": {
+        "pattern": "Fullstack Web Application with ORM",
+        "validation_score": 0.96,
+        "needs_review": false,
+        "response_time_seconds": 12.709
+      },
+      "finished_at": "2026-01-06T17:53:27.798644",
+      "total_time_seconds": 16.16362190246582
+    },
+    {
+      "repo_name": "polarsource/polar",
+      "repo_url": "https://github.com/polarsource/polar",
+      "stars": 8975,
+      "started_at": "2026-01-06T17:53:27.802152",
+      "start_time": 1767722007.8021529,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.445483922958374
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.4748098850250244
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.98,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 31.9731662273407,
+          "pattern_name": "Monorepo"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.03445267677307129
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "polarsource/polar",
+        "quality_score": 0.865,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.82
+      },
+      "validation": {
+        "pattern": "awesome_list_curation",
+        "validation_score": 0.98,
+        "needs_review": false,
+        "response_time_seconds": 10.944
+      },
+      "finished_at": "2026-01-06T17:54:02.790784",
+      "total_time_seconds": 34.98863172531128
+    },
+    {
+      "repo_name": "birobirobiro/awesome-shadcn-ui",
+      "repo_url": "https://github.com/birobirobiro/awesome-shadcn-ui",
+      "stars": 18527,
+      "started_at": "2026-01-06T17:54:02.791768",
+      "start_time": 1767722042.7917686,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.7378466129302979
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.3921537399291992
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.95,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 16.64337730407715,
+          "pattern_name": "Curated List / Content Aggregation Portal"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.18564891815185547
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "successful",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "birobirobiro/awesome-shadcn-ui",
+        "quality_score": 0.938,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      },
+      "validation": {
+        "pattern": "Monorepo",
+        "validation_score": 0.95,
+        "needs_review": false,
+        "response_time_seconds": 10.048
+      },
+      "finished_at": "2026-01-06T17:54:23.737155",
+      "total_time_seconds": 20.94538688659668
+    },
+    {
+      "repo_name": "Kiranism/next-shadcn-dashboard-starter",
+      "repo_url": "https://github.com/Kiranism/next-shadcn-dashboard-starter",
+      "stars": 5784,
+      "started_at": "2026-01-06T17:54:23.738157",
+      "start_time": 1767722063.738157,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.4343421459197998
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.3963022232055664
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.975,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 24.762340784072876,
+          "pattern_name": "Hybrid Client-Server Application (Next.js Monolith)"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.33771443367004395
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "successful",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "Kiranism/next-shadcn-dashboard-starter",
+        "quality_score": 0.89,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.955
+      },
+      "validation": {
+        "pattern": "Curated List / Content Aggregation Portal",
+        "validation_score": 0.975,
+        "needs_review": false,
+        "response_time_seconds": 13.867
+      },
+      "finished_at": "2026-01-06T17:54:51.195099",
+      "total_time_seconds": 27.456942319869995
+    },
+    {
+      "repo_name": "nestjs/awesome-nestjs",
+      "repo_url": "https://github.com/nestjs/awesome-nestjs",
+      "stars": 12687,
+      "started_at": "2026-01-06T17:54:51.196499",
+      "start_time": 1767722091.196499,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.5238935947418213
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.39299583435058594
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.975,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 11.516242504119873,
+          "pattern_name": "Static Content Repository"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.22835779190063477
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "nestjs/awesome-nestjs",
+        "quality_score": 0.776,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      },
+      "validation": {
+        "pattern": "Hybrid Client-Server Application (Next.js Monolith)",
+        "validation_score": 0.975,
+        "needs_review": false,
+        "response_time_seconds": 13.863
+      },
+      "finished_at": "2026-01-06T17:55:05.995800",
+      "total_time_seconds": 14.799301385879517
+    },
+    {
+      "repo_name": "stackshareio/awesome-stacks",
+      "repo_url": "https://github.com/stackshareio/awesome-stacks",
+      "stars": 3805,
+      "started_at": "2026-01-06T17:55:05.998562",
+      "start_time": 1767722105.9985623,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.4850773811340332
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.39984846115112305
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.5,
+          "needs_review": true
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 14.742654800415039,
+          "pattern_name": "Static Site Generation (SSG) with API-Driven Content Enrichment"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.15246987342834473
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "successful",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "stackshareio/awesome-stacks",
+        "quality_score": 0.753,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.955
+      },
+      "validation": {
+        "pattern": "Static Content Repository",
+        "validation_score": 0.5,
+        "needs_review": true,
+        "response_time_seconds": 13.353
+      },
+      "finished_at": "2026-01-06T17:55:23.449215",
+      "total_time_seconds": 17.450653314590454
+    },
+    {
+      "repo_name": "ripienaar/free-for-dev",
+      "repo_url": "https://github.com/ripienaar/free-for-dev",
+      "stars": 117065,
+      "started_at": "2026-01-06T17:55:23.451244",
+      "start_time": 1767722123.4512448,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.48329925537109375
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.38287973403930664
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 1.0,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 14.838516473770142,
+          "pattern_name": "Awesome List (Curated Content Repository)"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.5818989276885986
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "ripienaar/free-for-dev",
+        "quality_score": 0.793,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.955
+      },
+      "validation": {
+        "pattern": "Static Site Generation (SSG) with API-Driven Content Enrichment",
+        "validation_score": 1.0,
+        "needs_review": false,
+        "response_time_seconds": 14.882
+      },
+      "finished_at": "2026-01-06T17:55:41.990351",
+      "total_time_seconds": 18.539106845855713
+    },
+    {
+      "repo_name": "yaolifeng0629/Awesome-independent-tools",
+      "repo_url": "https://github.com/yaolifeng0629/Awesome-independent-tools",
+      "stars": 2206,
+      "started_at": "2026-01-06T17:55:41.999863",
+      "start_time": 1767722141.9998631,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.5072891712188721
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.3856348991394043
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.975,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 28.545096397399902,
+          "pattern_name": "Content-as-Code (CaC)"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.34465956687927246
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "yaolifeng0629/Awesome-independent-tools",
+        "quality_score": 0.835,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.91
+      },
+      "validation": {
+        "pattern": "Awesome List (Curated Content Repository)",
+        "validation_score": 0.975,
+        "needs_review": false,
+        "response_time_seconds": 12.5
+      },
+      "finished_at": "2026-01-06T17:56:13.642159",
+      "total_time_seconds": 31.642295837402344
+    },
+    {
+      "repo_name": "tauri-apps/awesome-tauri",
+      "repo_url": "https://github.com/tauri-apps/awesome-tauri",
+      "stars": 6928,
+      "started_at": "2026-01-06T17:56:13.644901",
+      "start_time": 1767722173.6449013,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.4886140823364258
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.3918569087982178
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 1.0,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 22.648629665374756,
+          "pattern_name": "Tauri Hybrid Desktop Application"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.19535517692565918
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "successful",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "tauri-apps/awesome-tauri",
+        "quality_score": 0.809,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.955
+      },
+      "validation": {
+        "pattern": "Content-as-Code (CaC)",
+        "validation_score": 1.0,
+        "needs_review": false,
+        "response_time_seconds": 12.121
+      },
+      "finished_at": "2026-01-06T17:56:39.186283",
+      "total_time_seconds": 25.54138207435608
+    },
+    {
+      "repo_name": "bradtraversy/design-resources-for-developers",
+      "repo_url": "https://github.com/bradtraversy/design-resources-for-developers",
+      "stars": 64035,
+      "started_at": "2026-01-06T17:56:39.188086",
+      "start_time": 1767722199.1880867,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.46065855026245117
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.3987276554107666
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 1.0,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 17.22858715057373,
+          "pattern_name": "Static Content Hub"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 7.4469215869903564
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "bradtraversy/design-resources-for-developers",
+        "quality_score": 0.843,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      },
+      "validation": {
+        "pattern": "Tauri Hybrid Desktop Application",
+        "validation_score": 1.0,
+        "needs_review": false,
+        "response_time_seconds": 11.215
+      },
+      "finished_at": "2026-01-06T17:57:06.846247",
+      "total_time_seconds": 27.65816020965576
+    },
+    {
+      "repo_name": "jnv/lists",
+      "repo_url": "https://github.com/jnv/lists",
+      "stars": 10864,
+      "started_at": "2026-01-06T17:57:06.920082",
+      "start_time": 1767722226.9200826,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.4889402389526367
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": false,
+          "response_time": 0.3766453266143799
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.975,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 16.367281913757324,
+          "pattern_name": "Content-as-Code with Static Site Presentation"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 11.396279335021973
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": false,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "jnv/lists",
+        "quality_score": 0.798,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      },
+      "validation": {
+        "pattern": "Static Content Hub",
+        "validation_score": 0.975,
+        "needs_review": false,
+        "response_time_seconds": 17.626
+      },
+      "finished_at": "2026-01-06T17:57:38.202723",
+      "total_time_seconds": 31.28264093399048
+    },
+    {
+      "repo_name": "taishi-i/awesome-ChatGPT-repositories",
+      "repo_url": "https://github.com/taishi-i/awesome-ChatGPT-repositories",
+      "stars": 2782,
+      "started_at": "2026-01-06T17:57:38.221719",
+      "start_time": 1767722258.2227466,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.37764406204223633
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.8294429779052734
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.92,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 16.38304615020752,
+          "pattern_name": "Static Content Catalog"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": false,
+          "response_time": 55.57347106933594
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "failed",
+      "errors": [
+        "Neo4j: Failed to read from defunct connection IPv4Address(('localhost', 7688)) (ResolvedIPv4Address(('127.0"
+      ],
+      "quality_metrics": {
+        "repo": "taishi-i/awesome-ChatGPT-repositories",
+        "quality_score": 0.887,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      },
+      "validation": {
+        "pattern": "Content-as-Code with Static Site Presentation",
+        "validation_score": 0.92,
+        "needs_review": false,
+        "response_time_seconds": 10.665
+      },
+      "finished_at": "2026-01-06T17:58:54.444859",
+      "total_time_seconds": 76.2221131324768
+    }
+  ],
+  "summary": {
+    "total_repos": 15,
+    "successful": 5,
+    "partial": 9,
+    "failed": 1,
+    "total_time_seconds": 416.84,
+    "success_rate_percent": 93.3
+  },
+  "finished_at": "2026-01-06T17:58:54.605063"
+}
