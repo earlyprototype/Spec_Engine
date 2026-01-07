@@ -1,0 +1,4304 @@
+{
+  "trajectory_id": "general_20260107_000559",
+  "domain": "general",
+  "search_query": "natural language to cypher in:readme,description stars:>100",
+  "limit": 35,
+  "started_at": "2026-01-07T00:05:59.831984",
+  "events": [
+    {
+      "timestamp": "2026-01-07T00:05:59.831984",
+      "elapsed_seconds": 0.0,
+      "type": "extraction_started",
+      "level": "info",
+      "data": {
+        "domain": "general",
+        "query": "natural language to cypher in:readme,description stars:>100",
+        "limit": 35
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:06:02.897168",
+      "elapsed_seconds": 3.0651845932006836,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "vitali87/code-graph-rag",
+        "stars": 1611
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:06:04.294492",
+      "elapsed_seconds": 4.4625084400177,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "vitali87/code-graph-rag",
+        "quality_score": 0.794,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.88
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:06:04.816410",
+      "elapsed_seconds": 4.984426259994507,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "vitali87/code-graph-rag",
+        "success": true,
+        "response_time_seconds": 0.522
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:06:05.214066",
+      "elapsed_seconds": 5.382081985473633,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "vitali87/code-graph-rag",
+        "success": true,
+        "response_time_seconds": 0.398
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:06:11.576094",
+      "elapsed_seconds": 11.744109869003296,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Monolithic Application (Demonstration-focused)",
+        "validation_score": 0.98,
+        "needs_review": false,
+        "response_time_seconds": 11.76
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:06:30.512047",
+      "elapsed_seconds": 30.680062770843506,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "AI Service Integration Architecture",
+        "judge_score": 0.89,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 39.753
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:06:30.927703",
+      "elapsed_seconds": 31.095719575881958,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "vitali87/code-graph-rag",
+        "success": true,
+        "response_time_seconds": 24.908,
+        "pattern_name": "Knowledge Graph Architecture",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:06:30.963375",
+      "elapsed_seconds": 31.131391048431396,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Knowledge Graph Architecture",
+        "success": true,
+        "response_time_seconds": 0.036
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:06:30.963715",
+      "elapsed_seconds": 31.131730794906616,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "vitali87/code-graph-rag",
+        "status": "partial",
+        "time_seconds": 28.07
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:06:30.967527",
+      "elapsed_seconds": 31.13554286956787,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "neo4j-contrib/mcp-neo4j",
+        "stars": 864
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:06:32.149569",
+      "elapsed_seconds": 32.317585468292236,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "neo4j-contrib/mcp-neo4j",
+        "quality_score": 0.829,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.955
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:06:32.704367",
+      "elapsed_seconds": 32.87238359451294,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "neo4j-contrib/mcp-neo4j",
+        "success": true,
+        "response_time_seconds": 0.555
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:06:33.180062",
+      "elapsed_seconds": 33.34807801246643,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "neo4j-contrib/mcp-neo4j",
+        "success": true,
+        "response_time_seconds": 0.475
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:06:43.393626",
+      "elapsed_seconds": 43.56164240837097,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Knowledge Graph Architecture",
+        "validation_score": 0.98,
+        "needs_review": false,
+        "response_time_seconds": 12.423
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:06:46.570468",
+      "elapsed_seconds": 46.738483905792236,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Monolithic Application (Demonstration-focused)",
+        "judge_score": 0.91,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 34.946
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:06:48.298547",
+      "elapsed_seconds": 48.4665629863739,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "neo4j-contrib/mcp-neo4j",
+        "success": true,
+        "response_time_seconds": 14.325,
+        "pattern_name": "Microservices Architecture",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:06:48.351781",
+      "elapsed_seconds": 48.51979684829712,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Microservices Architecture",
+        "success": true,
+        "response_time_seconds": 0.053
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:06:48.351781",
+      "elapsed_seconds": 48.51979684829712,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "neo4j-contrib/mcp-neo4j",
+        "status": "partial",
+        "time_seconds": 17.38
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:06:48.356957",
+      "elapsed_seconds": 48.524972677230835,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "neo4j-labs/text2cypher",
+        "stars": 221
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:06:49.726852",
+      "elapsed_seconds": 49.89486861228943,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "neo4j-labs/text2cypher",
+        "quality_score": 0.801,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:06:50.275025",
+      "elapsed_seconds": 50.44304156303406,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "neo4j-labs/text2cypher",
+        "success": true,
+        "response_time_seconds": 0.548
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:06:50.788304",
+      "elapsed_seconds": 50.9563205242157,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "neo4j-labs/text2cypher",
+        "success": true,
+        "response_time_seconds": 0.513
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:07:04.218099",
+      "elapsed_seconds": 64.38611507415771,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Microservices Architecture",
+        "validation_score": 0.96,
+        "needs_review": false,
+        "response_time_seconds": 15.854
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:07:12.400319",
+      "elapsed_seconds": 72.56833529472351,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "neo4j-labs/text2cypher",
+        "success": true,
+        "response_time_seconds": 20.788,
+        "pattern_name": "ML Experimentation & Resource Hub",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:07:12.474935",
+      "elapsed_seconds": 72.64295101165771,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "ML Experimentation & Resource Hub",
+        "success": true,
+        "response_time_seconds": 0.075
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:07:12.474935",
+      "elapsed_seconds": 72.64295101165771,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "neo4j-labs/text2cypher",
+        "status": "partial",
+        "time_seconds": 24.12
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:07:12.479022",
+      "elapsed_seconds": 72.64703845977783,
+      "type": "repository_skipped",
+      "level": "info",
+      "data": {
+        "repo": "jbarrasa/goingmeta",
+        "reason": "already_analyzed",
+        "previous_extraction": "2026-01-06T23:21:16.634000000+00:00",
+        "quality_score": 0.777
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:07:12.482839",
+      "elapsed_seconds": 72.65085506439209,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "memgraph/memgraph",
+        "stars": 3587
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:07:13.797625",
+      "elapsed_seconds": 73.9656412601471,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "memgraph/memgraph",
+        "quality_score": 0.743,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.82
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:07:14.270174",
+      "elapsed_seconds": 74.4381902217865,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "memgraph/memgraph",
+        "success": true,
+        "response_time_seconds": 0.473
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:07:14.708565",
+      "elapsed_seconds": 74.8765811920166,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "memgraph/memgraph",
+        "success": true,
+        "response_time_seconds": 0.438
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:07:21.460419",
+      "elapsed_seconds": 81.62843537330627,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Knowledge Graph Architecture",
+        "judge_score": 0.86,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 38.013
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:07:22.320276",
+      "elapsed_seconds": 82.48829245567322,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "ML Experimentation & Resource Hub",
+        "validation_score": 1.0,
+        "needs_review": false,
+        "response_time_seconds": 9.836
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:07:31.777814",
+      "elapsed_seconds": 91.94583034515381,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "memgraph/memgraph",
+        "success": true,
+        "response_time_seconds": 16.11,
+        "pattern_name": "In-Memory Graph Database",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:07:31.850472",
+      "elapsed_seconds": 92.01848840713501,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "In-Memory Graph Database",
+        "success": true,
+        "response_time_seconds": 0.073
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:07:31.850472",
+      "elapsed_seconds": 92.01848840713501,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "memgraph/memgraph",
+        "status": "partial",
+        "time_seconds": 19.37
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:07:31.856170",
+      "elapsed_seconds": 92.02418613433838,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "ivan-bilan/The-NLP-Pandect",
+        "stars": 2035
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:07:33.290795",
+      "elapsed_seconds": 93.45881080627441,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "ivan-bilan/The-NLP-Pandect",
+        "quality_score": 0.751,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.91
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:07:33.845614",
+      "elapsed_seconds": 94.01363015174866,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "ivan-bilan/The-NLP-Pandect",
+        "success": true,
+        "response_time_seconds": 0.555
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:07:34.242576",
+      "elapsed_seconds": 94.41059231758118,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "ivan-bilan/The-NLP-Pandect",
+        "success": true,
+        "response_time_seconds": 0.397
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:07:40.676150",
+      "elapsed_seconds": 100.84416580200195,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Microservices Architecture",
+        "judge_score": 0.885,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 36.438
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:07:44.263448",
+      "elapsed_seconds": 104.4314637184143,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "In-Memory Graph Database",
+        "validation_score": 0.98,
+        "needs_review": false,
+        "response_time_seconds": 12.398
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:07:48.679877",
+      "elapsed_seconds": 108.84789323806763,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "ivan-bilan/The-NLP-Pandect",
+        "success": true,
+        "response_time_seconds": 13.344,
+        "pattern_name": "Curated Knowledge Base",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:07:48.726734",
+      "elapsed_seconds": 108.8947503566742,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Curated Knowledge Base",
+        "success": true,
+        "response_time_seconds": 0.047
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:07:48.726734",
+      "elapsed_seconds": 108.8947503566742,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "ivan-bilan/The-NLP-Pandect",
+        "status": "partial",
+        "time_seconds": 16.87
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:07:48.731214",
+      "elapsed_seconds": 108.89923048019409,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "Shashankss1205/CodeGraphContext",
+        "stars": 318
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:07:49.892583",
+      "elapsed_seconds": 110.06059908866882,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "Shashankss1205/CodeGraphContext",
+        "quality_score": 0.741,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.88
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:07:50.392289",
+      "elapsed_seconds": 110.56030559539795,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "Shashankss1205/CodeGraphContext",
+        "success": true,
+        "response_time_seconds": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:07:50.802615",
+      "elapsed_seconds": 110.97063159942627,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "Shashankss1205/CodeGraphContext",
+        "success": true,
+        "response_time_seconds": 0.41
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:08:00.431425",
+      "elapsed_seconds": 120.59944152832031,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "ML Experimentation & Resource Hub",
+        "judge_score": 0.89,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 38.098
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:08:07.250637",
+      "elapsed_seconds": 127.41865301132202,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Curated Knowledge Base",
+        "validation_score": 0.99,
+        "needs_review": false,
+        "response_time_seconds": 18.512
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:08:14.833368",
+      "elapsed_seconds": 135.0013837814331,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "In-Memory Graph Database",
+        "judge_score": 0.89,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 30.563
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:08:24.105927",
+      "elapsed_seconds": 144.27394366264343,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "Shashankss1205/CodeGraphContext",
+        "success": true,
+        "response_time_seconds": 32.517,
+        "pattern_name": "Graph Database Backend",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:08:24.141479",
+      "elapsed_seconds": 144.309494972229,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Graph Database Backend",
+        "success": true,
+        "response_time_seconds": 0.036
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:08:24.149654",
+      "elapsed_seconds": 144.31766963005066,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "Shashankss1205/CodeGraphContext",
+        "status": "partial",
+        "time_seconds": 35.42
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:08:24.157272",
+      "elapsed_seconds": 144.32528805732727,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "AvitalTamir/cyphernetes",
+        "stars": 1216
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:08:25.678537",
+      "elapsed_seconds": 145.84655284881592,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "AvitalTamir/cyphernetes",
+        "quality_score": 0.837,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.955
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:08:26.124063",
+      "elapsed_seconds": 146.29207921028137,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "AvitalTamir/cyphernetes",
+        "success": true,
+        "response_time_seconds": 0.446
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:08:26.526967",
+      "elapsed_seconds": 146.69498300552368,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "AvitalTamir/cyphernetes",
+        "success": true,
+        "response_time_seconds": 0.403
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:08:34.827239",
+      "elapsed_seconds": 154.9952552318573,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Graph Database Backend",
+        "validation_score": 0.98,
+        "needs_review": false,
+        "response_time_seconds": 10.665
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:08:42.550154",
+      "elapsed_seconds": 162.71817016601562,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Curated Knowledge Base",
+        "judge_score": 0.94,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 35.263
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:08:49.738266",
+      "elapsed_seconds": 169.90628242492676,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "AvitalTamir/cyphernetes",
+        "success": true,
+        "response_time_seconds": 22.39,
+        "pattern_name": "interpreter_pattern",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:08:49.772383",
+      "elapsed_seconds": 169.9403989315033,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "interpreter_pattern",
+        "success": true,
+        "response_time_seconds": 0.034
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:08:49.772383",
+      "elapsed_seconds": 169.9403989315033,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "AvitalTamir/cyphernetes",
+        "status": "partial",
+        "time_seconds": 25.62
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:08:49.784417",
+      "elapsed_seconds": 169.9524335861206,
+      "type": "repository_skipped",
+      "level": "info",
+      "data": {
+        "repo": "FalkorDB/GraphRAG-SDK",
+        "reason": "already_analyzed",
+        "previous_extraction": "2026-01-06T23:06:08.969000000+00:00",
+        "quality_score": 0.824
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:08:49.788288",
+      "elapsed_seconds": 169.9563045501709,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "neo4j/NaLLM",
+        "stars": 1402
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:08:50.991959",
+      "elapsed_seconds": 171.15997552871704,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "neo4j/NaLLM",
+        "quality_score": 0.819,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.885
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:08:51.527212",
+      "elapsed_seconds": 171.695228099823,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "neo4j/NaLLM",
+        "success": true,
+        "response_time_seconds": 0.532
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:08:51.936823",
+      "elapsed_seconds": 172.104838848114,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "neo4j/NaLLM",
+        "success": true,
+        "response_time_seconds": 0.41
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:09:02.794058",
+      "elapsed_seconds": 182.96207451820374,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "interpreter_pattern",
+        "validation_score": 0.975,
+        "needs_review": false,
+        "response_time_seconds": 12.979
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:09:08.568787",
+      "elapsed_seconds": 188.736802816391,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Graph Database Backend",
+        "judge_score": 0.895,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 33.728
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:09:13.857781",
+      "elapsed_seconds": 194.0257978439331,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "neo4j/NaLLM",
+        "success": true,
+        "response_time_seconds": 20.909,
+        "pattern_name": "Retrieval Augmented Generation (RAG)",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:09:13.887741",
+      "elapsed_seconds": 194.05575680732727,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Retrieval Augmented Generation (RAG)",
+        "success": true,
+        "response_time_seconds": 0.03
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:09:13.887741",
+      "elapsed_seconds": 194.05575680732727,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "neo4j/NaLLM",
+        "status": "partial",
+        "time_seconds": 24.1
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:09:13.893778",
+      "elapsed_seconds": 194.06179451942444,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "MorDavid/BloodHound-MCP-AI",
+        "stars": 325
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:09:15.070697",
+      "elapsed_seconds": 195.2387135028839,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "MorDavid/BloodHound-MCP-AI",
+        "quality_score": 0.717,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.91
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:09:15.582268",
+      "elapsed_seconds": 195.7507894039154,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "MorDavid/BloodHound-MCP-AI",
+        "success": true,
+        "response_time_seconds": 0.512
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:09:16.001942",
+      "elapsed_seconds": 196.16995787620544,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "MorDavid/BloodHound-MCP-AI",
+        "success": true,
+        "response_time_seconds": 0.419
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:09:28.106231",
+      "elapsed_seconds": 208.27424716949463,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Retrieval Augmented Generation (RAG)",
+        "validation_score": 0.99,
+        "needs_review": false,
+        "response_time_seconds": 14.199
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:09:32.251550",
+      "elapsed_seconds": 212.4195659160614,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "MorDavid/BloodHound-MCP-AI",
+        "success": true,
+        "response_time_seconds": 15.365,
+        "pattern_name": "Protocol Adapter / AI-Enabled Data Access Layer",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:09:32.298798",
+      "elapsed_seconds": 212.4668140411377,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Protocol Adapter / AI-Enabled Data Access Layer",
+        "success": true,
+        "response_time_seconds": 0.047
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:09:32.298798",
+      "elapsed_seconds": 212.4668140411377,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "MorDavid/BloodHound-MCP-AI",
+        "status": "successful",
+        "time_seconds": 18.41
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:09:32.305245",
+      "elapsed_seconds": 212.47326135635376,
+      "type": "repository_skipped",
+      "level": "info",
+      "data": {
+        "repo": "Farzad-R/Advanced-QA-and-RAG-Series",
+        "reason": "already_analyzed",
+        "previous_extraction": "2026-01-06T23:59:09.953000000+00:00",
+        "quality_score": 0.796
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:09:32.307106",
+      "elapsed_seconds": 212.47512245178223,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "chrschy/fact-finder",
+        "stars": 111
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:09:33.500949",
+      "elapsed_seconds": 213.6689646244049,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "chrschy/fact-finder",
+        "quality_score": 0.775,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.93
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:09:33.948879",
+      "elapsed_seconds": 214.11689496040344,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "chrschy/fact-finder",
+        "success": true,
+        "response_time_seconds": 0.446
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:09:34.368344",
+      "elapsed_seconds": 214.53636026382446,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "chrschy/fact-finder",
+        "success": true,
+        "response_time_seconds": 0.419
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:09:38.495541",
+      "elapsed_seconds": 218.66355752944946,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "interpreter_pattern",
+        "judge_score": 0.89,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 35.66
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:09:52.520983",
+      "elapsed_seconds": 232.68899869918823,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "chrschy/fact-finder",
+        "success": true,
+        "response_time_seconds": 17.281,
+        "pattern_name": "LLM Orchestration with Knowledge Graph Retrieval",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:09:52.658295",
+      "elapsed_seconds": 232.82631134986877,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "LLM Orchestration with Knowledge Graph Retrieval",
+        "success": true,
+        "response_time_seconds": 0.137
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:09:52.658295",
+      "elapsed_seconds": 232.82631134986877,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "chrschy/fact-finder",
+        "status": "partial",
+        "time_seconds": 20.35
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:09:52.663623",
+      "elapsed_seconds": 232.83163905143738,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "yoheinakajima/mindgraph",
+        "stars": 923
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:09:53.831111",
+      "elapsed_seconds": 233.99912691116333,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "yoheinakajima/mindgraph",
+        "quality_score": 0.795,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.93
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:09:54.265078",
+      "elapsed_seconds": 234.43309378623962,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "yoheinakajima/mindgraph",
+        "success": true,
+        "response_time_seconds": 0.434
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:09:54.671058",
+      "elapsed_seconds": 234.8390736579895,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "yoheinakajima/mindgraph",
+        "success": true,
+        "response_time_seconds": 0.406
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:09:55.767142",
+      "elapsed_seconds": 235.9351577758789,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Protocol Adapter / AI-Enabled Data Access Layer",
+        "validation_score": 0.908,
+        "needs_review": false,
+        "response_time_seconds": 23.454
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:10:01.878858",
+      "elapsed_seconds": 242.04738211631775,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Retrieval Augmented Generation (RAG)",
+        "judge_score": 0.91,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 33.733
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:10:04.237387",
+      "elapsed_seconds": 244.40540289878845,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "LLM Orchestration with Knowledge Graph Retrieval",
+        "validation_score": 0.96,
+        "needs_review": false,
+        "response_time_seconds": 11.56
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:10:27.897217",
+      "elapsed_seconds": 268.0652332305908,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Protocol Adapter / AI-Enabled Data Access Layer",
+        "judge_score": 0.88,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 32.106
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:10:41.615148",
+      "elapsed_seconds": 281.7831645011902,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "LLM Orchestration with Knowledge Graph Retrieval",
+        "judge_score": 0.88,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 37.354
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:11:12.144066",
+      "elapsed_seconds": 312.31208205223083,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "yoheinakajima/mindgraph",
+        "success": true,
+        "response_time_seconds": 76.629,
+        "pattern_name": "API-First Graph-Based Monolith with Plugin Extensibility",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:11:12.350616",
+      "elapsed_seconds": 312.51863169670105,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "API-First Graph-Based Monolith with Plugin Extensibility",
+        "success": true,
+        "response_time_seconds": 0.207
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:11:12.350616",
+      "elapsed_seconds": 312.51863169670105,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "yoheinakajima/mindgraph",
+        "status": "partial",
+        "time_seconds": 79.69
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:11:12.356587",
+      "elapsed_seconds": 312.5246036052704,
+      "type": "repository_skipped",
+      "level": "info",
+      "data": {
+        "repo": "mlabonne/llm-course",
+        "reason": "already_analyzed",
+        "previous_extraction": "2026-01-06T23:23:53.470000000+00:00",
+        "quality_score": 0.895
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:11:12.360897",
+      "elapsed_seconds": 312.5289132595062,
+      "type": "repository_skipped",
+      "level": "info",
+      "data": {
+        "repo": "modelcontextprotocol/servers",
+        "reason": "already_analyzed",
+        "previous_extraction": "2026-01-06T23:53:07.438000000+00:00",
+        "quality_score": 0.913
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:11:12.362785",
+      "elapsed_seconds": 312.53080129623413,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "stevenyu113228/BloodHound-MCP",
+        "stars": 156
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:11:13.895844",
+      "elapsed_seconds": 314.0638601779938,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "stevenyu113228/BloodHound-MCP",
+        "quality_score": 0.7,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.91
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:11:14.318740",
+      "elapsed_seconds": 314.4867558479309,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "stevenyu113228/BloodHound-MCP",
+        "success": true,
+        "response_time_seconds": 0.423
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:11:14.771822",
+      "elapsed_seconds": 314.9398376941681,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "stevenyu113228/BloodHound-MCP",
+        "success": true,
+        "response_time_seconds": 0.453
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:11:31.533355",
+      "elapsed_seconds": 331.70137071609497,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "stevenyu113228/BloodHound-MCP",
+        "success": true,
+        "response_time_seconds": 15.862,
+        "pattern_name": "LLM-to-Graph Query Adapter",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:11:31.578997",
+      "elapsed_seconds": 331.7470133304596,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "LLM-to-Graph Query Adapter",
+        "success": true,
+        "response_time_seconds": 0.046
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:11:31.578997",
+      "elapsed_seconds": 331.7470133304596,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "stevenyu113228/BloodHound-MCP",
+        "status": "partial",
+        "time_seconds": 19.22
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:11:31.585658",
+      "elapsed_seconds": 331.75367426872253,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "cj2001/nodes2021_kg_workshop",
+        "stars": 168
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:11:31.943811",
+      "elapsed_seconds": 332.11182737350464,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "API-First Graph-Based Monolith with Plugin Extensibility",
+        "validation_score": 0.98,
+        "needs_review": false,
+        "response_time_seconds": 19.556
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:11:32.829388",
+      "elapsed_seconds": 332.99740386009216,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "cj2001/nodes2021_kg_workshop",
+        "quality_score": 0.593,
+        "freshness_score": 0.85,
+        "maintenance_score": 0.72
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:11:33.306460",
+      "elapsed_seconds": 333.4744760990143,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "cj2001/nodes2021_kg_workshop",
+        "success": true,
+        "response_time_seconds": 0.47
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:11:33.718007",
+      "elapsed_seconds": 333.8860228061676,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "cj2001/nodes2021_kg_workshop",
+        "success": true,
+        "response_time_seconds": 0.412
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:11:44.176047",
+      "elapsed_seconds": 344.34406304359436,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "LLM-to-Graph Query Adapter",
+        "validation_score": 1.0,
+        "needs_review": false,
+        "response_time_seconds": 12.586
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:11:51.716208",
+      "elapsed_seconds": 351.884224653244,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "cj2001/nodes2021_kg_workshop",
+        "success": true,
+        "response_time_seconds": 17.182,
+        "pattern_name": "Knowledge Graph Data Pipeline",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:11:51.791710",
+      "elapsed_seconds": 351.959725856781,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Knowledge Graph Data Pipeline",
+        "success": true,
+        "response_time_seconds": 0.076
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:11:51.791710",
+      "elapsed_seconds": 351.959725856781,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "cj2001/nodes2021_kg_workshop",
+        "status": "successful",
+        "time_seconds": 20.21
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:11:51.794679",
+      "elapsed_seconds": 351.9626953601837,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "neo4j/mcp",
+        "stars": 140
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:11:53.030965",
+      "elapsed_seconds": 353.1989817619324,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "neo4j/mcp",
+        "quality_score": 0.717,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.955
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:11:53.579255",
+      "elapsed_seconds": 353.7472712993622,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "neo4j/mcp",
+        "success": true,
+        "response_time_seconds": 0.548
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:11:54.098107",
+      "elapsed_seconds": 354.2661235332489,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "neo4j/mcp",
+        "success": true,
+        "response_time_seconds": 0.519
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:12:05.529839",
+      "elapsed_seconds": 365.69785475730896,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Knowledge Graph Data Pipeline",
+        "validation_score": 0.96,
+        "needs_review": false,
+        "response_time_seconds": 13.73
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:12:12.955376",
+      "elapsed_seconds": 373.1233923435211,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "API-First Graph-Based Monolith with Plugin Extensibility",
+        "judge_score": 0.87,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 40.991
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:12:16.031169",
+      "elapsed_seconds": 376.19918489456177,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "neo4j/mcp",
+        "success": true,
+        "response_time_seconds": 21.132,
+        "pattern_name": "Application Service with Protocol Adaptation",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:12:16.098585",
+      "elapsed_seconds": 376.26660084724426,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Application Service with Protocol Adaptation",
+        "success": true,
+        "response_time_seconds": 0.067
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:12:16.099597",
+      "elapsed_seconds": 376.26761293411255,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "neo4j/mcp",
+        "status": "partial",
+        "time_seconds": 24.3
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:12:16.104834",
+      "elapsed_seconds": 376.27285051345825,
+      "type": "repository_skipped",
+      "level": "info",
+      "data": {
+        "repo": "wong2/awesome-mcp-servers",
+        "reason": "already_analyzed",
+        "previous_extraction": "2026-01-07T00:00:53.746000000+00:00",
+        "quality_score": 0.907
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:12:16.107345",
+      "elapsed_seconds": 376.27536153793335,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "PKUFlyingPig/Self-learning-Computer-Science",
+        "stars": 4531
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:12:17.212284",
+      "elapsed_seconds": 377.3803000450134,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "PKUFlyingPig/Self-learning-Computer-Science",
+        "quality_score": 0.747,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:12:17.826160",
+      "elapsed_seconds": 377.9941759109497,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "PKUFlyingPig/Self-learning-Computer-Science",
+        "success": true,
+        "response_time_seconds": 0.611
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:12:18.240902",
+      "elapsed_seconds": 378.40891766548157,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "PKUFlyingPig/Self-learning-Computer-Science",
+        "success": true,
+        "response_time_seconds": 0.414
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:12:20.495788",
+      "elapsed_seconds": 380.6638038158417,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "LLM-to-Graph Query Adapter",
+        "judge_score": 0.87,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 36.305
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:12:29.262348",
+      "elapsed_seconds": 389.4303638935089,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Application Service with Protocol Adaptation",
+        "validation_score": 0.96,
+        "needs_review": false,
+        "response_time_seconds": 13.144
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:12:36.774940",
+      "elapsed_seconds": 396.9429566860199,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Knowledge Graph Data Pipeline",
+        "judge_score": 0.895,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 31.225
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:12:41.532244",
+      "elapsed_seconds": 401.7002601623535,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "PKUFlyingPig/Self-learning-Computer-Science",
+        "success": true,
+        "response_time_seconds": 22.454,
+        "pattern_name": "Documentation Repository",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:12:41.613566",
+      "elapsed_seconds": 401.78158235549927,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Documentation Repository",
+        "success": true,
+        "response_time_seconds": 0.081
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:12:41.613566",
+      "elapsed_seconds": 401.78158235549927,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "PKUFlyingPig/Self-learning-Computer-Science",
+        "status": "partial",
+        "time_seconds": 25.51
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:12:41.616301",
+      "elapsed_seconds": 401.78431701660156,
+      "type": "repository_skipped",
+      "level": "info",
+      "data": {
+        "repo": "DEEP-PolyU/Awesome-GraphRAG",
+        "reason": "already_analyzed",
+        "previous_extraction": "2026-01-06T21:25:48.608000000+00:00",
+        "quality_score": 0.865
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:12:41.620761",
+      "elapsed_seconds": 401.788777589798,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "memory-graph/memory-graph",
+        "stars": 131
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:12:42.837400",
+      "elapsed_seconds": 403.00541615486145,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "memory-graph/memory-graph",
+        "quality_score": 0.695,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:12:43.281028",
+      "elapsed_seconds": 403.4490442276001,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "memory-graph/memory-graph",
+        "success": true,
+        "response_time_seconds": 0.442
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:12:43.755594",
+      "elapsed_seconds": 403.9236102104187,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "memory-graph/memory-graph",
+        "success": true,
+        "response_time_seconds": 0.475
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:12:57.391886",
+      "elapsed_seconds": 417.55990171432495,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Documentation Repository",
+        "validation_score": 0.96,
+        "needs_review": false,
+        "response_time_seconds": 15.767
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:13:02.238185",
+      "elapsed_seconds": 422.4062008857727,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Application Service with Protocol Adaptation",
+        "judge_score": 0.89,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 32.953
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:13:07.926736",
+      "elapsed_seconds": 428.09475207328796,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "memory-graph/memory-graph",
+        "success": true,
+        "response_time_seconds": 23.039,
+        "pattern_name": "AI Memory Server with Pluggable Graph Backends",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:13:07.979641",
+      "elapsed_seconds": 428.14765763282776,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "AI Memory Server with Pluggable Graph Backends",
+        "success": true,
+        "response_time_seconds": 0.051
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:13:07.979641",
+      "elapsed_seconds": 428.14765763282776,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "memory-graph/memory-graph",
+        "status": "partial",
+        "time_seconds": 26.36
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:13:07.982524",
+      "elapsed_seconds": 428.1505401134491,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "graphaware/neo4j-nlp",
+        "stars": 345
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:13:09.358510",
+      "elapsed_seconds": 429.5265257358551,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "graphaware/neo4j-nlp",
+        "quality_score": 0.61,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.84
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:13:09.877694",
+      "elapsed_seconds": 430.0457100868225,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "graphaware/neo4j-nlp",
+        "success": true,
+        "response_time_seconds": 0.519
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:13:10.385208",
+      "elapsed_seconds": 430.55322456359863,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "graphaware/neo4j-nlp",
+        "success": true,
+        "response_time_seconds": 0.508
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:13:25.650834",
+      "elapsed_seconds": 445.8188498020172,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "AI Memory Server with Pluggable Graph Backends",
+        "validation_score": 1.0,
+        "needs_review": false,
+        "response_time_seconds": 17.661
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:13:25.785153",
+      "elapsed_seconds": 445.9531695842743,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Documentation Repository",
+        "judge_score": 0.948,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 28.381
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:13:35.177500",
+      "elapsed_seconds": 455.34551644325256,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "graphaware/neo4j-nlp",
+        "success": true,
+        "response_time_seconds": 23.979,
+        "pattern_name": "Plugin Architecture",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:13:35.380313",
+      "elapsed_seconds": 455.54832911491394,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Plugin Architecture",
+        "success": true,
+        "response_time_seconds": 0.203
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:13:35.380313",
+      "elapsed_seconds": 455.54832911491394,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "graphaware/neo4j-nlp",
+        "status": "partial",
+        "time_seconds": 27.4
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:13:35.385344",
+      "elapsed_seconds": 455.55335998535156,
+      "type": "repository_skipped",
+      "level": "info",
+      "data": {
+        "repo": "machuangtao/LLM-KG4QA",
+        "reason": "already_analyzed",
+        "previous_extraction": "2026-01-06T23:12:49.674000000+00:00",
+        "quality_score": 0.777
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:13:35.457300",
+      "elapsed_seconds": 455.6253161430359,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "ghimiresunil/LLM-PowerHouse-A-Curated-Guide-for-Large-Language-Models-with-Custom-Training-and-Inferencing",
+        "stars": 716
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:13:36.675531",
+      "elapsed_seconds": 456.84354758262634,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "ghimiresunil/LLM-PowerHouse-A-Curated-Guide-for-Large-Language-Models-with-Custom-Training-and-Inferencing",
+        "quality_score": 0.827,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:13:37.258728",
+      "elapsed_seconds": 457.4267439842224,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "ghimiresunil/LLM-PowerHouse-A-Curated-Guide-for-Large-Language-Models-with-Custom-Training-and-Inferencing",
+        "success": true,
+        "response_time_seconds": 0.583
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:13:37.660566",
+      "elapsed_seconds": 457.82858204841614,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "ghimiresunil/LLM-PowerHouse-A-Curated-Guide-for-Large-Language-Models-with-Custom-Training-and-Inferencing",
+        "success": true,
+        "response_time_seconds": 0.402
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:13:44.404196",
+      "elapsed_seconds": 464.5722117424011,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Plugin Architecture",
+        "validation_score": 0.97,
+        "needs_review": false,
+        "response_time_seconds": 9.007
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:00.965949",
+      "elapsed_seconds": 481.1339650154114,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "ghimiresunil/LLM-PowerHouse-A-Curated-Guide-for-Large-Language-Models-with-Custom-Training-and-Inferencing",
+        "success": true,
+        "response_time_seconds": 22.513,
+        "pattern_name": "Resource Hub / Knowledge Base",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:01.190077",
+      "elapsed_seconds": 481.3580927848816,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Resource Hub / Knowledge Base",
+        "success": true,
+        "response_time_seconds": 0.224
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:01.190077",
+      "elapsed_seconds": 481.3580927848816,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "ghimiresunil/LLM-PowerHouse-A-Curated-Guide-for-Large-Language-Models-with-Custom-Training-and-Inferencing",
+        "status": "partial",
+        "time_seconds": 25.73
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:01.192829",
+      "elapsed_seconds": 481.3608453273773,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "fr0gger/Awesome-GPT-Agents",
+        "stars": 6387
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:02.505499",
+      "elapsed_seconds": 482.67351484298706,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "fr0gger/Awesome-GPT-Agents",
+        "quality_score": 0.904,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:03.014192",
+      "elapsed_seconds": 483.18220806121826,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "fr0gger/Awesome-GPT-Agents",
+        "success": true,
+        "response_time_seconds": 0.508
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:03.487822",
+      "elapsed_seconds": 483.6567461490631,
+      "type": "github_api_call",
+      "level": "warning",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "fr0gger/Awesome-GPT-Agents",
+        "success": false,
+        "response_time_seconds": 0.474
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:03.617989",
+      "elapsed_seconds": 483.7860052585602,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "AI Memory Server with Pluggable Graph Backends",
+        "judge_score": 0.88,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 37.949
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:14.916919",
+      "elapsed_seconds": 495.0849347114563,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Resource Hub / Knowledge Base",
+        "validation_score": 0.96,
+        "needs_review": false,
+        "response_time_seconds": 13.708
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:21.129137",
+      "elapsed_seconds": 501.2971532344818,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "fr0gger/Awesome-GPT-Agents",
+        "success": true,
+        "response_time_seconds": 16.839,
+        "pattern_name": "Awesome List (Resource Aggregator)",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:21.187402",
+      "elapsed_seconds": 501.3554177284241,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Awesome List (Resource Aggregator)",
+        "success": true,
+        "response_time_seconds": 0.058
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:21.187402",
+      "elapsed_seconds": 501.3554177284241,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "fr0gger/Awesome-GPT-Agents",
+        "status": "partial",
+        "time_seconds": 19.99
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:21.191043",
+      "elapsed_seconds": 501.3590588569641,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "Curated-Awesome-Lists/awesome-llms-fine-tuning",
+        "stars": 498
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:22.082113",
+      "elapsed_seconds": 502.2501289844513,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Plugin Architecture",
+        "judge_score": 0.9,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 37.66
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:22.579677",
+      "elapsed_seconds": 502.7476930618286,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "Curated-Awesome-Lists/awesome-llms-fine-tuning",
+        "quality_score": 0.769,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:23.133206",
+      "elapsed_seconds": 503.30122232437134,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "Curated-Awesome-Lists/awesome-llms-fine-tuning",
+        "success": true,
+        "response_time_seconds": 0.554
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:23.595310",
+      "elapsed_seconds": 503.7633264064789,
+      "type": "github_api_call",
+      "level": "warning",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "Curated-Awesome-Lists/awesome-llms-fine-tuning",
+        "success": false,
+        "response_time_seconds": 0.462
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:34.047621",
+      "elapsed_seconds": 514.2156367301941,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Awesome List (Resource Aggregator)",
+        "validation_score": 0.96,
+        "needs_review": false,
+        "response_time_seconds": 12.852
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:39.160274",
+      "elapsed_seconds": 519.3282899856567,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "Curated-Awesome-Lists/awesome-llms-fine-tuning",
+        "success": true,
+        "response_time_seconds": 14.659,
+        "pattern_name": "Curated Resource List (Awesome List)",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:39.216972",
+      "elapsed_seconds": 519.3849878311157,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Curated Resource List (Awesome List)",
+        "success": true,
+        "response_time_seconds": 0.057
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:39.216972",
+      "elapsed_seconds": 519.3849878311157,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "Curated-Awesome-Lists/awesome-llms-fine-tuning",
+        "status": "partial",
+        "time_seconds": 18.03
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:39.216972",
+      "elapsed_seconds": 519.3849878311157,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "juand-r/entity-recognition-datasets",
+        "stars": 1557
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:40.463025",
+      "elapsed_seconds": 520.6310408115387,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "juand-r/entity-recognition-datasets",
+        "quality_score": 0.729,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:40.982807",
+      "elapsed_seconds": 521.1508231163025,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "juand-r/entity-recognition-datasets",
+        "success": true,
+        "response_time_seconds": 0.52
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:41.398924",
+      "elapsed_seconds": 521.5669400691986,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "juand-r/entity-recognition-datasets",
+        "success": true,
+        "response_time_seconds": 0.416
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:48.758716",
+      "elapsed_seconds": 528.9267325401306,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Resource Hub / Knowledge Base",
+        "judge_score": 0.89,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 33.818
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:56.699780",
+      "elapsed_seconds": 536.8677966594696,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "juand-r/entity-recognition-datasets",
+        "success": true,
+        "response_time_seconds": 14.506,
+        "pattern_name": "Data Repository",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:56.734506",
+      "elapsed_seconds": 536.9025218486786,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Data Repository",
+        "success": true,
+        "response_time_seconds": 0.035
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:56.734506",
+      "elapsed_seconds": 536.9025218486786,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "juand-r/entity-recognition-datasets",
+        "status": "successful",
+        "time_seconds": 17.52
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:56.748129",
+      "elapsed_seconds": 536.918154001236,
+      "type": "repository_skipped",
+      "level": "info",
+      "data": {
+        "repo": "XD-MHLOO/Osintgraph",
+        "reason": "already_analyzed",
+        "previous_extraction": "2026-01-06T23:49:19.125000000+00:00",
+        "quality_score": 0.786
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:56.751295",
+      "elapsed_seconds": 536.9193115234375,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "orneryd/NornicDB",
+        "stars": 101
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:57.900113",
+      "elapsed_seconds": 538.0681290626526,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "orneryd/NornicDB",
+        "quality_score": 0.677,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:58.422384",
+      "elapsed_seconds": 538.5903997421265,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "orneryd/NornicDB",
+        "success": true,
+        "response_time_seconds": 0.513
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:58.821703",
+      "elapsed_seconds": 538.9897191524506,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "orneryd/NornicDB",
+        "success": true,
+        "response_time_seconds": 0.399
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:14:59.688227",
+      "elapsed_seconds": 539.8562428951263,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Curated Resource List (Awesome List)",
+        "validation_score": 0.94,
+        "needs_review": false,
+        "response_time_seconds": 20.441
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:15:05.957565",
+      "elapsed_seconds": 546.1255812644958,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Awesome List (Resource Aggregator)",
+        "judge_score": 0.93,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 31.886
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:15:09.774355",
+      "elapsed_seconds": 549.9423713684082,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Data Repository",
+        "validation_score": 0.975,
+        "needs_review": false,
+        "response_time_seconds": 13.018
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:15:24.628503",
+      "elapsed_seconds": 564.7965190410614,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "orneryd/NornicDB",
+        "success": true,
+        "response_time_seconds": 24.979,
+        "pattern_name": "Microkernel / Plugin Architecture",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:15:24.658329",
+      "elapsed_seconds": 564.826345205307,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Microkernel / Plugin Architecture",
+        "success": true,
+        "response_time_seconds": 0.03
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:15:24.659911",
+      "elapsed_seconds": 564.8279275894165,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "orneryd/NornicDB",
+        "status": "partial",
+        "time_seconds": 27.91
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:15:24.669668",
+      "elapsed_seconds": 564.8376841545105,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "prathyvsh/pl-catalog",
+        "stars": 778
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:15:25.959320",
+      "elapsed_seconds": 566.127336025238,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "prathyvsh/pl-catalog",
+        "quality_score": 0.677,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.93
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:15:26.570293",
+      "elapsed_seconds": 566.7383086681366,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "prathyvsh/pl-catalog",
+        "success": true,
+        "response_time_seconds": 0.611
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:15:27.042980",
+      "elapsed_seconds": 567.2109959125519,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "prathyvsh/pl-catalog",
+        "success": true,
+        "response_time_seconds": 0.473
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:15:32.527549",
+      "elapsed_seconds": 572.6955647468567,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Curated Resource List (Awesome List)",
+        "judge_score": 0.93,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 32.826
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:15:34.259040",
+      "elapsed_seconds": 574.427056312561,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Microkernel / Plugin Architecture",
+        "validation_score": 0.95,
+        "needs_review": false,
+        "response_time_seconds": 9.58
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:15:41.561890",
+      "elapsed_seconds": 581.7299063205719,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "prathyvsh/pl-catalog",
+        "success": true,
+        "response_time_seconds": 13.661,
+        "pattern_name": "Static Content Repository",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:15:41.596114",
+      "elapsed_seconds": 581.7641298770905,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Static Content Repository",
+        "success": true,
+        "response_time_seconds": 0.034
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:15:41.596114",
+      "elapsed_seconds": 581.7641298770905,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "prathyvsh/pl-catalog",
+        "status": "partial",
+        "time_seconds": 16.93
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:15:41.601551",
+      "elapsed_seconds": 581.7695672512054,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "dhamaniasad/awesome-postgres",
+        "stars": 11585
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:15:42.854612",
+      "elapsed_seconds": 583.0226285457611,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "dhamaniasad/awesome-postgres",
+        "quality_score": 0.787,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.955
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:15:42.871252",
+      "elapsed_seconds": 583.0392687320709,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Data Repository",
+        "judge_score": 0.92,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 33.079
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:15:43.373589",
+      "elapsed_seconds": 583.5416052341461,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "dhamaniasad/awesome-postgres",
+        "success": true,
+        "response_time_seconds": 0.518
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:15:43.778155",
+      "elapsed_seconds": 583.9461712837219,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "dhamaniasad/awesome-postgres",
+        "success": true,
+        "response_time_seconds": 0.402
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:16:00.157137",
+      "elapsed_seconds": 600.3251533508301,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "dhamaniasad/awesome-postgres",
+        "success": true,
+        "response_time_seconds": 15.598,
+        "pattern_name": "curated_resource_catalog",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:16:00.193648",
+      "elapsed_seconds": 600.3616638183594,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "curated_resource_catalog",
+        "success": true,
+        "response_time_seconds": 0.037
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:16:00.195156",
+      "elapsed_seconds": 600.3631722927094,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "dhamaniasad/awesome-postgres",
+        "status": "partial",
+        "time_seconds": 18.59
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:16:00.199946",
+      "elapsed_seconds": 600.3679621219635,
+      "type": "repository_skipped",
+      "level": "info",
+      "data": {
+        "repo": "fffaraz/awesome-cpp",
+        "reason": "already_analyzed",
+        "previous_extraction": "2026-01-06T16:03:47.045000000+00:00",
+        "quality_score": 0.773
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:16:00.204421",
+      "elapsed_seconds": 600.3724377155304,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "toolsdk-ai/toolsdk-mcp-registry",
+        "stars": 157
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:16:01.699442",
+      "elapsed_seconds": 601.8674576282501,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "toolsdk-ai/toolsdk-mcp-registry",
+        "quality_score": 0.771,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:16:02.384475",
+      "elapsed_seconds": 602.5524911880493,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "toolsdk-ai/toolsdk-mcp-registry",
+        "success": true,
+        "response_time_seconds": 0.685
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:16:02.386879",
+      "elapsed_seconds": 602.5548951625824,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Static Content Repository",
+        "validation_score": 0.99,
+        "needs_review": false,
+        "response_time_seconds": 20.773
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:16:02.819514",
+      "elapsed_seconds": 602.9875302314758,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "toolsdk-ai/toolsdk-mcp-registry",
+        "success": true,
+        "response_time_seconds": 0.435
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:16:05.700062",
+      "elapsed_seconds": 605.868077993393,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Microkernel / Plugin Architecture",
+        "judge_score": 0.89,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 31.42
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:16:12.780176",
+      "elapsed_seconds": 612.9481925964355,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "curated_resource_catalog",
+        "validation_score": 0.975,
+        "needs_review": false,
+        "response_time_seconds": 12.568
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:16:34.178201",
+      "elapsed_seconds": 634.3462173938751,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Static Content Repository",
+        "judge_score": 0.89,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 31.78
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:16:34.881988",
+      "elapsed_seconds": 635.0500040054321,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "toolsdk-ai/toolsdk-mcp-registry",
+        "success": true,
+        "response_time_seconds": 31.547,
+        "pattern_name": "API Gateway & Facade",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:16:34.907657",
+      "elapsed_seconds": 635.0756728649139,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "API Gateway & Facade",
+        "success": true,
+        "response_time_seconds": 0.026
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:16:34.909405",
+      "elapsed_seconds": 635.0774209499359,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "toolsdk-ai/toolsdk-mcp-registry",
+        "status": "successful",
+        "time_seconds": 34.7
+      }
+    },
+    {
+      "timestamp": "2026-01-07T00:16:34.912992",
+      "elapsed_seconds": 635.0810084342957,
+      "type": "extraction_finished",
+      "level": "info",
+      "data": {
+        "total_repos": 25,
+        "successful": 4,
+        "partial": 21,
+        "failed": 0,
+        "skipped": 10,
+        "total_time": 635.08
+      }
+    }
+  ],
+  "repositories": [
+    {
+      "repo_name": "vitali87/code-graph-rag",
+      "repo_url": "https://github.com/vitali87/code-graph-rag",
+      "stars": 1611,
+      "started_at": "2026-01-07T00:06:02.897168",
+      "start_time": 1767744362.8971689,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.5219178199768066
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.397655725479126
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.98,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 24.908029317855835,
+          "pattern_name": "Knowledge Graph Architecture"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.03567147254943848
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "vitali87/code-graph-rag",
+        "quality_score": 0.794,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.88
+      },
+      "validation": {
+        "pattern": "Monolithic Application (Demonstration-focused)",
+        "validation_score": 0.98,
+        "needs_review": false,
+        "response_time_seconds": 11.76
+      },
+      "finished_at": "2026-01-07T00:06:30.963715",
+      "total_time_seconds": 28.066546201705933
+    },
+    {
+      "repo_name": "neo4j-contrib/mcp-neo4j",
+      "repo_url": "https://github.com/neo4j-contrib/mcp-neo4j",
+      "stars": 864,
+      "started_at": "2026-01-07T00:06:30.967527",
+      "start_time": 1767744390.9675272,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.5547981262207031
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.4751875400543213
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.98,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 14.325477123260498,
+          "pattern_name": "Microservices Architecture"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.05323386192321777
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "neo4j-contrib/mcp-neo4j",
+        "quality_score": 0.829,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.955
+      },
+      "validation": {
+        "pattern": "Knowledge Graph Architecture",
+        "validation_score": 0.98,
+        "needs_review": false,
+        "response_time_seconds": 12.423
+      },
+      "finished_at": "2026-01-07T00:06:48.351781",
+      "total_time_seconds": 17.384253978729248
+    },
+    {
+      "repo_name": "neo4j-labs/text2cypher",
+      "repo_url": "https://github.com/neo4j-labs/text2cypher",
+      "stars": 221,
+      "started_at": "2026-01-07T00:06:48.356957",
+      "start_time": 1767744408.356957,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.5481729507446289
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.5132789611816406
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.96,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 20.7883358001709,
+          "pattern_name": "ML Experimentation & Resource Hub"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.0746157169342041
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "neo4j-labs/text2cypher",
+        "quality_score": 0.801,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      },
+      "validation": {
+        "pattern": "Microservices Architecture",
+        "validation_score": 0.96,
+        "needs_review": false,
+        "response_time_seconds": 15.854
+      },
+      "finished_at": "2026-01-07T00:07:12.474935",
+      "total_time_seconds": 24.11797833442688
+    },
+    {
+      "repo_name": "memgraph/memgraph",
+      "repo_url": "https://github.com/memgraph/memgraph",
+      "stars": 3587,
+      "started_at": "2026-01-07T00:07:12.482839",
+      "start_time": 1767744432.4828393,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.4725489616394043
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.43839097023010254
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 1.0,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 16.11036229133606,
+          "pattern_name": "In-Memory Graph Database"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.07265806198120117
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "memgraph/memgraph",
+        "quality_score": 0.743,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.82
+      },
+      "validation": {
+        "pattern": "ML Experimentation & Resource Hub",
+        "validation_score": 1.0,
+        "needs_review": false,
+        "response_time_seconds": 9.836
+      },
+      "finished_at": "2026-01-07T00:07:31.850472",
+      "total_time_seconds": 19.36763334274292
+    },
+    {
+      "repo_name": "ivan-bilan/The-NLP-Pandect",
+      "repo_url": "https://github.com/ivan-bilan/The-NLP-Pandect",
+      "stars": 2035,
+      "started_at": "2026-01-07T00:07:31.856170",
+      "start_time": 1767744451.8561704,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.5548193454742432
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.39696216583251953
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.98,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 13.343980550765991,
+          "pattern_name": "Curated Knowledge Base"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.04685711860656738
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "ivan-bilan/The-NLP-Pandect",
+        "quality_score": 0.751,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.91
+      },
+      "validation": {
+        "pattern": "In-Memory Graph Database",
+        "validation_score": 0.98,
+        "needs_review": false,
+        "response_time_seconds": 12.398
+      },
+      "finished_at": "2026-01-07T00:07:48.726734",
+      "total_time_seconds": 16.870564222335815
+    },
+    {
+      "repo_name": "Shashankss1205/CodeGraphContext",
+      "repo_url": "https://github.com/Shashankss1205/CodeGraphContext",
+      "stars": 318,
+      "started_at": "2026-01-07T00:07:48.731214",
+      "start_time": 1767744468.7312148,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.499706506729126
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.4103260040283203
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.99,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 32.51712155342102,
+          "pattern_name": "Graph Database Backend"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.03555130958557129
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "Shashankss1205/CodeGraphContext",
+        "quality_score": 0.741,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.88
+      },
+      "validation": {
+        "pattern": "Curated Knowledge Base",
+        "validation_score": 0.99,
+        "needs_review": false,
+        "response_time_seconds": 18.512
+      },
+      "finished_at": "2026-01-07T00:08:24.149654",
+      "total_time_seconds": 35.41843914985657
+    },
+    {
+      "repo_name": "AvitalTamir/cyphernetes",
+      "repo_url": "https://github.com/AvitalTamir/cyphernetes",
+      "stars": 1216,
+      "started_at": "2026-01-07T00:08:24.157272",
+      "start_time": 1767744504.1572723,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.4455263614654541
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.40290379524230957
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.98,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 22.390016555786133,
+          "pattern_name": "interpreter_pattern"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.034116506576538086
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "AvitalTamir/cyphernetes",
+        "quality_score": 0.837,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.955
+      },
+      "validation": {
+        "pattern": "Graph Database Backend",
+        "validation_score": 0.98,
+        "needs_review": false,
+        "response_time_seconds": 10.665
+      },
+      "finished_at": "2026-01-07T00:08:49.772383",
+      "total_time_seconds": 25.615110874176025
+    },
+    {
+      "repo_name": "neo4j/NaLLM",
+      "repo_url": "https://github.com/neo4j/NaLLM",
+      "stars": 1402,
+      "started_at": "2026-01-07T00:08:49.788288",
+      "start_time": 1767744529.7882888,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.5318775177001953
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.4096107482910156
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.975,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 20.908589124679565,
+          "pattern_name": "Retrieval Augmented Generation (RAG)"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.02995896339416504
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "neo4j/NaLLM",
+        "quality_score": 0.819,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.885
+      },
+      "validation": {
+        "pattern": "interpreter_pattern",
+        "validation_score": 0.975,
+        "needs_review": false,
+        "response_time_seconds": 12.979
+      },
+      "finished_at": "2026-01-07T00:09:13.887741",
+      "total_time_seconds": 24.099452257156372
+    },
+    {
+      "repo_name": "MorDavid/BloodHound-MCP-AI",
+      "repo_url": "https://github.com/MorDavid/BloodHound-MCP-AI",
+      "stars": 325,
+      "started_at": "2026-01-07T00:09:13.893778",
+      "start_time": 1767744553.8937788,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.5115706920623779
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.4186546802520752
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.99,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 15.365222930908203,
+          "pattern_name": "Protocol Adapter / AI-Enabled Data Access Layer"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.047248125076293945
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "successful",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "MorDavid/BloodHound-MCP-AI",
+        "quality_score": 0.717,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.91
+      },
+      "validation": {
+        "pattern": "Retrieval Augmented Generation (RAG)",
+        "validation_score": 0.99,
+        "needs_review": false,
+        "response_time_seconds": 14.199
+      },
+      "finished_at": "2026-01-07T00:09:32.298798",
+      "total_time_seconds": 18.405019521713257
+    },
+    {
+      "repo_name": "chrschy/fact-finder",
+      "repo_url": "https://github.com/chrschy/fact-finder",
+      "stars": 111,
+      "started_at": "2026-01-07T00:09:32.307106",
+      "start_time": 1767744572.3071067,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.4458937644958496
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.4194653034210205
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 17.2805016040802,
+          "pattern_name": "LLM Orchestration with Knowledge Graph Retrieval"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.137312650680542
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "chrschy/fact-finder",
+        "quality_score": 0.775,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.93
+      },
+      "finished_at": "2026-01-07T00:09:52.658295",
+      "total_time_seconds": 20.351188898086548
+    },
+    {
+      "repo_name": "yoheinakajima/mindgraph",
+      "repo_url": "https://github.com/yoheinakajima/mindgraph",
+      "stars": 923,
+      "started_at": "2026-01-07T00:09:52.663623",
+      "start_time": 1767744592.6636233,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.43396687507629395
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.40597987174987793
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.908,
+          "needs_review": false
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.96,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 76.62926054000854,
+          "pattern_name": "API-First Graph-Based Monolith with Plugin Extensibility"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.20654964447021484
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "yoheinakajima/mindgraph",
+        "quality_score": 0.795,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.93
+      },
+      "validation": {
+        "pattern": "LLM Orchestration with Knowledge Graph Retrieval",
+        "validation_score": 0.96,
+        "needs_review": false,
+        "response_time_seconds": 11.56
+      },
+      "finished_at": "2026-01-07T00:11:12.350616",
+      "total_time_seconds": 79.68699264526367
+    },
+    {
+      "repo_name": "stevenyu113228/BloodHound-MCP",
+      "repo_url": "https://github.com/stevenyu113228/BloodHound-MCP",
+      "stars": 156,
+      "started_at": "2026-01-07T00:11:12.362785",
+      "start_time": 1767744672.3627856,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.4228956699371338
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.4530818462371826
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 15.861929416656494,
+          "pattern_name": "LLM-to-Graph Query Adapter"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.04564261436462402
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "stevenyu113228/BloodHound-MCP",
+        "quality_score": 0.7,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.91
+      },
+      "finished_at": "2026-01-07T00:11:31.578997",
+      "total_time_seconds": 19.216212034225464
+    },
+    {
+      "repo_name": "cj2001/nodes2021_kg_workshop",
+      "repo_url": "https://github.com/cj2001/nodes2021_kg_workshop",
+      "stars": 168,
+      "started_at": "2026-01-07T00:11:31.585658",
+      "start_time": 1767744691.5856586,
+      "events": [
+        {
+          "type": "critic_validation",
+          "validation_score": 0.98,
+          "needs_review": false
+        },
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.470257043838501
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.4115467071533203
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 1.0,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 17.18213701248169,
+          "pattern_name": "Knowledge Graph Data Pipeline"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.0755012035369873
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "successful",
+      "errors": [],
+      "validation": {
+        "pattern": "LLM-to-Graph Query Adapter",
+        "validation_score": 1.0,
+        "needs_review": false,
+        "response_time_seconds": 12.586
+      },
+      "quality_metrics": {
+        "repo": "cj2001/nodes2021_kg_workshop",
+        "quality_score": 0.593,
+        "freshness_score": 0.85,
+        "maintenance_score": 0.72
+      },
+      "finished_at": "2026-01-07T00:11:51.791710",
+      "total_time_seconds": 20.20605158805847
+    },
+    {
+      "repo_name": "neo4j/mcp",
+      "repo_url": "https://github.com/neo4j/mcp",
+      "stars": 140,
+      "started_at": "2026-01-07T00:11:51.794679",
+      "start_time": 1767744711.7946796,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.5482895374298096
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.5188522338867188
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.96,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 21.13153386116028,
+          "pattern_name": "Application Service with Protocol Adaptation"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.06741595268249512
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "neo4j/mcp",
+        "quality_score": 0.717,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.955
+      },
+      "validation": {
+        "pattern": "Knowledge Graph Data Pipeline",
+        "validation_score": 0.96,
+        "needs_review": false,
+        "response_time_seconds": 13.73
+      },
+      "finished_at": "2026-01-07T00:12:16.099597",
+      "total_time_seconds": 24.304917573928833
+    },
+    {
+      "repo_name": "PKUFlyingPig/Self-learning-Computer-Science",
+      "repo_url": "https://github.com/PKUFlyingPig/Self-learning-Computer-Science",
+      "stars": 4531,
+      "started_at": "2026-01-07T00:12:16.107345",
+      "start_time": 1767744736.1073458,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.6112387180328369
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.41416001319885254
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.96,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 22.45425772666931,
+          "pattern_name": "Documentation Repository"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.08132219314575195
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "PKUFlyingPig/Self-learning-Computer-Science",
+        "quality_score": 0.747,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      },
+      "validation": {
+        "pattern": "Application Service with Protocol Adaptation",
+        "validation_score": 0.96,
+        "needs_review": false,
+        "response_time_seconds": 13.144
+      },
+      "finished_at": "2026-01-07T00:12:41.613566",
+      "total_time_seconds": 25.506220817565918
+    },
+    {
+      "repo_name": "memory-graph/memory-graph",
+      "repo_url": "https://github.com/memory-graph/memory-graph",
+      "stars": 131,
+      "started_at": "2026-01-07T00:12:41.620761",
+      "start_time": 1767744761.6207619,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.4418506622314453
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.4745659828186035
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.96,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 23.039186477661133,
+          "pattern_name": "AI Memory Server with Pluggable Graph Backends"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.05139279365539551
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "memory-graph/memory-graph",
+        "quality_score": 0.695,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      },
+      "validation": {
+        "pattern": "Documentation Repository",
+        "validation_score": 0.96,
+        "needs_review": false,
+        "response_time_seconds": 15.767
+      },
+      "finished_at": "2026-01-07T00:13:07.979641",
+      "total_time_seconds": 26.358880043029785
+    },
+    {
+      "repo_name": "graphaware/neo4j-nlp",
+      "repo_url": "https://github.com/graphaware/neo4j-nlp",
+      "stars": 345,
+      "started_at": "2026-01-07T00:13:07.982524",
+      "start_time": 1767744787.9825244,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.5191843509674072
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.507514476776123
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 1.0,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 23.979110717773438,
+          "pattern_name": "Plugin Architecture"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.20281267166137695
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "graphaware/neo4j-nlp",
+        "quality_score": 0.61,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.84
+      },
+      "validation": {
+        "pattern": "AI Memory Server with Pluggable Graph Backends",
+        "validation_score": 1.0,
+        "needs_review": false,
+        "response_time_seconds": 17.661
+      },
+      "finished_at": "2026-01-07T00:13:35.380313",
+      "total_time_seconds": 27.397789001464844
+    },
+    {
+      "repo_name": "ghimiresunil/LLM-PowerHouse-A-Curated-Guide-for-Large-Language-Models-with-Custom-Training-and-Inferencing",
+      "repo_url": "https://github.com/ghimiresunil/LLM-PowerHouse-A-Curated-Guide-for-Large-Language-Models-with-Custom-Training-and-Inferencing",
+      "stars": 716,
+      "started_at": "2026-01-07T00:13:35.457300",
+      "start_time": 1767744815.4573004,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.5831964015960693
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.4018380641937256
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.97,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 22.5132257938385,
+          "pattern_name": "Resource Hub / Knowledge Base"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.22412776947021484
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "ghimiresunil/LLM-PowerHouse-A-Curated-Guide-for-Large-Language-Models-with-Custom-Training-and-Inferencing",
+        "quality_score": 0.827,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      },
+      "validation": {
+        "pattern": "Plugin Architecture",
+        "validation_score": 0.97,
+        "needs_review": false,
+        "response_time_seconds": 9.007
+      },
+      "finished_at": "2026-01-07T00:14:01.190077",
+      "total_time_seconds": 25.732776641845703
+    },
+    {
+      "repo_name": "fr0gger/Awesome-GPT-Agents",
+      "repo_url": "https://github.com/fr0gger/Awesome-GPT-Agents",
+      "stars": 6387,
+      "started_at": "2026-01-07T00:14:01.192829",
+      "start_time": 1767744841.1928296,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.5081872940063477
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": false,
+          "response_time": 0.4736297130584717
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.96,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 16.838695526123047,
+          "pattern_name": "Awesome List (Resource Aggregator)"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.05826449394226074
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": false,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "fr0gger/Awesome-GPT-Agents",
+        "quality_score": 0.904,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      },
+      "validation": {
+        "pattern": "Resource Hub / Knowledge Base",
+        "validation_score": 0.96,
+        "needs_review": false,
+        "response_time_seconds": 13.708
+      },
+      "finished_at": "2026-01-07T00:14:21.187402",
+      "total_time_seconds": 19.994572401046753
+    },
+    {
+      "repo_name": "Curated-Awesome-Lists/awesome-llms-fine-tuning",
+      "repo_url": "https://github.com/Curated-Awesome-Lists/awesome-llms-fine-tuning",
+      "stars": 498,
+      "started_at": "2026-01-07T00:14:21.191043",
+      "start_time": 1767744861.1910431,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.5535292625427246
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": false,
+          "response_time": 0.46210408210754395
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.96,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 14.65912652015686,
+          "pattern_name": "Curated Resource List (Awesome List)"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.056697845458984375
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": false,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "Curated-Awesome-Lists/awesome-llms-fine-tuning",
+        "quality_score": 0.769,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      },
+      "validation": {
+        "pattern": "Awesome List (Resource Aggregator)",
+        "validation_score": 0.96,
+        "needs_review": false,
+        "response_time_seconds": 12.852
+      },
+      "finished_at": "2026-01-07T00:14:39.216972",
+      "total_time_seconds": 18.02592897415161
+    },
+    {
+      "repo_name": "juand-r/entity-recognition-datasets",
+      "repo_url": "https://github.com/juand-r/entity-recognition-datasets",
+      "stars": 1557,
+      "started_at": "2026-01-07T00:14:39.216972",
+      "start_time": 1767744879.216972,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.519782304763794
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.41611695289611816
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 14.505526065826416,
+          "pattern_name": "Data Repository"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.034725189208984375
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "successful",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "juand-r/entity-recognition-datasets",
+        "quality_score": 0.729,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      },
+      "finished_at": "2026-01-07T00:14:56.734506",
+      "total_time_seconds": 17.517534017562866
+    },
+    {
+      "repo_name": "orneryd/NornicDB",
+      "repo_url": "https://github.com/orneryd/NornicDB",
+      "stars": 101,
+      "started_at": "2026-01-07T00:14:56.751295",
+      "start_time": 1767744896.7512958,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.512690544128418
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.3993194103240967
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.94,
+          "needs_review": false
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.975,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 24.979381561279297,
+          "pattern_name": "Microkernel / Plugin Architecture"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.02982616424560547
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "orneryd/NornicDB",
+        "quality_score": 0.677,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      },
+      "validation": {
+        "pattern": "Data Repository",
+        "validation_score": 0.975,
+        "needs_review": false,
+        "response_time_seconds": 13.018
+      },
+      "finished_at": "2026-01-07T00:15:24.659911",
+      "total_time_seconds": 27.908616065979004
+    },
+    {
+      "repo_name": "prathyvsh/pl-catalog",
+      "repo_url": "https://github.com/prathyvsh/pl-catalog",
+      "stars": 778,
+      "started_at": "2026-01-07T00:15:24.669668",
+      "start_time": 1767744924.6696684,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.6109726428985596
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.4726872444152832
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.95,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 13.661060333251953,
+          "pattern_name": "Static Content Repository"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.03422355651855469
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "prathyvsh/pl-catalog",
+        "quality_score": 0.677,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.93
+      },
+      "validation": {
+        "pattern": "Microkernel / Plugin Architecture",
+        "validation_score": 0.95,
+        "needs_review": false,
+        "response_time_seconds": 9.58
+      },
+      "finished_at": "2026-01-07T00:15:41.596114",
+      "total_time_seconds": 16.926445722579956
+    },
+    {
+      "repo_name": "dhamaniasad/awesome-postgres",
+      "repo_url": "https://github.com/dhamaniasad/awesome-postgres",
+      "stars": 11585,
+      "started_at": "2026-01-07T00:15:41.601551",
+      "start_time": 1767744941.6015515,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.5179557800292969
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.4019014835357666
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 15.597919702529907,
+          "pattern_name": "curated_resource_catalog"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.036510467529296875
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "dhamaniasad/awesome-postgres",
+        "quality_score": 0.787,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.955
+      },
+      "finished_at": "2026-01-07T00:16:00.195156",
+      "total_time_seconds": 18.593605041503906
+    },
+    {
+      "repo_name": "toolsdk-ai/toolsdk-mcp-registry",
+      "repo_url": "https://github.com/toolsdk-ai/toolsdk-mcp-registry",
+      "stars": 157,
+      "started_at": "2026-01-07T00:16:00.204421",
+      "start_time": 1767744960.204422,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.6850335597991943
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.99,
+          "needs_review": false
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.43503904342651367
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.975,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 31.54693841934204,
+          "pattern_name": "API Gateway & Facade"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.025668859481811523
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "successful",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "toolsdk-ai/toolsdk-mcp-registry",
+        "quality_score": 0.771,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      },
+      "validation": {
+        "pattern": "curated_resource_catalog",
+        "validation_score": 0.975,
+        "needs_review": false,
+        "response_time_seconds": 12.568
+      },
+      "finished_at": "2026-01-07T00:16:34.909405",
+      "total_time_seconds": 34.70498323440552
+    }
+  ],
+  "skipped_repositories": [
+    {
+      "repo": "jbarrasa/goingmeta",
+      "reason": "already_analyzed",
+      "previous_extraction": "2026-01-06T23:21:16.634000000+00:00",
+      "quality_score": 0.777
+    },
+    {
+      "repo": "FalkorDB/GraphRAG-SDK",
+      "reason": "already_analyzed",
+      "previous_extraction": "2026-01-06T23:06:08.969000000+00:00",
+      "quality_score": 0.824
+    },
+    {
+      "repo": "Farzad-R/Advanced-QA-and-RAG-Series",
+      "reason": "already_analyzed",
+      "previous_extraction": "2026-01-06T23:59:09.953000000+00:00",
+      "quality_score": 0.796
+    },
+    {
+      "repo": "mlabonne/llm-course",
+      "reason": "already_analyzed",
+      "previous_extraction": "2026-01-06T23:23:53.470000000+00:00",
+      "quality_score": 0.895
+    },
+    {
+      "repo": "modelcontextprotocol/servers",
+      "reason": "already_analyzed",
+      "previous_extraction": "2026-01-06T23:53:07.438000000+00:00",
+      "quality_score": 0.913
+    },
+    {
+      "repo": "wong2/awesome-mcp-servers",
+      "reason": "already_analyzed",
+      "previous_extraction": "2026-01-07T00:00:53.746000000+00:00",
+      "quality_score": 0.907
+    },
+    {
+      "repo": "DEEP-PolyU/Awesome-GraphRAG",
+      "reason": "already_analyzed",
+      "previous_extraction": "2026-01-06T21:25:48.608000000+00:00",
+      "quality_score": 0.865
+    },
+    {
+      "repo": "machuangtao/LLM-KG4QA",
+      "reason": "already_analyzed",
+      "previous_extraction": "2026-01-06T23:12:49.674000000+00:00",
+      "quality_score": 0.777
+    },
+    {
+      "repo": "XD-MHLOO/Osintgraph",
+      "reason": "already_analyzed",
+      "previous_extraction": "2026-01-06T23:49:19.125000000+00:00",
+      "quality_score": 0.786
+    },
+    {
+      "repo": "fffaraz/awesome-cpp",
+      "reason": "already_analyzed",
+      "previous_extraction": "2026-01-06T16:03:47.045000000+00:00",
+      "quality_score": 0.773
+    }
+  ],
+  "summary": {
+    "total_repos": 25,
+    "successful": 4,
+    "partial": 21,
+    "failed": 0,
+    "skipped": 10,
+    "total_time_seconds": 635.08,
+    "success_rate_percent": 100.0
+  },
+  "finished_at": "2026-01-07T00:16:34.912992"
+}

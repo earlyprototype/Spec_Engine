@@ -1,0 +1,2256 @@
+{
+  "trajectory_id": "general_20260106_233838",
+  "domain": "general",
+  "search_query": "llamaindex graph in:readme,description stars:>500",
+  "limit": 25,
+  "started_at": "2026-01-06T23:38:38.592477",
+  "events": [
+    {
+      "timestamp": "2026-01-06T23:38:38.593987",
+      "elapsed_seconds": 0.0015101432800292969,
+      "type": "extraction_started",
+      "level": "info",
+      "data": {
+        "domain": "general",
+        "query": "llamaindex graph in:readme,description stars:>500",
+        "limit": 25
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:38:40.262656",
+      "elapsed_seconds": 1.6701788902282715,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Modular AI Agent Platform",
+        "judge_score": 0.897,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 33.124
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:38:42.074774",
+      "elapsed_seconds": 3.482297658920288,
+      "type": "repository_skipped",
+      "level": "info",
+      "data": {
+        "repo": "run-llama/llama_index",
+        "reason": "already_analyzed",
+        "previous_extraction": "2026-01-06T23:25:07.334000000+00:00",
+        "quality_score": 0.875
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:38:42.078127",
+      "elapsed_seconds": 3.4856505393981934,
+      "type": "repository_skipped",
+      "level": "info",
+      "data": {
+        "repo": "NVIDIA/GenerativeAIExamples",
+        "reason": "already_analyzed",
+        "previous_extraction": "2026-01-06T23:15:23.237000000+00:00",
+        "quality_score": 0.869
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:38:42.080732",
+      "elapsed_seconds": 3.488255023956299,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "mistralai/cookbook",
+        "stars": 2140
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:38:43.691272",
+      "elapsed_seconds": 5.0987958908081055,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "mistralai/cookbook",
+        "quality_score": 0.871,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.955
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:38:44.147317",
+      "elapsed_seconds": 5.554839849472046,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "mistralai/cookbook",
+        "success": true,
+        "response_time_seconds": 0.455
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:38:44.544716",
+      "elapsed_seconds": 5.952239274978638,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "mistralai/cookbook",
+        "success": true,
+        "response_time_seconds": 0.397
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:00.539059",
+      "elapsed_seconds": 21.946582078933716,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "mistralai/cookbook",
+        "success": true,
+        "response_time_seconds": 15.176,
+        "pattern_name": "tutorial_cookbook_repository",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:00.584831",
+      "elapsed_seconds": 21.99235486984253,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "tutorial_cookbook_repository",
+        "success": true,
+        "response_time_seconds": 0.046
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:00.584831",
+      "elapsed_seconds": 21.99235486984253,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "mistralai/cookbook",
+        "status": "partial",
+        "time_seconds": 18.5
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:00.591669",
+      "elapsed_seconds": 21.999192476272583,
+      "type": "repository_skipped",
+      "level": "info",
+      "data": {
+        "repo": "NirDiamant/RAG_Techniques",
+        "reason": "already_analyzed",
+        "previous_extraction": "2026-01-06T23:14:40.136000000+00:00",
+        "quality_score": 0.93
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:00.605946",
+      "elapsed_seconds": 22.013468980789185,
+      "type": "repository_skipped",
+      "level": "info",
+      "data": {
+        "repo": "pingcap/autoflow",
+        "reason": "already_analyzed",
+        "previous_extraction": "2026-01-06T23:02:49.633000000+00:00",
+        "quality_score": 0.857
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:00.609482",
+      "elapsed_seconds": 22.017005681991577,
+      "type": "repository_skipped",
+      "level": "info",
+      "data": {
+        "repo": "aishwaryanr/awesome-generative-ai-guide",
+        "reason": "already_analyzed",
+        "previous_extraction": "2026-01-06T23:21:35.487000000+00:00",
+        "quality_score": 0.938
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:00.616149",
+      "elapsed_seconds": 22.023672342300415,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "Denis2054/RAG-Driven-Generative-AI",
+        "stars": 557
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:02.197936",
+      "elapsed_seconds": 23.605459213256836,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "Denis2054/RAG-Driven-Generative-AI",
+        "quality_score": 0.813,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.91
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:02.681356",
+      "elapsed_seconds": 24.088879346847534,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "Denis2054/RAG-Driven-Generative-AI",
+        "success": true,
+        "response_time_seconds": 0.48
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:03.162079",
+      "elapsed_seconds": 24.569602727890015,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "Denis2054/RAG-Driven-Generative-AI",
+        "success": true,
+        "response_time_seconds": 0.481
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:04.497387",
+      "elapsed_seconds": 25.90491032600403,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Curated Resource List (Awesome List Pattern)",
+        "validation_score": 0.91,
+        "needs_review": false,
+        "response_time_seconds": 25.916
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:11.057442",
+      "elapsed_seconds": 32.4649658203125,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Distributed Compute Engine with Workflow Orchestration",
+        "judge_score": 0.89,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 36.642
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:19.476119",
+      "elapsed_seconds": 40.88364219665527,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "tutorial_cookbook_repository",
+        "validation_score": 1.0,
+        "needs_review": false,
+        "response_time_seconds": 18.88
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:23.220005",
+      "elapsed_seconds": 44.62752890586853,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "Denis2054/RAG-Driven-Generative-AI",
+        "success": true,
+        "response_time_seconds": 19.249,
+        "pattern_name": "RAG Pipeline Architecture",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:23.250792",
+      "elapsed_seconds": 44.65831518173218,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "RAG Pipeline Architecture",
+        "success": true,
+        "response_time_seconds": 0.031
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:23.250792",
+      "elapsed_seconds": 44.65831518173218,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "Denis2054/RAG-Driven-Generative-AI",
+        "status": "partial",
+        "time_seconds": 22.63
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:23.254796",
+      "elapsed_seconds": 44.66231966018677,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "huangjia2019/rag-in-action",
+        "stars": 575
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:24.310443",
+      "elapsed_seconds": 45.717966079711914,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "huangjia2019/rag-in-action",
+        "quality_score": 0.776,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:24.801840",
+      "elapsed_seconds": 46.20936322212219,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "huangjia2019/rag-in-action",
+        "success": true,
+        "response_time_seconds": 0.491
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:25.220549",
+      "elapsed_seconds": 46.6280722618103,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "huangjia2019/rag-in-action",
+        "success": true,
+        "response_time_seconds": 0.418
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:31.926791",
+      "elapsed_seconds": 53.334314584732056,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Curated Resource List (Awesome List Pattern)",
+        "judge_score": 0.96,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 27.415
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:35.422389",
+      "elapsed_seconds": 56.829911947250366,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "RAG Pipeline Architecture",
+        "validation_score": 0.95,
+        "needs_review": false,
+        "response_time_seconds": 12.159
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:44.017209",
+      "elapsed_seconds": 65.42473268508911,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "huangjia2019/rag-in-action",
+        "success": true,
+        "response_time_seconds": 17.993,
+        "pattern_name": "RAG Pipeline",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:44.059102",
+      "elapsed_seconds": 65.46662545204163,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "RAG Pipeline",
+        "success": true,
+        "response_time_seconds": 0.042
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:44.059102",
+      "elapsed_seconds": 65.46662545204163,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "huangjia2019/rag-in-action",
+        "status": "partial",
+        "time_seconds": 20.8
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:44.063482",
+      "elapsed_seconds": 65.47100567817688,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "milvus-io/bootcamp",
+        "stars": 2349
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:45.183724",
+      "elapsed_seconds": 66.59124732017517,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "milvus-io/bootcamp",
+        "quality_score": 0.752,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.955
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:45.645128",
+      "elapsed_seconds": 67.05265140533447,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "milvus-io/bootcamp",
+        "success": true,
+        "response_time_seconds": 0.461
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:46.046237",
+      "elapsed_seconds": 67.45376062393188,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "milvus-io/bootcamp",
+        "success": true,
+        "response_time_seconds": 0.401
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:53.995433",
+      "elapsed_seconds": 75.40295624732971,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "tutorial_cookbook_repository",
+        "judge_score": 0.893,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 34.494
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:39:56.804971",
+      "elapsed_seconds": 78.21249461174011,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "RAG Pipeline",
+        "validation_score": 0.95,
+        "needs_review": false,
+        "response_time_seconds": 12.727
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:06.192816",
+      "elapsed_seconds": 87.60033893585205,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "milvus-io/bootcamp",
+        "success": true,
+        "response_time_seconds": 19.324,
+        "pattern_name": "Modular Demonstration Suite",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:06.236720",
+      "elapsed_seconds": 87.6442437171936,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Modular Demonstration Suite",
+        "success": true,
+        "response_time_seconds": 0.044
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:06.237754",
+      "elapsed_seconds": 87.64527702331543,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "milvus-io/bootcamp",
+        "status": "successful",
+        "time_seconds": 22.17
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:06.247081",
+      "elapsed_seconds": 87.65460419654846,
+      "type": "repository_skipped",
+      "level": "info",
+      "data": {
+        "repo": "HKUDS/LightRAG",
+        "reason": "already_analyzed",
+        "previous_extraction": "2026-01-06T21:24:45.077000000+00:00",
+        "quality_score": 0.92
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:06.252977",
+      "elapsed_seconds": 87.66050052642822,
+      "type": "repository_skipped",
+      "level": "info",
+      "data": {
+        "repo": "getzep/zep",
+        "reason": "already_analyzed",
+        "previous_extraction": "2026-01-06T23:19:27.039000000+00:00",
+        "quality_score": 0.869
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:06.258589",
+      "elapsed_seconds": 87.6661126613617,
+      "type": "repository_skipped",
+      "level": "info",
+      "data": {
+        "repo": "Arindam200/awesome-ai-apps",
+        "reason": "already_analyzed",
+        "previous_extraction": "2026-01-06T23:24:11.805000000+00:00",
+        "quality_score": 0.856
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:06.267341",
+      "elapsed_seconds": 87.67486429214478,
+      "type": "repository_skipped",
+      "level": "info",
+      "data": {
+        "repo": "ritchieng/the-incredible-pytorch",
+        "reason": "already_analyzed",
+        "previous_extraction": "2026-01-06T23:24:26.072000000+00:00",
+        "quality_score": 0.802
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:06.274381",
+      "elapsed_seconds": 87.68190455436707,
+      "type": "repository_skipped",
+      "level": "info",
+      "data": {
+        "repo": "asinghcsu/AgenticRAG-Survey",
+        "reason": "already_analyzed",
+        "previous_extraction": "2026-01-06T23:22:55.039000000+00:00",
+        "quality_score": 0.81
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:06.279367",
+      "elapsed_seconds": 87.68689012527466,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "cloudwego/eino",
+        "stars": 9034
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:06.578879",
+      "elapsed_seconds": 87.98640275001526,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "RAG Pipeline Architecture",
+        "judge_score": 0.87,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 31.143
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:07.441807",
+      "elapsed_seconds": 88.84933090209961,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "cloudwego/eino",
+        "quality_score": 0.883,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.88
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:07.898177",
+      "elapsed_seconds": 89.30569982528687,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "cloudwego/eino",
+        "success": true,
+        "response_time_seconds": 0.456
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:08.388945",
+      "elapsed_seconds": 89.79646801948547,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "cloudwego/eino",
+        "success": true,
+        "response_time_seconds": 0.491
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:16.999321",
+      "elapsed_seconds": 98.40684461593628,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Modular Demonstration Suite",
+        "validation_score": 0.98,
+        "needs_review": false,
+        "response_time_seconds": 10.748
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:29.478429",
+      "elapsed_seconds": 110.88595199584961,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "cloudwego/eino",
+        "success": true,
+        "response_time_seconds": 20.264,
+        "pattern_name": "Component-Based Workflow Engine",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:29.559029",
+      "elapsed_seconds": 110.966552734375,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Component-Based Workflow Engine",
+        "success": true,
+        "response_time_seconds": 0.08
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:29.559029",
+      "elapsed_seconds": 110.966552734375,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "cloudwego/eino",
+        "status": "partial",
+        "time_seconds": 23.28
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:29.565703",
+      "elapsed_seconds": 110.97322630882263,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "owainlewis/awesome-artificial-intelligence",
+        "stars": 12821
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:30.711241",
+      "elapsed_seconds": 112.1187641620636,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "owainlewis/awesome-artificial-intelligence",
+        "quality_score": 0.764,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.88
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:30.739644",
+      "elapsed_seconds": 112.14716672897339,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "RAG Pipeline",
+        "judge_score": 0.922,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 33.913
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:31.152085",
+      "elapsed_seconds": 112.55960845947266,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "owainlewis/awesome-artificial-intelligence",
+        "success": true,
+        "response_time_seconds": 0.44
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:31.554415",
+      "elapsed_seconds": 112.96193790435791,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "owainlewis/awesome-artificial-intelligence",
+        "success": true,
+        "response_time_seconds": 0.402
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:47.359108",
+      "elapsed_seconds": 128.76663160324097,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Modular Demonstration Suite",
+        "judge_score": 0.92,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 30.345
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:48.831713",
+      "elapsed_seconds": 130.23923635482788,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Component-Based Workflow Engine",
+        "validation_score": 0.98,
+        "needs_review": false,
+        "response_time_seconds": 19.257
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:49.547044",
+      "elapsed_seconds": 130.95456743240356,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "owainlewis/awesome-artificial-intelligence",
+        "success": true,
+        "response_time_seconds": 17.196,
+        "pattern_name": "Curated Static Content Repository",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:49.592130",
+      "elapsed_seconds": 130.99965286254883,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Curated Static Content Repository",
+        "success": true,
+        "response_time_seconds": 0.045
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:49.593145",
+      "elapsed_seconds": 131.0006685256958,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "owainlewis/awesome-artificial-intelligence",
+        "status": "partial",
+        "time_seconds": 20.03
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:49.604429",
+      "elapsed_seconds": 131.01195216178894,
+      "type": "repository_skipped",
+      "level": "info",
+      "data": {
+        "repo": "Azure-Samples/miyagi",
+        "reason": "already_analyzed",
+        "previous_extraction": "2026-01-06T23:26:09.628000000+00:00",
+        "quality_score": 0.805
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:49.615861",
+      "elapsed_seconds": 131.0233838558197,
+      "type": "repository_skipped",
+      "level": "info",
+      "data": {
+        "repo": "KalyanKS-NLP/rag-zero-to-hero-guide",
+        "reason": "already_analyzed",
+        "previous_extraction": "2026-01-06T23:18:18.692000000+00:00",
+        "quality_score": 0.82
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:49.624281",
+      "elapsed_seconds": 131.0318043231964,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "pathwaycom/pathway",
+        "stars": 56488
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:50.842064",
+      "elapsed_seconds": 132.24958777427673,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "pathwaycom/pathway",
+        "quality_score": 0.906,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.955
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:51.296851",
+      "elapsed_seconds": 132.70437383651733,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "pathwaycom/pathway",
+        "success": true,
+        "response_time_seconds": 0.454
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:40:51.773587",
+      "elapsed_seconds": 133.18110990524292,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "pathwaycom/pathway",
+        "success": true,
+        "response_time_seconds": 0.477
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:41:01.956060",
+      "elapsed_seconds": 143.36358308792114,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Curated Static Content Repository",
+        "validation_score": 0.94,
+        "needs_review": false,
+        "response_time_seconds": 12.348
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:41:12.569964",
+      "elapsed_seconds": 153.97748684883118,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "pathwaycom/pathway",
+        "success": true,
+        "response_time_seconds": 19.963,
+        "pattern_name": "data_stream_processing_framework",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:41:12.632336",
+      "elapsed_seconds": 154.03985977172852,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "data_stream_processing_framework",
+        "success": true,
+        "response_time_seconds": 0.062
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:41:12.633334",
+      "elapsed_seconds": 154.0408570766449,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "pathwaycom/pathway",
+        "status": "partial",
+        "time_seconds": 23.01
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:41:12.642820",
+      "elapsed_seconds": 154.0503430366516,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "szczyglis-dev/py-gpt",
+        "stars": 1535
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:41:14.046222",
+      "elapsed_seconds": 155.45374584197998,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "szczyglis-dev/py-gpt",
+        "quality_score": 0.836,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.955
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:41:14.585740",
+      "elapsed_seconds": 155.99326300621033,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "szczyglis-dev/py-gpt",
+        "success": true,
+        "response_time_seconds": 0.539
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:41:15.061780",
+      "elapsed_seconds": 156.4693033695221,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "szczyglis-dev/py-gpt",
+        "success": true,
+        "response_time_seconds": 0.476
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:41:25.066508",
+      "elapsed_seconds": 166.4740309715271,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "data_stream_processing_framework",
+        "validation_score": 0.99,
+        "needs_review": false,
+        "response_time_seconds": 12.415
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:41:25.530624",
+      "elapsed_seconds": 166.93814778327942,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Component-Based Workflow Engine",
+        "judge_score": 0.922,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 36.682
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:41:30.805157",
+      "elapsed_seconds": 172.21268033981323,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Curated Static Content Repository",
+        "judge_score": 0.94,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 28.83
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:41:56.106557",
+      "elapsed_seconds": 197.51408052444458,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "szczyglis-dev/py-gpt",
+        "success": true,
+        "response_time_seconds": 39.864,
+        "pattern_name": "Desktop GUI Application",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:41:56.131313",
+      "elapsed_seconds": 197.538836479187,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Desktop GUI Application",
+        "success": true,
+        "response_time_seconds": 0.025
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:41:56.131313",
+      "elapsed_seconds": 197.538836479187,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "szczyglis-dev/py-gpt",
+        "status": "successful",
+        "time_seconds": 43.49
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:41:56.132364",
+      "elapsed_seconds": 197.53988695144653,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "topoteretes/awesome-ai-memory",
+        "stars": 589
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:41:57.561329",
+      "elapsed_seconds": 198.96885204315186,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "topoteretes/awesome-ai-memory",
+        "quality_score": 0.825,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:41:58.014106",
+      "elapsed_seconds": 199.42162942886353,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "topoteretes/awesome-ai-memory",
+        "success": true,
+        "response_time_seconds": 0.453
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:41:58.435076",
+      "elapsed_seconds": 199.8425989151001,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "topoteretes/awesome-ai-memory",
+        "success": true,
+        "response_time_seconds": 0.421
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:42:00.031368",
+      "elapsed_seconds": 201.43889093399048,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "data_stream_processing_framework",
+        "judge_score": 0.89,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 34.934
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:42:10.561750",
+      "elapsed_seconds": 211.96927332878113,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Desktop GUI Application",
+        "validation_score": 0.98,
+        "needs_review": false,
+        "response_time_seconds": 14.414
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:42:12.088140",
+      "elapsed_seconds": 213.49566316604614,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "topoteretes/awesome-ai-memory",
+        "success": true,
+        "response_time_seconds": 12.853,
+        "pattern_name": "Curated Resource Directory",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:42:12.106698",
+      "elapsed_seconds": 213.5142216682434,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Curated Resource Directory",
+        "success": true,
+        "response_time_seconds": 0.019
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:42:12.106698",
+      "elapsed_seconds": 213.5142216682434,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "topoteretes/awesome-ai-memory",
+        "status": "partial",
+        "time_seconds": 15.97
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:42:12.112442",
+      "elapsed_seconds": 213.51996564865112,
+      "type": "repository_skipped",
+      "level": "info",
+      "data": {
+        "repo": "mlabonne/llm-course",
+        "reason": "already_analyzed",
+        "previous_extraction": "2026-01-06T23:23:53.470000000+00:00",
+        "quality_score": 0.895
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:42:12.116915",
+      "elapsed_seconds": 213.52443838119507,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "pydantic/pydantic-ai",
+        "stars": 14161
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:42:13.472174",
+      "elapsed_seconds": 214.87969708442688,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "pydantic/pydantic-ai",
+        "quality_score": 0.895,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.82
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:42:13.932317",
+      "elapsed_seconds": 215.3398404121399,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "pydantic/pydantic-ai",
+        "success": true,
+        "response_time_seconds": 0.46
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:42:14.420171",
+      "elapsed_seconds": 215.82769465446472,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "pydantic/pydantic-ai",
+        "success": true,
+        "response_time_seconds": 0.488
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:42:25.091912",
+      "elapsed_seconds": 226.49943566322327,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Curated Resource Directory",
+        "validation_score": 0.975,
+        "needs_review": false,
+        "response_time_seconds": 12.972
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:42:34.195251",
+      "elapsed_seconds": 235.602774143219,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "pydantic/pydantic-ai",
+        "success": true,
+        "response_time_seconds": 18.94,
+        "pattern_name": "Plugin/Extension Architecture",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:42:34.243648",
+      "elapsed_seconds": 235.6511709690094,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Plugin/Extension Architecture",
+        "success": true,
+        "response_time_seconds": 0.048
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:42:34.243648",
+      "elapsed_seconds": 235.6511709690094,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "pydantic/pydantic-ai",
+        "status": "partial",
+        "time_seconds": 22.13
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:42:34.252773",
+      "elapsed_seconds": 235.66029620170593,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "milvus-io/milvus",
+        "stars": 42091
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:42:36.260801",
+      "elapsed_seconds": 237.66832423210144,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "milvus-io/milvus",
+        "quality_score": 0.78,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.82
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:42:36.706609",
+      "elapsed_seconds": 238.11413264274597,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "milvus-io/milvus",
+        "success": true,
+        "response_time_seconds": 0.446
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:42:37.150878",
+      "elapsed_seconds": 238.5584011077881,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "milvus-io/milvus",
+        "success": true,
+        "response_time_seconds": 0.444
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:42:43.966476",
+      "elapsed_seconds": 245.3739993572235,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Desktop GUI Application",
+        "judge_score": 0.897,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 33.393
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:42:45.868700",
+      "elapsed_seconds": 247.27622270584106,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Plugin/Extension Architecture",
+        "validation_score": 0.96,
+        "needs_review": false,
+        "response_time_seconds": 11.612
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:42:51.109044",
+      "elapsed_seconds": 252.51656770706177,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Curated Resource Directory",
+        "judge_score": 0.9,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 25.996
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:43:00.609782",
+      "elapsed_seconds": 262.0173056125641,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "milvus-io/milvus",
+        "success": true,
+        "response_time_seconds": 22.676,
+        "pattern_name": "Distributed Cloud-Native Vector Database Architecture",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:43:00.648801",
+      "elapsed_seconds": 262.0563247203827,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Distributed Cloud-Native Vector Database Architecture",
+        "success": true,
+        "response_time_seconds": 0.039
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:43:00.651320",
+      "elapsed_seconds": 262.05884313583374,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "milvus-io/milvus",
+        "status": "partial",
+        "time_seconds": 26.4
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:43:00.660103",
+      "elapsed_seconds": 262.0676259994507,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "weaviate/weaviate",
+        "stars": 15347
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:43:02.277030",
+      "elapsed_seconds": 263.6845533847809,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "weaviate/weaviate",
+        "quality_score": 0.753,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.82
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:43:02.712740",
+      "elapsed_seconds": 264.1202630996704,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "weaviate/weaviate",
+        "success": true,
+        "response_time_seconds": 0.436
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:43:03.349963",
+      "elapsed_seconds": 264.7574863433838,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "weaviate/weaviate",
+        "success": true,
+        "response_time_seconds": 0.636
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:43:15.105835",
+      "elapsed_seconds": 276.5133583545685,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Distributed Cloud-Native Vector Database Architecture",
+        "validation_score": 0.975,
+        "needs_review": false,
+        "response_time_seconds": 14.437
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:43:18.232792",
+      "elapsed_seconds": 279.6403155326843,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Plugin/Extension Architecture",
+        "judge_score": 0.91,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 32.352
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:43:33.429259",
+      "elapsed_seconds": 294.8367819786072,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "weaviate/weaviate",
+        "success": true,
+        "response_time_seconds": 29.293,
+        "pattern_name": "Distributed Database Cluster",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:43:33.463790",
+      "elapsed_seconds": 294.8713130950928,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Distributed Database Cluster",
+        "success": true,
+        "response_time_seconds": 0.035
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:43:33.463790",
+      "elapsed_seconds": 294.8713130950928,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "weaviate/weaviate",
+        "status": "partial",
+        "time_seconds": 32.8
+      }
+    },
+    {
+      "timestamp": "2026-01-06T23:43:33.475345",
+      "elapsed_seconds": 294.88286781311035,
+      "type": "extraction_finished",
+      "level": "info",
+      "data": {
+        "total_repos": 12,
+        "successful": 2,
+        "partial": 10,
+        "failed": 0,
+        "skipped": 13,
+        "total_time": 294.88
+      }
+    }
+  ],
+  "repositories": [
+    {
+      "repo_name": "mistralai/cookbook",
+      "repo_url": "https://github.com/mistralai/cookbook",
+      "stars": 2140,
+      "started_at": "2026-01-06T23:38:42.080732",
+      "start_time": 1767742722.080732,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.4554417133331299
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.3973994255065918
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 15.175610303878784,
+          "pattern_name": "tutorial_cookbook_repository"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.04577279090881348
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "mistralai/cookbook",
+        "quality_score": 0.871,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.955
+      },
+      "finished_at": "2026-01-06T23:39:00.584831",
+      "total_time_seconds": 18.50409984588623
+    },
+    {
+      "repo_name": "Denis2054/RAG-Driven-Generative-AI",
+      "repo_url": "https://github.com/Denis2054/RAG-Driven-Generative-AI",
+      "stars": 557,
+      "started_at": "2026-01-06T23:39:00.616149",
+      "start_time": 1767742740.6161494,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.4795246124267578
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.48072338104248047
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.91,
+          "needs_review": false
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 1.0,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 19.24883270263672,
+          "pattern_name": "RAG Pipeline Architecture"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.03078627586364746
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "Denis2054/RAG-Driven-Generative-AI",
+        "quality_score": 0.813,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.91
+      },
+      "validation": {
+        "pattern": "tutorial_cookbook_repository",
+        "validation_score": 1.0,
+        "needs_review": false,
+        "response_time_seconds": 18.88
+      },
+      "finished_at": "2026-01-06T23:39:23.250792",
+      "total_time_seconds": 22.634642839431763
+    },
+    {
+      "repo_name": "huangjia2019/rag-in-action",
+      "repo_url": "https://github.com/huangjia2019/rag-in-action",
+      "stars": 575,
+      "started_at": "2026-01-06T23:39:23.254796",
+      "start_time": 1767742763.2547967,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.4913971424102783
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.417708158493042
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.95,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 17.993338346481323,
+          "pattern_name": "RAG Pipeline"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.04189276695251465
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "huangjia2019/rag-in-action",
+        "quality_score": 0.776,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      },
+      "validation": {
+        "pattern": "RAG Pipeline Architecture",
+        "validation_score": 0.95,
+        "needs_review": false,
+        "response_time_seconds": 12.159
+      },
+      "finished_at": "2026-01-06T23:39:44.059102",
+      "total_time_seconds": 20.80430579185486
+    },
+    {
+      "repo_name": "milvus-io/bootcamp",
+      "repo_url": "https://github.com/milvus-io/bootcamp",
+      "stars": 2349,
+      "started_at": "2026-01-06T23:39:44.063482",
+      "start_time": 1767742784.0634828,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.46140408515930176
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.4011092185974121
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.95,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 19.32421565055847,
+          "pattern_name": "Modular Demonstration Suite"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.043904781341552734
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "successful",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "milvus-io/bootcamp",
+        "quality_score": 0.752,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.955
+      },
+      "validation": {
+        "pattern": "RAG Pipeline",
+        "validation_score": 0.95,
+        "needs_review": false,
+        "response_time_seconds": 12.727
+      },
+      "finished_at": "2026-01-06T23:40:06.237754",
+      "total_time_seconds": 22.17427134513855
+    },
+    {
+      "repo_name": "cloudwego/eino",
+      "repo_url": "https://github.com/cloudwego/eino",
+      "stars": 9034,
+      "started_at": "2026-01-06T23:40:06.279367",
+      "start_time": 1767742806.2793672,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.45636892318725586
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.4907681941986084
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.98,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 20.26371479034424,
+          "pattern_name": "Component-Based Workflow Engine"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.08004450798034668
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "cloudwego/eino",
+        "quality_score": 0.883,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.88
+      },
+      "validation": {
+        "pattern": "Modular Demonstration Suite",
+        "validation_score": 0.98,
+        "needs_review": false,
+        "response_time_seconds": 10.748
+      },
+      "finished_at": "2026-01-06T23:40:29.559029",
+      "total_time_seconds": 23.279662609100342
+    },
+    {
+      "repo_name": "owainlewis/awesome-artificial-intelligence",
+      "repo_url": "https://github.com/owainlewis/awesome-artificial-intelligence",
+      "stars": 12821,
+      "started_at": "2026-01-06T23:40:29.565703",
+      "start_time": 1767742829.5657034,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.4403190612792969
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.4018073081970215
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.98,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 17.195612907409668,
+          "pattern_name": "Curated Static Content Repository"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.04508543014526367
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "owainlewis/awesome-artificial-intelligence",
+        "quality_score": 0.764,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.88
+      },
+      "validation": {
+        "pattern": "Component-Based Workflow Engine",
+        "validation_score": 0.98,
+        "needs_review": false,
+        "response_time_seconds": 19.257
+      },
+      "finished_at": "2026-01-06T23:40:49.593145",
+      "total_time_seconds": 20.02744221687317
+    },
+    {
+      "repo_name": "pathwaycom/pathway",
+      "repo_url": "https://github.com/pathwaycom/pathway",
+      "stars": 56488,
+      "started_at": "2026-01-06T23:40:49.624281",
+      "start_time": 1767742849.6242814,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.4539203643798828
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.47673606872558594
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.94,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 19.962767362594604,
+          "pattern_name": "data_stream_processing_framework"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.06237292289733887
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "pathwaycom/pathway",
+        "quality_score": 0.906,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.955
+      },
+      "validation": {
+        "pattern": "Curated Static Content Repository",
+        "validation_score": 0.94,
+        "needs_review": false,
+        "response_time_seconds": 12.348
+      },
+      "finished_at": "2026-01-06T23:41:12.633334",
+      "total_time_seconds": 23.009052753448486
+    },
+    {
+      "repo_name": "szczyglis-dev/py-gpt",
+      "repo_url": "https://github.com/szczyglis-dev/py-gpt",
+      "stars": 1535,
+      "started_at": "2026-01-06T23:41:12.642820",
+      "start_time": 1767742872.6428201,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.5389442443847656
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.4760403633117676
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.99,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 39.86368417739868,
+          "pattern_name": "Desktop GUI Application"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.02475595474243164
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "successful",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "szczyglis-dev/py-gpt",
+        "quality_score": 0.836,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.955
+      },
+      "validation": {
+        "pattern": "data_stream_processing_framework",
+        "validation_score": 0.99,
+        "needs_review": false,
+        "response_time_seconds": 12.415
+      },
+      "finished_at": "2026-01-06T23:41:56.131313",
+      "total_time_seconds": 43.4884934425354
+    },
+    {
+      "repo_name": "topoteretes/awesome-ai-memory",
+      "repo_url": "https://github.com/topoteretes/awesome-ai-memory",
+      "stars": 589,
+      "started_at": "2026-01-06T23:41:56.132364",
+      "start_time": 1767742916.132364,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.4527773857116699
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.42096948623657227
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.98,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 12.853191137313843,
+          "pattern_name": "Curated Resource Directory"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.018558502197265625
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "topoteretes/awesome-ai-memory",
+        "quality_score": 0.825,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      },
+      "validation": {
+        "pattern": "Desktop GUI Application",
+        "validation_score": 0.98,
+        "needs_review": false,
+        "response_time_seconds": 14.414
+      },
+      "finished_at": "2026-01-06T23:42:12.106698",
+      "total_time_seconds": 15.974334716796875
+    },
+    {
+      "repo_name": "pydantic/pydantic-ai",
+      "repo_url": "https://github.com/pydantic/pydantic-ai",
+      "stars": 14161,
+      "started_at": "2026-01-06T23:42:12.116915",
+      "start_time": 1767742932.1169155,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.4601433277130127
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.4878542423248291
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.975,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 18.93978977203369,
+          "pattern_name": "Plugin/Extension Architecture"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.04839682579040527
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "pydantic/pydantic-ai",
+        "quality_score": 0.895,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.82
+      },
+      "validation": {
+        "pattern": "Curated Resource Directory",
+        "validation_score": 0.975,
+        "needs_review": false,
+        "response_time_seconds": 12.972
+      },
+      "finished_at": "2026-01-06T23:42:34.243648",
+      "total_time_seconds": 22.12673258781433
+    },
+    {
+      "repo_name": "milvus-io/milvus",
+      "repo_url": "https://github.com/milvus-io/milvus",
+      "stars": 42091,
+      "started_at": "2026-01-06T23:42:34.252773",
+      "start_time": 1767742954.2527733,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.44580841064453125
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.44426846504211426
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.96,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 22.676130533218384,
+          "pattern_name": "Distributed Cloud-Native Vector Database Architecture"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.039019107818603516
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "milvus-io/milvus",
+        "quality_score": 0.78,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.82
+      },
+      "validation": {
+        "pattern": "Plugin/Extension Architecture",
+        "validation_score": 0.96,
+        "needs_review": false,
+        "response_time_seconds": 11.612
+      },
+      "finished_at": "2026-01-06T23:43:00.651320",
+      "total_time_seconds": 26.398546934127808
+    },
+    {
+      "repo_name": "weaviate/weaviate",
+      "repo_url": "https://github.com/weaviate/weaviate",
+      "stars": 15347,
+      "started_at": "2026-01-06T23:43:00.660103",
+      "start_time": 1767742980.660103,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.43570971488952637
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.6361219882965088
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.975,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 29.292537689208984,
+          "pattern_name": "Distributed Database Cluster"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.0345311164855957
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "weaviate/weaviate",
+        "quality_score": 0.753,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.82
+      },
+      "validation": {
+        "pattern": "Distributed Cloud-Native Vector Database Architecture",
+        "validation_score": 0.975,
+        "needs_review": false,
+        "response_time_seconds": 14.437
+      },
+      "finished_at": "2026-01-06T23:43:33.463790",
+      "total_time_seconds": 32.80368709564209
+    }
+  ],
+  "skipped_repositories": [
+    {
+      "repo": "run-llama/llama_index",
+      "reason": "already_analyzed",
+      "previous_extraction": "2026-01-06T23:25:07.334000000+00:00",
+      "quality_score": 0.875
+    },
+    {
+      "repo": "NVIDIA/GenerativeAIExamples",
+      "reason": "already_analyzed",
+      "previous_extraction": "2026-01-06T23:15:23.237000000+00:00",
+      "quality_score": 0.869
+    },
+    {
+      "repo": "NirDiamant/RAG_Techniques",
+      "reason": "already_analyzed",
+      "previous_extraction": "2026-01-06T23:14:40.136000000+00:00",
+      "quality_score": 0.93
+    },
+    {
+      "repo": "pingcap/autoflow",
+      "reason": "already_analyzed",
+      "previous_extraction": "2026-01-06T23:02:49.633000000+00:00",
+      "quality_score": 0.857
+    },
+    {
+      "repo": "aishwaryanr/awesome-generative-ai-guide",
+      "reason": "already_analyzed",
+      "previous_extraction": "2026-01-06T23:21:35.487000000+00:00",
+      "quality_score": 0.938
+    },
+    {
+      "repo": "HKUDS/LightRAG",
+      "reason": "already_analyzed",
+      "previous_extraction": "2026-01-06T21:24:45.077000000+00:00",
+      "quality_score": 0.92
+    },
+    {
+      "repo": "getzep/zep",
+      "reason": "already_analyzed",
+      "previous_extraction": "2026-01-06T23:19:27.039000000+00:00",
+      "quality_score": 0.869
+    },
+    {
+      "repo": "Arindam200/awesome-ai-apps",
+      "reason": "already_analyzed",
+      "previous_extraction": "2026-01-06T23:24:11.805000000+00:00",
+      "quality_score": 0.856
+    },
+    {
+      "repo": "ritchieng/the-incredible-pytorch",
+      "reason": "already_analyzed",
+      "previous_extraction": "2026-01-06T23:24:26.072000000+00:00",
+      "quality_score": 0.802
+    },
+    {
+      "repo": "asinghcsu/AgenticRAG-Survey",
+      "reason": "already_analyzed",
+      "previous_extraction": "2026-01-06T23:22:55.039000000+00:00",
+      "quality_score": 0.81
+    },
+    {
+      "repo": "Azure-Samples/miyagi",
+      "reason": "already_analyzed",
+      "previous_extraction": "2026-01-06T23:26:09.628000000+00:00",
+      "quality_score": 0.805
+    },
+    {
+      "repo": "KalyanKS-NLP/rag-zero-to-hero-guide",
+      "reason": "already_analyzed",
+      "previous_extraction": "2026-01-06T23:18:18.692000000+00:00",
+      "quality_score": 0.82
+    },
+    {
+      "repo": "mlabonne/llm-course",
+      "reason": "already_analyzed",
+      "previous_extraction": "2026-01-06T23:23:53.470000000+00:00",
+      "quality_score": 0.895
+    }
+  ],
+  "summary": {
+    "total_repos": 12,
+    "successful": 2,
+    "partial": 10,
+    "failed": 0,
+    "skipped": 13,
+    "total_time_seconds": 294.88,
+    "success_rate_percent": 100.0
+  },
+  "finished_at": "2026-01-06T23:43:33.475037"
+}
