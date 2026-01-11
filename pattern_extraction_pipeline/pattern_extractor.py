@@ -4,6 +4,7 @@
 import os
 import json
 import time
+import yaml
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor
 from github import Github, GithubException, RateLimitExceededException
@@ -50,6 +51,26 @@ try:
 except ImportError:
     QUALITY_JUDGE_AVAILABLE = False
     logger.warning("QualityJudge not available - judge evaluation will be skipped")
+
+try:
+    from ide_rule_library.enhanced_rule_extractor import EnhancedRuleExtractor
+    from ide_rule_library.quality_scorer import RepoQualityScorer
+    IDE_RULE_LIBRARY_AVAILABLE = True
+except ImportError as e:
+    IDE_RULE_LIBRARY_AVAILABLE = False
+    logger.warning(f"IDE Rule Library not available - rule extraction will be skipped: {e}")
+
+# Import custom exceptions, rate limiter, and metrics
+from pattern_extraction_pipeline.exceptions import (
+    IntegrationError,
+    RuleExtractionError,
+    DatabaseWriteError,
+    RateLimitError,
+    PatternExtractionError,
+    GitHubAPIError
+)
+from pattern_extraction_pipeline.rate_limiter import RateLimiter
+from pattern_extraction_pipeline.metrics import Metrics
 
 # Retry decorator configurations
 # GitHub API: Handle rate limits and transient errors
@@ -118,27 +139,52 @@ class PatternExtractor:
             record = result.single()
             return dict(record) if record else None
     
-    def __init__(self, progress_callback=None):
-        self.github = Github(os.getenv("GITHUB_TOKEN"))
+    def __init__(self, progress_callback=None, config_path=None):
+        # Warn about proper resource management
+        import warnings
+        warnings.warn(
+            "PatternExtractor manages resources that must be cleaned up. "
+            "Use 'with PatternExtractor() as extractor:' pattern or call extractor.close() when done.",
+            DeprecationWarning,
+            stacklevel=2
+        )
+        
+        # Load and validate configuration with Pydantic
+        if config_path is None:
+            config_path = os.path.join(os.path.dirname(__file__), 'config.yaml')
+        
+        try:
+            from pattern_extraction_pipeline.config_validator import validate_config_file
+            self.config = validate_config_file(config_path)
+            logger.info(f"Configuration loaded and validated from {config_path}")
+        except Exception as config_error:
+            logger.error(f"Config validation failed: {config_error}")
+            raise ValueError(f"Invalid configuration: {config_error}") from config_error
+        
+        from github import Auth
+        github_token = os.getenv(self.config.github.token_env)
+        if not github_token:
+            raise ValueError(f"{self.config.github.token_env} not found in environment")
+        self.github = Github(auth=Auth.Token(github_token))
         
         # Configure Google Gemini with direct API key (disable Cloud SDK auth)
         from dotenv import load_dotenv
         # Use override=True to ensure .env file takes precedence over system variables
         load_dotenv(override=True)
-        api_key = os.getenv("GEMINI_API_KEY")
+        api_key = os.getenv(self.config.gemini.api_key_env)
         if not api_key:
-            raise ValueError("GEMINI_API_KEY not found in .env file")
+            raise ValueError(f"{self.config.gemini.api_key_env} not found in .env file")
         
         # Unset Google Cloud auth env vars to force API key usage
         for var in ['GOOGLE_APPLICATION_CREDENTIALS', 'GCLOUD_PROJECT']:
             os.environ.pop(var, None)
         
         genai.configure(api_key=api_key)
-        self.llm = genai.GenerativeModel('gemini-2.5-flash')
+        self.llm = genai.GenerativeModel(self.config.gemini.model_name)
         
         self.neo4j = GraphDatabase.driver(
-            os.getenv("NEO4J_URI", "bolt://localhost:7687"),
-            auth=(os.getenv("NEO4J_USER", "neo4j"), os.getenv("NEO4J_PASSWORD", "password"))
+            self.config.neo4j.uri,
+            auth=(self.config.neo4j.user, os.getenv(self.config.neo4j.password_env, "password"))
         )
         
         # Quality metrics calculator
@@ -167,8 +213,90 @@ class PatternExtractor:
         else:
             self.trajectory_logger = None
         
+        # IDE Rule extraction components
+        if IDE_RULE_LIBRARY_AVAILABLE:
+            self.rule_extractor = EnhancedRuleExtractor(
+                model_name=self.config.gemini.model_name,
+                logger=logger
+            )
+            self.quality_scorer = RepoQualityScorer()
+            logger.info("IDE Rule Library initialized - rule extraction enabled")
+        else:
+            self.rule_extractor = None
+            self.quality_scorer = None
+        
+        # Rate limiter for Gemini API (15 requests per minute for free tier)
+        self.gemini_rate_limiter = RateLimiter(
+            max_calls=15,
+            period=60,
+            name="gemini_api"
+        )
+        
+        # Metrics collection
+        self.metrics = Metrics(name="pattern_extractor")
+        logger.info("Metrics collection initialized")
+        
         # Progress callback for real-time updates
         self.progress_callback = progress_callback
+    
+    def __enter__(self):
+        """Context manager entry - returns self for use in with statement."""
+        return self
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        """
+        Context manager exit - cleanup resources.
+        
+        Args:
+            exc_type: Exception type if an exception was raised
+            exc_val: Exception value if an exception was raised
+            exc_tb: Exception traceback if an exception was raised
+        
+        Returns:
+            False to propagate exceptions (don't suppress them)
+        """
+        self.close()
+        return False  # Don't suppress exceptions
+    
+    def close(self):
+        """
+        Close all open connections and cleanup resources.
+        
+        Call this when done with the extractor, or use as context manager:
+            with PatternExtractor() as extractor:
+                pattern = extractor.analyze_single_repo('owner/repo')
+        
+        This method is idempotent - safe to call multiple times.
+        """
+        if hasattr(self, 'neo4j') and self.neo4j:
+            try:
+                self.neo4j.close()
+                logger.info("Neo4j driver closed")
+            except Exception as e:
+                logger.warning(f"Error closing Neo4j driver: {e}")
+            finally:
+                self.neo4j = None
+        
+        if hasattr(self, 'critic_executor') and self.critic_executor:
+            try:
+                self.critic_executor.shutdown(wait=True, cancel_futures=False)
+                logger.info("Critic executor shutdown")
+            except Exception as e:
+                logger.warning(f"Error shutting down critic executor: {e}")
+            finally:
+                self.critic_executor = None
+    
+    def __del__(self):
+        """
+        Destructor - warn if resources not properly closed.
+        
+        This warns developers if they forget to call close() or use context manager.
+        """
+        if hasattr(self, 'neo4j') and self.neo4j:
+            logger.warning(
+                "PatternExtractor was not properly closed. "
+                "Use 'with PatternExtractor() as extractor:' or call extractor.close()"
+            )
     
     def validate_and_refine_query(self, search_query, min_results=5, max_retries=5):
         """
@@ -349,8 +477,8 @@ Return ONLY the new query, nothing else."""
             }
             
             try:
-                # Calculate quality metrics (non-critical)
-                quality_metrics = {'composite_score': 0.5, 'freshness_score': 0.5, 'maintenance_score': 0.5}
+                # Calculate quality metrics (non-critical) - default to mid-range on 0-100 scale
+                quality_metrics = {'composite_score': 50.0, 'freshness_score': 50.0, 'maintenance_score': 50.0}
                 if self.quality_calculator:
                     try:
                         quality_metrics = self.quality_calculator.calculate_quality_score(repo)
@@ -647,6 +775,249 @@ Return ONLY the new query, nothing else."""
             return {"requirements": reqs.decoded_content.decode('utf-8')}
         except:
             return {}
+    
+    def _scan_for_rule_files(self, repo):
+        """
+        Scan repository for IDE rule files.
+        
+        Looks for common rule file patterns:
+        - .cursorrules
+        - .aiderules
+        - .windsurfrules
+        - CLAUDE.md / CLAUDE_*.md
+        - AI_INSTRUCTIONS.md / AI_GUIDELINES.md
+        - .github/copilot-instructions.md
+        
+        Returns:
+            list: List of dicts with {'path': str, 'content': str, 'format': str}
+        """
+        if not IDE_RULE_LIBRARY_AVAILABLE:
+            return []
+        
+        rule_files = []
+        rule_patterns = [
+            '.cursorrules',
+            '.aiderules',
+            '.windsurfrules',
+            'CLAUDE.md',
+            'AI_INSTRUCTIONS.md',
+            'AI_GUIDELINES.md',
+            '.github/copilot-instructions.md'
+        ]
+        
+        # Also check for CLAUDE_*.md variants
+        try:
+            contents = repo.get_contents("")
+            for content_file in contents:
+                if content_file.name.startswith('CLAUDE') and content_file.name.endswith('.md'):
+                    rule_patterns.append(content_file.name)
+        except:
+            pass
+        
+        max_file_size = self.config.rule_extraction.max_file_size
+        
+        for pattern in rule_patterns:
+            try:
+                file_content = repo.get_contents(pattern)
+                if file_content.size > 0 and file_content.size < max_file_size:
+                    decoded = file_content.decoded_content.decode('utf-8', errors='ignore')
+                    rule_files.append({
+                        'path': pattern,
+                        'content': decoded,
+                        'format': pattern.split('.')[-1] if '.' in pattern else 'md'
+                    })
+                    logger.info(f"Found IDE rule file: {pattern} ({file_content.size} bytes)")
+            except:
+                continue
+        
+        return rule_files
+    
+    def _extract_and_link_rules(self, pattern, repo, rule_files):
+        """
+        Extract IDE rules and link them to the pattern.
+        
+        Args:
+            pattern: The pattern dict with pattern_name
+            repo: PyGithub Repository object
+            rule_files: List of rule file dicts from _scan_for_rule_files
+        """
+        if not IDE_RULE_LIBRARY_AVAILABLE or not self.rule_extractor:
+            return
+        
+        # Prepare repo metadata for quality scoring
+        from ide_rule_library.quality_scorer import enhance_repo_metadata
+        repo_data = {
+            'name': repo.full_name,
+            'stars': repo.stargazers_count,
+            'forks': repo.forks_count,
+            'created_at': repo.created_at,
+            'updated_at': repo.updated_at,
+            'open_issues': repo.open_issues_count,
+            'html_url': repo.html_url
+        }
+        
+        # Get contributors (with error handling)
+        try:
+            contributors = [c.login for c in repo.get_contributors()[:50]]  # Limit to 50
+            repo_data['contributors'] = contributors
+        except:
+            repo_data['contributors'] = []
+        
+        # Get file list for production signals
+        try:
+            contents = repo.get_contents("")
+            repo_data['files'] = [f.path for f in contents if not f.type == "dir"]
+        except:
+            repo_data['files'] = []
+        
+        # Enhance with quality scoring
+        enhanced_repo = enhance_repo_metadata(repo_data)
+        
+        # Extract each rule file
+        for rule_file in rule_files:
+            try:
+                logger.info(f"Extracting rule: {rule_file['path']}")
+                
+                # Rate limit before API call
+                wait_time = self.gemini_rate_limiter.wait_if_needed()
+                if wait_time > 0:
+                    logger.info(f"Rate limited: waited {wait_time:.2f}s before extracting {rule_file['path']}")
+                
+                # Extract rule with enhanced analysis
+                self.metrics.start_timer('rule_extraction')
+                try:
+                    rule = self.rule_extractor.extract_rule(
+                        file_content=rule_file['content'],
+                        file_path=rule_file['path'],
+                        repo_data=enhanced_repo
+                    )
+                    self.metrics.end_timer('rule_extraction')
+                    self.metrics.increment('rules_extracted')
+                except Exception as extract_error:
+                    self.metrics.end_timer('rule_extraction')
+                    # Check if it's a known exception type from ide_rule_library
+                    error_name = extract_error.__class__.__name__
+                    
+                    if 'QuotaExceeded' in error_name or 'RateLimit' in error_name:
+                        self.metrics.increment('rule_extraction.quota_exceeded')
+                        logger.error(f"Gemini quota exceeded for {rule_file['path']}")
+                        raise RateLimitError(f"Gemini quota exceeded for {repo.full_name}") from extract_error
+                    elif 'Timeout' in error_name:
+                        self.metrics.increment('rule_extraction.timeout')
+                        logger.warning(f"Timeout extracting rule from {rule_file['path']}, skipping")
+                        continue  # Skip this rule, continue with others
+                    else:
+                        self.metrics.increment('rule_extraction.error')
+                        logger.error(f"Unexpected error extracting {rule_file['path']}: {extract_error}", exc_info=True)
+                        raise RuleExtractionError(f"Failed to extract {rule_file['path']}") from extract_error
+                
+                # Link to pattern in Neo4j
+                try:
+                    self._link_pattern_to_rules(
+                        pattern_name=pattern['pattern_name'],
+                        source_repo=repo.html_url,
+                        rule=rule
+                    )
+                    self.metrics.increment('rules_linked')
+                except Exception as db_error:
+                    self.metrics.increment('database_write.error')
+                    logger.error(f"Failed to link rule {rule_file['path']} to Neo4j: {db_error}", exc_info=True)
+                    raise DatabaseWriteError(f"Failed to link rule {rule_file['path']} to pattern") from db_error
+                
+                logger.info(f"Successfully extracted and linked rule: {rule_file['path']}")
+                
+            except (RateLimitError, DatabaseWriteError):
+                # Re-raise these specific errors to be handled by caller
+                raise
+            except RuleExtractionError as e:
+                logger.error(f"Rule extraction failed for {rule_file['path']}: {e}")
+                continue  # Skip to next rule file
+            except Exception as e:
+                logger.error(f"Unexpected error processing rule {rule_file['path']}: {e}", exc_info=True)
+                continue  # Skip to next rule file
+    
+    def _link_pattern_to_rules(self, pattern_name, source_repo, rule):
+        """
+        Create HAS_IDE_RULES relationship between Pattern and IDERule in Neo4j.
+        
+        Args:
+            pattern_name: Name of the pattern
+            source_repo: Repository URL
+            rule: Rule dict from EnhancedRuleExtractor
+        """
+        with self.neo4j.session() as session:
+            # Create IDERule node and link to Pattern
+            query = """
+            // Find the Pattern node
+            MATCH (p:Pattern {name: $pattern_name, source_repo: $source_repo})
+            
+            // Create or merge IDERule node
+            MERGE (r:IDERule {id: $rule_id})
+            ON CREATE SET
+                r.source_repo = $source_repo,
+                r.file_path = $file_path,
+                r.file_format = $file_format,
+                r.content = $content,
+                r.purpose = $purpose,
+                r.categories = $categories,
+                r.key_practices = $key_practices,
+                r.technologies = $technologies,
+                r.project_types = $project_types,
+                r.ide_types = $ide_types,
+                r.repo_quality_score = $repo_quality_score,
+                r.confidence_level = $confidence_level,
+                r.quality_breakdown_json = $quality_breakdown_json,
+                r.has_ci_cd = $has_ci_cd,
+                r.has_tests = $has_tests,
+                r.extracted_date = datetime()
+            ON MATCH SET
+                r.content = $content,
+                r.purpose = $purpose,
+                r.categories = $categories,
+                r.key_practices = $key_practices,
+                r.technologies = $technologies,
+                r.project_types = $project_types,
+                r.repo_quality_score = $repo_quality_score,
+                r.confidence_level = $confidence_level,
+                r.quality_breakdown_json = $quality_breakdown_json,
+                r.extracted_date = datetime()
+            
+            // Create relationship
+            MERGE (p)-[:HAS_IDE_RULES]->(r)
+            
+            RETURN r.id as rule_id
+            """
+            
+            # Prepare parameters
+            import json
+            params = {
+                'pattern_name': pattern_name,
+                'source_repo': source_repo,
+                'rule_id': f"{source_repo}:{rule['file_path']}",
+                'file_path': rule['file_path'],
+                'file_format': rule.get('file_format', 'unknown'),
+                'content': rule.get('content', ''),
+                'purpose': rule.get('purpose', ''),
+                'categories': rule.get('categories', []),
+                'key_practices': rule.get('key_practices', []),
+                'technologies': rule.get('technologies', []),
+                'project_types': rule.get('project_types', []),
+                'ide_types': rule.get('ide_types', ['cursor']),
+                'repo_quality_score': rule.get('repo_quality_score', 0),
+                'confidence_level': rule.get('confidence_level', 3),
+                'quality_breakdown_json': json.dumps(rule.get('quality_breakdown', {})),
+                'has_ci_cd': rule.get('has_ci_cd', False),
+                'has_tests': rule.get('has_tests', False)
+            }
+            
+            result = session.run(query, params)
+            record = result.single()
+            result.consume()  # Close the stream to prevent resource leaks
+            
+            if record:
+                logger.info(f"Linked rule {record['rule_id']} to pattern {pattern_name}")
+            else:
+                logger.warning(f"Failed to link rule to pattern {pattern_name}")
     
     @llm_retry
     def _extract_with_llm(self, **kwargs):
@@ -951,10 +1322,10 @@ Return ONLY the new query, nothing else."""
                 print(f"  Warning: Skipping malformed constraint: {c} ({e})")
                 continue
         
-        # Get quality metrics (if available)
-        quality_score = pattern.get('quality_score', 0.5)
-        freshness_score = pattern.get('freshness_score', 0.5)
-        maintenance_score = pattern.get('maintenance_score', 0.5)
+        # Get quality metrics (if available) - 0-100 scale
+        quality_score = pattern.get('quality_score', 50.0)
+        freshness_score = pattern.get('freshness_score', 50.0)
+        maintenance_score = pattern.get('maintenance_score', 50.0)
         
         # Get extraction metadata
         extraction_status = pattern.get('extraction_status', 'unknown')
@@ -1099,6 +1470,19 @@ Return ONLY the new query, nothing else."""
             )
             
             print(f"[OK] Pattern extracted: {pattern['pattern_name']}")
+            
+            # Extract IDE rules if available and enabled
+            if (self.config.rule_extraction.enabled and
+                IDE_RULE_LIBRARY_AVAILABLE and self.rule_extractor):
+                try:
+                    rule_files = self._scan_for_rule_files(repo)
+                    if rule_files:
+                        print(f"[INFO] Found {len(rule_files)} IDE rule file(s), extracting...")
+                        self._extract_and_link_rules(pattern, repo, rule_files)
+                except Exception as e:
+                    logger.warning(f"Rule extraction failed for {repo_name}: {e}")
+                    print(f"[WARN] Rule extraction failed: {e}")
+            
             return pattern
             
         except Exception as e:

@@ -20,12 +20,12 @@ class QualityMetricsCalculator:
         
         Returns:
             {
-                'composite_score': 0.85,  # Overall quality (0-1)
-                'popularity_score': 0.9,
-                'maintenance_score': 0.85,
-                'maturity_score': 0.8,
-                'community_score': 0.9,
-                'freshness_score': 0.95
+                'composite_score': 85.0,  # Overall quality (0-100 scale)
+                'popularity_score': 90.0,
+                'maintenance_score': 85.0,
+                'maturity_score': 80.0,
+                'community_score': 90.0,
+                'freshness_score': 95.0
             }
         """
         
@@ -35,22 +35,22 @@ class QualityMetricsCalculator:
         community = self._calculate_community(repo)
         freshness = self._calculate_freshness(repo)
         
-        # Weighted composite score
+        # Weighted composite score (scaled to 0-100)
         composite = (
             popularity * 0.30 +
             maintenance * 0.25 +
             maturity * 0.20 +
             community * 0.15 +
             freshness * 0.10
-        )
+        ) * 100
         
         return {
-            'composite_score': round(composite, 3),
-            'popularity_score': round(popularity, 3),
-            'maintenance_score': round(maintenance, 3),
-            'maturity_score': round(maturity, 3),
-            'community_score': round(community, 3),
-            'freshness_score': round(freshness, 3),
+            'composite_score': round(composite, 1),  # 0-100 scale
+            'popularity_score': round(popularity * 100, 1),
+            'maintenance_score': round(maintenance * 100, 1),
+            'maturity_score': round(maturity * 100, 1),
+            'community_score': round(community * 100, 1),
+            'freshness_score': round(freshness * 100, 1),
             
             # Raw metrics for storage
             'stars': repo.stargazers_count,
@@ -277,15 +277,18 @@ class QualityMetricsCalculator:
         """
         Convert composite score to human-readable tier.
         
+        Args:
+            composite_score: Score on 0-100 scale
+        
         Returns: 'excellent' | 'high' | 'good' | 'moderate' | 'low'
         """
-        if composite_score >= 0.85:
+        if composite_score >= 85:
             return 'excellent'
-        elif composite_score >= 0.75:
+        elif composite_score >= 75:
             return 'high'
-        elif composite_score >= 0.65:
+        elif composite_score >= 65:
             return 'good'
-        elif composite_score >= 0.5:
+        elif composite_score >= 50:
             return 'moderate'
         else:
             return 'low'
@@ -294,11 +297,15 @@ class QualityMetricsCalculator:
         """
         Get maintenance status label.
         
+        Args:
+            maintenance_score: Score on 0-100 scale
+            days_since_update: Days since last update
+        
         Returns: 'active' | 'maintained' | 'stale' | 'abandoned'
         """
-        if days_since_update <= 30 and maintenance_score >= 0.8:
+        if days_since_update <= 30 and maintenance_score >= 80:
             return 'active'
-        elif days_since_update <= 180 and maintenance_score >= 0.6:
+        elif days_since_update <= 180 and maintenance_score >= 60:
             return 'maintained'
         elif days_since_update <= 365:
             return 'stale'

@@ -4,6 +4,80 @@ How to integrate the architectural pattern knowledge graph into your SPEC_Engine
 
 ---
 
+## 🔥 NEW: Semantic Vector Search (2026-01-07)
+
+**The knowledge graph now supports natural language pattern discovery via semantic search!**
+
+### What's New
+
+- **Semantic Search:** Find patterns using natural language goal descriptions
+- **Hybrid Queries:** Combine semantic similarity with technical constraints  
+- **Confidence Scoring:** Patterns ranked by composite score (semantic + metadata + stars)
+- **Cross-Pattern Discovery:** Find conceptually similar patterns with different tech stacks
+- **Pattern-Informed SPEC Generation:** Commander queries patterns BEFORE generating SPECs
+
+### Quick Start with Semantic Search
+
+```python
+from pattern_query_interface_semantic import PatternQueryInterfaceSemantic
+
+interface = PatternQueryInterfaceSemantic()
+
+# Hybrid search (semantic + structural) - RECOMMENDED
+result = interface.find_patterns_hybrid(
+    goal="Build a file manager for volunteers",
+    constraints={
+        'technologies': ['typescript', 'react'],
+        'min_stars': 5000
+    },
+    top_k=5
+)
+
+# Present top patterns to user for review
+print(result['user_review_text'])
+
+interface.close()
+```
+
+### Documentation
+
+- **Architecture:** See `VECTOR_ARCHITECTURE.md` for complete technical specification
+- **Implementation Status:** See `IMPLEMENTATION_STATUS_VECTOR_KG.md` for what's built
+- **Testing:** Run `python test_vector_search.py` and `python test_hybrid_queries.py`
+
+### Setup Required
+
+1. **Generate Embeddings:**
+   ```bash
+   python generate_pattern_embeddings.py
+   ```
+
+2. **Create Vector Index:**
+   ```bash
+   cypher-shell -u neo4j -p password < vector_index_setup.cypher
+   ```
+
+3. **Verify Setup:**
+   ```bash
+   python test_vector_search.py
+   ```
+
+### Migration Path
+
+The semantic interface **extends** the original interface - all existing code continues to work:
+
+```python
+# Old way (still works)
+from pattern_query_interface import PatternQueryInterface
+interface = PatternQueryInterface()
+
+# New way (recommended)
+from pattern_query_interface_semantic import PatternQueryInterfaceSemantic
+interface = PatternQueryInterfaceSemantic()  # Includes all old methods + semantic
+```
+
+---
+
 ## Overview
 
 You have a working knowledge graph with architectural patterns extracted from proven GitHub repositories. Now let's make it **useful** for actual SPEC development.

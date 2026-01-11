@@ -43,13 +43,14 @@ class PatternQueryInterface:
     # PRIMARY INTERFACE: SPEC-to-Pattern Matching
     # ========================================================================
     
-    def find_patterns_for_spec(self, spec_dict: dict, top_k: int = 5) -> dict:
+    def find_patterns_for_spec(self, spec_dict: dict, top_k: int = 5, include_rules: bool = False) -> dict:
         """
         Given a SPEC (as a dict), find relevant architectural patterns.
         
         Args:
             spec_dict: Dictionary with keys like 'goal', 'tech_stack', 'deployment_type', etc.
             top_k: Number of top patterns to return
+            include_rules: Whether to include linked IDE rules in results
         
         Returns:
             {
@@ -86,7 +87,8 @@ class PatternQueryInterface:
             req_domain=req_domain,
             technologies=key_techs,
             constraints=key_constraints,
-            top_k=top_k * 2  # Get more candidates for filtering
+            top_k=top_k * 2,  # Get more candidates for filtering
+            include_rules=include_rules
         )
         
         # Rank patterns using LLM semantic matching
@@ -289,7 +291,7 @@ class PatternQueryInterface:
     # ========================================================================
     
     def _query_patterns(self, req_type=None, req_domain=None, technologies=None, 
-                       constraints=None, top_k=10):
+                       constraints=None, top_k=10, include_rules=False):
         """Internal method to query patterns with multiple filters."""
         with self.neo4j.session() as session:
             # Build dynamic Cypher query
@@ -313,25 +315,43 @@ class PatternQueryInterface:
             query_parts.append("OPTIONAL MATCH (req:Requirement)-[:SOLVED_BY]->(p)")
             query_parts.append("OPTIONAL MATCH (p)-[:USES]->(tech:Technology)")
             query_parts.append("OPTIONAL MATCH (p)-[:REQUIRES]->(c:Constraint)")
-            query_parts.append("""
-                RETURN p, req,
-                       collect(DISTINCT {name: tech.name, role: 'unknown'}) as technologies,
-                       collect(DISTINCT c.rule) as constraints
-                ORDER BY p.confidence DESC, p.stars DESC
-                LIMIT $top_k
-            """)
+            
+            if include_rules:
+                query_parts.append("OPTIONAL MATCH (p)-[:HAS_IDE_RULES]->(rule:IDERule)")
+                query_parts.append("""
+                    RETURN p, req,
+                           collect(DISTINCT {name: tech.name, role: 'unknown'}) as technologies,
+                           collect(DISTINCT c.rule) as constraints,
+                           collect(DISTINCT {
+                               file_path: rule.file_path,
+                               file_format: rule.file_format,
+                               purpose: rule.purpose,
+                               repo_quality_score: rule.repo_quality_score,
+                               confidence_level: rule.confidence_level
+                           }) as ide_rules
+                    ORDER BY p.confidence DESC, p.stars DESC
+                    LIMIT $top_k
+                """)
+            else:
+                query_parts.append("""
+                    RETURN p, req,
+                           collect(DISTINCT {name: tech.name, role: 'unknown'}) as technologies,
+                           collect(DISTINCT c.rule) as constraints
+                    ORDER BY p.confidence DESC, p.stars DESC
+                    LIMIT $top_k
+                """)
             
             query = "\n".join(query_parts)
             result = session.run(query, **params)
             
-            return [self._format_pattern_result(record) for record in result]
+            return [self._format_pattern_result(record, include_rules) for record in result]
     
-    def _format_pattern_result(self, record) -> dict:
+    def _format_pattern_result(self, record, include_rules=False) -> dict:
         """Format Neo4j record into clean dict."""
         p = record['p']
         r = record.get('r')
         
-        return {
+        result = {
             'pattern_name': p['name'],
             'confidence': p['confidence'],
             'stars': p['stars'],
@@ -344,6 +364,13 @@ class PatternQueryInterface:
             'technologies': record.get('technologies', []),
             'constraints': record.get('constraints', [])
         }
+        
+        if include_rules:
+            ide_rules = record.get('ide_rules', [])
+            # Filter out empty rule entries (from OPTIONAL MATCH)
+            result['ide_rules'] = [rule for rule in ide_rules if rule.get('file_path')]
+        
+        return result
     
     # ========================================================================
     # INTERNAL: LLM-Powered Analysis

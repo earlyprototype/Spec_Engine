@@ -39,29 +39,70 @@ This will:
 - **Constraint enforcement levels** (must/should/nice-to-have)
 - Auto-generated batch scripts for manual use
 
+## Using the Pattern Extractor Programmatically
+
+### Recommended: Context Manager (Automatic Resource Cleanup)
+
+```python
+from pattern_extraction_pipeline import PatternExtractor
+
+# Use context manager for automatic resource cleanup
+with PatternExtractor() as extractor:
+    pattern = extractor.analyze_single_repo('anthropics/anthropic-sdk-python')
+    print(f"Extracted: {pattern['pattern_name']}")
+# Resources (Neo4j driver, executors) automatically cleaned up here
+```
+
+**Note:** PatternExtractor will issue a deprecation warning if not used as a context manager. This encourages proper resource cleanup and prevents memory leaks.
+
 ## Using Patterns for SPEC Building
 
-Once you've extracted patterns, use the **Pattern Query Interface** to query them during SPEC creation:
+### 🔥 NEW: Semantic Search (Recommended)
+
+The knowledge graph now supports **natural language pattern discovery**!
+
+```python
+from pattern_query_interface_semantic import PatternQueryInterfaceSemantic
+
+with PatternQueryInterfaceSemantic() as interface:
+    # Hybrid search: semantic + structural (RECOMMENDED)
+    result = interface.find_patterns_hybrid(
+        goal="Build a file browser for volunteers",  # Natural language!
+        constraints={
+            'technologies': ['typescript', 'react'],
+            'min_stars': 5000
+        },
+        top_k=5
+    )
+    
+    # Present options to user
+    print(result['user_review_text'])
+    
+    # Verify feasibility with semantic search
+    verification = interface.verify_spec_feasibility(
+        {'goal': 'Build a file browser'},
+        use_semantic=True
+    )
+    print(f"Feasibility: {verification['feasibility_score']}")
+```
+
+### Traditional Structural Queries (Still Supported)
 
 ```python
 from pattern_query_interface import PatternQueryInterface
 
-interface = PatternQueryInterface()
-
-# Find patterns for your SPEC
-spec = {'goal': 'Build a file browser', 'deployment_type': 'Web Application'}
-patterns = interface.find_patterns_for_spec(spec)
-
-print(f"Found {len(patterns['recommended_patterns'])} relevant patterns")
-
-# Verify feasibility
-verification = interface.verify_spec_feasibility(spec)
-print(f"Feasibility: {verification['feasibility_score']}")
-
-interface.close()
+with PatternQueryInterface() as interface:
+    # Find patterns by exact criteria
+    spec = {'goal': 'Build a file browser', 'deployment_type': 'Web Application'}
+    patterns = interface.find_patterns_for_spec(spec)
+    
+    print(f"Found {len(patterns['recommended_patterns'])} relevant patterns")
 ```
 
-**See `PATTERN_QUERY_GUIDE.md` for complete API documentation.**
+**Documentation:**
+- `VECTOR_ARCHITECTURE.md` - Complete technical specification
+- `PATTERN_QUERY_GUIDE.md` - Full API documentation
+- `IMPLEMENTATION_STATUS_VECTOR_KG.md` - What's been built
 
 ## Files
 
