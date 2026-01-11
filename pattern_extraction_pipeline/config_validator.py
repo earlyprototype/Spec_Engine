@@ -44,7 +44,7 @@ class GeminiConfig(BaseModel):
 class Neo4jConfig(BaseModel):
     """Configuration for Neo4j database"""
     
-    uri: str = "bolt://localhost:7687"
+    uri: str = "bolt://localhost:7688"  # Default to spec-engine-neo4j
     user: str = "neo4j"
     password_env: str = "NEO4J_PASSWORD"
     
@@ -54,6 +54,15 @@ class Neo4jConfig(BaseModel):
         if not v.startswith(('bolt://', 'neo4j://', 'neo4j+s://', 'neo4j+ssc://')):
             raise ValueError("Invalid Neo4j URI scheme")
         return v
+    
+    def __init__(self, **data):
+        """Override URI from environment variable if set"""
+        import os
+        # Check for NEO4J_URI environment variable first
+        env_uri = os.getenv('NEO4J_URI')
+        if env_uri:
+            data['uri'] = env_uri
+        super().__init__(**data)
 
 
 class GitHubConfig(BaseModel):

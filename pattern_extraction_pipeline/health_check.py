@@ -23,7 +23,7 @@ def check_neo4j() -> Tuple[bool, str]:
     try:
         from neo4j import GraphDatabase
         
-        uri = os.getenv("NEO4J_URI", "bolt://localhost:7687")
+        uri = os.getenv("NEO4J_URI", "bolt://localhost:7688")  # Default to spec-engine-neo4j
         user = os.getenv("NEO4J_USER", "neo4j")
         password = os.getenv("NEO4J_PASSWORD")
         

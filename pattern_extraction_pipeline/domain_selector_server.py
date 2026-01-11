@@ -173,7 +173,7 @@ def quality_metrics():
         from neo4j import GraphDatabase
         
         driver = GraphDatabase.driver(
-            os.getenv("NEO4J_URI", "bolt://localhost:7687"),
+            os.getenv("NEO4J_URI", "bolt://localhost:7688"),  # Default to spec-engine-neo4j
             auth=(os.getenv("NEO4J_USER", "neo4j"), os.getenv("NEO4J_PASSWORD", "password"))
         )
         
