@@ -675,16 +675,76 @@
                     runExtractionBtn.disabled = false;
                 }
                 
-                // Update logs with color coding
+                // Update logs with rich formatting
                 const logsContainer = document.getElementById('extractionLogs');
                 logsContainer.innerHTML = status.logs.map(log => {
-                    let color = '#f8f8f2';
-                    if (log.includes('[OK]')) color = '#50fa7b';
-                    else if (log.includes('[ERROR]') || log.includes('[FATAL]')) color = '#ff5555';
-                    else if (log.includes('[COMPLETE]') || log.includes('PHASE')) color = '#8be9fd';
-                    else if (log.includes('Extracting')) color = '#f1fa8c';
-                    else if (log.includes('Validating') || log.includes('Refined')) color = '#bd93f9';
-                    return `<div style="color: ${color};">${log}</div>`;
+                    // Handle new rich log format (object with type)
+                    if (typeof log === 'object' && log.type) {
+                        let icon = '';
+                        let color = '#f8f8f2';
+                        let bgColor = 'transparent';
+                        let borderLeft = 'none';
+                        
+                        if (log.type === 'quality') {
+                            const score = log.data?.score || 0;
+                            const signals = log.data?.production_signals || [];
+                            
+                            if (score >= 80) {
+                                icon = '&#x2B50;'; // Star for high quality
+                                color = '#50fa7b';
+                            } else if (score >= 60) {
+                                icon = '&#x2705;'; // Checkmark for medium quality
+                                color = '#f1fa8c';
+                            } else {
+                                icon = '&#x26A0;'; // Warning for low quality
+                                color = '#ff9800';
+                            }
+                            
+                            const signalsHtml = signals.length > 0 
+                                ? `<span style="font-size: 11px; color: #8be9fd; margin-left: 8px;">${signals.join(', ')}</span>`
+                                : '';
+                            
+                            return `<div style="padding: 6px 10px; margin: 4px 0; border-left: 3px solid ${color}; background: rgba(255,255,255,0.02);">
+                                <span style="font-size: 16px; margin-right: 8px;">${icon}</span>
+                                <span style="color: ${color};">Quality: ${score.toFixed(1)}/100</span>
+                                ${signalsHtml}
+                            </div>`;
+                            
+                        } else if (log.type === 'rule') {
+                            const confidence = log.data?.confidence || 3;
+                            const file = log.data?.file || 'unknown';
+                            const stars = '&#x2B50;'.repeat(confidence);
+                            
+                            icon = '&#x1F4DD;'; // Memo emoji for rule
+                            color = '#bd93f9';
+                            
+                            return `<div style="padding: 6px 10px; margin: 4px 0; border-left: 3px solid ${color}; background: rgba(255,255,255,0.02);">
+                                <span style="font-size: 16px; margin-right: 8px;">${icon}</span>
+                                <span style="color: ${color};">IDE Rule: ${file}</span>
+                                <span style="font-size: 11px; color: #f1fa8c; margin-left: 8px;">(${stars} ${confidence}/5)</span>
+                            </div>`;
+                            
+                        } else if (log.type === 'info') {
+                            icon = '&#x2139;'; // Info symbol
+                            color = '#6272a4';
+                            return `<div style="padding: 4px 10px; margin: 2px 0; color: ${color}; font-size: 12px;">
+                                <span style="margin-right: 6px;">${icon}</span>${log.message}
+                            </div>`;
+                        }
+                    }
+                    
+                    // Handle legacy string logs
+                    if (typeof log === 'string') {
+                        let color = '#f8f8f2';
+                        if (log.includes('[OK]')) color = '#50fa7b';
+                        else if (log.includes('[ERROR]') || log.includes('[FATAL]')) color = '#ff5555';
+                        else if (log.includes('[COMPLETE]') || log.includes('PHASE')) color = '#8be9fd';
+                        else if (log.includes('Extracting')) color = '#f1fa8c';
+                        else if (log.includes('Validating') || log.includes('Refined')) color = '#bd93f9';
+                        return `<div style="color: ${color}; padding: 2px 10px;">${log}</div>`;
+                    }
+                    
+                    return '';
                 }).join('');
                 logsContainer.scrollTop = logsContainer.scrollHeight;
                 

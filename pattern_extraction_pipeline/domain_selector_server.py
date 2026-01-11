@@ -13,6 +13,7 @@ from flask_cors import CORS
 from domain_topic_selector import DomainTopicSelector
 from pattern_extractor import PatternExtractor
 import threading
+from datetime import datetime
 import sys
 from datetime import datetime
 
@@ -22,10 +23,64 @@ CORS(app)
 selector = DomainTopicSelector()
 
 # Callback for real-time pattern updates
-def on_pattern_extracted(pattern):
-    """Called when a pattern is successfully extracted."""
+def on_pattern_extracted(data):
+    """
+    Called during pattern extraction with progress updates.
+    
+    Data can be:
+    - A pattern dict (legacy)
+    - A progress event dict with 'type' key (new)
+    """
     global extraction_status
-    extraction_status['completed'] += 1
+    
+    # Handle legacy pattern dict (just increment)
+    if isinstance(data, dict) and 'pattern_name' in data:
+        extraction_status['completed'] += 1
+        return
+    
+    # Handle new progress events
+    if isinstance(data, dict) and 'type' in data:
+        event_type = data['type']
+        timestamp = datetime.now().strftime('%H:%M:%S')
+        
+        if event_type == 'quality_score':
+            # Quality score calculated
+            score = data.get('score', 0)
+            signals = data.get('production_signals', [])
+            signals_str = f" (Production: {', '.join(signals)})" if signals else " (No production signals)"
+            
+            log_msg = f"[{timestamp}] Quality: {score:.1f}/100{signals_str}"
+            extraction_status['logs'].append({
+                'time': timestamp,
+                'type': 'quality',
+                'message': log_msg,
+                'data': data
+            })
+            
+        elif event_type == 'rule_extracted':
+            # IDE rule successfully extracted
+            confidence = data.get('confidence', 3)
+            file = data.get('file', 'unknown')
+            purpose = data.get('purpose', '')[:60]
+            
+            log_msg = f"[{timestamp}] IDE Rule: {file} (confidence: {confidence}/5)"
+            extraction_status['logs'].append({
+                'time': timestamp,
+                'type': 'rule',
+                'message': log_msg,
+                'data': data
+            })
+            
+        elif event_type == 'no_rules':
+            # No IDE rules found
+            repo = data.get('repo', 'unknown')
+            log_msg = f"[{timestamp}] No IDE rules found"
+            extraction_status['logs'].append({
+                'time': timestamp,
+                'type': 'info',
+                'message': log_msg,
+                'data': data
+            })
 
 extractor = PatternExtractor(progress_callback=on_pattern_extracted)
 
@@ -236,7 +291,9 @@ def run_extraction(queries, min_validation_results=5):
                     validated_queries.append({
                         'query': refined_query,
                         'limit': limit,
-                        'domain_name': domain_name
+                        'domain_name': domain_name,
+                        'purpose': query_obj.get('purpose', 'Pattern extraction'),
+                        'force_reanalyse': query_obj.get('force_reanalyse', False)
                     })
                 elif status == 'refined':
                     log_console(f"  [REFINED] {refined_query}")
@@ -244,7 +301,9 @@ def run_extraction(queries, min_validation_results=5):
                     validated_queries.append({
                         'query': refined_query,
                         'limit': limit,
-                        'domain_name': domain_name
+                        'domain_name': domain_name,
+                        'purpose': query_obj.get('purpose', 'Pattern extraction'),
+                        'force_reanalyse': query_obj.get('force_reanalyse', False)
                     })
                 elif status == 'failed':
                     log_console(f"  [FAILED] Query returned 0 results, skipping extraction")
@@ -253,6 +312,7 @@ def run_extraction(queries, min_validation_results=5):
                         'status': 'skipped',
                         'patterns': 0,
                         'query': query,
+                        'purpose': query_obj.get('purpose', 'Pattern extraction'),
                         'reason': 'No results after refinement'
                     }
                 
@@ -285,7 +345,8 @@ def run_extraction(queries, min_validation_results=5):
             extraction_status['domain_results'][domain_name] = {
                 'status': 'running',
                 'patterns': 0,
-                'query': query
+                'query': query,
+                'purpose': validated.get('purpose', 'Pattern extraction')
             }
             
             try:
@@ -298,7 +359,8 @@ def run_extraction(queries, min_validation_results=5):
                 extraction_status['domain_results'][domain_name] = {
                     'status': 'complete',
                     'patterns': len(patterns),
-                    'query': query
+                    'query': query,
+                    'purpose': validated.get('purpose', 'Pattern extraction')
                 }
                 log_console(f"[OK] {len(patterns)} patterns extracted for {domain_name}")
             except Exception as e:
@@ -306,6 +368,7 @@ def run_extraction(queries, min_validation_results=5):
                     'status': 'error',
                     'patterns': 0,
                     'query': query,
+                    'purpose': validated.get('purpose', 'Pattern extraction'),
                     'error': str(e)
                 }
                 log_console(f"[ERROR] {domain_name}: {str(e)}")

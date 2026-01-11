@@ -873,6 +873,27 @@ Return ONLY the new query, nothing else."""
         # Enhance with quality scoring
         enhanced_repo = enhance_repo_metadata(repo_data)
         
+        # Log quality metrics for UI
+        quality_score = enhanced_repo.get('repo_quality_score', 0)
+        quality_breakdown = enhanced_repo.get('quality_breakdown', {})
+        prod_signals = []
+        if enhanced_repo.get('has_ci_cd'): prod_signals.append('CI/CD')
+        if enhanced_repo.get('has_tests'): prod_signals.append('Tests')
+        if enhanced_repo.get('has_docker'): prod_signals.append('Docker')
+        if enhanced_repo.get('has_monitoring'): prod_signals.append('Monitoring')
+        
+        logger.info(f"Quality Score: {quality_score:.1f}/100 " + 
+                   (f"(Production: {', '.join(prod_signals)})" if prod_signals else "(No production signals)"))
+        
+        if self.progress_callback:
+            self.progress_callback({
+                'type': 'quality_score',
+                'repo': repo.full_name,
+                'score': quality_score,
+                'breakdown': quality_breakdown,
+                'production_signals': prod_signals
+            })
+        
         # Extract each rule file
         for rule_file in rule_files:
             try:
@@ -919,12 +940,26 @@ Return ONLY the new query, nothing else."""
                         rule=rule
                     )
                     self.metrics.increment('rules_linked')
+                    
+                    # Log rule extraction success with details
+                    confidence = rule.get('confidence_level', 3)
+                    purpose = rule.get('purpose', 'Unknown purpose')[:80]
+                    logger.info(f"Rule extracted: {rule_file['path']} (confidence: {confidence}/5)")
+                    
+                    if self.progress_callback:
+                        self.progress_callback({
+                            'type': 'rule_extracted',
+                            'repo': repo.full_name,
+                            'file': rule_file['path'],
+                            'confidence': confidence,
+                            'purpose': purpose,
+                            'categories': rule.get('categories', [])
+                        })
+                    
                 except Exception as db_error:
                     self.metrics.increment('database_write.error')
                     logger.error(f"Failed to link rule {rule_file['path']} to Neo4j: {db_error}", exc_info=True)
                     raise DatabaseWriteError(f"Failed to link rule {rule_file['path']} to pattern") from db_error
-                
-                logger.info(f"Successfully extracted and linked rule: {rule_file['path']}")
                 
             except (RateLimitError, DatabaseWriteError):
                 # Re-raise these specific errors to be handled by caller
@@ -1479,6 +1514,13 @@ Return ONLY the new query, nothing else."""
                     if rule_files:
                         print(f"[INFO] Found {len(rule_files)} IDE rule file(s), extracting...")
                         self._extract_and_link_rules(pattern, repo, rule_files)
+                    else:
+                        logger.info(f"No IDE rules found in {repo_name}")
+                        if self.progress_callback:
+                            self.progress_callback({
+                                'type': 'no_rules',
+                                'repo': repo.full_name
+                            })
                 except Exception as e:
                     logger.warning(f"Rule extraction failed for {repo_name}: {e}")
                     print(f"[WARN] Rule extraction failed: {e}")
