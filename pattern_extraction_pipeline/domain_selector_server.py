@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 # Use override=True to ensure .env file takes precedence over system variables
 load_dotenv(override=True)
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
 from domain_topic_selector import DomainTopicSelector
 from pattern_extractor import PatternExtractor
@@ -381,6 +381,12 @@ def run_extraction(queries, min_validation_results=5):
         extraction_status['running'] = False
         extraction_status['phase'] = None
         extraction_status['current_domain'] = None
+
+@app.route('/', methods=['GET'])
+def index():
+    """Serve the UI HTML file."""
+    html_path = os.path.join(os.path.dirname(__file__), 'domain_selector_ui.html')
+    return send_file(html_path)
 
 @app.route('/health', methods=['GET'])
 def health():
