@@ -1,0 +1,90 @@
+// Prisma schema for SPEC Engine Dashboard
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// DNA Profile metadata
+model DnaProfile {
+  id          String   @id @default(uuid())
+  dnaCode     String   @unique
+  projectName String
+  testing     String
+  risk        String
+  autonomy    String
+  customTools String?
+  constraints String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  specs       Spec[]
+  
+  @@map("dna_profiles")
+}
+
+// SPEC metadata
+model Spec {
+  id          String   @id @default(uuid())
+  descriptor  String
+  dnaCode     String
+  goal        String   @default("")
+  status      String   @default("pending")
+  filePath    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  dnaProfile  DnaProfile @relation(fields: [dnaCode], references: [dnaCode], onDelete: Cascade)
+  executions  Execution[]
+  
+  @@unique([dnaCode, descriptor])
+  @@index([dnaCode])
+  @@index([status])
+  @@map("specs")
+}
+
+// Execution tracking
+model Execution {
+  id                String   @id @default(uuid())
+  specId            String
+  mode              String   // silent, dynamic, collaborative
+  status            String   @default("pending") // pending, running, completed, failed
+  goalStatus        String?  // ACHIEVED, PARTIAL, NOT_ACHIEVED
+  startedAt         DateTime @default(now())
+  completedAt       DateTime?
+  duration          Int?     // milliseconds
+  errorMessage      String?
+  
+  // Relations
+  spec              Spec @relation(fields: [specId], references: [id], onDelete: Cascade)
+  progressLogs      ProgressLog[]
+  
+  @@index([specId])
+  @@index([status])
+  @@map("executions")
+}
+
+// Progress logs for analytics
+model ProgressLog {
+  id            String   @id @default(uuid())
+  executionId   String
+  taskId        String?
+  stepId        String?
+  status        String   // started, completed, failed, skipped
+  method        String?  // primary, backup1, backup2
+  timestamp     DateTime @default(now())
+  details       String?  // JSON string with additional details
+  
+  // Relations
+  execution     Execution @relation(fields: [executionId], references: [id], onDelete: Cascade)
+  
+  @@index([executionId])
+  @@index([timestamp])
+  @@map("progress_logs")
+}

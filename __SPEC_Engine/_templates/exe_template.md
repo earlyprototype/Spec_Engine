@@ -650,7 +650,116 @@ Track violations in progress.json:
 
 ---
 
-### 2.0a SPECLet Orchestration (if applicable)
+### 2.0a Pattern-Informed Feasibility Check (if pattern selected)
+
+**Purpose:** Validate implementation approach against selected pattern knowledge
+
+**Trigger:** If pattern was selected during SPEC generation (check for pattern metadata in spec file)
+
+#### Process
+
+1. **Load Pattern Context**
+   - Check if spec file contains pattern metadata (usually in header or metadata section)
+   - Fields to look for:
+     - `pattern_name`: Name of selected pattern
+     - `pattern_confidence`: HIGH/MEDIUM/LOW
+     - `pattern_technologies`: Recommended technology stack
+     - `pattern_reference`: GitHub URL
+     - `risk_assessment`: Pattern-based risk level
+
+2. **Verify Technology Alignment**
+   - Compare selected software stack with pattern recommendations
+   - Check if chosen technologies match pattern.technologies
+   - **If mismatch detected:**
+     ```
+     WARNING: Technology deviation from pattern recommendation
+     Pattern recommended: [pattern_technologies]
+     Spec specifies: [actual_technologies]
+     
+     Pattern confidence was: [confidence]
+     Risk assessment: Increased from [original_risk] to MEDIUM
+     
+     OPTIONS:
+     [A] Continue anyway (log deviation)
+     [B] Escalate to collaborative mode for review
+     [C] Suggest alternative patterns with matching tech
+     ```
+
+3. **Assess Implementation Risk**
+   - Use pattern confidence score to inform risk assessment
+   - Calculate composite risk:
+     ```
+     risk_level = pattern_risk + technology_deviation_penalty + complexity_factor
+     
+     If risk_level > MEDIUM_THRESHOLD:
+       Log warning and suggest backup patterns
+     ```
+
+4. **Query Backup Patterns (if needed)**
+   - If primary pattern confidence is MEDIUM or LOW
+   - Or if technology deviation detected
+   - Query knowledge graph for similar patterns:
+     ```python
+     from pattern_extraction_pipeline.commander_integration import CommanderPatternInterface
+     interface = CommanderPatternInterface()
+     
+     backups = interface.get_backup_suggestions(
+         pattern_name=primary_pattern_name,
+         top_k=3
+     )
+     ```
+   - Log backup patterns in progress.json:
+     ```json
+     "pattern_feasibility": {
+       "primary_pattern": "...",
+       "primary_confidence": "MEDIUM",
+       "technology_alignment": "partial",
+       "backup_patterns_available": [
+         {"name": "...", "confidence": "HIGH", "similarity": 0.82},
+         {"name": "...", "confidence": "HIGH", "similarity": 0.78}
+       ],
+       "risk_assessment": "MEDIUM",
+       "recommendation": "Proceed with caution, consider backups if primary fails"
+     }
+     ```
+
+5. **Pattern-Informed Error Recovery**
+   - When step failures occur, check if backup patterns suggest alternative approaches
+   - Before attempting generic backup methods, consult pattern backups:
+     ```python
+     if step_failed and pattern_backups_available:
+         alternative_approaches = [
+             backup['name'] + ": " + backup['reasoning']
+             for backup in pattern_backups[:2]
+         ]
+         log_message("Pattern-informed alternatives available: " + str(alternative_approaches))
+     ```
+
+6. **Log Pattern Feasibility Check**
+   ```json
+   "constitutional_compliance": {
+     "pattern_feasibility_check": {
+       "performed": true,
+       "pattern_name": "electron_desktop_app",
+       "pattern_confidence": "HIGH",
+       "technology_alignment": "full",
+       "risk_level": "LOW",
+       "backup_patterns_loaded": true,
+       "timestamp": "[ISO-8601]"
+     }
+   }
+   ```
+
+#### No Pattern Selected (Fallback)
+
+If no pattern was selected during generation:
+- Log: "No pattern guidance - using general feasibility assessment"
+- Skip this section
+- Proceed to Section 2.0b (SPECLet Orchestration)
+
+---
+
+### 2.0b SPECLet Orchestration (if applicable)
 
 **Trigger:** If `speclet_execution_plan` exists in progress.json (created during Section 1.8a validation)
 
@@ -954,6 +1063,58 @@ Track violations in progress.json:
 ## 2.6 Backup Method Selection
 
 When a step's primary method fails:
+
+0. **Pattern-Informed Backup Suggestion (if pattern selected)**
+   
+   **Before attempting defined backups**, check if pattern knowledge can suggest alternatives:
+   
+   a. **Check for pattern backups in progress.json:**
+   ```json
+   "pattern_feasibility": {
+     "backup_patterns_available": [
+       {"name": "alternative_pattern", "reasoning": "...", "technologies": [...]}
+     ]
+   }
+   ```
+   
+   b. **If pattern backups exist, evaluate relevance:**
+   - Does the backup pattern address the same failure type?
+   - Are the technologies compatible with current stack?
+   - What is the confidence level of the backup pattern?
+   
+   c. **Present pattern backup options (if relevant):**
+   ```
+   PRIMARY METHOD FAILED: [step description]
+   
+   PATTERN-INFORMED ALTERNATIVES AVAILABLE:
+   
+   From knowledge graph backup patterns:
+   
+   1. [backup_pattern_name] (confidence: HIGH, similarity: 0.82)
+      Approach: [backup_pattern_reasoning]
+      Technologies: [backup_pattern_technologies]
+      Reference: [github_url]
+   
+   2. [backup_pattern_name_2] (confidence: MEDIUM, similarity: 0.75)
+      Approach: [backup_pattern_reasoning]
+      Technologies: [backup_pattern_technologies]
+      
+   OPTIONS:
+   [A] Try pattern-informed alternative 1
+   [B] Try pattern-informed alternative 2
+   [C] Use defined backup methods from spec
+   [D] Escalate to collaborative mode
+   ```
+   
+   d. **If user selects pattern alternative:**
+   - Log the pattern backup selection
+   - Adapt the step execution to use the pattern's approach
+   - Record success/failure for learning
+   
+   e. **If pattern alternatives not relevant or user chooses [C]:**
+   - Proceed to Step 1 below (use defined backups)
+   
+   **Note:** Pattern backups represent **proven alternative implementations** from the knowledge graph, distinct from spec-defined cognitive/tool backups.
 
 1. **Check if backups are defined** for this step in `parameters_[descriptor].toml`
    - Look for `[[tasks.steps.backups]]` entries

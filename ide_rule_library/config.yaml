@@ -1,0 +1,55 @@
+# IDE Rule Library Configuration
+# User-editable configuration for rule file scanning and extraction
+
+# Rule file priorities (checked in order)
+priority_1_files:
+  - .cursorrules
+  - .github/copilot-instructions.md
+  - AGENTS.md
+  - AGENT.md
+  - AI.md
+  - CLAUDE.md
+  - GEMINI.md
+  - INSTRUCTIONS.md
+  - CODING.md
+
+priority_2_files:
+  - .cursor/rules/*.mdc
+  - .windsurfrules
+  - .agent/rules/*.md
+  - .vscode/settings.json
+  - .ai/
+  - .ai-rulez/
+
+priority_3_files:
+  - .aider.conf.yml
+  - CONVENTIONS.md
+  - .sourcegraph/**/*.rule.md
+  - .clinerules/project.md
+  - .aiconfig
+  - .idea/workspace.xml
+
+# GitHub API settings
+github:
+  max_retries: 5
+  retry_delay_base: 2
+  rate_limit_threshold: 100
+  use_tree_api: true
+
+# Neo4j settings
+neo4j:
+  batch_size: 50
+  duplicate_check: true
+
+# Gemini API settings
+gemini:
+  model: models/gemini-3-pro-preview
+  embedding_model: models/text-embedding-004
+  max_retries: 3
+
+# Logging configuration
+logging:
+  level: INFO
+  file: logs/ide_rule_library.log
+  format: json
+  console_level: INFO

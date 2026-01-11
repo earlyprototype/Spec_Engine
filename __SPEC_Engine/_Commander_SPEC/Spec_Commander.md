@@ -279,9 +279,182 @@ Present recommendations alongside high-level structure (see Step 3 output below)
 
 ---
 
+### Step 2.6. Query Pattern Knowledge Graph (PATTERN-INFORMED GENERATION)
+
+**Purpose:** Search proven implementation patterns to inform SPEC generation with battle-tested architectures.
+
+#### Background
+
+The pattern knowledge graph contains extracted patterns from 100+ high-quality GitHub repositories. These patterns represent proven, production-tested approaches to common goals. By querying patterns BEFORE generating the SPEC, we can:
+
+- Ground the SPEC in proven implementations (not theoretical approaches)
+- Recommend technologies with demonstrated success
+- Suggest backup methods from similar patterns
+- Reduce validation failures by using feasible architectures
+
+#### Process
+
+1. **Initialize Pattern Interface**
+   ```python
+   from pattern_extraction_pipeline.commander_integration import CommanderPatternInterface
+   interface = CommanderPatternInterface()
+   ```
+
+2. **Query Patterns for User's Goal**
+   
+   Use the user's goal description to perform semantic + structural search:
+   
+   ```python
+   result = interface.query_patterns_for_goal(
+       goal_description=user_goal,
+       constraints=None,  # or specify: {'technologies': [...], 'deployment_type': '...'}
+       top_k=5
+   )
+   ```
+   
+   This performs:
+   - **Semantic search:** Embeds the goal using Gemini (768D) and finds similar patterns by vector similarity
+   - **Structural filtering:** Applies any technology/deployment constraints
+   - **Confidence scoring:** Ranks by composite score (semantic + metadata + stars)
+
+3. **Present Patterns to User**
+   
+   Display formatted pattern options:
+   
+   ```python
+   formatted_text = interface.format_pattern_options(
+       patterns=result['patterns'],
+       goal=user_goal,
+       max_display=5
+   )
+   print(formatted_text)
+   ```
+   
+   Output format:
+   ```
+   ================================================================================
+   PATTERN KNOWLEDGE GRAPH - RECOMMENDATIONS FOR YOUR GOAL
+   ================================================================================
+   
+   Goal: [user's goal]
+   
+   Based on semantic analysis of proven patterns, here are the top matches:
+   
+   [1] pattern_name_1
+       Confidence: HIGH (score: 0.85)
+       GitHub: 25,000 stars - https://github.com/org/repo
+       Reasoning: [why this pattern is relevant]
+       Technologies: typescript, electron, react, sqlite
+       Score Breakdown:
+         - Semantic similarity: 0.87
+         - Pattern confidence: high
+         - GitHub popularity: 25,000 stars
+   
+   [2] pattern_name_2
+       ...
+   
+   ================================================================================
+   SELECTION REQUIRED
+   ================================================================================
+   
+   Please select one pattern to inform your SPEC generation:
+     - Enter pattern number (1-5) to select
+     - Enter 'skip' to proceed without pattern guidance
+     - Enter 'more' to see alternative approaches
+   ```
+
+4. **Handle User Selection**
+   
+   **Option A: User selects a pattern (e.g., enters "1")**
+   ```python
+   selection = interface.select_pattern(
+       patterns=result['patterns'],
+       selection=user_input
+   )
+   ```
+   
+   - Proceed to Step 4a (Generate pattern-informed SPEC context)
+   
+   **Option B: User enters 'skip'**
+   ```python
+   selection = None  # No pattern guidance
+   ```
+   
+   - Proceed to Step 3 with general SPEC generation
+   - Log: "Pattern query skipped by user"
+   
+   **Option C: User enters 'more'**
+   ```python
+   alt_result = interface.discover_alternatives(
+       goal=user_goal,
+       min_similarity=0.6,
+       top_k=10
+   )
+   ```
+   
+   - Show cross-pattern discovery (conceptually similar without tech constraints)
+   - Return to Step 2.6.3 with alternative patterns
+
+5. **Generate SPEC Context from Pattern (if selected)**
+   
+   If user selected a pattern:
+   
+   ```python
+   # Get backup suggestions from similar patterns
+   backups = interface.get_backup_suggestions(
+       pattern_name=selection.pattern_name,
+       top_k=3
+   )
+   
+   # Generate context dict for SPEC generation
+   spec_context = interface.generate_spec_context(
+       selected_pattern=selection,
+       backup_patterns=backups
+   )
+   ```
+   
+   This creates a context dict containing:
+   - `pattern_informed`: True
+   - `primary_pattern`: Selected pattern details (name, reasoning, technologies, etc.)
+   - `backup_patterns`: Similar patterns for backup methods
+   - `architectural_guidance`: Recommended technologies, risk assessment, alternatives
+   
+   **Store this context** - it will be used in Step 4 to inform task generation.
+
+6. **Log Pattern Selection**
+   
+   Record in progress log or context:
+   ```json
+   {
+     "pattern_query": {
+       "timestamp": "...",
+       "goal": "...",
+       "patterns_found": 5,
+       "selected_pattern": "pattern_name",
+       "confidence": "high",
+       "composite_score": 0.85,
+       "backup_patterns": ["backup1", "backup2"]
+     }
+   }
+   ```
+
+#### Output
+
+- If pattern selected: `spec_context` dict with pattern guidance
+- If skipped: Proceed without pattern context
+- Always: Log of pattern query attempt and result
+
+#### Error Handling
+
+- **No patterns found:** Offer 'discover' option for conceptual alternatives
+- **Database connection fails:** Log error, proceed without pattern guidance (don't block SPEC generation)
+- **Invalid selection:** Re-prompt user for valid input
+
+---
+
 ### Step 3. Draft Requirements, Completion Criteria, and Tasks
 
-**Purpose:** Create high-level structure for human review before detailed work.
+**Purpose:** Create high-level structure for human review before detailed work (informed by patterns if selected).
 
 ##### PREPARE
 Analyse the user's goal description:
@@ -325,6 +498,30 @@ Present to user:
 ## Goal
 [Singular, clear goal statement]
 
+[If pattern was selected in Step 2.6, include:]
+## Pattern-Informed Architecture (RECOMMENDED)
+
+**Selected Pattern:** [pattern_name]  
+**Confidence:** [HIGH|MEDIUM|LOW] (score: [composite_score])  
+**Reference:** [github_url] ([stars] stars)
+
+**Why This Pattern:**  
+[pattern_reasoning - explain relevance to goal]
+
+**Proven Technologies:**
+- [technology_1] - [brief rationale]
+- [technology_2] - [brief rationale]
+- [technology_3] - [brief rationale]
+
+**Risk Assessment:** [LOW|MEDIUM|HIGH]  
+[risk_assessment_text]
+
+**Backup Patterns Available:**
+1. [backup_pattern_1] - [when to use]
+2. [backup_pattern_2] - [when to use]
+
+[End of pattern-informed section]
+
 ## Definition of Complete
 What must exist and be verified:
 - [ ] Primary deliverable: [specific, measurable]
@@ -333,10 +530,12 @@ What must exist and be verified:
 
 [For build/create goals, include:]
 ### Software Stack
-- Deployment type: [web_app|desktop_app|cli|etc.]
-- Language/Framework: [specific]
+[If pattern selected, use pattern.technologies as default recommendations]
+- Deployment type: [web_app|desktop_app|cli|etc.] [if pattern: from pattern guidance]
+- Language/Framework: [specific] [if pattern: from pattern.technologies[0]]
 - Target users: [who will use this]
 - Deployment artifact: [what gets deployed]
+- [If pattern: Reference implementation: pattern.github_url]
 
 ## Recommended MCP Toolset
 

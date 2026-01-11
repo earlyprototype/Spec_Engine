@@ -1,0 +1,19 @@
+# Project Constitution
+# Generated: 2026-01-02T21:50:38.995Z
+
+[metadata]
+version = "1.0"
+created_date = "2026-01-02"
+
+[project]
+name = "farts"
+type = "general"
+
+[preferences]
+testing = "comprehensive"
+risk_tolerance = "low"
+autonomy_level = "medium"
+custom_tools = "this should be a dropdown menu"
+
+[constraints]
+description = "Be good"

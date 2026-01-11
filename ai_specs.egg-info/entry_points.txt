@@ -1,0 +1,2 @@
+[console_scripts]
+extract-patterns = pattern_extraction_pipeline.pattern_extractor:main

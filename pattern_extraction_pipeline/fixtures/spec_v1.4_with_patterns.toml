@@ -1,0 +1,67 @@
+# SPEC v1.4 Format (with pattern metadata)
+# This represents the new SPEC format with pattern-informed generation
+
+[goal]
+description = "Build a file manager for volunteers"
+type = "build"
+
+[pattern_metadata]
+pattern_name = "electron_desktop_app"
+pattern_confidence = "HIGH"
+pattern_score = 0.87
+pattern_technologies = ["typescript", "electron", "react"]
+pattern_reference = "https://github.com/example/electron-app"
+pattern_github_stars = 45000
+
+[software_stack]
+deployment_type = "desktop_app"
+primary_language = "typescript"
+framework = "electron"
+ui_library = "react"
+packaging_method = "electron-builder"
+
+[user_interface]
+required = true
+interface_type = "gui"
+target_users = "volunteers"
+skill_level = "beginner"
+
+[[tasks]]
+id = 1
+name = "Setup Electron application"
+critical = true
+mode = "silent"
+max_retries = 2
+
+[[tasks.steps]]
+id = 1
+action = "Initialize Electron project"
+expected_output = "Electron app structure created"
+
+[[tasks.steps]]
+id = 2
+action = "Configure React integration"
+expected_output = "React working in Electron"
+
+[[tasks]]
+id = 2
+name = "Implement file management UI"
+critical = true
+mode = "silent"
+max_retries = 2
+
+[[tasks.steps]]
+id = 1
+action = "Create file browser component"
+expected_output = "File listing display"
+
+[[tasks.steps]]
+id = 2
+action = "Add file operation controls"
+expected_output = "File actions functional"
+
+[completion_criteria]
+interface_complete = true
+core_functionality_working = true
+error_handling_implemented = true
+pattern_aligned = true

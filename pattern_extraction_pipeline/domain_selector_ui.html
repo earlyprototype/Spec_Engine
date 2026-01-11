@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domain & Topic Selector</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        textarea, input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        textarea:focus, input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            display: none;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .results {
+            display: none;
+            margin-top: 30px;
+        }
+        
+        .section {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .section h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .topic-item, .domain-item, .query-item {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .topic-item h4, .domain-item h4, .query-item h4 {
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+        
+        .topic-item p, .domain-item p, .query-item p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+        
+        .badge.high {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .badge.medium {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .badge.low {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+        
+        .stat {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            flex: 1;
+        }
+        
+        .stat .value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #667eea;
+        }
+        
+        .stat .label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+        
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+        
+        .script-output {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        
+        input[type="number"]:hover {
+            border-color: #667eea;
+        }
+        
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Domain & Topic Selector</h1>
+            <p>LLM-Powered Pattern Extraction Assistant</p>
+        </div>
+        
+        <div class="content">
+            <form id="selectorForm">
+                <div class="form-group">
+                    <label for="description">Project Description</label>
+                    <textarea 
+                        id="description" 
+                        placeholder="Describe what you're building... e.g., 'Building a real-time chat application with WebSocket support'"
+                        required
+                    ></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="technologies">Technologies (comma-separated, optional)</label>
+                    <input 
+                        type="text" 
+                        id="technologies" 
+                        placeholder="e.g., nodejs, socketio, redis"
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label>Query Limits (optional)</label>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div>
+                            <label for="defaultMaxLimit" style="font-weight: normal; font-size: 13px; color: #666;">Default Max Results</label>
+                            <input 
+                                type="number" 
+                                id="defaultMaxLimit" 
+                                placeholder="20"
+                                min="1"
+                                max="100"
+                                style="padding: 8px;"
+                            >
+                        </div>
+                        <div>
+                            <label for="defaultMinLimit" style="font-weight: normal; font-size: 13px; color: #666;">Default Min Results</label>
+                            <input 
+                                type="number" 
+                                id="defaultMinLimit" 
+                                placeholder="5"
+                                min="1"
+                                max="50"
+                                style="padding: 8px;"
+                            >
+                        </div>
+                    </div>
+                    <p style="font-size: 12px; color: #666; margin-top: 8px;">
+                        Override LLM-suggested limits. Leave blank to use AI recommendations.
+                    </p>
+                </div>
+                
+                <button type="submit" class="btn" id="analyseBtn">
+                    Analyse Requirements
+                </button>
+            </form>
+            
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Analysing your requirements with AI...</p>
+            </div>
+            
+            <div class="error" id="error"></div>
+            
+            <div class="results" id="results">
+                <div class="stats">
+                    <div class="stat">
+                        <div class="value" id="confidenceValue">-</div>
+                        <div class="label">Confidence</div>
+                    </div>
+                    <div class="stat">
+                        <div class="value" id="timeValue">-</div>
+                        <div class="label">Est. Time</div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3>Primary Topics (Most Relevant)</h3>
+                    <div id="primaryTopics"></div>
+                </div>
+                
+                <div class="section">
+                    <h3>Recommended Domains</h3>
+                    <div id="domains"></div>
+                </div>
+                
+                <div class="section">
+                    <h3>Suggested Queries (Ready to Use)</h3>
+                    <div id="queries"></div>
+                </div>
+                
+                <div class="section">
+                    <h3>Extract Patterns Now</h3>
+                    <button class="btn" id="runExtractionBtn" style="margin-bottom: 20px;">
+                        Run Extraction Now
+                    </button>
+                    <div id="extractionProgress" style="display: none;">
+                        <!-- Overall Progress -->
+                        <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                <div>
+                                    <div style="font-size: 24px; font-weight: bold; color: #667eea;" id="extractionStatus">Starting...</div>
+                                    <div style="color: #666; margin-top: 5px;">
+                                        <span id="timeElapsed">0s</span> elapsed
+                                        <span id="timeRemaining" style="margin-left: 10px;"></span>
+                                    </div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="font-size: 32px; font-weight: bold; color: #667eea;" id="patternsCount">0</div>
+                                    <div style="color: #666; font-size: 14px;">patterns extracted</div>
+                                </div>
+                            </div>
+                            
+                            <div style="background: #e0e0e0; height: 30px; border-radius: 15px; overflow: hidden; position: relative;">
+                                <div id="progressBar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 100%; width: 0%; transition: width 0.3s; display: flex; align-items: center; justify-content: center;"></div>
+                                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-weight: bold; color: #333; font-size: 14px;" id="progressBarText">0%</div>
+                            </div>
+                            
+                            <div style="display: flex; justify-content: space-between; margin-top: 10px; font-size: 13px; color: #666;">
+                                <span><strong>Queries:</strong> <span id="extractionProgressText">0/0</span></span>
+                                <span><strong>Current:</strong> <span id="currentDomain">-</span></span>
+                            </div>
+                        </div>
+                        
+                        <!-- Domain Breakdown -->
+                        <div id="domainBreakdown" style="background: white; padding: 15px; border-radius: 6px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
+                        
+                        <!-- Logs -->
+                        <div style="background: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 6px; max-height: 300px; overflow-y: auto; font-family: 'Courier New', monospace; font-size: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" id="extractionLogs"></div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3>Generated Batch Script (Manual Option)</h3>
+                    <p style="margin-bottom: 15px;">Or save this as <code>batch_extract_custom.py</code> and run manually</p>
+                    <div class="script-output" id="scriptOutput"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const form = document.getElementById('selectorForm');
+        const loading = document.getElementById('loading');
+        const results = document.getElementById('results');
+        const error = document.getElementById('error');
+        const analyseBtn = document.getElementById('analyseBtn');
+        const runExtractionBtn = document.getElementById('runExtractionBtn');
+        const extractionProgress = document.getElementById('extractionProgress');
+        
+        let currentQueries = [];
+        let statusInterval = null;
+        let startTime = null;
+        let domainResults = {};
+        
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const description = document.getElementById('description').value.trim();
+            const technologies = document.getElementById('technologies').value.trim();
+            
+            if (!description) return;
+            
+            // Show loading
+            loading.style.display = 'block';
+            results.style.display = 'none';
+            error.style.display = 'none';
+            analyseBtn.disabled = true;
+            
+            try {
+                const response = await fetch('http://localhost:8000/analyse', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        description,
+                        technologies: technologies ? technologies.split(',').map(t => t.trim()) : null
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Analysis failed');
+                }
+                
+                const data = await response.json();
+                displayResults(data);
+                
+            } catch (err) {
+                error.textContent = 'Error: ' + err.message + '. Make sure the server is running: python domain_selector_server.py';
+                error.style.display = 'block';
+            } finally {
+                loading.style.display = 'none';
+                analyseBtn.disabled = false;
+            }
+        });
+        
+        function displayResults(data) {
+            // Apply user-defined default limits if provided
+            const defaultMaxLimit = document.getElementById('defaultMaxLimit').value.trim();
+            const defaultMinLimit = document.getElementById('defaultMinLimit').value.trim();
+            
+            if (defaultMaxLimit) {
+                const maxLimit = parseInt(defaultMaxLimit);
+                data.suggested_queries = data.suggested_queries.map(q => ({
+                    ...q,
+                    limit: Math.min(q.limit, maxLimit)
+                }));
+            }
+            
+            if (defaultMinLimit) {
+                const minLimit = parseInt(defaultMinLimit);
+                data.suggested_queries = data.suggested_queries.map(q => ({
+                    ...q,
+                    limit: Math.max(q.limit, minLimit)
+                }));
+            }
+            
+            // Store queries for extraction
+            currentQueries = data.suggested_queries;
+            
+            // Stats
+            document.getElementById('confidenceValue').textContent = data.confidence.toUpperCase();
+            document.getElementById('timeValue').textContent = data.estimated_extraction_time;
+            
+            // Primary Topics
+            const topicsContainer = document.getElementById('primaryTopics');
+            topicsContainer.innerHTML = data.primary_topics.map(topic => `
+                <div class="topic-item">
+                    <h4>${topic.topic} <span style="color: #999;">(~${topic.estimated_repos} repos)</span></h4>
+                    <p>${topic.relevance}</p>
+                </div>
+            `).join('');
+            
+            // Domains
+            const domainsContainer = document.getElementById('domains');
+            domainsContainer.innerHTML = data.recommended_domains.map(domain => `
+                <div class="domain-item">
+                    <h4>${domain.domain} <span class="badge ${domain.priority}">${domain.priority}</span></h4>
+                    <p>${domain.description}</p>
+                </div>
+            `).join('');
+            
+            // Queries with editable limits
+            const queriesContainer = document.getElementById('queries');
+            queriesContainer.innerHTML = data.suggested_queries.map((query, index) => `
+                <div class="query-item">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 5px;">
+                        <h4 style="flex: 1; margin: 0;"><code>${query.query}</code></h4>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <label style="font-size: 12px; color: #666; margin: 0; display: flex; align-items: center; gap: 5px;">
+                                <input 
+                                    type="checkbox" 
+                                    id="forceReanalyse_${index}"
+                                    onchange="updateForceFlag(${index}, this.checked)"
+                                >
+                                Force Re-analyze
+                            </label>
+                            <div style="display: flex; align-items: center; gap: 5px;">
+                                <label style="font-size: 12px; color: #666; margin: 0;">Limit:</label>
+                                <input 
+                                    type="number" 
+                                    id="queryLimit_${index}"
+                                    value="${query.limit}"
+                                    min="1"
+                                    max="100"
+                                    style="width: 70px; padding: 6px; border: 2px solid #e0e0e0; border-radius: 4px; font-size: 14px; text-align: center;"
+                                    onchange="updateQueryLimit(${index}, this.value)"
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    <p style="margin: 0;">${query.purpose}</p>
+                </div>
+            `).join('');
+            
+            // Script
+            const script = generateBatchScript(data.suggested_queries);
+            document.getElementById('scriptOutput').textContent = script;
+            
+            results.style.display = 'block';
+        }
+        
+        // Function to update individual query limits
+        function updateQueryLimit(index, newLimit) {
+            const limit = parseInt(newLimit);
+            if (limit > 0 && currentQueries[index]) {
+                currentQueries[index].limit = limit;
+                console.log(`Updated query ${index} limit to ${limit}`);
+                // Regenerate the script with updated limits
+                const script = generateBatchScript(currentQueries);
+                document.getElementById('scriptOutput').textContent = script;
+            }
+        }
+        
+        // Function to update force re-analyze flag for individual queries
+        function updateForceFlag(index, forceFlag) {
+            if (currentQueries[index]) {
+                currentQueries[index].force_reanalyse = forceFlag;
+                console.log(`Query ${index} force re-analyze: ${forceFlag}`);
+                // Regenerate batch script with updated settings
+                const script = generateBatchScript(currentQueries);
+                document.getElementById('scriptOutput').textContent = script;
+            }
+        }
+        
+        runExtractionBtn.addEventListener('click', async () => {
+            if (currentQueries.length === 0) {
+                alert('Please analyse requirements first');
+                return;
+            }
+            
+            runExtractionBtn.disabled = true;
+            extractionProgress.style.display = 'block';
+            document.getElementById('extractionLogs').innerHTML = '';
+            startTime = Date.now();
+            domainResults = {};
+            
+            // Initialize domain tracking
+            currentQueries.forEach((query, i) => {
+                domainResults[`domain_${i+1}`] = {
+                    query: query.query,
+                    status: 'pending',
+                    patterns: 0,
+                    purpose: query.purpose
+                };
+            });
+            updateDomainBreakdown();
+            
+            // Get user's min limit for validation
+            const defaultMinLimit = document.getElementById('defaultMinLimit').value.trim();
+            const minValidationResults = defaultMinLimit ? parseInt(defaultMinLimit) : 5;
+            
+            try {
+                const response = await fetch('http://localhost:8000/extract', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        queries: currentQueries,
+                        min_validation_results: minValidationResults
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Failed to start extraction');
+                }
+                
+                // Start polling for status
+                statusInterval = setInterval(pollExtractionStatus, 1000);
+                
+            } catch (err) {
+                error.textContent = 'Error: ' + err.message;
+                error.style.display = 'block';
+                runExtractionBtn.disabled = false;
+                extractionProgress.style.display = 'none';
+            }
+        });
+        
+        async function pollExtractionStatus() {
+            try {
+                const response = await fetch('http://localhost:8000/extract/status');
+                const status = await response.json();
+                
+                // Calculate elapsed time and estimate remaining
+                const elapsed = Math.floor((Date.now() - startTime) / 1000);
+                document.getElementById('timeElapsed').textContent = formatTime(elapsed);
+                
+                // Estimate time remaining
+                if (status.running && status.progress > 0) {
+                    const avgTimePerDomain = elapsed / status.progress;
+                    const remaining = Math.ceil(avgTimePerDomain * (status.total - status.progress));
+                    document.getElementById('timeRemaining').textContent = `(~${formatTime(remaining)} remaining)`;
+                } else if (!status.running) {
+                    document.getElementById('timeRemaining').textContent = '';
+                }
+                
+                // Update progress
+                const progress = status.total > 0 ? (status.progress / status.total) * 100 : 0;
+                document.getElementById('progressBar').style.width = progress + '%';
+                document.getElementById('progressBarText').textContent = Math.round(progress) + '%';
+                document.getElementById('extractionProgressText').textContent = `${status.progress}/${status.total}`;
+                document.getElementById('patternsCount').textContent = status.completed;
+                document.getElementById('currentDomain').textContent = status.current_domain || '-';
+                
+                // Update domain status from server
+                if (status.domain_results) {
+                    Object.keys(status.domain_results).forEach(domain => {
+                        if (domainResults[domain]) {
+                            domainResults[domain].status = status.domain_results[domain].status;
+                            domainResults[domain].patterns = status.domain_results[domain].patterns;
+                        }
+                    });
+                }
+                
+                updateDomainBreakdown();
+                
+                if (status.running) {
+                    if (status.phase === 'validating') {
+                        document.getElementById('extractionStatus').textContent = 'Validating queries...';
+                    } else if (status.phase === 'extracting') {
+                        document.getElementById('extractionStatus').textContent = 'Extracting patterns...';
+                    } else {
+                        document.getElementById('extractionStatus').textContent = 'Processing...';
+                    }
+                } else {
+                    document.getElementById('extractionStatus').textContent = 'Complete!';
+                    clearInterval(statusInterval);
+                    runExtractionBtn.disabled = false;
+                }
+                
+                // Update logs with rich formatting
+                const logsContainer = document.getElementById('extractionLogs');
+                logsContainer.innerHTML = status.logs.map(log => {
+                    // Handle new rich log format (object with type)
+                    if (typeof log === 'object' && log.type) {
+                        let icon = '';
+                        let color = '#f8f8f2';
+                        let bgColor = 'transparent';
+                        let borderLeft = 'none';
+                        
+                        if (log.type === 'quality') {
+                            const score = log.data?.score || 0;
+                            const signals = log.data?.production_signals || [];
+                            
+                            if (score >= 80) {
+                                icon = '&#x2B50;'; // Star for high quality
+                                color = '#50fa7b';
+                            } else if (score >= 60) {
+                                icon = '&#x2705;'; // Checkmark for medium quality
+                                color = '#f1fa8c';
+                            } else {
+                                icon = '&#x26A0;'; // Warning for low quality
+                                color = '#ff9800';
+                            }
+                            
+                            const signalsHtml = signals.length > 0 
+                                ? `<span style="font-size: 11px; color: #8be9fd; margin-left: 8px;">${signals.join(', ')}</span>`
+                                : '';
+                            
+                            return `<div style="padding: 6px 10px; margin: 4px 0; border-left: 3px solid ${color}; background: rgba(255,255,255,0.02);">
+                                <span style="font-size: 16px; margin-right: 8px;">${icon}</span>
+                                <span style="color: ${color};">Quality: ${score.toFixed(1)}/100</span>
+                                ${signalsHtml}
+                            </div>`;
+                            
+                        } else if (log.type === 'rule') {
+                            const confidence = log.data?.confidence || 3;
+                            const file = log.data?.file || 'unknown';
+                            const stars = '&#x2B50;'.repeat(confidence);
+                            
+                            icon = '&#x1F4DD;'; // Memo emoji for rule
+                            color = '#bd93f9';
+                            
+                            return `<div style="padding: 6px 10px; margin: 4px 0; border-left: 3px solid ${color}; background: rgba(255,255,255,0.02);">
+                                <span style="font-size: 16px; margin-right: 8px;">${icon}</span>
+                                <span style="color: ${color};">IDE Rule: ${file}</span>
+                                <span style="font-size: 11px; color: #f1fa8c; margin-left: 8px;">(${stars} ${confidence}/5)</span>
+                            </div>`;
+                            
+                        } else if (log.type === 'info') {
+                            icon = '&#x2139;'; // Info symbol
+                            color = '#6272a4';
+                            return `<div style="padding: 4px 10px; margin: 2px 0; color: ${color}; font-size: 12px;">
+                                <span style="margin-right: 6px;">${icon}</span>${log.message}
+                            </div>`;
+                        }
+                    }
+                    
+                    // Handle legacy string logs
+                    if (typeof log === 'string') {
+                        let color = '#f8f8f2';
+                        if (log.includes('[OK]')) color = '#50fa7b';
+                        else if (log.includes('[ERROR]') || log.includes('[FATAL]')) color = '#ff5555';
+                        else if (log.includes('[COMPLETE]') || log.includes('PHASE')) color = '#8be9fd';
+                        else if (log.includes('Extracting')) color = '#f1fa8c';
+                        else if (log.includes('Validating') || log.includes('Refined')) color = '#bd93f9';
+                        return `<div style="color: ${color}; padding: 2px 10px;">${log}</div>`;
+                    }
+                    
+                    return '';
+                }).join('');
+                logsContainer.scrollTop = logsContainer.scrollHeight;
+                
+            } catch (err) {
+                console.error('Error polling status:', err);
+            }
+        }
+        
+        function formatTime(seconds) {
+            if (seconds < 60) return `${seconds}s`;
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${mins}m ${secs}s`;
+        }
+        
+        function updateDomainBreakdown() {
+            const container = document.getElementById('domainBreakdown');
+            const domains = Object.keys(domainResults);
+            
+            if (domains.length === 0) {
+                container.innerHTML = '';
+                return;
+            }
+            
+            container.innerHTML = '<div style="font-weight: bold; margin-bottom: 10px; color: #667eea;">Query Progress</div>' +
+                domains.map(domain => {
+                    const result = domainResults[domain];
+                    let statusIcon, statusColor, statusText;
+                    
+                    if (result.status === 'complete') {
+                        statusIcon = '[OK]';
+                        statusColor = '#50fa7b';
+                        statusText = `${result.patterns} patterns`;
+                    } else if (result.status === 'error') {
+                        statusIcon = '[ERROR]';
+                        statusColor = '#ff5555';
+                        statusText = 'Failed';
+                    } else if (result.status === 'running') {
+                        statusIcon = '[...]';
+                        statusColor = '#f1fa8c';
+                        statusText = 'Extracting...';
+                    } else {
+                        statusIcon = '[ ]';
+                        statusColor = '#6272a4';
+                        statusText = 'Pending';
+                    }
+                    
+                    return `
+                        <div style="display: flex; align-items: center; padding: 8px; border-left: 3px solid ${statusColor}; background: #f8f9fa; margin-bottom: 8px; border-radius: 4px;">
+                            <span style="font-family: 'Courier New', monospace; color: ${statusColor}; font-weight: bold; margin-right: 10px; min-width: 60px;">${statusIcon}</span>
+                            <div style="flex: 1;">
+                                <div style="font-size: 12px; color: #666; font-family: 'Courier New', monospace;">${result.query}</div>
+                                <div style="font-size: 11px; color: #999; margin-top: 2px;">${result.purpose}</div>
+                            </div>
+                            <span style="font-weight: bold; color: ${statusColor}; min-width: 100px; text-align: right;">${statusText}</span>
+                        </div>
+                    `;
+                }).join('');
+        }
+        
+        function generateBatchScript(queries) {
+            let script = `# batch_extract_custom.py
+# Auto-generated batch extraction script
+# Generated by domain_topic_selector
+
+from pattern_extractor import PatternExtractor
+
+extractor = PatternExtractor()
+
+domains = [
+`;
+            
+            queries.forEach((query, i) => {
+                script += `    ("${query.query}", ${query.limit}, "domain_${i+1}"),  # ${query.purpose}\n`;
+            });
+            
+            script += `]
+
+total_extracted = 0
+
+for query, limit, domain_name in domains:
+    print(f"\\n{'='*60}")
+    print(f"Extracting {domain_name} patterns...")
+    print(f"{'='*60}")
+    
+    try:
+        patterns = extractor.extract_patterns(query, limit=limit)
+        total_extracted += len(patterns)
+        print(f"[OK] {len(patterns)} patterns extracted for {domain_name}")
+    except Exception as e:
+        print(f"Error extracting {domain_name}: {e}")
+
+print(f"\\n{'='*60}")
+print(f"Total patterns extracted: {total_extracted}")
+print(f"{'='*60}")`;
+            
+            return script;
+        }
+    </script>
+</body>
+</html>

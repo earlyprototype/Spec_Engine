@@ -1,7 +1,7 @@
 # Constitution SPEC
 
-**Version:** 1.3  
-**Date:** 3 November 2025  
+**Version:** 1.4  
+**Date:** 7 January 2026  
 **Status:** Immutable Foundation  
 **Purpose:** Define the governing principles for all Specs in this system
 
@@ -30,6 +30,35 @@ This document establishes a constitutional foundation for the SPECS system
 This Constitution establishes the foundational principles that govern all Spec creation, validation, and execution within the SPECS system. These principles are immutable and must be respected by all Specs, regardless of domain or descriptor.
 
 **Rationale:** Consistency across Specs enables reliable LLM behaviour, predictable validation, and maintainable workflows.
+
+---
+
+## Amendment History
+
+This section documents all amendments to the Constitution since its establishment.
+
+### Amendment 1 (v1.4, 7 January 2026)
+
+**Added:** Article IV, Section 4.3 - Pattern-Informed Feasibility Validation
+
+**Rationale:** Enable pattern-based SPEC validation to reduce implementation failures by grounding SPECs in proven, battle-tested implementations from the knowledge graph.
+
+**Breaking Change:** No - validation is optional and automatically skipped when pattern metadata is absent from the SPEC.
+
+**Feature Flag:** `pattern_validation_enabled` (default: true)
+- When enabled (default): Pattern feasibility checks run if pattern metadata exists
+- When disabled: Pattern validation skipped entirely, even if metadata present
+- Configuration location: exe_template.md initialization or SPEC metadata
+
+**Migration Path:** Existing SPECs without pattern metadata continue to work unchanged. The validation logic detects the absence of pattern metadata and gracefully skips pattern-specific validation.
+
+**Backwards Compatibility:** Fully backwards compatible. Old SPECs (v1.3) run through new system (v1.4) without modification. See `test_backwards_compatibility.py` for verification.
+
+**Implementation Files:**
+- `constitution.md` - Article IV, Section 4.3 (this amendment)
+- `exe_template.md` - Section 2.0a (pattern feasibility check implementation)
+- `Spec_Commander.md` - Step 2.6 (pattern query workflow)
+- `commander_integration.py` - CommanderPatternInterface (query and selection logic)
 
 ---
 
@@ -199,6 +228,87 @@ If validation detects critical errors, execution MUST NOT proceed until errors a
 - Missing expected outputs for steps
 - Duplicate IDs
 - Invalid file syntax (unparseable TOML, malformed Markdown)
+
+### Section 4.3: Pattern-Informed Feasibility Validation (Optional but Recommended)
+
+When a SPEC is generated using pattern knowledge from the knowledge graph, additional feasibility validation SHOULD be performed before execution.
+
+#### 4.3.1 Pattern Metadata Verification
+If the spec includes pattern metadata, verify:
+- **Pattern name** is recorded in spec header/metadata
+- **Pattern confidence** level is documented (HIGH/MEDIUM/LOW)
+- **Recommended technologies** from pattern are noted
+- **Reference implementation** URL is provided
+
+#### 4.3.2 Technology Stack Alignment Check
+Compare the spec's chosen technology stack with pattern recommendations:
+
+**Full Alignment:**
+- Pattern: [typescript, electron, react]
+- Spec: [typescript, electron, react]
+- Risk: LOW - Proven stack
+
+**Partial Alignment:**
+- Pattern: [typescript, electron, react]
+- Spec: [javascript, electron, vue]
+- Risk: MEDIUM - Deviation from proven approach, log warning
+
+**No Alignment:**
+- Pattern: [typescript, electron, react]
+- Spec: [python, tkinter]
+- Risk: HIGH - Significant deviation, escalate for review
+
+#### 4.3.3 Pattern Confidence Integration
+Use pattern confidence to inform pre-flight risk assessment:
+
+```
+spec_risk = base_risk + technology_deviation + (1 - pattern_confidence)
+
+If spec_risk > MEDIUM_THRESHOLD:
+  Warn: "Pattern confidence is MEDIUM/LOW and technology deviates from recommendation"
+  Suggest: Load backup patterns for alternative approaches
+  Require: Explicit user acknowledgement before execution
+```
+
+#### 4.3.4 Backup Pattern Availability
+If primary pattern has MEDIUM or LOW confidence:
+- MUST load similar patterns as backups
+- MUST document alternative approaches in validation report
+- SHOULD present backup patterns to user during pre-flight check
+
+#### 4.3.5 Constitutional Requirement
+Pattern feasibility validation is:
+- **MANDATORY** if pattern metadata exists in spec AND `pattern_validation_enabled` flag is true (default)
+- **SKIPPED** if no pattern was used during generation
+- **SKIPPED** if `pattern_validation_enabled` flag is explicitly set to false
+- **RECORDED** in progress.json under "pattern_feasibility_check"
+
+**Feature Flag Configuration:**
+```toml
+[validation]
+pattern_validation_enabled = true  # Default: true
+```
+
+When disabled, the entire Section 2.0a (Pattern-Informed Feasibility Check) is skipped, regardless of whether pattern metadata exists.
+
+**Rationale:** Patterns represent proven, battle-tested implementations. Deviating from pattern recommendations without justification increases implementation risk and violates the principle of evidence-based SPEC generation.
+
+#### 4.3.6 Validation Report Format
+```json
+"pattern_feasibility_check": {
+  "performed": true,
+  "pattern_name": "electron_desktop_app",
+  "pattern_confidence": "HIGH",
+  "technology_alignment": "full|partial|none",
+  "alignment_details": {
+    "matched": ["typescript", "electron"],
+    "deviated": ["vue vs react"]
+  },
+  "risk_assessment": "LOW|MEDIUM|HIGH",
+  "backup_patterns_loaded": true|false,
+  "recommendation": "Proceed|Proceed with caution|Review required"
+}
+```
 
 ---
 

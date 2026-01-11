@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pattern-IDERule Integration Documentation</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 280px;
+            background: #2c3e50;
+            color: #ffffff;
+            padding: 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .sidebar nav a {
+            display: block;
+            color: #ecf0f1;
+            text-decoration: none;
+            padding: 10px 15px;
+            margin: 5px 0;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .sidebar nav a:hover {
+            background: rgba(255,255,255,0.1);
+            padding-left: 20px;
+        }
+
+        .sidebar nav a.active {
+            background: #3498db;
+        }
+
+        .main-content {
+            margin-left: 280px;
+            padding: 40px;
+            flex: 1;
+        }
+
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+
+        .status-design {
+            background: #3498db;
+            color: white;
+        }
+
+        .status-pending {
+            background: #f39c12;
+            color: white;
+        }
+
+        .section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+
+        .section h3 {
+            color: #2c3e50;
+            margin: 20px 0 10px 0;
+            font-size: 1.3rem;
+        }
+
+        .section h4 {
+            color: #2c3e50;
+            margin: 15px 0 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .diagram-container {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .code-block {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        .query-example {
+            margin: 20px 0;
+        }
+
+        .query-title {
+            background: #3498db;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px 5px 0 0;
+            font-weight: 600;
+        }
+
+        .query-code {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 15px;
+            border-radius: 0 0 5px 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            white-space: pre;
+        }
+
+        .property-list {
+            list-style: none;
+            margin: 15px 0;
+        }
+
+        .property-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .property-list li:last-child {
+            border-bottom: none;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        strong {
+            color: #2c3e50;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                position: relative;
+                height: auto;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Navigation</h2>
+            <nav>
+                <a href="#overview" style="padding-left: 15px">Overview</a>
+<a href="#architecture-diagram" style="padding-left: 15px">Architecture Diagram</a>
+<a href="#data-model" style="padding-left: 15px">Data Model</a>
+<a href="#node-types" style="padding-left: 30px">Node Types</a>
+<a href="#relationships" style="padding-left: 15px">Relationships</a>
+<a href="#has-ide-rules" style="padding-left: 30px">HAS_IDE_RULES</a>
+<a href="#integration-points" style="padding-left: 15px">Integration Points</a>
+<a href="#1-shared-repository-context" style="padding-left: 30px">1. Shared Repository Context</a>
+<a href="#2-direct-relationship" style="padding-left: 30px">2. Direct Relationship</a>
+<a href="#3-quality-cross-reference" style="padding-left: 30px">3. Quality Cross-Reference</a>
+<a href="#query-examples" style="padding-left: 15px">Query Examples</a>
+<a href="#basic-queries" style="padding-left: 30px">Basic Queries</a>
+<a href="#quality-based-queries" style="padding-left: 30px">Quality-Based Queries</a>
+<a href="#technology-context-queries" style="padding-left: 30px">Technology &amp; Context Queries</a>
+<a href="#advanced-queries" style="padding-left: 30px">Advanced Queries</a>
+<a href="#use-cases" style="padding-left: 15px">Use Cases</a>
+<a href="#1-pattern-discovery-with-configuration-context" style="padding-left: 30px">1. Pattern Discovery with Configuration Context</a>
+<a href="#2-quality-verification" style="padding-left: 30px">2. Quality Verification</a>
+<a href="#3-ide-specific-pattern-discovery" style="padding-left: 30px">3. IDE-Specific Pattern Discovery</a>
+<a href="#4-technology-stack-validation" style="padding-left: 30px">4. Technology Stack Validation</a>
+<a href="#5-semantic-search-enhancement" style="padding-left: 30px">5. Semantic Search Enhancement</a>
+<a href="#system-independence" style="padding-left: 15px">System Independence</a>
+<a href="#pattern-system-can-work-alone" style="padding-left: 30px">Pattern System Can Work Alone</a>
+<a href="#ide-rule-system-can-work-alone" style="padding-left: 30px">IDE Rule System Can Work Alone</a>
+<a href="#optional-integration" style="padding-left: 30px">Optional Integration</a>
+<a href="#graceful-degradation" style="padding-left: 30px">Graceful Degradation</a>
+<a href="#implementation-status" style="padding-left: 15px">Implementation Status</a>
+<a href="#api-integration-examples" style="padding-left: 15px">API Integration Examples</a>
+<a href="#pattern-query-interface-with-rules" style="padding-left: 30px">Pattern Query Interface with Rules</a>
+<a href="#enhanced-rule-query-with-pattern-context" style="padding-left: 30px">Enhanced Rule Query with Pattern Context</a>
+<a href="#quality-scoring-comparison" style="padding-left: 15px">Quality Scoring Comparison</a>
+<a href="#pattern-quality-score" style="padding-left: 30px">Pattern Quality Score</a>
+<a href="#iderule-quality-score" style="padding-left: 30px">IDERule Quality Score</a>
+<a href="#correlation-analysis" style="padding-left: 30px">Correlation Analysis</a>
+<a href="#migration-considerations" style="padding-left: 15px">Migration Considerations</a>
+<a href="#existing-data" style="padding-left: 30px">Existing Data</a>
+<a href="#backfilling" style="padding-left: 30px">Backfilling</a>
+<a href="#performance-considerations" style="padding-left: 15px">Performance Considerations</a>
+<a href="#query-optimization" style="padding-left: 30px">Query Optimization</a>
+<a href="#batch-operations" style="padding-left: 30px">Batch Operations</a>
+<a href="#caching" style="padding-left: 30px">Caching</a>
+<a href="#future-enhancements" style="padding-left: 15px">Future Enhancements</a>
+<a href="#potential-additions" style="padding-left: 30px">Potential Additions</a>
+<a href="#references" style="padding-left: 15px">References</a>
+
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="header">
+                <h1>Pattern-IDERule Integration Documentation</h1>
+                
+                <div>
+                    <span class="status-badge status-design">Design Complete</span>
+<span class="status-badge status-pending">Implementation Pending</span>
+
+                </div>
+                <p style="margin-top: 15px; font-size: 0.9rem; color: #7f8c8d;">8 January 2026</p>
+            </div>
+
+            
+            <section id="overview" class="section">
+                <h2>Overview</h2>
+                
+<p>This document describes the integration between two independent knowledge graph systems:</p>
+<ul class="property-list">
+<ol style="margin-left: 20px;">
+<li><strong>Pattern Extraction Pipeline</strong>: Extracts architectural patterns from GitHub repos</li>
+<li><strong>IDE Rule Library</strong>: Extracts and scores IDE coding rules from repos</li>
+</ol>
+</ul>
+
+<p>Both systems share the same Neo4j database and are linked via repository URLs and direct relationships.</p>
+
+<p>---</p>
+
+            </section>
+            
+            <section id="architecture-diagram" class="section">
+                <h2>Architecture Diagram</h2>
+                
+<div class="diagram-container"><div class="mermaid">
+graph TB
+    subgraph PatternSystem[Pattern Extraction System]
+        Pattern[Pattern Node]
+        Requirement[Requirement Node]
+        Technology[Technology Node]
+        Constraint[Constraint Node]
+        
+        Pattern -->|SOLVED_BY| Requirement
+        Pattern -->|USES| Technology
+        Pattern -->|REQUIRES| Constraint
+    end
+    
+    subgraph IDERuleSystem[IDE Rule Library System]
+        IDERule[IDERule Node]
+    end
+    
+    subgraph SharedRepo[Shared Repository Context]
+        GitHubRepo[GitHub Repository<br/>source_repo URL]
+    end
+    
+    GitHubRepo -.->|source_repo| Pattern
+    GitHubRepo -.->|source_repo| IDERule
+    
+    Pattern -->|HAS_IDE_RULES| IDERule
+    
+    classDef patternStyle fill:#e1f5ff,stroke:#0066cc
+    classDef ruleStyle fill:#fff4e1,stroke:#ff9900
+    classDef repoStyle fill:#e8f5e9,stroke:#2e7d32
+    
+    class Pattern,Requirement,Technology,Constraint patternStyle
+    class IDERule ruleStyle
+    class GitHubRepo repoStyle
+</div></div>
+
+<p>---</p>
+
+            </section>
+            
+            <section id="data-model" class="section">
+                <h2>Data Model</h2>
+                
+<div class="diagram-container"><div class="mermaid">
+classDiagram
+    class Pattern {
+        +string source_repo
+        +string name
+        +int stars
+        +float quality_score
+        +float freshness_score
+        +float maintenance_score
+        +float validation_score
+        +float judge_score
+        +string confidence
+        +string reasoning
+        +boolean needs_review
+        +datetime extracted_at
+    }
+    
+    class IDERule {
+        +string id
+        +string source_repo
+        +string file_path
+        +string file_format
+        +string content
+        +string purpose
+        +list~string~ categories
+        +list~string~ key_practices
+        +list~string~ technologies
+        +list~string~ project_types
+        +list~string~ ide_types
+        +float repo_quality_score
+        +int confidence_level
+        +string quality_breakdown_json
+        +boolean has_ci_cd
+        +boolean has_tests
+        +int stars
+        +list~float~ embedding
+        +datetime extracted_date
+    }
+    
+    class Requirement {
+        +string type
+        +string domain
+    }
+    
+    class Technology {
+        +string name
+    }
+    
+    class Constraint {
+        +string rule
+    }
+    
+    Pattern "1" --> "*" IDERule : HAS_IDE_RULES
+    Pattern "*" --> "1" Requirement : SOLVED_BY
+    Pattern "*" --> "*" Technology : USES
+    Pattern "*" --> "*" Constraint : REQUIRES
+</div></div>
+
+<h3 id="node-types">Node Types</h3>
+
+<h4 id="pattern-node">Pattern Node</h4>
+
+<strong>Purpose:</strong> Represents architectural patterns extracted from repositories
+
+<strong>Properties:</strong>
+<ul class="property-list">
+<ol style="margin-left: 20px;">
+<li><code>source_repo</code> (string) - GitHub repository URL (unique identifier)</li>
+<li><code>name</code> (string) - Pattern name</li>
+<li><code>stars</code> (int) - Repository stars</li>
+<li><code>quality_score</code> (float) - Multi-dimensional quality score (0-100 scale)</li>
+<li><code>freshness_score</code> (float) - Maintenance activity score (0-100 scale)</li>
+<li><code>maintenance_score</code> (float) - Maintenance quality score (0-100 scale)</li>
+<li><code>validation_score</code> (float) - Pattern validation score</li>
+<li><code>judge_score</code> (float) - LLM judge quality score</li>
+<li><code>confidence</code> (string) - Extraction confidence (high/medium/low)</li>
+<li><code>reasoning</code> (string) - Why this pattern is useful</li>
+<li><code>needs_review</code> (boolean) - Requires manual review</li>
+<li><code>extracted_at</code> (datetime) - Extraction timestamp</li>
+</ol>
+</ul>
+
+<strong>System:</strong> <code>pattern_extraction_pipeline/</code>
+
+<h4 id="iderule-node">IDERule Node</h4>
+
+<strong>Purpose:</strong> Represents IDE coding rules and configurations from repositories
+
+<strong>Properties:</strong>
+<ul class="property-list">
+<ol style="margin-left: 20px;">
+<li><code>id</code> (string) - Unique identifier (repo:filepath)</li>
+<li><code>source_repo</code> (string) - GitHub repository URL</li>
+<li><code>file_path</code> (string) - Path to rule file in repo</li>
+<li><code>file_format</code> (string) - Rule file type (.cursorrules, CLAUDE.md, etc.)</li>
+<li><code>content</code> (string) - Full rule content</li>
+<li><code>purpose</code> (string) - What these rules do (Gemini-analyzed)</li>
+<li><code>categories</code> (list[string]) - Rule categories</li>
+<li><code>key_practices</code> (list[string]) - Main practices</li>
+<li><code>technologies</code> (list[string]) - Tech stack</li>
+<li><code>project_types</code> (list[string]) - Project types (api, web_app, etc.)</li>
+<li><code>ide_types</code> (list[string]) - IDE types (cursor, vscode, etc.)</li>
+<li><code>repo_quality_score</code> (float) - 7-factor repo quality score (0-100)</li>
+<li><code>confidence_level</code> (int) - Confidence level (1-5)</li>
+<li><code>quality_breakdown_json</code> (string) - Detailed quality metrics</li>
+<li><code>has_ci_cd</code> (boolean) - Has CI/CD signals</li>
+<li><code>has_tests</code> (boolean) - Has test signals</li>
+<li><code>stars</code> (int) - Repository stars (DEPRECATED - get from Pattern instead)</li>
+<li><code>embedding</code> (list[float]) - Semantic embedding (768-dim)</li>
+<li><code>extracted_date</code> (datetime) - Extraction timestamp</li>
+</ol>
+</ul>
+
+<strong>System:</strong> <code>ide_rule_library/</code>
+
+<p>---</p>
+
+            </section>
+            
+            <section id="relationships" class="section">
+                <h2>Relationships</h2>
+                
+<h3 id="has-ide-rules">HAS_IDE_RULES</h3>
+
+<strong>Direction:</strong> Pattern → IDERule
+
+<strong>Cardinality:</strong> One-to-Many (one Pattern can link to multiple IDERule nodes)
+
+<strong>Purpose:</strong> Links architectural patterns to their actual IDE configuration files
+
+<strong>Properties:</strong> None (simple relationship)
+
+<strong>Created:</strong> Automatically during pattern extraction when IDE rule files are detected
+
+<strong>Example:</strong>
+<div class="query-example"><div class="query-title">Cypher Example</div><div class="query-code">CREATE (p:Pattern {source_repo: &#x27;https://github.com/owner/repo&#x27;})
+CREATE (r:IDERule {id: &#x27;owner/repo:.cursorrules&#x27;, source_repo: &#x27;https://github.com/owner/repo&#x27;})
+CREATE (p)-[:HAS_IDE_RULES]-&gt;(r)
+</div></div>
+
+<p>---</p>
+
+            </section>
+            
+            <section id="integration-points" class="section">
+                <h2>Integration Points</h2>
+                
+<h3 id="1-shared-repository-context">1. Shared Repository Context</h3>
+
+<p>Both systems reference the same <code>source_repo</code> URL (GitHub repository):</p>
+
+<div class="query-example"><div class="query-title">Cypher Example</div><div class="query-code">// Find both Pattern and Rules from same repo
+MATCH (p:Pattern {source_repo: $repo_url})
+MATCH (r:IDERule {source_repo: $repo_url})
+RETURN p, r
+</div></div>
+
+<h3 id="2-direct-relationship">2. Direct Relationship</h3>
+
+<p>Pattern nodes are directly linked to their IDERule nodes:</p>
+
+<div class="query-example"><div class="query-title">Cypher Example</div><div class="query-code">// Find Pattern with its IDE rules
+MATCH (p:Pattern)-[:HAS_IDE_RULES]-&gt;(r:IDERule)
+RETURN p, r
+</div></div>
+
+<h3 id="3-quality-cross-reference">3. Quality Cross-Reference</h3>
+
+<p>Both systems calculate quality scores independently (both on 0-100 scale):</p>
+<ul class="property-list">
+<ol style="margin-left: 20px;">
+<li><strong>Pattern Quality</strong> (<code>quality_score</code>): Multi-dimensional (popularity, maintenance, maturity, community)</li>
+<li><strong>Rule Quality</strong> (<code>repo_quality_score</code>): 7-factor (star velocity, freshness, issue health, diversity, production signals, docs, usage)</li>
+</ol>
+</ul>
+
+<div class="query-example"><div class="query-title">Cypher Example</div><div class="query-code">// Compare pattern and rule quality (both 0-100 scale)
+MATCH (p:Pattern)-[:HAS_IDE_RULES]-&gt;(r:IDERule)
+RETURN p.source_repo,
+       p.quality_score as pattern_quality,
+       avg(r.repo_quality_score) as avg_rule_quality,
+       abs(p.quality_score - avg(r.repo_quality_score)) as quality_diff
+ORDER BY quality_diff DESC
+</div></div>
+
+<p>---</p>
+
+            </section>
+            
+            <section id="query-examples" class="section">
+                <h2>Query Examples</h2>
+                
+<h3 id="basic-queries">Basic Queries</h3>
+
+<h4 id="find-pattern-with-its-ide-rules">Find Pattern with its IDE Rules</h4>
+
+<div class="query-example"><div class="query-title">Cypher Example</div><div class="query-code">MATCH (p:Pattern {source_repo: &#x27;https://github.com/owner/repo&#x27;})-[:HAS_IDE_RULES]-&gt;(r:IDERule)
+RETURN p.name, r.file_path, r.file_format, r.repo_quality_score
+</div></div>
+
+<h4 id="find-all-patterns-with-ide-rules">Find All Patterns with IDE Rules</h4>
+
+<div class="query-example"><div class="query-title">Cypher Example</div><div class="query-code">MATCH (p:Pattern)-[:HAS_IDE_RULES]-&gt;(r:IDERule)
+RETURN p.name, count(r) as rule_count
+ORDER BY rule_count DESC
+</div></div>
+
+<h4 id="find-patterns-without-ide-rules">Find Patterns Without IDE Rules</h4>
+
+<div class="query-example"><div class="query-title">Cypher Example</div><div class="query-code">MATCH (p:Pattern)
+WHERE NOT (p)-[:HAS_IDE_RULES]-&gt;(:IDERule)
+RETURN p.name, p.source_repo
+</div></div>
+
+<h3 id="quality-based-queries">Quality-Based Queries</h3>
+
+<h4 id="find-patterns-with-high-quality-ide-rules">Find Patterns with High-Quality IDE Rules</h4>
+
+<div class="query-example"><div class="query-title">Cypher Example</div><div class="query-code">MATCH (p:Pattern)-[:HAS_IDE_RULES]-&gt;(r:IDERule)
+WHERE r.repo_quality_score &gt; 60 AND r.confidence_level &gt;= 3
+RETURN p.name, r.file_format, r.repo_quality_score, r.confidence_level
+ORDER BY r.repo_quality_score DESC
+</div></div>
+
+<h4 id="find-top-quality-patterns-with-verified-rules">Find Top-Quality Patterns with Verified Rules</h4>
+
+<div class="query-example"><div class="query-title">Cypher Example</div><div class="query-code">MATCH (p:Pattern)-[:HAS_IDE_RULES]-&gt;(r:IDERule)
+WHERE p.quality_score &gt; 70 AND r.repo_quality_score &gt; 60
+RETURN p.name, p.quality_score, collect(r.file_format) as rule_formats
+ORDER BY p.quality_score DESC
+LIMIT 10
+</div></div>
+
+<h4 id="cross-reference-quality-scores">Cross-Reference Quality Scores</h4>
+
+<div class="query-example"><div class="query-title">Cypher Example</div><div class="query-code">MATCH (p:Pattern)-[:HAS_IDE_RULES]-&gt;(r:IDERule)
+WITH p, avg(r.repo_quality_score) as avg_rule_quality, count(r) as rule_count
+RETURN p.source_repo,
+       p.quality_score as pattern_quality,
+       avg_rule_quality,
+       rule_count,
+       CASE 
+         WHEN p.quality_score &gt; 70 AND avg_rule_quality &gt; 60 THEN &#x27;High Trust&#x27;
+         WHEN p.quality_score &gt; 50 AND avg_rule_quality &gt; 40 THEN &#x27;Medium Trust&#x27;
+         ELSE &#x27;Low Trust&#x27;
+       END as trust_level
+ORDER BY pattern_quality DESC, avg_rule_quality DESC
+</div></div>
+
+<h3 id="technology-context-queries">Technology &amp; Context Queries</h3>
+
+<h4 id="find-patterns-with-rules-for-specific-technologies">Find Patterns with Rules for Specific Technologies</h4>
+
+<div class="query-example"><div class="query-title">Cypher Example</div><div class="query-code">MATCH (p:Pattern)-[:USES]-&gt;(t:Technology {name: &#x27;python&#x27;})
+MATCH (p)-[:HAS_IDE_RULES]-&gt;(r:IDERule)
+WHERE &#x27;python&#x27; IN r.technologies
+RETURN p.name, r.file_format, r.purpose
+</div></div>
+
+<h4 id="find-rules-by-ide-type-for-pattern">Find Rules by IDE Type for Pattern</h4>
+
+<div class="query-example"><div class="query-title">Cypher Example</div><div class="query-code">MATCH (p:Pattern {source_repo: $repo_url})-[:HAS_IDE_RULES]-&gt;(r:IDERule)
+WHERE &#x27;cursor&#x27; IN r.ide_types
+RETURN r.file_path, r.content
+</div></div>
+
+<h3 id="advanced-queries">Advanced Queries</h3>
+
+<h4 id="find-similar-patterns-via-shared-technologies-and-rules">Find Similar Patterns via Shared Technologies and Rules</h4>
+
+<div class="query-example"><div class="query-title">Cypher Example</div><div class="query-code">MATCH (p1:Pattern)-[:HAS_IDE_RULES]-&gt;(r:IDERule)
+MATCH (p2:Pattern)-[:HAS_IDE_RULES]-&gt;(r)
+WHERE p1 &lt;&gt; p2
+RETURN p1.name, p2.name, count(r) as shared_rules
+ORDER BY shared_rules DESC
+</div></div>
+
+<h4 id="find-patterns-with-complete-rule-coverage">Find Patterns with Complete Rule Coverage</h4>
+
+<div class="query-example"><div class="query-title">Cypher Example</div><div class="query-code">MATCH (p:Pattern)-[:HAS_IDE_RULES]-&gt;(r:IDERule)
+WITH p, collect(DISTINCT r.file_format) as formats
+WHERE size(formats) &gt;= 3  // Has multiple rule formats
+RETURN p.name, formats, size(formats) as format_count
+ORDER BY format_count DESC
+</div></div>
+
+<p>---</p>
+
+            </section>
+            
+            <section id="use-cases" class="section">
+                <h2>Use Cases</h2>
+                
+<h3 id="1-pattern-discovery-with-configuration-context">1. Pattern Discovery with Configuration Context</h3>
+
+<strong>Scenario:</strong> Find architectural patterns that include working IDE configurations
+
+<div class="query-example"><div class="query-title">Python Example</div><div class="query-code"># Query for patterns with verified IDE rules
+query = &quot;&quot;&quot;
+MATCH (p:Pattern)-[:HAS_IDE_RULES]-&gt;(r:IDERule)
+WHERE r.quality_score &gt; 60
+RETURN p.name, p.source_repo, 
+       collect({format: r.file_format, quality: r.quality_score}) as rules
+&quot;&quot;&quot;
+</div></div>
+
+<strong>Benefit:</strong> Get patterns with proven, configured development environments
+
+<h3 id="2-quality-verification">2. Quality Verification</h3>
+
+<strong>Scenario:</strong> Cross-check pattern quality with rule quality
+
+<div class="query-example"><div class="query-title">Python Example</div><div class="query-code"># Find patterns where quality signals align
+query = &quot;&quot;&quot;
+MATCH (p:Pattern)-[:HAS_IDE_RULES]-&gt;(r:IDERule)
+WHERE p.quality_score &gt; 60 AND avg(r.quality_score) &gt; 60
+RETURN p
+&quot;&quot;&quot;
+</div></div>
+
+<strong>Benefit:</strong> Higher confidence in pattern quality through multiple signals
+
+<h3 id="3-ide-specific-pattern-discovery">3. IDE-Specific Pattern Discovery</h3>
+
+<strong>Scenario:</strong> Find patterns with rules for your IDE (e.g., Cursor)
+
+<div class="query-example"><div class="query-title">Python Example</div><div class="query-code"># Query for Cursor-compatible patterns
+query = &quot;&quot;&quot;
+MATCH (p:Pattern)-[:HAS_IDE_RULES]-&gt;(r:IDERule)
+WHERE &#x27;cursor&#x27; IN r.ide_types
+RETURN p, r
+&quot;&quot;&quot;
+</div></div>
+
+<strong>Benefit:</strong> Get patterns ready-to-use in your development environment
+
+<h3 id="4-technology-stack-validation">4. Technology Stack Validation</h3>
+
+<strong>Scenario:</strong> Verify patterns have IDE rules for required tech stack
+
+<div class="query-example"><div class="query-title">Python Example</div><div class="query-code"># Find patterns with Python rules
+query = &quot;&quot;&quot;
+MATCH (p:Pattern)-[:USES]-&gt;(t:Technology {name: &#x27;python&#x27;})
+MATCH (p)-[:HAS_IDE_RULES]-&gt;(r:IDERule)
+WHERE &#x27;python&#x27; IN r.technologies
+RETURN p, r
+&quot;&quot;&quot;
+</div></div>
+
+<strong>Benefit:</strong> Ensure patterns have relevant coding standards for your stack
+
+<h3 id="5-semantic-search-enhancement">5. Semantic Search Enhancement</h3>
+
+<strong>Scenario:</strong> Use rule embeddings to find semantically similar patterns
+
+<div class="query-example"><div class="query-title">Python Example</div><div class="query-code"># Hybrid search: patterns + semantic rule matching
+query = &quot;&quot;&quot;
+MATCH (p:Pattern)-[:HAS_IDE_RULES]-&gt;(r:IDERule)
+WHERE r.embedding IS NOT NULL
+WITH p, r
+CALL db.index.vector.queryNodes(&#x27;ide_rule_embeddings&#x27;, 5, $query_embedding)
+YIELD node, score
+WHERE node = r
+RETURN p, r, score
+ORDER BY score DESC
+</div></div>
+
+<strong>Benefit:</strong> Natural language discovery of patterns through their rule content
+
+<p>---</p>
+
+            </section>
+            
+            <section id="system-independence" class="section">
+                <h2>System Independence</h2>
+                
+<h3 id="pattern-system-can-work-alone">Pattern System Can Work Alone</h3>
+
+<ul class="property-list">
+<ol style="margin-left: 20px;">
+<li>All pattern extraction logic unchanged</li>
+<li>Pattern queries work without IDE rules</li>
+<li>No dependencies on <code>ide_rule_library/</code></li>
+</ol>
+</ul>
+
+<h3 id="ide-rule-system-can-work-alone">IDE Rule System Can Work Alone</h3>
+
+<ul class="property-list">
+<ol style="margin-left: 20px;">
+<li>All rule extraction logic unchanged</li>
+<li>Rule queries work without patterns</li>
+<li>No dependencies on <code>pattern_extraction_pipeline/</code></li>
+</ol>
+</ul>
+
+<h3 id="optional-integration">Optional Integration</h3>
+
+<div class="query-example"><div class="query-title">Python Example</div><div class="query-code"># Pattern extraction with optional rule extraction
+if IDE_RULE_LIBRARY_AVAILABLE:
+    extract_rules(repo)  # Optional enhancement
+</div></div>
+
+<h3 id="graceful-degradation">Graceful Degradation</h3>
+
+<ul class="property-list">
+<ol style="margin-left: 20px;">
+<li>Missing IDE rule library → Pattern extraction continues</li>
+<li>Missing patterns → Rule extraction continues</li>
+<li>Broken relationships → Both systems query independently</li>
+</ol>
+</ul>
+
+<p>---</p>
+
+            </section>
+            
+            <section id="implementation-status" class="section">
+                <h2>Implementation Status</h2>
+                
+<strong>Current Status:</strong> Design Complete | Not Yet Implemented
+
+<strong>When Implemented:</strong>
+<ol style="margin-left: 20px;">
+<li>Pattern extraction will automatically detect IDE rule files</li>
+<li>Rules will be extracted and linked during pattern analysis</li>
+<li>Query interfaces will support rule inclusion</li>
+<li>Both systems remain independent</li>
+</ol>
+
+<strong>See:</strong> <code>ide_rule_integration_plan_5fc57b65.plan.md</code> for implementation details
+
+<p>---</p>
+
+            </section>
+            
+            <section id="api-integration-examples" class="section">
+                <h2>API Integration Examples</h2>
+                
+<h3 id="pattern-query-interface-with-rules">Pattern Query Interface with Rules</h3>
+
+<div class="query-example"><div class="query-title">Python Example</div><div class="query-code">from pattern_query_interface import PatternQueryInterface
+
+interface = PatternQueryInterface()
+
+# Query patterns with optional rule inclusion
+patterns = interface.find_patterns_for_spec(
+    spec={&#x27;goal&#x27;: &#x27;Build a REST API&#x27;},
+    include_rules=True  # NEW: Include linked IDE rules
+)
+
+for pattern in patterns[&#x27;recommended_patterns&#x27;]:
+    print(f&quot;Pattern: {pattern[&#x27;name&#x27;]}&quot;)
+    if &#x27;ide_rules&#x27; in pattern:
+        for rule in pattern[&#x27;ide_rules&#x27;]:
+            print(f&quot;  - Rule: {rule[&#x27;file_format&#x27;]} (quality: {rule[&#x27;repo_quality_score&#x27;]})&quot;)
+</div></div>
+
+<h3 id="enhanced-rule-query-with-pattern-context">Enhanced Rule Query with Pattern Context</h3>
+
+<div class="query-example"><div class="query-title">Python Example</div><div class="query-code">from enhanced_query_engine import EnhancedRuleQueryEngine
+
+engine = EnhancedRuleQueryEngine(driver, logger)
+
+# Query rules with pattern context
+rules = engine.query_rules_with_pattern_context(
+    query=&quot;Python FastAPI best practices&quot;,
+    pattern_quality_min=60,  # Only from high-quality patterns
+    top_k=10
+)
+</div></div>
+
+<p>---</p>
+
+            </section>
+            
+            <section id="quality-scoring-comparison" class="section">
+                <h2>Quality Scoring Comparison</h2>
+                
+<h3 id="pattern-quality-score">Pattern Quality Score</h3>
+
+<strong>Components:</strong>
+<ul class="property-list">
+<ol style="margin-left: 20px;">
+<li>Popularity score (stars, forks)</li>
+<li>Maintenance score (commits, releases)</li>
+<li>Maturity score (age, stability)</li>
+<li>Community score (contributors, issues)</li>
+<li>Freshness score (recent activity)</li>
+</ol>
+</ul>
+
+<strong>Range:</strong> 0-100
+
+<strong>System:</strong> Calculated by <code>quality_metrics.py</code>
+
+<h3 id="iderule-quality-score">IDERule Quality Score</h3>
+
+<strong>Components:</strong>
+<ol style="margin-left: 20px;">
+<li>Star velocity (20 pts) - Stars per year</li>
+<li>Freshness (20 pts) - Days since update</li>
+<li>Issue health (15 pts) - Closed vs open issues</li>
+<li>Contributor diversity (15 pts) - Number of contributors</li>
+<li>Production readiness (20 pts) - CI/CD, Docker, tests</li>
+<li>Documentation (5 pts) - README, guides</li>
+<li>Usage signal (5 pts) - Fork ratio</li>
+</ol>
+
+<strong>Range:</strong> 0-100
+
+<strong>System:</strong> Calculated by <code>quality_scorer.py</code>
+
+<h3 id="correlation-analysis">Correlation Analysis</h3>
+
+<div class="query-example"><div class="query-title">Cypher Example</div><div class="query-code">// Analyze quality score correlation (both on 0-100 scale)
+MATCH (p:Pattern)-[:HAS_IDE_RULES]-&gt;(r:IDERule)
+RETURN 
+    corr(p.quality_score, r.repo_quality_score) as correlation,
+    avg(p.quality_score) as avg_pattern_quality,
+    avg(r.repo_quality_score) as avg_rule_quality
+</div></div>
+
+<p>---</p>
+
+            </section>
+            
+            <section id="migration-considerations" class="section">
+                <h2>Migration Considerations</h2>
+                
+<h3 id="existing-data">Existing Data</h3>
+
+<strong>Patterns:</strong> Existing Pattern nodes are unaffected
+
+<strong>Rules:</strong> Existing IDERule nodes can be linked retroactively:
+
+<div class="query-example"><div class="query-title">Cypher Example</div><div class="query-code">// Link existing patterns and rules from same repos
+MATCH (p:Pattern)
+MATCH (r:IDERule)
+WHERE p.source_repo = r.source_repo
+MERGE (p)-[:HAS_IDE_RULES]-&gt;(r)
+</div></div>
+
+<h3 id="backfilling">Backfilling</h3>
+
+<p>To link existing data:</p>
+
+<div class="query-example"><div class="query-title">Python Example</div><div class="query-code"># Run migration script
+python link_existing_patterns_and_rules.py
+</div></div>
+
+<p>---</p>
+
+            </section>
+            
+            <section id="performance-considerations" class="section">
+                <h2>Performance Considerations</h2>
+                
+<h3 id="query-optimization">Query Optimization</h3>
+
+<strong>Indexes Required:</strong>
+<div class="query-example"><div class="query-title">Cypher Example</div><div class="query-code">// Ensure indexes exist
+CREATE INDEX pattern_source_repo IF NOT EXISTS FOR (p:Pattern) ON (p.source_repo);
+CREATE INDEX rule_source_repo IF NOT EXISTS FOR (r:IDERule) ON (r.source_repo);
+</div></div>
+
+<h3 id="batch-operations">Batch Operations</h3>
+
+<p>When extracting many repos:</p>
+<ul class="property-list">
+<ol style="margin-left: 20px;">
+<li>Extract patterns first (faster)</li>
+<li>Extract rules in parallel (slower, Gemini API)</li>
+<li>Link relationships in batch</li>
+</ol>
+</ul>
+
+<h3 id="caching">Caching</h3>
+
+<p>Consider caching frequent queries:</p>
+<ul class="property-list">
+<ol style="margin-left: 20px;">
+<li>Patterns with high-quality rules</li>
+<li>Technology-specific rule sets</li>
+<li>Popular pattern-rule combinations</li>
+</ol>
+</ul>
+
+<p>---</p>
+
+            </section>
+            
+            <section id="future-enhancements" class="section">
+                <h2>Future Enhancements</h2>
+                
+<h3 id="potential-additions">Potential Additions</h3>
+
+<ol style="margin-left: 20px;">
+<li><strong>Bidirectional Quality Influence</strong></li>
+</ol>
+<p>   - Pattern quality affects rule recommendations</p>
+<p>   - Rule quality affects pattern ranking</p>
+
+<ol style="margin-left: 20px;">
+<li><strong>Automated Quality Sync</strong></li>
+</ol>
+<p>   - Re-score patterns when linked rules update</p>
+<p>   - Re-score rules when patterns update</p>
+
+<ol style="margin-left: 20px;">
+<li><strong>Rule Effectiveness Tracking</strong></li>
+</ol>
+<p>   - Track which rules are used with which patterns</p>
+<p>   - Measure effectiveness of rule + pattern combinations</p>
+
+<ol style="margin-left: 20px;">
+<li><strong>Unified Search Interface</strong></li>
+</ol>
+<p>   - Single query for patterns + rules</p>
+<p>   - Semantic search across both node types</p>
+<p>   - Hybrid structural + semantic queries</p>
+
+<p>---</p>
+
+            </section>
+            
+            <section id="references" class="section">
+                <h2>References</h2>
+                
+<strong>Pattern System:</strong>
+<ul class="property-list">
+<ol style="margin-left: 20px;">
+<li><code>pattern_extraction_pipeline/README.md</code></li>
+<li><code>pattern_extraction_pipeline/PATTERN_QUERY_GUIDE.md</code></li>
+<li><code>pattern_extraction_pipeline/_KG_SPEC_INTEGRATION_GUIDE.md</code></li>
+</ol>
+</ul>
+
+<strong>IDE Rule System:</strong>
+<ul class="property-list">
+<ol style="margin-left: 20px;">
+<li><code>ide_rule_library/README.md</code></li>
+<li><code>ide_rule_library/ENHANCED_SYSTEM_GUIDE.md</code></li>
+<li><code>ide_rule_library/METRICS_EXPLAINED.md</code></li>
+</ol>
+</ul>
+
+<strong>Integration Plan:</strong>
+<ul class="property-list">
+<ol style="margin-left: 20px;">
+<li><code>ide_rule_integration_plan_5fc57b65.plan.md</code></li>
+</ol>
+</ul>
+
+<p>---</p>
+
+<strong>Document Version:</strong> 1.0  
+<strong>Last Updated:</strong> 8 January 2026  
+<strong>Status:</strong> Design Documentation
+
+            </section>
+            
+        </main>
+    </div>
+
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#e1f5ff',
+                primaryTextColor: '#333',
+                primaryBorderColor: '#0066cc',
+                lineColor: '#666',
+                secondaryColor: '#fff4e1',
+                tertiaryColor: '#e8f5e9'
+            }
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.sidebar nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    
+                    // Update active link
+                    document.querySelectorAll('.sidebar nav a').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Update active link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.section');
+            const scrollPos = window.scrollY + 100;
+
+            sections.forEach(section => {
+                const top = section.offsetTop;
+                const height = section.offsetHeight;
+                const id = section.getAttribute('id');
+
+                if (scrollPos >= top && scrollPos < top + height) {
+                    document.querySelectorAll('.sidebar nav a').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+
+        // Set first link as active by default
+        document.querySelector('.sidebar nav a')?.classList.add('active');
+    </script>
+</body>
+</html>

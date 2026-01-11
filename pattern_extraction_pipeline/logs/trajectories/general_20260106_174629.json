@@ -1,0 +1,1473 @@
+{
+  "trajectory_id": "general_20260106_174629",
+  "domain": "general",
+  "search_query": "topic:saas stars:>5000",
+  "limit": 20,
+  "started_at": "2026-01-06T17:46:29.409572",
+  "events": [
+    {
+      "timestamp": "2026-01-06T17:46:29.409572",
+      "elapsed_seconds": 0.0,
+      "type": "extraction_started",
+      "level": "info",
+      "data": {
+        "domain": "general",
+        "query": "topic:saas stars:>5000",
+        "limit": 20
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:46:30.197556",
+      "elapsed_seconds": 0.7879843711853027,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "kriasoft/react-starter-kit",
+        "stars": 23445
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:46:31.493903",
+      "elapsed_seconds": 2.0843307971954346,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "kriasoft/react-starter-kit",
+        "quality_score": 0.796,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:46:32.014263",
+      "elapsed_seconds": 2.6046910285949707,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "kriasoft/react-starter-kit",
+        "success": true,
+        "response_time_seconds": 0.52
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:46:32.407822",
+      "elapsed_seconds": 2.9982497692108154,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "kriasoft/react-starter-kit",
+        "success": true,
+        "response_time_seconds": 0.394
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:47:09.475959",
+      "elapsed_seconds": 40.06638741493225,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "kriasoft/react-starter-kit",
+        "success": true,
+        "response_time_seconds": 36.67,
+        "pattern_name": "Monorepo",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:47:37.183865",
+      "elapsed_seconds": 67.77429270744324,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Monorepo",
+        "success": true,
+        "response_time_seconds": 27.708
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:47:37.185418",
+      "elapsed_seconds": 67.77584624290466,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "kriasoft/react-starter-kit",
+        "status": "successful",
+        "time_seconds": 66.99
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:47:37.188559",
+      "elapsed_seconds": 67.77898693084717,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "RunaCapital/awesome-oss-alternatives",
+        "stars": 18555
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:47:39.989652",
+      "elapsed_seconds": 70.58007955551147,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "RunaCapital/awesome-oss-alternatives",
+        "quality_score": 0.806,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.88
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:47:40.674129",
+      "elapsed_seconds": 71.26455736160278,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "RunaCapital/awesome-oss-alternatives",
+        "success": true,
+        "response_time_seconds": 0.548
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:47:40.937627",
+      "elapsed_seconds": 71.52805495262146,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "RunaCapital/awesome-oss-alternatives",
+        "success": true,
+        "response_time_seconds": 0.263
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:47:49.658458",
+      "elapsed_seconds": 80.24888610839844,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Monorepo",
+        "validation_score": 0.99,
+        "needs_review": false,
+        "response_time_seconds": 11.977
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:48:05.244579",
+      "elapsed_seconds": 95.83500671386719,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "RunaCapital/awesome-oss-alternatives",
+        "success": true,
+        "response_time_seconds": 23.533,
+        "pattern_name": "Content-as-Code with Static Site Generation",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:48:06.397681",
+      "elapsed_seconds": 96.98810958862305,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Content-as-Code with Static Site Generation",
+        "success": true,
+        "response_time_seconds": 1.153
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:48:06.399241",
+      "elapsed_seconds": 96.98966932296753,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "RunaCapital/awesome-oss-alternatives",
+        "status": "partial",
+        "time_seconds": 29.21
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:48:06.403482",
+      "elapsed_seconds": 96.99390983581543,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "abpframework/abp",
+        "stars": 14086
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:48:07.593152",
+      "elapsed_seconds": 98.18358016014099,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "abpframework/abp",
+        "quality_score": 0.76,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.82
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:48:08.034248",
+      "elapsed_seconds": 98.62467575073242,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "abpframework/abp",
+        "success": true,
+        "response_time_seconds": 0.44
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:48:08.434435",
+      "elapsed_seconds": 99.02486276626587,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "abpframework/abp",
+        "success": true,
+        "response_time_seconds": 0.4
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:48:16.175574",
+      "elapsed_seconds": 106.76600217819214,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Content-as-Code with Static Site Generation",
+        "validation_score": 0.96,
+        "needs_review": false,
+        "response_time_seconds": 9.6
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:48:18.602557",
+      "elapsed_seconds": 109.19298529624939,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Monorepo",
+        "judge_score": 0.91,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 28.743
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:48:50.842028",
+      "elapsed_seconds": 141.4324562549591,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Content-as-Code with Static Site Generation",
+        "judge_score": 0.94,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 34.55
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:48:57.176333",
+      "elapsed_seconds": 147.76676106452942,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "abpframework/abp",
+        "success": true,
+        "response_time_seconds": 47.907,
+        "pattern_name": "Framework-Driven / Platform Architecture",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:48:57.389408",
+      "elapsed_seconds": 147.97983622550964,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Framework-Driven / Platform Architecture",
+        "success": true,
+        "response_time_seconds": 0.213
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:48:57.389408",
+      "elapsed_seconds": 147.97983622550964,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "abpframework/abp",
+        "status": "partial",
+        "time_seconds": 50.99
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:48:57.390415",
+      "elapsed_seconds": 147.9808428287506,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "wasp-lang/open-saas",
+        "stars": 13180
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:48:59.013243",
+      "elapsed_seconds": 149.60367155075073,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "wasp-lang/open-saas",
+        "quality_score": 0.9,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.88
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:48:59.447581",
+      "elapsed_seconds": 150.03800916671753,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "wasp-lang/open-saas",
+        "success": true,
+        "response_time_seconds": 0.434
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:48:59.832306",
+      "elapsed_seconds": 150.42273354530334,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "wasp-lang/open-saas",
+        "success": true,
+        "response_time_seconds": 0.385
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:49:12.499286",
+      "elapsed_seconds": 163.0897138118744,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Framework-Driven / Platform Architecture",
+        "validation_score": 0.98,
+        "needs_review": false,
+        "response_time_seconds": 15.094
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:49:24.009326",
+      "elapsed_seconds": 174.59975361824036,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "wasp-lang/open-saas",
+        "success": true,
+        "response_time_seconds": 23.779,
+        "pattern_name": "Full-Stack Monolith (Wasp Framework)",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:49:24.236833",
+      "elapsed_seconds": 174.82726097106934,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Full-Stack Monolith (Wasp Framework)",
+        "success": true,
+        "response_time_seconds": 0.228
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:49:24.236833",
+      "elapsed_seconds": 174.82726097106934,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "wasp-lang/open-saas",
+        "status": "successful",
+        "time_seconds": 26.85
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:49:24.236833",
+      "elapsed_seconds": 174.82726097106934,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "255kb/stack-on-a-budget",
+        "stars": 12307
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:49:25.575266",
+      "elapsed_seconds": 176.1656939983368,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "255kb/stack-on-a-budget",
+        "quality_score": 0.797,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:49:25.992702",
+      "elapsed_seconds": 176.58313059806824,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "255kb/stack-on-a-budget",
+        "success": true,
+        "response_time_seconds": 0.417
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:49:26.379458",
+      "elapsed_seconds": 176.96988558769226,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "255kb/stack-on-a-budget",
+        "success": true,
+        "response_time_seconds": 0.386
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:49:40.675669",
+      "elapsed_seconds": 191.26609659194946,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Full-Stack Monolith (Wasp Framework)",
+        "validation_score": 0.99,
+        "needs_review": false,
+        "response_time_seconds": 16.39
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:49:49.751800",
+      "elapsed_seconds": 200.3422281742096,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "255kb/stack-on-a-budget",
+        "success": true,
+        "response_time_seconds": 22.599,
+        "pattern_name": "Markdown-Driven Static Content Repository",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:49:49.790977",
+      "elapsed_seconds": 200.38140487670898,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Markdown-Driven Static Content Repository",
+        "success": true,
+        "response_time_seconds": 0.039
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:49:49.790977",
+      "elapsed_seconds": 200.38140487670898,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "255kb/stack-on-a-budget",
+        "status": "partial",
+        "time_seconds": 25.55
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:49:49.793521",
+      "elapsed_seconds": 200.38394856452942,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "polarsource/polar",
+        "stars": 8975
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:49:50.065999",
+      "elapsed_seconds": 200.65642666816711,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Framework-Driven / Platform Architecture",
+        "judge_score": 0.895,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 37.542
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:49:51.197360",
+      "elapsed_seconds": 201.78778791427612,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "polarsource/polar",
+        "quality_score": 0.865,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.82
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:49:51.655612",
+      "elapsed_seconds": 202.24704003334045,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "polarsource/polar",
+        "success": true,
+        "response_time_seconds": 0.458
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:49:52.126345",
+      "elapsed_seconds": 202.71677255630493,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "polarsource/polar",
+        "success": true,
+        "response_time_seconds": 0.469
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:50:04.644883",
+      "elapsed_seconds": 215.23531126976013,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Markdown-Driven Static Content Repository",
+        "validation_score": 1.0,
+        "needs_review": false,
+        "response_time_seconds": 14.828
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:50:22.063968",
+      "elapsed_seconds": 232.6543960571289,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "polarsource/polar",
+        "success": true,
+        "response_time_seconds": 29.147,
+        "pattern_name": "client_server_architecture",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:50:22.117885",
+      "elapsed_seconds": 232.70831322669983,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "client_server_architecture",
+        "success": true,
+        "response_time_seconds": 0.053
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:50:22.117885",
+      "elapsed_seconds": 232.70831322669983,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "polarsource/polar",
+        "status": "partial",
+        "time_seconds": 32.32
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:50:22.119549",
+      "elapsed_seconds": 232.70997714996338,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "ixartz/SaaS-Boilerplate",
+        "stars": 6673
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:50:23.246048",
+      "elapsed_seconds": 233.83647561073303,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "ixartz/SaaS-Boilerplate",
+        "quality_score": 0.909,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:50:23.671179",
+      "elapsed_seconds": 234.26160740852356,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "ixartz/SaaS-Boilerplate",
+        "success": true,
+        "response_time_seconds": 0.425
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:50:24.059395",
+      "elapsed_seconds": 234.64982318878174,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "ixartz/SaaS-Boilerplate",
+        "success": true,
+        "response_time_seconds": 0.388
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:50:24.106534",
+      "elapsed_seconds": 234.69696164131165,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Full-Stack Monolith (Wasp Framework)",
+        "judge_score": 0.91,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 43.409
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:50:32.144822",
+      "elapsed_seconds": 242.7352499961853,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "client_server_architecture",
+        "validation_score": 1.0,
+        "needs_review": false,
+        "response_time_seconds": 10.017
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:50:46.346963",
+      "elapsed_seconds": 256.93739080429077,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Markdown-Driven Static Content Repository",
+        "judge_score": 0.92,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 41.679
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:50:55.869169",
+      "elapsed_seconds": 266.4595968723297,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "ixartz/SaaS-Boilerplate",
+        "success": true,
+        "response_time_seconds": 31.402,
+        "pattern_name": "Client-Server Architecture (Web Application with SSR/SPA)",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:50:55.922003",
+      "elapsed_seconds": 266.51243114471436,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Client-Server Architecture (Web Application with SSR/SPA)",
+        "success": true,
+        "response_time_seconds": 0.053
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:50:55.922890",
+      "elapsed_seconds": 266.5133180618286,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "ixartz/SaaS-Boilerplate",
+        "status": "successful",
+        "time_seconds": 33.8
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:50:55.924124",
+      "elapsed_seconds": 266.51455211639404,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "thedevdojo/wave",
+        "stars": 6401
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:50:57.749479",
+      "elapsed_seconds": 268.3399064540863,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "thedevdojo/wave",
+        "quality_score": 0.807,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:50:58.234789",
+      "elapsed_seconds": 268.8252170085907,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "thedevdojo/wave",
+        "success": true,
+        "response_time_seconds": 0.485
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:50:58.638065",
+      "elapsed_seconds": 269.228492975235,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "thedevdojo/wave",
+        "success": true,
+        "response_time_seconds": 0.402
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:51:07.123622",
+      "elapsed_seconds": 277.71405005455017,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Client-Server Architecture (Web Application with SSR/SPA)",
+        "validation_score": 0.975,
+        "needs_review": false,
+        "response_time_seconds": 11.163
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:51:08.393061",
+      "elapsed_seconds": 278.98348903656006,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "client_server_architecture",
+        "judge_score": 0.885,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 36.228
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:51:26.033967",
+      "elapsed_seconds": 296.6243953704834,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "thedevdojo/wave",
+        "success": true,
+        "response_time_seconds": 26.998,
+        "pattern_name": "Monolithic Application",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:51:26.143131",
+      "elapsed_seconds": 296.73423504829407,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Monolithic Application",
+        "success": true,
+        "response_time_seconds": 0.109
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:51:26.144122",
+      "elapsed_seconds": 296.7345497608185,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "thedevdojo/wave",
+        "status": "successful",
+        "time_seconds": 30.22
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:51:26.146738",
+      "elapsed_seconds": 296.7371664047241,
+      "type": "repository_started",
+      "level": "info",
+      "data": {
+        "repo": "goodrain/rainbond",
+        "stars": 6077
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:51:27.574204",
+      "elapsed_seconds": 298.1646320819855,
+      "type": "quality_metrics_calculated",
+      "level": "info",
+      "data": {
+        "repo": "goodrain/rainbond",
+        "quality_score": 0.745,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.88
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:51:28.038960",
+      "elapsed_seconds": 298.62938809394836,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "fetch_readme",
+        "repo": "goodrain/rainbond",
+        "success": true,
+        "response_time_seconds": 0.464
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:51:28.438476",
+      "elapsed_seconds": 299.02890372276306,
+      "type": "github_api_call",
+      "level": "info",
+      "data": {
+        "operation": "analyze_structure",
+        "repo": "goodrain/rainbond",
+        "success": true,
+        "response_time_seconds": 0.4
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:51:37.816934",
+      "elapsed_seconds": 308.40736198425293,
+      "type": "critic_validation",
+      "level": "info",
+      "data": {
+        "pattern": "Monolithic Application",
+        "validation_score": 0.98,
+        "needs_review": false,
+        "response_time_seconds": 11.612
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:51:41.113704",
+      "elapsed_seconds": 311.7041323184967,
+      "type": "judge_evaluation",
+      "level": "info",
+      "data": {
+        "pattern": "Client-Server Architecture (Web Application with SSR/SPA)",
+        "judge_score": 0.88,
+        "quality_tier": "EXCELLENT",
+        "response_time_seconds": 33.925
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:51:57.601663",
+      "elapsed_seconds": 328.19209146499634,
+      "type": "llm_extraction",
+      "level": "info",
+      "data": {
+        "repo": "goodrain/rainbond",
+        "success": true,
+        "response_time_seconds": 28.388,
+        "pattern_name": "Kubernetes Native Control Plane",
+        "confidence": "high"
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:51:57.726211",
+      "elapsed_seconds": 328.3166391849518,
+      "type": "neo4j_storage",
+      "level": "info",
+      "data": {
+        "pattern": "Kubernetes Native Control Plane",
+        "success": true,
+        "response_time_seconds": 0.124
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:51:57.726211",
+      "elapsed_seconds": 328.3166391849518,
+      "type": "repository_finished",
+      "level": "info",
+      "data": {
+        "repo": "goodrain/rainbond",
+        "status": "partial",
+        "time_seconds": 31.58
+      }
+    },
+    {
+      "timestamp": "2026-01-06T17:51:57.741125",
+      "elapsed_seconds": 328.33155274391174,
+      "type": "extraction_finished",
+      "level": "info",
+      "data": {
+        "total_repos": 9,
+        "successful": 4,
+        "partial": 5,
+        "failed": 0,
+        "total_time": 328.33
+      }
+    }
+  ],
+  "repositories": [
+    {
+      "repo_name": "kriasoft/react-starter-kit",
+      "repo_url": "https://github.com/kriasoft/react-starter-kit",
+      "stars": 23445,
+      "started_at": "2026-01-06T17:46:30.197556",
+      "start_time": 1767721590.1975567,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.5198476314544678
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.3935587406158447
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 36.670002937316895,
+          "pattern_name": "Monorepo"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 27.707905292510986
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "successful",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "kriasoft/react-starter-kit",
+        "quality_score": 0.796,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      },
+      "finished_at": "2026-01-06T17:47:37.185418",
+      "total_time_seconds": 66.98786187171936
+    },
+    {
+      "repo_name": "RunaCapital/awesome-oss-alternatives",
+      "repo_url": "https://github.com/RunaCapital/awesome-oss-alternatives",
+      "stars": 18555,
+      "started_at": "2026-01-06T17:47:37.188559",
+      "start_time": 1767721657.1885593,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.5480165481567383
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.26349759101867676
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.99,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 23.53266739845276,
+          "pattern_name": "Content-as-Code with Static Site Generation"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 1.1531028747558594
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "RunaCapital/awesome-oss-alternatives",
+        "quality_score": 0.806,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.88
+      },
+      "validation": {
+        "pattern": "Monorepo",
+        "validation_score": 0.99,
+        "needs_review": false,
+        "response_time_seconds": 11.977
+      },
+      "finished_at": "2026-01-06T17:48:06.399241",
+      "total_time_seconds": 29.21068239212036
+    },
+    {
+      "repo_name": "abpframework/abp",
+      "repo_url": "https://github.com/abpframework/abp",
+      "stars": 14086,
+      "started_at": "2026-01-06T17:48:06.403482",
+      "start_time": 1767721686.4034822,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.4404489994049072
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.3996551036834717
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.96,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 47.90724754333496,
+          "pattern_name": "Framework-Driven / Platform Architecture"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.2130751609802246
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "abpframework/abp",
+        "quality_score": 0.76,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.82
+      },
+      "validation": {
+        "pattern": "Content-as-Code with Static Site Generation",
+        "validation_score": 0.96,
+        "needs_review": false,
+        "response_time_seconds": 9.6
+      },
+      "finished_at": "2026-01-06T17:48:57.389408",
+      "total_time_seconds": 50.985926389694214
+    },
+    {
+      "repo_name": "wasp-lang/open-saas",
+      "repo_url": "https://github.com/wasp-lang/open-saas",
+      "stars": 13180,
+      "started_at": "2026-01-06T17:48:57.390415",
+      "start_time": 1767721737.3904152,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.4343376159667969
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.38472437858581543
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.98,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 23.778566360473633,
+          "pattern_name": "Full-Stack Monolith (Wasp Framework)"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.2275073528289795
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "successful",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "wasp-lang/open-saas",
+        "quality_score": 0.9,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.88
+      },
+      "validation": {
+        "pattern": "Framework-Driven / Platform Architecture",
+        "validation_score": 0.98,
+        "needs_review": false,
+        "response_time_seconds": 15.094
+      },
+      "finished_at": "2026-01-06T17:49:24.236833",
+      "total_time_seconds": 26.846418142318726
+    },
+    {
+      "repo_name": "255kb/stack-on-a-budget",
+      "repo_url": "https://github.com/255kb/stack-on-a-budget",
+      "stars": 12307,
+      "started_at": "2026-01-06T17:49:24.236833",
+      "start_time": 1767721764.2368333,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.4174365997314453
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.38575172424316406
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.99,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 22.598933219909668,
+          "pattern_name": "Markdown-Driven Static Content Repository"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.03917670249938965
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "255kb/stack-on-a-budget",
+        "quality_score": 0.797,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      },
+      "validation": {
+        "pattern": "Full-Stack Monolith (Wasp Framework)",
+        "validation_score": 0.99,
+        "needs_review": false,
+        "response_time_seconds": 16.39
+      },
+      "finished_at": "2026-01-06T17:49:49.790977",
+      "total_time_seconds": 25.55414390563965
+    },
+    {
+      "repo_name": "polarsource/polar",
+      "repo_url": "https://github.com/polarsource/polar",
+      "stars": 8975,
+      "started_at": "2026-01-06T17:49:49.793521",
+      "start_time": 1767721789.793521,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.4582526683807373
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.4691965579986572
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 1.0,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 29.14729595184326,
+          "pattern_name": "client_server_architecture"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.05325007438659668
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "polarsource/polar",
+        "quality_score": 0.865,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.82
+      },
+      "validation": {
+        "pattern": "Markdown-Driven Static Content Repository",
+        "validation_score": 1.0,
+        "needs_review": false,
+        "response_time_seconds": 14.828
+      },
+      "finished_at": "2026-01-06T17:50:22.117885",
+      "total_time_seconds": 32.32436466217041
+    },
+    {
+      "repo_name": "ixartz/SaaS-Boilerplate",
+      "repo_url": "https://github.com/ixartz/SaaS-Boilerplate",
+      "stars": 6673,
+      "started_at": "2026-01-06T17:50:22.119549",
+      "start_time": 1767721822.1195495,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.42461514472961426
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.3882157802581787
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 1.0,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 31.401880741119385,
+          "pattern_name": "Client-Server Architecture (Web Application with SSR/SPA)"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.052834272384643555
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "successful",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "ixartz/SaaS-Boilerplate",
+        "quality_score": 0.909,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      },
+      "validation": {
+        "pattern": "client_server_architecture",
+        "validation_score": 1.0,
+        "needs_review": false,
+        "response_time_seconds": 10.017
+      },
+      "finished_at": "2026-01-06T17:50:55.922890",
+      "total_time_seconds": 33.803340911865234
+    },
+    {
+      "repo_name": "thedevdojo/wave",
+      "repo_url": "https://github.com/thedevdojo/wave",
+      "stars": 6401,
+      "started_at": "2026-01-06T17:50:55.924124",
+      "start_time": 1767721855.9241245,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.48473668098449707
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.40227651596069336
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.975,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 26.99831247329712,
+          "pattern_name": "Monolithic Application"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.10916328430175781
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "successful",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "thedevdojo/wave",
+        "quality_score": 0.807,
+        "freshness_score": 1.0,
+        "maintenance_score": 1.0
+      },
+      "validation": {
+        "pattern": "Client-Server Architecture (Web Application with SSR/SPA)",
+        "validation_score": 0.975,
+        "needs_review": false,
+        "response_time_seconds": 11.163
+      },
+      "finished_at": "2026-01-06T17:51:26.144122",
+      "total_time_seconds": 30.21999764442444
+    },
+    {
+      "repo_name": "goodrain/rainbond",
+      "repo_url": "https://github.com/goodrain/rainbond",
+      "stars": 6077,
+      "started_at": "2026-01-06T17:51:26.146738",
+      "start_time": 1767721886.1467388,
+      "events": [
+        {
+          "type": "github_api",
+          "operation": "fetch_readme",
+          "success": true,
+          "response_time": 0.46417689323425293
+        },
+        {
+          "type": "github_api",
+          "operation": "analyze_structure",
+          "success": true,
+          "response_time": 0.39951562881469727
+        },
+        {
+          "type": "critic_validation",
+          "validation_score": 0.98,
+          "needs_review": false
+        },
+        {
+          "type": "llm_extraction",
+          "success": true,
+          "response_time": 28.38835120201111,
+          "pattern_name": "Kubernetes Native Control Plane"
+        },
+        {
+          "type": "neo4j_storage",
+          "success": true,
+          "response_time": 0.12402081489562988
+        }
+      ],
+      "data_fetched": {
+        "readme": true,
+        "structure": true,
+        "dependencies": false,
+        "quality_metrics": true
+      },
+      "extraction_result": "partial",
+      "errors": [],
+      "quality_metrics": {
+        "repo": "goodrain/rainbond",
+        "quality_score": 0.745,
+        "freshness_score": 1.0,
+        "maintenance_score": 0.88
+      },
+      "validation": {
+        "pattern": "Monolithic Application",
+        "validation_score": 0.98,
+        "needs_review": false,
+        "response_time_seconds": 11.612
+      },
+      "finished_at": "2026-01-06T17:51:57.726211",
+      "total_time_seconds": 31.57947278022766
+    }
+  ],
+  "summary": {
+    "total_repos": 9,
+    "successful": 4,
+    "partial": 5,
+    "failed": 0,
+    "total_time_seconds": 328.33,
+    "success_rate_percent": 100.0
+  },
+  "finished_at": "2026-01-06T17:51:57.741125"
+}

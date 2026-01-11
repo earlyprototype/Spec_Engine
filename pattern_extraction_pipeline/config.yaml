@@ -1,0 +1,39 @@
+# Pattern Extraction Pipeline Configuration
+
+# IDE Rule Extraction
+rule_extraction:
+  enabled: true  # Set to false to disable IDE rule extraction
+  max_file_size: 100000  # Maximum rule file size in bytes (100KB)
+  file_patterns:
+    - .cursorrules
+    - .aiderules
+    - .windsurfrules
+    - CLAUDE.md
+    - AI_INSTRUCTIONS.md
+    - AI_GUIDELINES.md
+    - .github/copilot-instructions.md
+
+# Pattern Extraction
+pattern_extraction:
+  quality_metrics_enabled: true
+  pattern_critic_enabled: true
+  quality_judge_enabled: true
+  trajectory_logging_enabled: true
+
+# Neo4j Configuration
+neo4j:
+  uri: bolt://localhost:7688  # spec-engine-neo4j (pattern extraction database)
+  user: neo4j
+  password_env: NEO4J_PASSWORD
+
+# Gemini API Configuration
+gemini:
+  api_key_env: GEMINI_API_KEY
+  model_name: gemini-2.5-flash
+  max_retries: 3
+
+# GitHub API Configuration
+github:
+  token_env: GITHUB_TOKEN
+  max_repos_per_query: 100
+  rate_limit_pause: 60  # seconds to wait on rate limit

@@ -1,0 +1,57 @@
+# SPEC v1.3 Format (without pattern metadata)
+# This represents an old SPEC format before pattern-informed generation
+
+[goal]
+description = "Build a simple file organizer tool"
+type = "build"
+
+[software_stack]
+deployment_type = "desktop_app"
+primary_language = "python"
+framework = "tkinter"
+packaging_method = "pyinstaller"
+
+[user_interface]
+required = true
+interface_type = "gui"
+target_users = "end users"
+skill_level = "beginner"
+
+[[tasks]]
+id = 1
+name = "Create GUI interface"
+critical = true
+mode = "silent"
+max_retries = 2
+
+[[tasks.steps]]
+id = 1
+action = "Design main window layout"
+expected_output = "Window with file browser"
+
+[[tasks.steps]]
+id = 2
+action = "Add file selection controls"
+expected_output = "Functional file picker"
+
+[[tasks]]
+id = 2
+name = "Implement file operations"
+critical = true
+mode = "silent"
+max_retries = 2
+
+[[tasks.steps]]
+id = 1
+action = "Create file move function"
+expected_output = "Files can be moved"
+
+[[tasks.steps]]
+id = 2
+action = "Add file copy function"
+expected_output = "Files can be copied"
+
+[completion_criteria]
+interface_complete = true
+core_functionality_working = true
+error_handling_implemented = true
